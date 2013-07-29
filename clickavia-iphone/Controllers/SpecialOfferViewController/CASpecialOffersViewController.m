@@ -196,6 +196,14 @@
     return 1;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+        return 6;
+    else
+        return 3;
+}
+
 -(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"SpecialOfferCell";
@@ -210,16 +218,14 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView
- willDisplayCell:(UITableViewCell *)cell
-forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CASpecialOfferCell *customCell = (CASpecialOfferCell*)cell;
     
     customCell.backgroundView = [[UIView alloc] initWithFrame:customCell.frame];
     customCell.backgroundView.backgroundColor = [UIColor whiteColor];
     
-    SpecialOffer *specialOffer = [offersContainer objectAtIndex:indexPath.section];
+    SpecialOffer *specialOffer = [offersContainer objectAtIndex:indexPath.row];
     [customCell initByOfferModel:specialOffer];
 }
 
