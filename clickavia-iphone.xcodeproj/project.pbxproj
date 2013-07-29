@@ -125,6 +125,7 @@
 		7C16A2B517A648290055FF8F /* clickavia-iphone */ = {
 			isa = PBXGroup;
 			children = (
+				7C16A2F617A678790055FF8F /* External */,
 				7C16A2E917A648B20055FF8F /* Controllers */,
 				7C16A2EA17A648B20055FF8F /* Resources */,
 				7C16A2EB17A648B20055FF8F /* Views */,
@@ -215,6 +216,13 @@
 				7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */,
 			);
 			path = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		7C16A2F617A678790055FF8F /* External */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
