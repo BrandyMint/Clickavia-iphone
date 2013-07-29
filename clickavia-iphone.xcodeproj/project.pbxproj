@@ -24,6 +24,8 @@
 		7C16A2D417A648290055FF8F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B317A648290055FF8F /* CoreData.framework */; };
 		7C16A2DC17A648290055FF8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2DA17A648290055FF8F /* InfoPlist.strings */; };
 		7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */; };
+		7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */; };
+		7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		7C16A2DB17A648290055FF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C16A2DD17A648290055FF8F /* clickavia_iphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clickavia_iphoneTests.h; sourceTree = "<group>"; };
 		7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = clickavia_iphoneTests.m; sourceTree = "<group>"; };
+		7C16A2F117A64A8D0055FF8F /* CAWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAWelcomeViewController.h; sourceTree = "<group>"; };
+		7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAWelcomeViewController.m; sourceTree = "<group>"; };
+		7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAWelcomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +129,7 @@
 				7C16A2EA17A648B20055FF8F /* Resources */,
 				7C16A2EB17A648B20055FF8F /* Views */,
 				7C16A2E817A648B20055FF8F /* Application */,
-				7C16A2C717A648290055FF8F /* clickavia_iphone.xcdatamodeld */,
+				7C16A2EF17A64A3B0055FF8F /* Model */,
 				7C16A2B617A648290055FF8F /* Supporting Files */,
 			);
 			path = "clickavia-iphone";
@@ -175,6 +180,7 @@
 		7C16A2E917A648B20055FF8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C16A2F017A64A760055FF8F /* WelcomeViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +197,24 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7C16A2EF17A64A3B0055FF8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2C717A648290055FF8F /* clickavia_iphone.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C16A2F017A64A760055FF8F /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2F117A64A8D0055FF8F /* CAWelcomeViewController.h */,
+				7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */,
+				7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */,
+			);
+			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +293,7 @@
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
+				7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +331,7 @@
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
 				7C16A2C017A648290055FF8F /* CAAppDelegate.m in Sources */,
 				7C16A2C917A648290055FF8F /* clickavia_iphone.xcdatamodeld in Sources */,
+				7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +522,8 @@
 				7C16A2C817A648290055FF8F /* clickavia_iphone.xcdatamodel */,
 			);
 			currentVersion = 7C16A2C817A648290055FF8F /* clickavia_iphone.xcdatamodel */;
-			path = clickavia_iphone.xcdatamodeld;
+			name = clickavia_iphone.xcdatamodeld;
+			path = ../clickavia_iphone.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

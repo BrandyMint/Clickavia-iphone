@@ -8,7 +8,16 @@
 
 #import "CAAppDelegate.h"
 
+#import "CAWelcomeViewController.h"
+
+@interface CAAppDelegate()
+
+@property (nonatomic, strong) CAWelcomeViewController *welcomeViewController;
+
+@end
+
 @implementation CAAppDelegate
+@synthesize welcomeViewController;
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -17,8 +26,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    welcomeViewController = [[CAWelcomeViewController alloc] init];
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: welcomeViewController];
     [self.window makeKeyAndVisible];
     return YES;
 }
