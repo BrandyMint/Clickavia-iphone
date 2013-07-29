@@ -46,8 +46,8 @@
 		7C16A2B917A648290055FF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C16A2BB17A648290055FF8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C16A2BD17A648290055FF8F /* clickavia-iphone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "clickavia-iphone-Prefix.pch"; sourceTree = "<group>"; };
-		7C16A2BE17A648290055FF8F /* CAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
-		7C16A2BF17A648290055FF8F /* CAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
+		7C16A2BE17A648290055FF8F /* CAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAAppDelegate.h; path = ../CAAppDelegate.h; sourceTree = "<group>"; };
+		7C16A2BF17A648290055FF8F /* CAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = ../CAAppDelegate.m; sourceTree = "<group>"; };
 		7C16A2C117A648290055FF8F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7C16A2C317A648290055FF8F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7C16A2C517A648290055FF8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -120,8 +120,10 @@
 		7C16A2B517A648290055FF8F /* clickavia-iphone */ = {
 			isa = PBXGroup;
 			children = (
-				7C16A2BE17A648290055FF8F /* CAAppDelegate.h */,
-				7C16A2BF17A648290055FF8F /* CAAppDelegate.m */,
+				7C16A2E917A648B20055FF8F /* Controllers */,
+				7C16A2EA17A648B20055FF8F /* Resources */,
+				7C16A2EB17A648B20055FF8F /* Views */,
+				7C16A2E817A648B20055FF8F /* Application */,
 				7C16A2C717A648290055FF8F /* clickavia_iphone.xcdatamodeld */,
 				7C16A2B617A648290055FF8F /* Supporting Files */,
 			);
@@ -159,6 +161,36 @@
 				7C16A2DA17A648290055FF8F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C16A2E817A648B20055FF8F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2BE17A648290055FF8F /* CAAppDelegate.h */,
+				7C16A2BF17A648290055FF8F /* CAAppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7C16A2E917A648B20055FF8F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7C16A2EA17A648B20055FF8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C16A2EB17A648B20055FF8F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
