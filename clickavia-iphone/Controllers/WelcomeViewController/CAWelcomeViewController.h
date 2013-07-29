@@ -10,4 +10,6 @@
 
 @interface CAWelcomeViewController : UIViewController
 
+-(IBAction) onSpecialOfferController:(id)sender;
+
 @end

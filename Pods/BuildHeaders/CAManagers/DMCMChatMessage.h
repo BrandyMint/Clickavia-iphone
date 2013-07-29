@@ -1,0 +1,1 @@
+../../CAManagers/CAManagersLib/CAManagersLib/Models/DataMappersForChatManager/DMCMChatMessage.h

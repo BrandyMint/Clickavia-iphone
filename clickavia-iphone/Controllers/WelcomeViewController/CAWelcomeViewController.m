@@ -8,6 +8,8 @@
 
 #import "CAWelcomeViewController.h"
 
+#import "CASpecialOffersViewController.h"
+
 @interface CAWelcomeViewController ()
 
 @end
@@ -34,6 +36,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction) onSpecialOfferController:(id)sender
+{
+    CASpecialOffersViewController *specialOfferViewController = [[CASpecialOffersViewController alloc] init];
+    [self.navigationController pushViewController:specialOfferViewController animated:YES];
 }
 
 @end
