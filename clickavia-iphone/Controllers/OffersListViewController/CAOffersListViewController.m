@@ -86,15 +86,24 @@
 
 -(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"SpecialOfferCell";
+    static NSString *CellIdentifier = @"OfferCell";
     
     CAOfferCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[CAOfferCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = @"1";
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CAOfferCell *customCell = (CAOfferCell*)cell;
+    
+    customCell.backgroundView = [[UIView alloc] initWithFrame:customCell.frame];
+    customCell.backgroundView.backgroundColor = [UIColor whiteColor];
+    
+    [customCell initByOfferModel:nil];
 }
 
 -(void) tableView:(UITableView*) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

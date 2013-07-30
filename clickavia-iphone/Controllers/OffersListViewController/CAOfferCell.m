@@ -19,7 +19,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        
     }
     return self;
 }
@@ -38,7 +38,13 @@
 
 -(void) initByOfferModel:(Offer*)offer
 {
-    //
+    self.backgroundView.backgroundColor = [UIColor whiteColor];
+    [self.backgroundView.layer setCornerRadius:6];
+    self.backgroundView.layer.shadowColor = [[UIColor colorWithRed:71.0/255.0 green:71.0/255.0 blue:71.0/255.0 alpha:1.0] CGColor];
+    self.backgroundView.layer.shadowOffset = CGSizeMake(0.0, -1.0);
+    self.backgroundView.layer.shadowRadius = 1;
+    self.backgroundView.layer.shadowOpacity = 0.7;
+    [self.backgroundView setClipsToBounds:NO];
 }
 
 @end
