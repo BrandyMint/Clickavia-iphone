@@ -35,30 +35,12 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
 
-- (void) layoutSubviews
-{
-    [super layoutSubviews];
-    
-    /*float table_width = 0;
-     float table_height = 0;
-     
-     UITableView *table = [self getTableView:self.contentView];
-     if(table != nil)
-     {
-     table_width = table.bounds.size.width;
-     table_height = table.bounds.size.height;
-     }
-     
-     CGRect frame = self.contentView.frame;
-     frame.origin.x = LEFT_RIGHT_MARGIN;
-     frame.size.width = table_width - LEFT_RIGHT_MARGIN*2;
-     self.contentView.frame = frame;
-     
-     //self.backgroundView = [[UIView alloc] initWithFrame:frame];*/
+- (void)setFrame:(CGRect)frame {
+    frame.origin.x += -5;
+    frame.size.width -= 2 * -5;
+    [super setFrame:frame];
 }
 
 -(void) initByOfferModel:(SpecialOffer*)offer

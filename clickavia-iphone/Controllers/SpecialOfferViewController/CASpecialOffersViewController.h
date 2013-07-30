@@ -24,4 +24,6 @@
 
 @property (nonatomic, retain) IBOutlet CASpecialOfferCell *offerCell;
 
+-(IBAction) onBack:(id)sender;
+
 @end
