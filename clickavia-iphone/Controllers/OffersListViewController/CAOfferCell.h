@@ -1,5 +1,5 @@
 //
-//  CAOffersListViewController.h
+//  CAOfferCell.h
 //  clickavia-iphone
 //
 //  Created by denisdbv@gmail.com on 30.07.13.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Offer.h"
 
-@interface CAOffersListViewController : UIViewController
+@interface CAOfferCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UITableView *tableOffers;
+-(void) initByOfferModel:(Offer*)offer;
 
 @end

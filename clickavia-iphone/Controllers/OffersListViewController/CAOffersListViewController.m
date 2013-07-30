@@ -8,6 +8,7 @@
 
 #import "CAOffersListViewController.h"
 #import "CAColumnsControlView.h"
+#import "CAOfferCell.h"
 #import "MockDates.h"
 #import "Flight.h"
 
@@ -18,6 +19,7 @@
 
 @implementation CAOffersListViewController
 @synthesize columnDepartureControlView, columnArrivialControlView;
+@synthesize tableOffers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,13 +48,58 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)columnsControlView:(CAColumnsControlView *)columnsControlView didSelectColumnWithObject:(Flight*)flight
 {
     NSArray *arrivialFlights = [MockDates generateFlyReturnDates:flight.dateAndTimeDeparture];
     [columnArrivialControlView reloadData: arrivialFlights];
+}
+
+#pragma mark
+#pragma mark Table Data Source Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 100;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 68;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 3;
+}
+
+-(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"SpecialOfferCell";
+    
+    CAOfferCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[CAOfferCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text = @"1";
+    return cell;
+}
+
+-(void) tableView:(UITableView*) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //
 }
 
 @end

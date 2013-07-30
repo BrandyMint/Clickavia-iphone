@@ -45,6 +45,7 @@
 		7CC7D34B17A78B9B00940C94 /* CAScrollColumns.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D34217A78B9B00940C94 /* CAScrollColumns.m */; };
 		7CC7D34C17A78B9B00940C94 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D34517A78B9B00940C94 /* Cell.m */; };
 		7CC7D35017A790ED00940C94 /* MockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D34F17A790ED00940C94 /* MockDates.m */; };
+		7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		7CC7D34517A78B9B00940C94 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		7CC7D34E17A790ED00940C94 /* MockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDates.h; sourceTree = "<group>"; };
 		7CC7D34F17A790ED00940C94 /* MockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockDates.m; sourceTree = "<group>"; };
+		7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOfferCell.h; sourceTree = "<group>"; };
+		7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOfferCell.m; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -346,6 +349,8 @@
 				7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */,
 				7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */,
 				7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */,
+				7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */,
+				7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */,
 			);
 			name = OffersListViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -536,6 +541,7 @@
 				7CC7D34B17A78B9B00940C94 /* CAScrollColumns.m in Sources */,
 				7CC7D34C17A78B9B00940C94 /* Cell.m in Sources */,
 				7CC7D35017A790ED00940C94 /* MockDates.m in Sources */,
+				7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,10 +643,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -649,10 +657,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
