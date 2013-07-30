@@ -8,6 +8,7 @@
 
 #import "CASpecialOffersViewController.h"
 #import "CAScrollableTabView.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface CASpecialOffersViewController ()
 
@@ -63,7 +64,7 @@
 
 -(void) reloadCities
 {
-    //__block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [specOfferManager getCitiesWithCompleteBlock:^(NSArray *array)
      {
@@ -81,13 +82,13 @@
          [self.tabCities reloadData];
          [self.tabCities setSelectedItemIndex:0];
          
-         //[hud hide:YES];
+         [hud hide:YES];
      }];
 }
 
 -(void) reloadCountries:(SpecialOfferCity *)forCity
 {
-   // __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [specOfferManager getAvailableCountries:forCity completeBlock:^(NSArray *array)
      {
@@ -108,13 +109,13 @@
          [self.tabCountries reloadData];
          [self.tabCountries setSelectedItemIndex:0];
          
-         //[hud hide:YES];
+         [hud hide:YES];
      }];
 }
 
 -(void) reloadOffers:(SpecialOfferCity *)forCity :(SpecialOfferCountry *)forCountry
 {
-    //__block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [specOfferManager getSpecialOffers:forCity :forCountry completeBlock:^(NSArray *array)
      {
@@ -122,7 +123,7 @@
          
          [_tableOffers reloadData];
          
-        // [hud hide:YES];
+         [hud hide:YES];
      }];
 }
 

@@ -11,5 +11,6 @@
 @interface CAWelcomeViewController : UIViewController
 
 -(IBAction) onSpecialOfferController:(id)sender;
+-(IBAction) onOfferListController:(id)sender;
 
 @end

@@ -9,6 +9,7 @@
 #import "CAWelcomeViewController.h"
 
 #import "CASpecialOffersViewController.h"
+#import "CAOffersListViewController.h"
 
 @interface CAWelcomeViewController ()
 
@@ -45,6 +46,13 @@
 {
     CASpecialOffersViewController *specialOfferViewController = [[CASpecialOffersViewController alloc] init];
     [self.navigationController pushViewController:specialOfferViewController animated:YES];
+}
+
+-(IBAction) onOfferListController:(id)sender
+{
+    CAOffersListViewController *offerListViewController = [[CAOffersListViewController alloc] init];
+
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:offerListViewController]  animated:YES completion:nil];
 }
 
 @end

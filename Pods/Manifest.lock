@@ -25,7 +25,9 @@ PODS:
   - FormatterKit/URLRequestFormatter (1.2.0)
   - LRResty (0.11.0):
     - NSData+Base64 (~> 1.0)
+  - MBProgressHUD (0.7)
   - NSData+Base64 (1.0.0)
+  - PSTCollectionView (1.1.0)
   - RestKit (0.20.0):
     - RestKit/Core
   - RestKit/Core (0.20.0):
@@ -44,6 +46,8 @@ PODS:
 
 DEPENDENCIES:
   - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/pod_managers/CAManagersLib/CAManagers.podspec`)
+  - MBProgressHUD
+  - PSTCollectionView
 
 EXTERNAL SOURCES:
   CAManagers:
@@ -56,7 +60,9 @@ SPEC CHECKSUMS:
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   FormatterKit: 36ec675a04c546948521a4ee3ddb233d17c87a3a
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
+  MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
   NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
+  PSTCollectionView: af42b0fb111200a1b87a04aee96181725977f19b
   RestKit: 580771664a14eaaa40bf53cf83584f12fc141930
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
 
