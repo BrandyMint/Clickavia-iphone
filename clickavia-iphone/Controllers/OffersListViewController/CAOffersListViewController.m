@@ -71,7 +71,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 68;
+    return CELL_HEIGHT_SPECIAL;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -99,9 +99,8 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CAOfferCell *customCell = (CAOfferCell*)cell;
-    
+
     customCell.backgroundView = [[UIView alloc] initWithFrame:customCell.frame];
-    customCell.backgroundView.backgroundColor = [UIColor whiteColor];
     
     [customCell initByOfferModel:nil];
 }

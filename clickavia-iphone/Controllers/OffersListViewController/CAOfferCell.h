@@ -9,6 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "Offer.h"
 
+#define CELL_HEIGHT_NORMAL 60
+#define CELL_HEIGHT_SPECIAL 80
+
+typedef enum {
+    kAirlineTitle = 1,
+    kAirlineCode,
+    kTimeDeparture,
+    kCityDeparture,
+    kTimeArrival,
+    kCityArrival,
+    kTimeInFlight
+} FlightBlock;
+
 @interface CAOfferCell : UITableViewCell
 
 -(void) initByOfferModel:(Offer*)offer;
