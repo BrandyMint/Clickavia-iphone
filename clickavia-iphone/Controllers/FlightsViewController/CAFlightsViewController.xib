@@ -129,7 +129,7 @@
 						<string key="NSFrame">{{217, 59}, {83, 28}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="398406555"/>
+						<reference key="NSNextKeyView" ref="670743939"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -168,7 +168,7 @@
 						<reference key="IBUIFontDescription" ref="337009020"/>
 						<reference key="IBUIFont" ref="256094954"/>
 					</object>
-					<object class="IBUILabel" id="398406555">
+					<object class="IBUILabel" id="670743939">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 88}, {84, 16}}</string>
@@ -300,6 +300,24 @@
 					</object>
 					<int key="connectionID">24</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">changeIsBothWays:</string>
+						<reference key="source" ref="673222027"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">changeFlightType:</string>
+						<reference key="source" ref="29560003"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">28</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -316,11 +334,11 @@
 							<reference ref="914798140"/>
 							<reference ref="451744908"/>
 							<reference ref="673222027"/>
-							<reference ref="29560003"/>
 							<reference ref="708940446"/>
 							<reference ref="814154915"/>
 							<reference ref="327602014"/>
-							<reference ref="398406555"/>
+							<reference ref="670743939"/>
+							<reference ref="29560003"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -372,7 +390,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="398406555"/>
+						<reference key="object" ref="670743939"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
@@ -399,7 +417,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">24</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -422,6 +440,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">CAFlightsViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="changeFlightType:">id</string>
+						<string key="changeIsBothWays:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="changeFlightType:">
+							<string key="name">changeFlightType:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="changeIsBothWays:">
+							<string key="name">changeIsBothWays:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="calendarView">CACalendarView</string>
 						<string key="countButton">UIButton</string>

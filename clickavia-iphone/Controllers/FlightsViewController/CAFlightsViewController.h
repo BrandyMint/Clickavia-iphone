@@ -14,9 +14,15 @@
 #import "CitiesManager.h"
 #import "OfferConditions.h"
 
-@interface CAFlightsViewController : UIViewController
+@interface CAFlightsViewController : UIViewController <CACalendarViewDelegate,CAFieldCompleteViewDelegate>
 {
-
+    SearchConditions *currentSearchConditions;
+    FlightsManager *flightsManager;
+    CitiesManager *citiesManager;
+    NSArray *departureDates;
+    NSArray *returnDates;
+    NSDate *departureDate;
+    NSDate *returnDate;
 }
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView *departureFieldView;
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView *returnFieldView;
@@ -25,4 +31,7 @@
 @property (strong,nonatomic) IBOutlet UIButton *countButton;
 @property (strong,nonatomic) IBOutlet UIButton *flightClassButton;
 @property (strong,nonatomic) IBOutlet UIButton *findButton;
+- (SearchConditions*) getSearchConditions;
+- (IBAction)changeFlightType:(id)sender;
+- (IBAction)changeIsBothWays:(id)sender;
 @end

@@ -41,4 +41,5 @@
 - (NSDate*) getFlyReturnDate;
 - (NSDate*) getCurrentMonth;
 +(NSComparisonResult) compareDate:(NSDate*)first and:(NSDate*)second;
+- (void) resetSelections;
 @end

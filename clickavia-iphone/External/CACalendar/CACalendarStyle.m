@@ -41,9 +41,9 @@
                               (id)[UIColor colorWithRed:0.2 green:1.0 blue:0 alpha:1.0].CGColor,nil];
             break;
         case CADayTypeDayToBetween:
-            gradientColors = [[NSArray alloc] initWithObjects:(id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,
-                              (id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,
-                              (id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,nil];
+            gradientColors = [[NSArray alloc] initWithObjects:(id)[UIColor colorWithRed:215/255.0 green:215/255.0 blue:215/255.0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:205/255.0 green:235/255.0 blue:205/255.0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0].CGColor,nil];
             break;
         case CADayTypeDayReturn:
             break;
@@ -53,14 +53,14 @@
                               (id)[UIColor colorWithRed:0 green:0.5 blue:1.0 alpha:1.0].CGColor,nil];
             break;
         case CADayTypeDayReturnBetween:
-            gradientColors = [[NSArray alloc] initWithObjects:(id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,
-                              (id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,
-                              (id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,nil];
+            gradientColors = [[NSArray alloc] initWithObjects:(id)[UIColor colorWithRed:215/255.0 green:215/255.0 blue:215/255.0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:205/255.0 green:235/255.0 blue:205/255.0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0].CGColor,nil];
             break;
         case CADayTypeDayBetweeen:
-            gradientColors = [[NSArray alloc] initWithObjects:(id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,
-                              (id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,
-                              (id)[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0].CGColor,nil];
+            gradientColors = [[NSArray alloc] initWithObjects:(id)[UIColor colorWithRed:215/255.0 green:215/255.0 blue:215/255.0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:205/255.0 green:235/255.0 blue:205/255.0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0].CGColor,nil];
             break;
         case CADayTypeOther:
         default:
