@@ -58,6 +58,7 @@
 {
     currentSearchConditions.typeOfFlight = currentSearchConditions.typeOfFlight==econom?business:econom;
     [self setupTextForFlightTypeButton];
+    [self reloadDates];
 }
 - (void)setupTextForFlightTypeButton
 {
@@ -74,6 +75,7 @@
     [_flightClassButton setTitle: title forState: UIControlStateNormal];
     [_flightClassButton setTitle: title forState: UIControlStateHighlighted];
     [_flightClassButton setTitle: title forState: UIControlStateSelected];
+    [self reloadDates];
 }
 - (IBAction)changeIsBothWays:(id)sender
 {
@@ -91,62 +93,6 @@
 #pragma mark CACalendarDelegate
 - (void) calendarView:(CACalendarView*)calendarView didSelectDate:(NSDate*)date
 {
-    
-    NSDate *dateCalendarTo = [calendarView getFlyToDate];
-    NSDate *dateCalendarReturn = [calendarView getFlyReturnDate];
-    if([CACalendarView compareDate:date and:[calendarView getFlyToDate]]==NSOrderedSame)
-    {
-        departureDate = date;
-        if(returnDates.count==0)
-        {
-            [flightsManager getAvailableReturnDates:currentSearchConditions withDepartureDate:departureDate completeBlock:^(NSArray *array)
-             {
-                 returnDates = array;
-                 [calendarView selectFlyReturnDaysByDateArray:returnDates];
-             }];
-        }
-    }
-    
-    /*if(nil == [calendarView getFlyToDate])
-    {
-        if(currentSearchConditions.direction_departure!=nil&&currentSearchConditions.direction_return!=nil)
-        {
-            [flightsManager getAvailableDepartureDates:currentSearchConditions departureDate:departureDate completeBlock:^(NSArray *dates)
-             {
-                 departureDates = dates;
-                 returnDates = [NSArray new];
-                 [_calendarView resetSelections];
-                 [self updateCalendarDates];
-             }];
-            
-        }
-    }
-    else if(nil == [calendarView getFlyReturnDate])
-    {
-        [flightsManager getAvailableReturnDates:currentSearchConditions withDepartureDate:departureDate completeBlock:^(NSArray *array)
-         {
-             returnDates = array;
-             [calendarView selectFlyReturnDaysByDateArray:returnDates];
-         }];
-    }
-
-    else if([CACalendarView compareDate:date and:[calendarView getFlyToDate]]==NSOrderedSame)
-    {
-        departureDate = date;
-        if(returnDates.count==0)
-        {
-            [flightsManager getAvailableReturnDates:currentSearchConditions withDepartureDate:departureDate completeBlock:^(NSArray *array)
-             {
-                    returnDates = array;
-                 [calendarView selectFlyReturnDaysByDateArray:returnDates];
-             }];
-        }
-    
-    }
-    if([CACalendarView compareDate:date and:[calendarView getFlyReturnDate]]==NSOrderedSame)
-    {
-        returnDate = date;
-    }*/
 }
 - (void) calendarView:(CACalendarView *)calendarView didSelectMonth:(NSDate *)date
 {
@@ -156,33 +102,38 @@
 -(void)fieldCompleteView:(CAFieldCompleteView *)fieldCompleteView selectedDestination:(Destination *)destination
 {
     [self setupDestinationFrom:fieldCompleteView withValue:destination];
+    [self reloadDates];
+   
     
+}
+- (void) reloadDates
+{
     if(currentSearchConditions.direction_departure!=nil&&currentSearchConditions.direction_return!=nil)
     {
+        [_calendarView resetSelections];
         [flightsManager getAvailableDepartureDates:currentSearchConditions departureDate:[NSDate date] completeBlock:^(NSArray *dates)
          {
              departureDates = dates;
-             [_calendarView resetSelections];
-             [self updateCalendarDates];
-             /*[flightsManager getAvailableReturnDates:currentSearchConditions withDepartureDate:[NSDate date] completeBlock:^(NSArray *arrayDates)
-             {
-                 returnDates = arrayDates;
-                 
-             }];*/
-/*
-             returnDates = [NSArray new];
-             [_calendarView resetSelections];
-             [self updateCalendarDates];*/
+             [flightsManager getAvailableReturnDates:currentSearchConditions withDepartureDate:[NSDate date] completeBlock:^(NSArray *array)
+              {
+                  returnDates = array;
+                  [self updateCalendarDates];
+              }];
+
          }];
         
     }
-    
-    
+    else
+    {
+        [_calendarView resetSelections];
+    }
 }
+
 -(void)fieldCompleteView:(CAFieldCompleteView *)fieldCompleteView textChanged:(NSString *)text
 {
     [self setupDestinationFrom:fieldCompleteView withValue:nil];
-    [self reloadDestinations:fieldCompleteView];}
+    [self reloadDestinations:fieldCompleteView];
+}
 -(void)fieldCompleteViewBeginEditing:(CAFieldCompleteView *)fieldCompleteView
 {
     [self setupDestinationFrom:fieldCompleteView withValue:nil];
@@ -215,10 +166,11 @@
     {
         currentSearchConditions.direction_return = destination;
     }
+    [self reloadDates];
 }
 -(void)updateCalendarDates
 {
     [_calendarView selectFlyToDaysByDateArray:departureDates];
- //   [_calendarView selectFlyReturnDaysByDateArray:returnDates];
+    [_calendarView selectFlyReturnDaysByDateArray:returnDates];
 }
 @end

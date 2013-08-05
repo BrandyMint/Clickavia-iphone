@@ -370,11 +370,11 @@
             NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
             if(number.integerValue!=CADayTypeOther)
             {
-                number = [[NSNumber alloc] initWithInt:CADayTypeDayReturn];
+                number = [[NSNumber alloc] initWithInt:CADayTypeOther];
                 [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
                 dayButton.typeOfDay = CADayTypeOther;
             }
-            [dayButton refreshDay];
+           [dayButton refreshDay];
         }
         daysReturn = dayArray;
         

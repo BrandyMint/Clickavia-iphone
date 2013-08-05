@@ -194,8 +194,8 @@
                 selectedFlyTo = date;
                 if(selectedFlyReturn==nil)
                 {
-                    NSArray *datesForReturn = [self allDatesFrom:flyReturnDays afterDate:selectedFlyTo];
                     [_calendarScrollView resetSelection];
+                    NSArray *datesForReturn = [self allDatesFrom:flyReturnDays afterDate:selectedFlyTo];
                     [_calendarScrollView selectFlyToDate:date];
                     [_calendarScrollView selectFlyReturnDaysByDateArray:datesForReturn];
                 }
@@ -351,7 +351,11 @@
 - (void) selectFlyReturnDaysByDateArray:(NSArray *)dayArray
 {
     flyReturnDays = dayArray;
-    [_calendarScrollView selectFlyReturnDaysByDateArray:dayArray];
+    if(selectedFlyTo!=nil)
+    {
+        NSArray *datesForReturn = [self allDatesFrom:flyReturnDays afterDate:selectedFlyTo];
+        [_calendarScrollView selectFlyReturnDaysByDateArray:datesForReturn];
+    }
 }
 - (NSDate*) getFlyToDate
 {
@@ -371,8 +375,8 @@
     flyReturnDays = [NSArray new];
     selectedFlyTo = nil;
     selectedFlyReturn = nil;
-    [_calendarScrollView selectFlyReturnDaysByDateArray:flyReturnDays];
-    [_calendarScrollView selectFlyToDaysByDateArray:flyToDays];
+    //[_calendarScrollView selectFlyReturnDaysByDateArray:flyReturnDays];
+    //[_calendarScrollView selectFlyToDaysByDateArray:flyToDays];
     [_calendarScrollView resetSelection];
 }
 @end
