@@ -352,6 +352,13 @@
     return dayString;
 }
 
+- (BOOL)isToday:(dayType)dayType
+{
+    return dayType==CADayTypeTodayTo||
+            dayType==CADayTypeToday||
+            dayType==CADayTypeTodayToSelected;
+}
+
 - (void)selectFlyReturnDaysByDateArray:(NSArray *)dayArray
 {
     if(dayArray.count==0)
@@ -370,9 +377,20 @@
             NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
             if(number.integerValue!=CADayTypeOther)
             {
-                number = [[NSNumber alloc] initWithInt:CADayTypeOther];
-                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
-                dayButton.typeOfDay = CADayTypeOther;
+               if([self isToday:number.integerValue])
+               {
+                   number = [[NSNumber alloc] initWithInt:CADayTypeToday];
+                   [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                   dayButton.typeOfDay = CADayTypeToday;
+               }
+                else
+                {
+                    number = [[NSNumber alloc] initWithInt:CADayTypeOther];
+                    [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                    dayButton.typeOfDay = CADayTypeOther;
+                }
+                
+
             }
            [dayButton refreshDay];
         }
@@ -420,17 +438,14 @@
         {
             NSNumber *number = [array objectAtIndex:j];
             CADay *button = [view.daysButtons objectAtIndex:j];
-            if(number.integerValue!=CADayTypeToday&&
-               number.integerValue!=CADayTypeLast&&
-               number.integerValue!=CADayTypeTodayTo&&
-               number.integerValue!=CADayTypeTodayToSelected)
+            if(number.integerValue!=CADayTypeLast&&
+               ![self isToday:number.integerValue])
             {
                 number = [[NSNumber alloc] initWithInt:CADayTypeOther];
                 [array replaceObjectAtIndex:j withObject:number];
                 button.typeOfDay = number.integerValue;
             }
-            else if(number.integerValue==CADayTypeTodayTo||
-                    number.integerValue==CADayTypeTodayToSelected)
+            else if([self isToday:number.integerValue])
             {
                 number = [[NSNumber alloc] initWithInt:CADayTypeToday];
                 [array replaceObjectAtIndex:j withObject:number];
@@ -572,10 +587,23 @@
     CAMonthView *monthView = (CAMonthView*)[collectionDaysView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:differenceMonth inSection:0]];
     
     NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
-    number = [[NSNumber alloc] initWithInt:CADayTypeDayToSelected];
-    [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
-    CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
-    dayButton.typeOfDay = CADayTypeDayToSelected;
+    
+    if([self isToday:number.integerValue])
+    {
+        number = [[NSNumber alloc] initWithInt:CADayTypeTodayToSelected];
+        [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+        CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
+        dayButton.typeOfDay = CADayTypeTodayToSelected;
+    }
+    else
+    {
+        number = [[NSNumber alloc] initWithInt:CADayTypeDayToSelected];
+        [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+        CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
+        dayButton.typeOfDay = CADayTypeDayToSelected;
+    }
+    
+    
     //[dayButton refreshDay];
     for (NSDate *date in daysTo)
     {
@@ -590,9 +618,20 @@
         NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
         if(number.integerValue!=CADayTypeDayToSelected)
         {
-            number = [[NSNumber alloc] initWithInt:CADayTypeDayTo];
-            [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
-            dayButton.typeOfDay = CADayTypeDayTo;
+            if([self isToday:number.integerValue])
+            {
+                number = [[NSNumber alloc] initWithInt:CADayTypeTodayTo];
+                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                dayButton.typeOfDay = CADayTypeTodayTo;
+            }
+            else
+            {
+                number = [[NSNumber alloc] initWithInt:CADayTypeDayTo];
+                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                dayButton.typeOfDay = CADayTypeDayTo;
+            }
+            
+
         }
         [dayButton refreshDay];
     }
@@ -611,10 +650,22 @@
     CAMonthView *monthView = (CAMonthView*)[collectionDaysView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:differenceMonth inSection:0]];
     
     NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
-    number = [[NSNumber alloc] initWithInt:CADayTypeDayToSelected];
-    [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
-    CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
-    dayButton.typeOfDay = CADayTypeDayToSelected;
+
+    if([self isToday:number.integerValue])
+    {
+        number = [[NSNumber alloc] initWithInt:CADayTypeTodayToSelected];
+        [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+        CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
+        dayButton.typeOfDay = CADayTypeTodayToSelected;
+    }
+    else
+    {
+        number = [[NSNumber alloc] initWithInt:CADayTypeDayToSelected];
+        [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+        CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
+        dayButton.typeOfDay = CADayTypeDayToSelected;
+    }
+
     //[dayButton refreshDay];
 
         for (NSDate *date in daysTo)
@@ -628,11 +679,21 @@
             CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
             
             NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
-            if(number.integerValue!=CADayTypeDayToSelected)
+            if(number.integerValue!=CADayTypeDayToSelected&&number.integerValue!=CADayTypeTodayToSelected)
             {
-                number = [[NSNumber alloc] initWithInt:CADayTypeDayToHidden];
-                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
-                dayButton.typeOfDay = CADayTypeDayToHidden;
+                if([self isToday:number.integerValue])
+                {
+                    number = [[NSNumber alloc] initWithInt:CADayTypeToday];
+                    [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                    dayButton.typeOfDay = CADayTypeToday;
+                    
+                }
+                else
+                {
+                    number = [[NSNumber alloc] initWithInt:CADayTypeDayToHidden];
+                    [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                    dayButton.typeOfDay = CADayTypeDayToHidden;
+                }
             }
             [dayButton refreshDay];
         }
@@ -652,10 +713,24 @@
             CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
             
             NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
-            number = [[NSNumber alloc] initWithInt:CADayTypeOther];
-            [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
-            dayButton.typeOfDay = CADayTypeOther;
-            [dayButton refreshDay];
+            
+            if([self isToday:number.integerValue])
+            {
+                number = [[NSNumber alloc] initWithInt:CADayTypeToday];
+                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                dayButton.typeOfDay = CADayTypeToday;
+                [dayButton refreshDay];
+                
+            }
+            else
+            {
+                number = [[NSNumber alloc] initWithInt:CADayTypeOther];
+                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                dayButton.typeOfDay = CADayTypeOther;
+                [dayButton refreshDay];
+            }
+            
+
         }
         daysTo = dayArray;
     }
@@ -674,10 +749,22 @@
             CADay *dayButton = [monthView.daysButtons objectAtIndex:day-1];
             
             NSNumber *number = [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) objectAtIndex:day-1];
-            number = [[NSNumber alloc] initWithInt:CADayTypeDayTo];
-            [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
-            dayButton.typeOfDay = CADayTypeDayTo;
-            [dayButton refreshDay];
+            
+            if([self isToday:number.integerValue])
+            {
+                number = [[NSNumber alloc] initWithInt:CADayTypeTodayTo];
+                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                dayButton.typeOfDay = CADayTypeTodayTo;
+                [dayButton refreshDay];
+                
+            }
+            else
+            {
+                number = [[NSNumber alloc] initWithInt:CADayTypeDayTo];
+                [((NSMutableArray*)[allDays objectAtIndex:differenceMonth]) replaceObjectAtIndex:day-1 withObject:number];
+                dayButton.typeOfDay = CADayTypeDayTo;
+                [dayButton refreshDay];
+            }
         }
     }
     
