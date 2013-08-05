@@ -32,6 +32,9 @@
         case CADayTypeTodayTo:
             break;
         case CADayTypeTodayToSelected:
+            gradientColors = [[NSArray alloc] initWithObjects:(id)[UIColor colorWithRed:0.2 green:1.0 blue:0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:0.2 green:0.9 blue:0 alpha:1.0].CGColor,
+                              (id)[UIColor colorWithRed:0.2 green:1.0 blue:0 alpha:1.0].CGColor,nil];
             break;
         case CADayTypeDayTo:
             break;
