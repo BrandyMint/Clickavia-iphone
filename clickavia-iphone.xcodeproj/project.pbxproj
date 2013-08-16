@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		585FDDF901434212837E0893 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A36A66301D5349D891AB7E10 /* libPods.a */; };
 		7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
 		7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AF17A648290055FF8F /* Foundation.framework */; };
 		7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B117A648290055FF8F /* CoreGraphics.framework */; };
 		7C16A2B417A648290055FF8F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B317A648290055FF8F /* CoreData.framework */; };
 		7C16A2BA17A648290055FF8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2B817A648290055FF8F /* InfoPlist.strings */; };
 		7C16A2BC17A648290055FF8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2BB17A648290055FF8F /* main.m */; };
-		7C16A2C017A648290055FF8F /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2BF17A648290055FF8F /* CAAppDelegate.m */; };
 		7C16A2C217A648290055FF8F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2C117A648290055FF8F /* Default.png */; };
 		7C16A2C417A648290055FF8F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2C317A648290055FF8F /* Default@2x.png */; };
 		7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2C517A648290055FF8F /* Default-568h@2x.png */; };
@@ -26,6 +26,82 @@
 		7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */; };
 		7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */; };
 		7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */; };
+		8CB9B4B617AABC1A00F2C52D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4B517AABC1A00F2C52D /* CAAppDelegate.m */; };
+		8CB9B4B817AABCF000F2C52D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4B517AABC1A00F2C52D /* CAAppDelegate.m */; };
+		8CB9B55E17AB8D4F00F2C52D /* CACalendarCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4C217AB8D4F00F2C52D /* CACalendarCollectionViewFlowLayout.m */; };
+		8CB9B55F17AB8D4F00F2C52D /* CACalendarScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4C417AB8D4F00F2C52D /* CACalendarScrollView.m */; };
+		8CB9B56017AB8D4F00F2C52D /* CACalendarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4C617AB8D4F00F2C52D /* CACalendarStyle.m */; };
+		8CB9B56117AB8D4F00F2C52D /* CACalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4C817AB8D4F00F2C52D /* CACalendarView.m */; };
+		8CB9B56217AB8D4F00F2C52D /* CADay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4CA17AB8D4F00F2C52D /* CADay.m */; };
+		8CB9B56317AB8D4F00F2C52D /* CAMonthSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4CC17AB8D4F00F2C52D /* CAMonthSliderView.m */; };
+		8CB9B56417AB8D4F00F2C52D /* CAMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4CE17AB8D4F00F2C52D /* CAMonthView.m */; };
+		8CB9B56517AB8D4F00F2C52D /* CAFCStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4D117AB8D4F00F2C52D /* CAFCStyle.m */; };
+		8CB9B56617AB8D4F00F2C52D /* CAFCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4D317AB8D4F00F2C52D /* CAFCTableViewCell.m */; };
+		8CB9B56717AB8D4F00F2C52D /* CAFCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4D517AB8D4F00F2C52D /* CAFCTextField.m */; };
+		8CB9B56817AB8D4F00F2C52D /* CAFCTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4D717AB8D4F00F2C52D /* CAFCTriangleView.m */; };
+		8CB9B56917AB8D4F00F2C52D /* CAFieldCompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4D917AB8D4F00F2C52D /* CAFieldCompleteView.m */; };
+		8CB9B56A17AB8D4F00F2C52D /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4DD17AB8D4F00F2C52D /* AuthManager.m */; };
+		8CB9B56B17AB8D4F00F2C52D /* BookingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4DF17AB8D4F00F2C52D /* BookingManager.m */; };
+		8CB9B56C17AB8D4F00F2C52D /* ChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4E117AB8D4F00F2C52D /* ChatManager.m */; };
+		8CB9B56D17AB8D4F00F2C52D /* CitiesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4E317AB8D4F00F2C52D /* CitiesManager.m */; };
+		8CB9B56E17AB8D4F00F2C52D /* FlightDescriptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4E517AB8D4F00F2C52D /* FlightDescriptionManager.m */; };
+		8CB9B56F17AB8D4F00F2C52D /* FlightsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4E717AB8D4F00F2C52D /* FlightsManager.m */; };
+		8CB9B57017AB8D4F00F2C52D /* OrdersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4E917AB8D4F00F2C52D /* OrdersManager.m */; };
+		8CB9B57117AB8D4F00F2C52D /* SpecialOffersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4EB17AB8D4F00F2C52D /* SpecialOffersManager.m */; };
+		8CB9B57217AB8D4F00F2C52D /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4ED17AB8D4F00F2C52D /* UserManager.m */; };
+		8CB9B57317AB8D4F00F2C52D /* AcceptedOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4F017AB8D4F00F2C52D /* AcceptedOrder.m */; };
+		8CB9B57417AB8D4F00F2C52D /* BookingStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4F217AB8D4F00F2C52D /* BookingStatus.m */; };
+		8CB9B57517AB8D4F00F2C52D /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4F417AB8D4F00F2C52D /* ChatMessage.m */; };
+		8CB9B57617AB8D4F00F2C52D /* CountryCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4F617AB8D4F00F2C52D /* CountryCodes.m */; };
+		8CB9B57717AB8D4F00F2C52D /* DMFDMFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4F917AB8D4F00F2C52D /* DMFDMFlight.m */; };
+		8CB9B57817AB8D4F00F2C52D /* DMFDMFullFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4FB17AB8D4F00F2C52D /* DMFDMFullFlight.m */; };
+		8CB9B57917AB8D4F00F2C52D /* DMFDMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B4FD17AB8D4F00F2C52D /* DMFDMMappingProvider.m */; };
+		8CB9B57A17AB8D4F00F2C52D /* DMAMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B50017AB8D4F00F2C52D /* DMAMMappingProvider.m */; };
+		8CB9B57B17AB8D4F00F2C52D /* DMBMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B50317AB8D4F00F2C52D /* DMBMMappingProvider.m */; };
+		8CB9B57C17AB8D4F00F2C52D /* DMBMOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B50517AB8D4F00F2C52D /* DMBMOrder.m */; };
+		8CB9B57D17AB8D4F00F2C52D /* DMBMPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B50717AB8D4F00F2C52D /* DMBMPerson.m */; };
+		8CB9B57E17AB8D4F00F2C52D /* DMBMResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B50917AB8D4F00F2C52D /* DMBMResponse.m */; };
+		8CB9B57F17AB8D4F00F2C52D /* DMCMChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B50C17AB8D4F00F2C52D /* DMCMChatMessage.m */; };
+		8CB9B58017AB8D5000F2C52D /* DMCMClientMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B50E17AB8D4F00F2C52D /* DMCMClientMessage.m */; };
+		8CB9B58117AB8D5000F2C52D /* DMCMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B51017AB8D4F00F2C52D /* DMCMMappingProvider.m */; };
+		8CB9B58217AB8D5000F2C52D /* DMArrivalAirports.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B51317AB8D4F00F2C52D /* DMArrivalAirports.m */; };
+		8CB9B58317AB8D5000F2C52D /* DMArrivalCities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B51517AB8D4F00F2C52D /* DMArrivalCities.m */; };
+		8CB9B58417AB8D5000F2C52D /* DMArrivalCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B51717AB8D4F00F2C52D /* DMArrivalCountries.m */; };
+		8CB9B58517AB8D5000F2C52D /* DMDepartureAirports.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B51917AB8D4F00F2C52D /* DMDepartureAirports.m */; };
+		8CB9B58617AB8D5000F2C52D /* DMDepartureCities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B51B17AB8D4F00F2C52D /* DMDepartureCities.m */; };
+		8CB9B58717AB8D5000F2C52D /* DMDepartureCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B51D17AB8D4F00F2C52D /* DMDepartureCountry.m */; };
+		8CB9B58817AB8D5000F2C52D /* DMObjectMapperToDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B52017AB8D4F00F2C52D /* DMObjectMapperToDestination.m */; };
+		8CB9B58917AB8D5000F2C52D /* DMFMFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B52317AB8D4F00F2C52D /* DMFMFlight.m */; };
+		8CB9B58A17AB8D5000F2C52D /* DMFMFullFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B52517AB8D4F00F2C52D /* DMFMFullFlight.m */; };
+		8CB9B58B17AB8D5000F2C52D /* DMFMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B52717AB8D4F00F2C52D /* DMFMMappingProvider.m */; };
+		8CB9B58C17AB8D5000F2C52D /* DMOMFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B52A17AB8D4F00F2C52D /* DMOMFlight.m */; };
+		8CB9B58D17AB8D5000F2C52D /* DMOMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B52C17AB8D4F00F2C52D /* DMOMMappingProvider.m */; };
+		8CB9B58E17AB8D5000F2C52D /* DMOMOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B52E17AB8D4F00F2C52D /* DMOMOrder.m */; };
+		8CB9B58F17AB8D5000F2C52D /* DMSOMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B53117AB8D4F00F2C52D /* DMSOMCity.m */; };
+		8CB9B59017AB8D5000F2C52D /* DMSOMCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B53317AB8D4F00F2C52D /* DMSOMCountry.m */; };
+		8CB9B59117AB8D5000F2C52D /* DMSOMFlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B53517AB8D4F00F2C52D /* DMSOMFlight.m */; };
+		8CB9B59217AB8D5000F2C52D /* DMSOMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B53717AB8D4F00F2C52D /* DMSOMMappingProvider.m */; };
+		8CB9B59317AB8D5000F2C52D /* DMSOMOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B53917AB8D4F00F2C52D /* DMSOMOffer.m */; };
+		8CB9B59417AB8D5000F2C52D /* DMRegistrationError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B53C17AB8D4F00F2C52D /* DMRegistrationError.m */; };
+		8CB9B59517AB8D5000F2C52D /* DMRegistrationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B53E17AB8D4F00F2C52D /* DMRegistrationResponse.m */; };
+		8CB9B59617AB8D5000F2C52D /* DMUMMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54017AB8D4F00F2C52D /* DMUMMappingProvider.m */; };
+		8CB9B59717AB8D5000F2C52D /* Destination.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54217AB8D4F00F2C52D /* Destination.m */; };
+		8CB9B59817AB8D5000F2C52D /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54417AB8D4F00F2C52D /* Flight.m */; };
+		8CB9B59917AB8D5000F2C52D /* LoginForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54617AB8D4F00F2C52D /* LoginForm.m */; };
+		8CB9B59A17AB8D5000F2C52D /* Offer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54817AB8D4F00F2C52D /* Offer.m */; };
+		8CB9B59B17AB8D5000F2C52D /* OfferConditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54A17AB8D4F00F2C52D /* OfferConditions.m */; };
+		8CB9B59C17AB8D5000F2C52D /* OfferExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54C17AB8D4F00F2C52D /* OfferExtended.m */; };
+		8CB9B59D17AB8D5000F2C52D /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B54E17AB8D4F00F2C52D /* Order.m */; };
+		8CB9B59E17AB8D5000F2C52D /* PersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B55017AB8D4F00F2C52D /* PersonInfo.m */; };
+		8CB9B59F17AB8D5000F2C52D /* RegistrationForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B55217AB8D4F00F2C52D /* RegistrationForm.m */; };
+		8CB9B5A017AB8D5000F2C52D /* SearchConditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B55517AB8D4F00F2C52D /* SearchConditions.m */; };
+		8CB9B5A117AB8D5000F2C52D /* SpecialOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B55717AB8D4F00F2C52D /* SpecialOffer.m */; };
+		8CB9B5A217AB8D5000F2C52D /* SpecialOfferCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B55917AB8D4F00F2C52D /* SpecialOfferCity.m */; };
+		8CB9B5A317AB8D5000F2C52D /* SpecialOfferCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B55B17AB8D4F00F2C52D /* SpecialOfferCountry.m */; };
+		8CB9B5A417AB8D5000F2C52D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B55D17AB8D4F00F2C52D /* User.m */; };
+		8CB9B5A617AB8FB200F2C52D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB9B5A517AB8FB200F2C52D /* QuartzCore.framework */; };
+		8CB9B5AB17AB9D8500F2C52D /* CAFlightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9B5A917AB9D8500F2C52D /* CAFlightsViewController.m */; };
+		8CB9B5AC17AB9D8500F2C52D /* CAFlightsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB9B5AA17AB9D8500F2C52D /* CAFlightsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +124,6 @@
 		7C16A2B917A648290055FF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C16A2BB17A648290055FF8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C16A2BD17A648290055FF8F /* clickavia-iphone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "clickavia-iphone-Prefix.pch"; sourceTree = "<group>"; };
-		7C16A2BE17A648290055FF8F /* CAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAAppDelegate.h; path = ../CAAppDelegate.h; sourceTree = "<group>"; };
-		7C16A2BF17A648290055FF8F /* CAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = ../CAAppDelegate.m; sourceTree = "<group>"; };
 		7C16A2C117A648290055FF8F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7C16A2C317A648290055FF8F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7C16A2C517A648290055FF8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -63,6 +137,158 @@
 		7C16A2F117A64A8D0055FF8F /* CAWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAWelcomeViewController.h; sourceTree = "<group>"; };
 		7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAWelcomeViewController.m; sourceTree = "<group>"; };
 		7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAWelcomeViewController.xib; sourceTree = "<group>"; };
+		8CB9B4B417AABC1A00F2C52D /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAppDelegate.h; path = "clickavia-iphone/CAAppDelegate.h"; sourceTree = SOURCE_ROOT; };
+		8CB9B4B517AABC1A00F2C52D /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = "clickavia-iphone/CAAppDelegate.m"; sourceTree = SOURCE_ROOT; };
+		8CB9B4C117AB8D4F00F2C52D /* CACalendarCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		8CB9B4C217AB8D4F00F2C52D /* CACalendarCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		8CB9B4C317AB8D4F00F2C52D /* CACalendarScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarScrollView.h; sourceTree = "<group>"; };
+		8CB9B4C417AB8D4F00F2C52D /* CACalendarScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarScrollView.m; sourceTree = "<group>"; };
+		8CB9B4C517AB8D4F00F2C52D /* CACalendarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarStyle.h; sourceTree = "<group>"; };
+		8CB9B4C617AB8D4F00F2C52D /* CACalendarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarStyle.m; sourceTree = "<group>"; };
+		8CB9B4C717AB8D4F00F2C52D /* CACalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarView.h; sourceTree = "<group>"; };
+		8CB9B4C817AB8D4F00F2C52D /* CACalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarView.m; sourceTree = "<group>"; };
+		8CB9B4C917AB8D4F00F2C52D /* CADay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADay.h; sourceTree = "<group>"; };
+		8CB9B4CA17AB8D4F00F2C52D /* CADay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADay.m; sourceTree = "<group>"; };
+		8CB9B4CB17AB8D4F00F2C52D /* CAMonthSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMonthSliderView.h; sourceTree = "<group>"; };
+		8CB9B4CC17AB8D4F00F2C52D /* CAMonthSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAMonthSliderView.m; sourceTree = "<group>"; };
+		8CB9B4CD17AB8D4F00F2C52D /* CAMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMonthView.h; sourceTree = "<group>"; };
+		8CB9B4CE17AB8D4F00F2C52D /* CAMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAMonthView.m; sourceTree = "<group>"; };
+		8CB9B4D017AB8D4F00F2C52D /* CAFCStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCStyle.h; sourceTree = "<group>"; };
+		8CB9B4D117AB8D4F00F2C52D /* CAFCStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCStyle.m; sourceTree = "<group>"; };
+		8CB9B4D217AB8D4F00F2C52D /* CAFCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCTableViewCell.h; sourceTree = "<group>"; };
+		8CB9B4D317AB8D4F00F2C52D /* CAFCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCTableViewCell.m; sourceTree = "<group>"; };
+		8CB9B4D417AB8D4F00F2C52D /* CAFCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCTextField.h; sourceTree = "<group>"; };
+		8CB9B4D517AB8D4F00F2C52D /* CAFCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCTextField.m; sourceTree = "<group>"; };
+		8CB9B4D617AB8D4F00F2C52D /* CAFCTriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCTriangleView.h; sourceTree = "<group>"; };
+		8CB9B4D717AB8D4F00F2C52D /* CAFCTriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCTriangleView.m; sourceTree = "<group>"; };
+		8CB9B4D817AB8D4F00F2C52D /* CAFieldCompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFieldCompleteView.h; sourceTree = "<group>"; };
+		8CB9B4D917AB8D4F00F2C52D /* CAFieldCompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFieldCompleteView.m; sourceTree = "<group>"; };
+		8CB9B4DC17AB8D4F00F2C52D /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
+		8CB9B4DD17AB8D4F00F2C52D /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
+		8CB9B4DE17AB8D4F00F2C52D /* BookingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingManager.h; sourceTree = "<group>"; };
+		8CB9B4DF17AB8D4F00F2C52D /* BookingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingManager.m; sourceTree = "<group>"; };
+		8CB9B4E017AB8D4F00F2C52D /* ChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatManager.h; sourceTree = "<group>"; };
+		8CB9B4E117AB8D4F00F2C52D /* ChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatManager.m; sourceTree = "<group>"; };
+		8CB9B4E217AB8D4F00F2C52D /* CitiesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesManager.h; sourceTree = "<group>"; };
+		8CB9B4E317AB8D4F00F2C52D /* CitiesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesManager.m; sourceTree = "<group>"; };
+		8CB9B4E417AB8D4F00F2C52D /* FlightDescriptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDescriptionManager.h; sourceTree = "<group>"; };
+		8CB9B4E517AB8D4F00F2C52D /* FlightDescriptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDescriptionManager.m; sourceTree = "<group>"; };
+		8CB9B4E617AB8D4F00F2C52D /* FlightsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsManager.h; sourceTree = "<group>"; };
+		8CB9B4E717AB8D4F00F2C52D /* FlightsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsManager.m; sourceTree = "<group>"; };
+		8CB9B4E817AB8D4F00F2C52D /* OrdersManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersManager.h; sourceTree = "<group>"; };
+		8CB9B4E917AB8D4F00F2C52D /* OrdersManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersManager.m; sourceTree = "<group>"; };
+		8CB9B4EA17AB8D4F00F2C52D /* SpecialOffersManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOffersManager.h; sourceTree = "<group>"; };
+		8CB9B4EB17AB8D4F00F2C52D /* SpecialOffersManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOffersManager.m; sourceTree = "<group>"; };
+		8CB9B4EC17AB8D4F00F2C52D /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		8CB9B4ED17AB8D4F00F2C52D /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
+		8CB9B4EF17AB8D4F00F2C52D /* AcceptedOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptedOrder.h; sourceTree = "<group>"; };
+		8CB9B4F017AB8D4F00F2C52D /* AcceptedOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcceptedOrder.m; sourceTree = "<group>"; };
+		8CB9B4F117AB8D4F00F2C52D /* BookingStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingStatus.h; sourceTree = "<group>"; };
+		8CB9B4F217AB8D4F00F2C52D /* BookingStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingStatus.m; sourceTree = "<group>"; };
+		8CB9B4F317AB8D4F00F2C52D /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
+		8CB9B4F417AB8D4F00F2C52D /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
+		8CB9B4F517AB8D4F00F2C52D /* CountryCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryCodes.h; sourceTree = "<group>"; };
+		8CB9B4F617AB8D4F00F2C52D /* CountryCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryCodes.m; sourceTree = "<group>"; };
+		8CB9B4F817AB8D4F00F2C52D /* DMFDMFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFDMFlight.h; sourceTree = "<group>"; };
+		8CB9B4F917AB8D4F00F2C52D /* DMFDMFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMFDMFlight.m; sourceTree = "<group>"; };
+		8CB9B4FA17AB8D4F00F2C52D /* DMFDMFullFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFDMFullFlight.h; sourceTree = "<group>"; };
+		8CB9B4FB17AB8D4F00F2C52D /* DMFDMFullFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMFDMFullFlight.m; sourceTree = "<group>"; };
+		8CB9B4FC17AB8D4F00F2C52D /* DMFDMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFDMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B4FD17AB8D4F00F2C52D /* DMFDMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMFDMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B4FF17AB8D4F00F2C52D /* DMAMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B50017AB8D4F00F2C52D /* DMAMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMAMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B50217AB8D4F00F2C52D /* DMBMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B50317AB8D4F00F2C52D /* DMBMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B50417AB8D4F00F2C52D /* DMBMOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBMOrder.h; sourceTree = "<group>"; };
+		8CB9B50517AB8D4F00F2C52D /* DMBMOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBMOrder.m; sourceTree = "<group>"; };
+		8CB9B50617AB8D4F00F2C52D /* DMBMPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBMPerson.h; sourceTree = "<group>"; };
+		8CB9B50717AB8D4F00F2C52D /* DMBMPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBMPerson.m; sourceTree = "<group>"; };
+		8CB9B50817AB8D4F00F2C52D /* DMBMResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBMResponse.h; sourceTree = "<group>"; };
+		8CB9B50917AB8D4F00F2C52D /* DMBMResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBMResponse.m; sourceTree = "<group>"; };
+		8CB9B50B17AB8D4F00F2C52D /* DMCMChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMCMChatMessage.h; sourceTree = "<group>"; };
+		8CB9B50C17AB8D4F00F2C52D /* DMCMChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMCMChatMessage.m; sourceTree = "<group>"; };
+		8CB9B50D17AB8D4F00F2C52D /* DMCMClientMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMCMClientMessage.h; sourceTree = "<group>"; };
+		8CB9B50E17AB8D4F00F2C52D /* DMCMClientMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMCMClientMessage.m; sourceTree = "<group>"; };
+		8CB9B50F17AB8D4F00F2C52D /* DMCMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMCMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B51017AB8D4F00F2C52D /* DMCMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMCMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B51217AB8D4F00F2C52D /* DMArrivalAirports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMArrivalAirports.h; sourceTree = "<group>"; };
+		8CB9B51317AB8D4F00F2C52D /* DMArrivalAirports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMArrivalAirports.m; sourceTree = "<group>"; };
+		8CB9B51417AB8D4F00F2C52D /* DMArrivalCities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMArrivalCities.h; sourceTree = "<group>"; };
+		8CB9B51517AB8D4F00F2C52D /* DMArrivalCities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMArrivalCities.m; sourceTree = "<group>"; };
+		8CB9B51617AB8D4F00F2C52D /* DMArrivalCountries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMArrivalCountries.h; sourceTree = "<group>"; };
+		8CB9B51717AB8D4F00F2C52D /* DMArrivalCountries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMArrivalCountries.m; sourceTree = "<group>"; };
+		8CB9B51817AB8D4F00F2C52D /* DMDepartureAirports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDepartureAirports.h; sourceTree = "<group>"; };
+		8CB9B51917AB8D4F00F2C52D /* DMDepartureAirports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDepartureAirports.m; sourceTree = "<group>"; };
+		8CB9B51A17AB8D4F00F2C52D /* DMDepartureCities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDepartureCities.h; sourceTree = "<group>"; };
+		8CB9B51B17AB8D4F00F2C52D /* DMDepartureCities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDepartureCities.m; sourceTree = "<group>"; };
+		8CB9B51C17AB8D4F00F2C52D /* DMDepartureCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDepartureCountry.h; sourceTree = "<group>"; };
+		8CB9B51D17AB8D4F00F2C52D /* DMDepartureCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDepartureCountry.m; sourceTree = "<group>"; };
+		8CB9B51E17AB8D4F00F2C52D /* DMObjectMapProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMObjectMapProtocol.h; sourceTree = "<group>"; };
+		8CB9B51F17AB8D4F00F2C52D /* DMObjectMapperToDestination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMObjectMapperToDestination.h; sourceTree = "<group>"; };
+		8CB9B52017AB8D4F00F2C52D /* DMObjectMapperToDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMObjectMapperToDestination.m; sourceTree = "<group>"; };
+		8CB9B52217AB8D4F00F2C52D /* DMFMFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFMFlight.h; sourceTree = "<group>"; };
+		8CB9B52317AB8D4F00F2C52D /* DMFMFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMFMFlight.m; sourceTree = "<group>"; };
+		8CB9B52417AB8D4F00F2C52D /* DMFMFullFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFMFullFlight.h; sourceTree = "<group>"; };
+		8CB9B52517AB8D4F00F2C52D /* DMFMFullFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMFMFullFlight.m; sourceTree = "<group>"; };
+		8CB9B52617AB8D4F00F2C52D /* DMFMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B52717AB8D4F00F2C52D /* DMFMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMFMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B52917AB8D4F00F2C52D /* DMOMFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOMFlight.h; sourceTree = "<group>"; };
+		8CB9B52A17AB8D4F00F2C52D /* DMOMFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMOMFlight.m; sourceTree = "<group>"; };
+		8CB9B52B17AB8D4F00F2C52D /* DMOMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B52C17AB8D4F00F2C52D /* DMOMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMOMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B52D17AB8D4F00F2C52D /* DMOMOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMOMOrder.h; sourceTree = "<group>"; };
+		8CB9B52E17AB8D4F00F2C52D /* DMOMOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMOMOrder.m; sourceTree = "<group>"; };
+		8CB9B53017AB8D4F00F2C52D /* DMSOMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSOMCity.h; sourceTree = "<group>"; };
+		8CB9B53117AB8D4F00F2C52D /* DMSOMCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSOMCity.m; sourceTree = "<group>"; };
+		8CB9B53217AB8D4F00F2C52D /* DMSOMCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSOMCountry.h; sourceTree = "<group>"; };
+		8CB9B53317AB8D4F00F2C52D /* DMSOMCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSOMCountry.m; sourceTree = "<group>"; };
+		8CB9B53417AB8D4F00F2C52D /* DMSOMFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSOMFlight.h; sourceTree = "<group>"; };
+		8CB9B53517AB8D4F00F2C52D /* DMSOMFlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSOMFlight.m; sourceTree = "<group>"; };
+		8CB9B53617AB8D4F00F2C52D /* DMSOMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSOMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B53717AB8D4F00F2C52D /* DMSOMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSOMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B53817AB8D4F00F2C52D /* DMSOMOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSOMOffer.h; sourceTree = "<group>"; };
+		8CB9B53917AB8D4F00F2C52D /* DMSOMOffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSOMOffer.m; sourceTree = "<group>"; };
+		8CB9B53B17AB8D4F00F2C52D /* DMRegistrationError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRegistrationError.h; sourceTree = "<group>"; };
+		8CB9B53C17AB8D4F00F2C52D /* DMRegistrationError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRegistrationError.m; sourceTree = "<group>"; };
+		8CB9B53D17AB8D4F00F2C52D /* DMRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRegistrationResponse.h; sourceTree = "<group>"; };
+		8CB9B53E17AB8D4F00F2C52D /* DMRegistrationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRegistrationResponse.m; sourceTree = "<group>"; };
+		8CB9B53F17AB8D4F00F2C52D /* DMUMMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMUMMappingProvider.h; sourceTree = "<group>"; };
+		8CB9B54017AB8D4F00F2C52D /* DMUMMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMUMMappingProvider.m; sourceTree = "<group>"; };
+		8CB9B54117AB8D4F00F2C52D /* Destination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destination.h; sourceTree = "<group>"; };
+		8CB9B54217AB8D4F00F2C52D /* Destination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Destination.m; sourceTree = "<group>"; };
+		8CB9B54317AB8D4F00F2C52D /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
+		8CB9B54417AB8D4F00F2C52D /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		8CB9B54517AB8D4F00F2C52D /* LoginForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginForm.h; sourceTree = "<group>"; };
+		8CB9B54617AB8D4F00F2C52D /* LoginForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginForm.m; sourceTree = "<group>"; };
+		8CB9B54717AB8D4F00F2C52D /* Offer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Offer.h; sourceTree = "<group>"; };
+		8CB9B54817AB8D4F00F2C52D /* Offer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Offer.m; sourceTree = "<group>"; };
+		8CB9B54917AB8D4F00F2C52D /* OfferConditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferConditions.h; sourceTree = "<group>"; };
+		8CB9B54A17AB8D4F00F2C52D /* OfferConditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferConditions.m; sourceTree = "<group>"; };
+		8CB9B54B17AB8D4F00F2C52D /* OfferExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferExtended.h; sourceTree = "<group>"; };
+		8CB9B54C17AB8D4F00F2C52D /* OfferExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferExtended.m; sourceTree = "<group>"; };
+		8CB9B54D17AB8D4F00F2C52D /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		8CB9B54E17AB8D4F00F2C52D /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		8CB9B54F17AB8D4F00F2C52D /* PersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfo.h; sourceTree = "<group>"; };
+		8CB9B55017AB8D4F00F2C52D /* PersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfo.m; sourceTree = "<group>"; };
+		8CB9B55117AB8D4F00F2C52D /* RegistrationForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationForm.h; sourceTree = "<group>"; };
+		8CB9B55217AB8D4F00F2C52D /* RegistrationForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationForm.m; sourceTree = "<group>"; };
+		8CB9B55317AB8D4F00F2C52D /* Routes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routes.h; sourceTree = "<group>"; };
+		8CB9B55417AB8D4F00F2C52D /* SearchConditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchConditions.h; sourceTree = "<group>"; };
+		8CB9B55517AB8D4F00F2C52D /* SearchConditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchConditions.m; sourceTree = "<group>"; };
+		8CB9B55617AB8D4F00F2C52D /* SpecialOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOffer.h; sourceTree = "<group>"; };
+		8CB9B55717AB8D4F00F2C52D /* SpecialOffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOffer.m; sourceTree = "<group>"; };
+		8CB9B55817AB8D4F00F2C52D /* SpecialOfferCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOfferCity.h; sourceTree = "<group>"; };
+		8CB9B55917AB8D4F00F2C52D /* SpecialOfferCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOfferCity.m; sourceTree = "<group>"; };
+		8CB9B55A17AB8D4F00F2C52D /* SpecialOfferCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOfferCountry.h; sourceTree = "<group>"; };
+		8CB9B55B17AB8D4F00F2C52D /* SpecialOfferCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOfferCountry.m; sourceTree = "<group>"; };
+		8CB9B55C17AB8D4F00F2C52D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8CB9B55D17AB8D4F00F2C52D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		8CB9B5A517AB8FB200F2C52D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8CB9B5A817AB9D8500F2C52D /* CAFlightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFlightsViewController.h; sourceTree = "<group>"; };
+		8CB9B5A917AB9D8500F2C52D /* CAFlightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFlightsViewController.m; sourceTree = "<group>"; };
+		8CB9B5AA17AB9D8500F2C52D /* CAFlightsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAFlightsViewController.xib; sourceTree = "<group>"; };
+		A36A66301D5349D891AB7E10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED597F8CA1F44CC88CDBCAF0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +300,8 @@
 				7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */,
 				7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */,
 				7C16A2B417A648290055FF8F /* CoreData.framework in Frameworks */,
+				585FDDF901434212837E0893 /* libPods.a in Frameworks */,
+				8CB9B5A617AB8FB200F2C52D /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +326,7 @@
 				7C16A2D717A648290055FF8F /* clickavia-iphoneTests */,
 				7C16A2AC17A648290055FF8F /* Frameworks */,
 				7C16A2AB17A648290055FF8F /* Products */,
+				ED597F8CA1F44CC88CDBCAF0 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,11 +342,13 @@
 		7C16A2AC17A648290055FF8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8CB9B5A517AB8FB200F2C52D /* QuartzCore.framework */,
 				7C16A2AD17A648290055FF8F /* UIKit.framework */,
 				7C16A2AF17A648290055FF8F /* Foundation.framework */,
 				7C16A2B117A648290055FF8F /* CoreGraphics.framework */,
 				7C16A2B317A648290055FF8F /* CoreData.framework */,
 				7C16A2D017A648290055FF8F /* SenTestingKit.framework */,
+				A36A66301D5349D891AB7E10 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,7 +356,6 @@
 		7C16A2B517A648290055FF8F /* clickavia-iphone */ = {
 			isa = PBXGroup;
 			children = (
-				7C16A2F617A678790055FF8F /* External */,
 				7C16A2E917A648B20055FF8F /* Controllers */,
 				7C16A2EA17A648B20055FF8F /* Resources */,
 				7C16A2EB17A648B20055FF8F /* Views */,
@@ -172,8 +402,8 @@
 		7C16A2E817A648B20055FF8F /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				7C16A2BE17A648290055FF8F /* CAAppDelegate.h */,
-				7C16A2BF17A648290055FF8F /* CAAppDelegate.m */,
+				8CB9B4B417AABC1A00F2C52D /* CAAppDelegate.h */,
+				8CB9B4B517AABC1A00F2C52D /* CAAppDelegate.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -181,6 +411,8 @@
 		7C16A2E917A648B20055FF8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8CB9B5A717AB9D6000F2C52D /* FlightsViewController */,
+				8CB9B4BC17AB8C6A00F2C52D /* External */,
 				7C16A2F017A64A760055FF8F /* WelcomeViewController */,
 			);
 			path = Controllers;
@@ -218,11 +450,278 @@
 			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
-		7C16A2F617A678790055FF8F /* External */ = {
+		8CB9B4BC17AB8C6A00F2C52D /* External */ = {
 			isa = PBXGroup;
 			children = (
+				8CB9B4C017AB8D4F00F2C52D /* CACalendar */,
+				8CB9B4CF17AB8D4F00F2C52D /* CAFieldComplete */,
+				8CB9B4DA17AB8D4F00F2C52D /* CAManagers */,
 			);
-			path = External;
+			name = External;
+			path = "clickavia-iphone/External";
+			sourceTree = SOURCE_ROOT;
+		};
+		8CB9B4C017AB8D4F00F2C52D /* CACalendar */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B4C117AB8D4F00F2C52D /* CACalendarCollectionViewFlowLayout.h */,
+				8CB9B4C217AB8D4F00F2C52D /* CACalendarCollectionViewFlowLayout.m */,
+				8CB9B4C317AB8D4F00F2C52D /* CACalendarScrollView.h */,
+				8CB9B4C417AB8D4F00F2C52D /* CACalendarScrollView.m */,
+				8CB9B4C517AB8D4F00F2C52D /* CACalendarStyle.h */,
+				8CB9B4C617AB8D4F00F2C52D /* CACalendarStyle.m */,
+				8CB9B4C717AB8D4F00F2C52D /* CACalendarView.h */,
+				8CB9B4C817AB8D4F00F2C52D /* CACalendarView.m */,
+				8CB9B4C917AB8D4F00F2C52D /* CADay.h */,
+				8CB9B4CA17AB8D4F00F2C52D /* CADay.m */,
+				8CB9B4CB17AB8D4F00F2C52D /* CAMonthSliderView.h */,
+				8CB9B4CC17AB8D4F00F2C52D /* CAMonthSliderView.m */,
+				8CB9B4CD17AB8D4F00F2C52D /* CAMonthView.h */,
+				8CB9B4CE17AB8D4F00F2C52D /* CAMonthView.m */,
+			);
+			path = CACalendar;
+			sourceTree = "<group>";
+		};
+		8CB9B4CF17AB8D4F00F2C52D /* CAFieldComplete */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B4D017AB8D4F00F2C52D /* CAFCStyle.h */,
+				8CB9B4D117AB8D4F00F2C52D /* CAFCStyle.m */,
+				8CB9B4D217AB8D4F00F2C52D /* CAFCTableViewCell.h */,
+				8CB9B4D317AB8D4F00F2C52D /* CAFCTableViewCell.m */,
+				8CB9B4D417AB8D4F00F2C52D /* CAFCTextField.h */,
+				8CB9B4D517AB8D4F00F2C52D /* CAFCTextField.m */,
+				8CB9B4D617AB8D4F00F2C52D /* CAFCTriangleView.h */,
+				8CB9B4D717AB8D4F00F2C52D /* CAFCTriangleView.m */,
+				8CB9B4D817AB8D4F00F2C52D /* CAFieldCompleteView.h */,
+				8CB9B4D917AB8D4F00F2C52D /* CAFieldCompleteView.m */,
+			);
+			path = CAFieldComplete;
+			sourceTree = "<group>";
+		};
+		8CB9B4DA17AB8D4F00F2C52D /* CAManagers */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B4DB17AB8D4F00F2C52D /* Managers */,
+				8CB9B4EE17AB8D4F00F2C52D /* Models */,
+			);
+			path = CAManagers;
+			sourceTree = "<group>";
+		};
+		8CB9B4DB17AB8D4F00F2C52D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B4DC17AB8D4F00F2C52D /* AuthManager.h */,
+				8CB9B4DD17AB8D4F00F2C52D /* AuthManager.m */,
+				8CB9B4DE17AB8D4F00F2C52D /* BookingManager.h */,
+				8CB9B4DF17AB8D4F00F2C52D /* BookingManager.m */,
+				8CB9B4E017AB8D4F00F2C52D /* ChatManager.h */,
+				8CB9B4E117AB8D4F00F2C52D /* ChatManager.m */,
+				8CB9B4E217AB8D4F00F2C52D /* CitiesManager.h */,
+				8CB9B4E317AB8D4F00F2C52D /* CitiesManager.m */,
+				8CB9B4E417AB8D4F00F2C52D /* FlightDescriptionManager.h */,
+				8CB9B4E517AB8D4F00F2C52D /* FlightDescriptionManager.m */,
+				8CB9B4E617AB8D4F00F2C52D /* FlightsManager.h */,
+				8CB9B4E717AB8D4F00F2C52D /* FlightsManager.m */,
+				8CB9B4E817AB8D4F00F2C52D /* OrdersManager.h */,
+				8CB9B4E917AB8D4F00F2C52D /* OrdersManager.m */,
+				8CB9B4EA17AB8D4F00F2C52D /* SpecialOffersManager.h */,
+				8CB9B4EB17AB8D4F00F2C52D /* SpecialOffersManager.m */,
+				8CB9B4EC17AB8D4F00F2C52D /* UserManager.h */,
+				8CB9B4ED17AB8D4F00F2C52D /* UserManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8CB9B4EE17AB8D4F00F2C52D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B4EF17AB8D4F00F2C52D /* AcceptedOrder.h */,
+				8CB9B4F017AB8D4F00F2C52D /* AcceptedOrder.m */,
+				8CB9B4F117AB8D4F00F2C52D /* BookingStatus.h */,
+				8CB9B4F217AB8D4F00F2C52D /* BookingStatus.m */,
+				8CB9B4F317AB8D4F00F2C52D /* ChatMessage.h */,
+				8CB9B4F417AB8D4F00F2C52D /* ChatMessage.m */,
+				8CB9B4F517AB8D4F00F2C52D /* CountryCodes.h */,
+				8CB9B4F617AB8D4F00F2C52D /* CountryCodes.m */,
+				8CB9B4F717AB8D4F00F2C52D /* DataMappersDescriptionFlightManager */,
+				8CB9B4FE17AB8D4F00F2C52D /* DataMappersForAuthManager */,
+				8CB9B50117AB8D4F00F2C52D /* DataMappersForBookingManager */,
+				8CB9B50A17AB8D4F00F2C52D /* DataMappersForChatManager */,
+				8CB9B51117AB8D4F00F2C52D /* DataMappersForCitiesManager */,
+				8CB9B52117AB8D4F00F2C52D /* DataMappersForFlightsManager */,
+				8CB9B52817AB8D4F00F2C52D /* DataMappersForOffersManager */,
+				8CB9B52F17AB8D4F00F2C52D /* DataMappersForSpecialOffers */,
+				8CB9B53A17AB8D4F00F2C52D /* DataMappersForUserManager */,
+				8CB9B54117AB8D4F00F2C52D /* Destination.h */,
+				8CB9B54217AB8D4F00F2C52D /* Destination.m */,
+				8CB9B54317AB8D4F00F2C52D /* Flight.h */,
+				8CB9B54417AB8D4F00F2C52D /* Flight.m */,
+				8CB9B54517AB8D4F00F2C52D /* LoginForm.h */,
+				8CB9B54617AB8D4F00F2C52D /* LoginForm.m */,
+				8CB9B54717AB8D4F00F2C52D /* Offer.h */,
+				8CB9B54817AB8D4F00F2C52D /* Offer.m */,
+				8CB9B54917AB8D4F00F2C52D /* OfferConditions.h */,
+				8CB9B54A17AB8D4F00F2C52D /* OfferConditions.m */,
+				8CB9B54B17AB8D4F00F2C52D /* OfferExtended.h */,
+				8CB9B54C17AB8D4F00F2C52D /* OfferExtended.m */,
+				8CB9B54D17AB8D4F00F2C52D /* Order.h */,
+				8CB9B54E17AB8D4F00F2C52D /* Order.m */,
+				8CB9B54F17AB8D4F00F2C52D /* PersonInfo.h */,
+				8CB9B55017AB8D4F00F2C52D /* PersonInfo.m */,
+				8CB9B55117AB8D4F00F2C52D /* RegistrationForm.h */,
+				8CB9B55217AB8D4F00F2C52D /* RegistrationForm.m */,
+				8CB9B55317AB8D4F00F2C52D /* Routes.h */,
+				8CB9B55417AB8D4F00F2C52D /* SearchConditions.h */,
+				8CB9B55517AB8D4F00F2C52D /* SearchConditions.m */,
+				8CB9B55617AB8D4F00F2C52D /* SpecialOffer.h */,
+				8CB9B55717AB8D4F00F2C52D /* SpecialOffer.m */,
+				8CB9B55817AB8D4F00F2C52D /* SpecialOfferCity.h */,
+				8CB9B55917AB8D4F00F2C52D /* SpecialOfferCity.m */,
+				8CB9B55A17AB8D4F00F2C52D /* SpecialOfferCountry.h */,
+				8CB9B55B17AB8D4F00F2C52D /* SpecialOfferCountry.m */,
+				8CB9B55C17AB8D4F00F2C52D /* User.h */,
+				8CB9B55D17AB8D4F00F2C52D /* User.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8CB9B4F717AB8D4F00F2C52D /* DataMappersDescriptionFlightManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B4F817AB8D4F00F2C52D /* DMFDMFlight.h */,
+				8CB9B4F917AB8D4F00F2C52D /* DMFDMFlight.m */,
+				8CB9B4FA17AB8D4F00F2C52D /* DMFDMFullFlight.h */,
+				8CB9B4FB17AB8D4F00F2C52D /* DMFDMFullFlight.m */,
+				8CB9B4FC17AB8D4F00F2C52D /* DMFDMMappingProvider.h */,
+				8CB9B4FD17AB8D4F00F2C52D /* DMFDMMappingProvider.m */,
+			);
+			path = DataMappersDescriptionFlightManager;
+			sourceTree = "<group>";
+		};
+		8CB9B4FE17AB8D4F00F2C52D /* DataMappersForAuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B4FF17AB8D4F00F2C52D /* DMAMMappingProvider.h */,
+				8CB9B50017AB8D4F00F2C52D /* DMAMMappingProvider.m */,
+			);
+			path = DataMappersForAuthManager;
+			sourceTree = "<group>";
+		};
+		8CB9B50117AB8D4F00F2C52D /* DataMappersForBookingManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B50217AB8D4F00F2C52D /* DMBMMappingProvider.h */,
+				8CB9B50317AB8D4F00F2C52D /* DMBMMappingProvider.m */,
+				8CB9B50417AB8D4F00F2C52D /* DMBMOrder.h */,
+				8CB9B50517AB8D4F00F2C52D /* DMBMOrder.m */,
+				8CB9B50617AB8D4F00F2C52D /* DMBMPerson.h */,
+				8CB9B50717AB8D4F00F2C52D /* DMBMPerson.m */,
+				8CB9B50817AB8D4F00F2C52D /* DMBMResponse.h */,
+				8CB9B50917AB8D4F00F2C52D /* DMBMResponse.m */,
+			);
+			path = DataMappersForBookingManager;
+			sourceTree = "<group>";
+		};
+		8CB9B50A17AB8D4F00F2C52D /* DataMappersForChatManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B50B17AB8D4F00F2C52D /* DMCMChatMessage.h */,
+				8CB9B50C17AB8D4F00F2C52D /* DMCMChatMessage.m */,
+				8CB9B50D17AB8D4F00F2C52D /* DMCMClientMessage.h */,
+				8CB9B50E17AB8D4F00F2C52D /* DMCMClientMessage.m */,
+				8CB9B50F17AB8D4F00F2C52D /* DMCMMappingProvider.h */,
+				8CB9B51017AB8D4F00F2C52D /* DMCMMappingProvider.m */,
+			);
+			path = DataMappersForChatManager;
+			sourceTree = "<group>";
+		};
+		8CB9B51117AB8D4F00F2C52D /* DataMappersForCitiesManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B51217AB8D4F00F2C52D /* DMArrivalAirports.h */,
+				8CB9B51317AB8D4F00F2C52D /* DMArrivalAirports.m */,
+				8CB9B51417AB8D4F00F2C52D /* DMArrivalCities.h */,
+				8CB9B51517AB8D4F00F2C52D /* DMArrivalCities.m */,
+				8CB9B51617AB8D4F00F2C52D /* DMArrivalCountries.h */,
+				8CB9B51717AB8D4F00F2C52D /* DMArrivalCountries.m */,
+				8CB9B51817AB8D4F00F2C52D /* DMDepartureAirports.h */,
+				8CB9B51917AB8D4F00F2C52D /* DMDepartureAirports.m */,
+				8CB9B51A17AB8D4F00F2C52D /* DMDepartureCities.h */,
+				8CB9B51B17AB8D4F00F2C52D /* DMDepartureCities.m */,
+				8CB9B51C17AB8D4F00F2C52D /* DMDepartureCountry.h */,
+				8CB9B51D17AB8D4F00F2C52D /* DMDepartureCountry.m */,
+				8CB9B51E17AB8D4F00F2C52D /* DMObjectMapProtocol.h */,
+				8CB9B51F17AB8D4F00F2C52D /* DMObjectMapperToDestination.h */,
+				8CB9B52017AB8D4F00F2C52D /* DMObjectMapperToDestination.m */,
+			);
+			path = DataMappersForCitiesManager;
+			sourceTree = "<group>";
+		};
+		8CB9B52117AB8D4F00F2C52D /* DataMappersForFlightsManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B52217AB8D4F00F2C52D /* DMFMFlight.h */,
+				8CB9B52317AB8D4F00F2C52D /* DMFMFlight.m */,
+				8CB9B52417AB8D4F00F2C52D /* DMFMFullFlight.h */,
+				8CB9B52517AB8D4F00F2C52D /* DMFMFullFlight.m */,
+				8CB9B52617AB8D4F00F2C52D /* DMFMMappingProvider.h */,
+				8CB9B52717AB8D4F00F2C52D /* DMFMMappingProvider.m */,
+			);
+			path = DataMappersForFlightsManager;
+			sourceTree = "<group>";
+		};
+		8CB9B52817AB8D4F00F2C52D /* DataMappersForOffersManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B52917AB8D4F00F2C52D /* DMOMFlight.h */,
+				8CB9B52A17AB8D4F00F2C52D /* DMOMFlight.m */,
+				8CB9B52B17AB8D4F00F2C52D /* DMOMMappingProvider.h */,
+				8CB9B52C17AB8D4F00F2C52D /* DMOMMappingProvider.m */,
+				8CB9B52D17AB8D4F00F2C52D /* DMOMOrder.h */,
+				8CB9B52E17AB8D4F00F2C52D /* DMOMOrder.m */,
+			);
+			path = DataMappersForOffersManager;
+			sourceTree = "<group>";
+		};
+		8CB9B52F17AB8D4F00F2C52D /* DataMappersForSpecialOffers */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B53017AB8D4F00F2C52D /* DMSOMCity.h */,
+				8CB9B53117AB8D4F00F2C52D /* DMSOMCity.m */,
+				8CB9B53217AB8D4F00F2C52D /* DMSOMCountry.h */,
+				8CB9B53317AB8D4F00F2C52D /* DMSOMCountry.m */,
+				8CB9B53417AB8D4F00F2C52D /* DMSOMFlight.h */,
+				8CB9B53517AB8D4F00F2C52D /* DMSOMFlight.m */,
+				8CB9B53617AB8D4F00F2C52D /* DMSOMMappingProvider.h */,
+				8CB9B53717AB8D4F00F2C52D /* DMSOMMappingProvider.m */,
+				8CB9B53817AB8D4F00F2C52D /* DMSOMOffer.h */,
+				8CB9B53917AB8D4F00F2C52D /* DMSOMOffer.m */,
+			);
+			path = DataMappersForSpecialOffers;
+			sourceTree = "<group>";
+		};
+		8CB9B53A17AB8D4F00F2C52D /* DataMappersForUserManager */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B53B17AB8D4F00F2C52D /* DMRegistrationError.h */,
+				8CB9B53C17AB8D4F00F2C52D /* DMRegistrationError.m */,
+				8CB9B53D17AB8D4F00F2C52D /* DMRegistrationResponse.h */,
+				8CB9B53E17AB8D4F00F2C52D /* DMRegistrationResponse.m */,
+				8CB9B53F17AB8D4F00F2C52D /* DMUMMappingProvider.h */,
+				8CB9B54017AB8D4F00F2C52D /* DMUMMappingProvider.m */,
+			);
+			path = DataMappersForUserManager;
+			sourceTree = "<group>";
+		};
+		8CB9B5A717AB9D6000F2C52D /* FlightsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8CB9B5A817AB9D8500F2C52D /* CAFlightsViewController.h */,
+				8CB9B5A917AB9D8500F2C52D /* CAFlightsViewController.m */,
+				8CB9B5AA17AB9D8500F2C52D /* CAFlightsViewController.xib */,
+			);
+			path = FlightsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +731,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C16A2E217A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphone" */;
 			buildPhases = (
+				89C699A88D474D85968DA8F4 /* Check Pods Manifest.lock */,
 				7C16A2A617A648290055FF8F /* Sources */,
 				7C16A2A717A648290055FF8F /* Frameworks */,
 				7C16A2A817A648290055FF8F /* Resources */,
+				F160DB7875AE44CBBEE53E4B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +803,7 @@
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
 				7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */,
+				8CB9B5AC17AB9D8500F2C52D /* CAFlightsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +831,36 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		89C699A88D474D85968DA8F4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F160DB7875AE44CBBEE53E4B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -336,10 +868,82 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB9B4B817AABCF000F2C52D /* CAAppDelegate.m in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
-				7C16A2C017A648290055FF8F /* CAAppDelegate.m in Sources */,
 				7C16A2C917A648290055FF8F /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */,
+				8CB9B55E17AB8D4F00F2C52D /* CACalendarCollectionViewFlowLayout.m in Sources */,
+				8CB9B55F17AB8D4F00F2C52D /* CACalendarScrollView.m in Sources */,
+				8CB9B56017AB8D4F00F2C52D /* CACalendarStyle.m in Sources */,
+				8CB9B56117AB8D4F00F2C52D /* CACalendarView.m in Sources */,
+				8CB9B56217AB8D4F00F2C52D /* CADay.m in Sources */,
+				8CB9B56317AB8D4F00F2C52D /* CAMonthSliderView.m in Sources */,
+				8CB9B56417AB8D4F00F2C52D /* CAMonthView.m in Sources */,
+				8CB9B56517AB8D4F00F2C52D /* CAFCStyle.m in Sources */,
+				8CB9B56617AB8D4F00F2C52D /* CAFCTableViewCell.m in Sources */,
+				8CB9B56717AB8D4F00F2C52D /* CAFCTextField.m in Sources */,
+				8CB9B56817AB8D4F00F2C52D /* CAFCTriangleView.m in Sources */,
+				8CB9B56917AB8D4F00F2C52D /* CAFieldCompleteView.m in Sources */,
+				8CB9B56A17AB8D4F00F2C52D /* AuthManager.m in Sources */,
+				8CB9B56B17AB8D4F00F2C52D /* BookingManager.m in Sources */,
+				8CB9B56C17AB8D4F00F2C52D /* ChatManager.m in Sources */,
+				8CB9B56D17AB8D4F00F2C52D /* CitiesManager.m in Sources */,
+				8CB9B56E17AB8D4F00F2C52D /* FlightDescriptionManager.m in Sources */,
+				8CB9B56F17AB8D4F00F2C52D /* FlightsManager.m in Sources */,
+				8CB9B57017AB8D4F00F2C52D /* OrdersManager.m in Sources */,
+				8CB9B57117AB8D4F00F2C52D /* SpecialOffersManager.m in Sources */,
+				8CB9B57217AB8D4F00F2C52D /* UserManager.m in Sources */,
+				8CB9B57317AB8D4F00F2C52D /* AcceptedOrder.m in Sources */,
+				8CB9B57417AB8D4F00F2C52D /* BookingStatus.m in Sources */,
+				8CB9B57517AB8D4F00F2C52D /* ChatMessage.m in Sources */,
+				8CB9B57617AB8D4F00F2C52D /* CountryCodes.m in Sources */,
+				8CB9B57717AB8D4F00F2C52D /* DMFDMFlight.m in Sources */,
+				8CB9B57817AB8D4F00F2C52D /* DMFDMFullFlight.m in Sources */,
+				8CB9B57917AB8D4F00F2C52D /* DMFDMMappingProvider.m in Sources */,
+				8CB9B57A17AB8D4F00F2C52D /* DMAMMappingProvider.m in Sources */,
+				8CB9B57B17AB8D4F00F2C52D /* DMBMMappingProvider.m in Sources */,
+				8CB9B57C17AB8D4F00F2C52D /* DMBMOrder.m in Sources */,
+				8CB9B57D17AB8D4F00F2C52D /* DMBMPerson.m in Sources */,
+				8CB9B57E17AB8D4F00F2C52D /* DMBMResponse.m in Sources */,
+				8CB9B57F17AB8D4F00F2C52D /* DMCMChatMessage.m in Sources */,
+				8CB9B58017AB8D5000F2C52D /* DMCMClientMessage.m in Sources */,
+				8CB9B58117AB8D5000F2C52D /* DMCMMappingProvider.m in Sources */,
+				8CB9B58217AB8D5000F2C52D /* DMArrivalAirports.m in Sources */,
+				8CB9B58317AB8D5000F2C52D /* DMArrivalCities.m in Sources */,
+				8CB9B58417AB8D5000F2C52D /* DMArrivalCountries.m in Sources */,
+				8CB9B58517AB8D5000F2C52D /* DMDepartureAirports.m in Sources */,
+				8CB9B58617AB8D5000F2C52D /* DMDepartureCities.m in Sources */,
+				8CB9B58717AB8D5000F2C52D /* DMDepartureCountry.m in Sources */,
+				8CB9B58817AB8D5000F2C52D /* DMObjectMapperToDestination.m in Sources */,
+				8CB9B58917AB8D5000F2C52D /* DMFMFlight.m in Sources */,
+				8CB9B58A17AB8D5000F2C52D /* DMFMFullFlight.m in Sources */,
+				8CB9B58B17AB8D5000F2C52D /* DMFMMappingProvider.m in Sources */,
+				8CB9B58C17AB8D5000F2C52D /* DMOMFlight.m in Sources */,
+				8CB9B58D17AB8D5000F2C52D /* DMOMMappingProvider.m in Sources */,
+				8CB9B58E17AB8D5000F2C52D /* DMOMOrder.m in Sources */,
+				8CB9B58F17AB8D5000F2C52D /* DMSOMCity.m in Sources */,
+				8CB9B59017AB8D5000F2C52D /* DMSOMCountry.m in Sources */,
+				8CB9B59117AB8D5000F2C52D /* DMSOMFlight.m in Sources */,
+				8CB9B59217AB8D5000F2C52D /* DMSOMMappingProvider.m in Sources */,
+				8CB9B59317AB8D5000F2C52D /* DMSOMOffer.m in Sources */,
+				8CB9B59417AB8D5000F2C52D /* DMRegistrationError.m in Sources */,
+				8CB9B59517AB8D5000F2C52D /* DMRegistrationResponse.m in Sources */,
+				8CB9B59617AB8D5000F2C52D /* DMUMMappingProvider.m in Sources */,
+				8CB9B59717AB8D5000F2C52D /* Destination.m in Sources */,
+				8CB9B59817AB8D5000F2C52D /* Flight.m in Sources */,
+				8CB9B59917AB8D5000F2C52D /* LoginForm.m in Sources */,
+				8CB9B59A17AB8D5000F2C52D /* Offer.m in Sources */,
+				8CB9B59B17AB8D5000F2C52D /* OfferConditions.m in Sources */,
+				8CB9B59C17AB8D5000F2C52D /* OfferExtended.m in Sources */,
+				8CB9B59D17AB8D5000F2C52D /* Order.m in Sources */,
+				8CB9B59E17AB8D5000F2C52D /* PersonInfo.m in Sources */,
+				8CB9B59F17AB8D5000F2C52D /* RegistrationForm.m in Sources */,
+				8CB9B5A017AB8D5000F2C52D /* SearchConditions.m in Sources */,
+				8CB9B5A117AB8D5000F2C52D /* SpecialOffer.m in Sources */,
+				8CB9B5A217AB8D5000F2C52D /* SpecialOfferCity.m in Sources */,
+				8CB9B5A317AB8D5000F2C52D /* SpecialOfferCountry.m in Sources */,
+				8CB9B5A417AB8D5000F2C52D /* User.m in Sources */,
+				8CB9B5AB17AB9D8500F2C52D /* CAFlightsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +952,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */,
+				8CB9B4B617AABC1A00F2C52D /* CAAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +1044,7 @@
 		};
 		7C16A2E317A648290055FF8F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED597F8CA1F44CC88CDBCAF0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
@@ -450,6 +1056,7 @@
 		};
 		7C16A2E417A648290055FF8F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED597F8CA1F44CC88CDBCAF0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
@@ -512,6 +1119,7 @@
 				7C16A2E417A648290055FF8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C16A2E517A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphoneTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +1128,7 @@
 				7C16A2E717A648290055FF8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
