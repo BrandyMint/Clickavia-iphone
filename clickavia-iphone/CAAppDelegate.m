@@ -7,17 +7,18 @@
 //
 
 #import "CAAppDelegate.h"
-
+#import "CAFlightsViewController.h"
 #import "CAWelcomeViewController.h"
 
 @interface CAAppDelegate()
 
 @property (nonatomic, strong) CAWelcomeViewController *welcomeViewController;
-
+@property (nonatomic, strong) CAFlightsViewController *flightsViewController;
 @end
 
 @implementation CAAppDelegate
 @synthesize welcomeViewController;
+@synthesize flightsViewController;
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -28,8 +29,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     welcomeViewController = [[CAWelcomeViewController alloc] init];
+    flightsViewController = [[CAFlightsViewController alloc] init];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: welcomeViewController];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: flightsViewController];
     [self.window makeKeyAndVisible];
     return YES;
 }
