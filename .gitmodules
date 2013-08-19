@@ -1,0 +1,3 @@
+[submodule "vendor/CA-special-offers"]
+	path = vendor/CA-special-offers
+	url = git@github.com:BrandyMint/CA-special-offers.git
