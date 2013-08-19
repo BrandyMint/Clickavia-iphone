@@ -1,3 +1,6 @@
 [submodule "vendor/CA-special-offers"]
 	path = vendor/CA-special-offers
 	url = git@github.com:BrandyMint/CA-special-offers.git
+[submodule "vendor/CA-ColumnControl"]
+	path = vendor/CA-ColumnControl
+	url = git@github.com:BrandyMint/CA-ColumnsControl.git
