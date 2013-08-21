@@ -1,0 +1,1 @@
+../../CAManagers/CAManagersLib/CAManagersLib/Models/DataMappersForSpecialOffers/DMSOMOffer.h
