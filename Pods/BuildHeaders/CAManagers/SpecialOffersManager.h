@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Managers/SpecialOffersManager.h
+../../CAManagers/CAManagersLib/Managers/SpecialOffersManager.h

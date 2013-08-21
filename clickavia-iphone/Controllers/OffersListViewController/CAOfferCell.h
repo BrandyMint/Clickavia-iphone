@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Offer.h"
+#import <CAManagers/Offer.h>
 
 #define CELL_HEIGHT_NORMAL 60
 #define CELL_HEIGHT_SPECIAL 80

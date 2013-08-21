@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SpecialOffer.h"
+#import <CAManagers/SpecialOffer.h>
 
 @interface CASpecialOfferCell : UITableViewCell
 

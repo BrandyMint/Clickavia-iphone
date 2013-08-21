@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Managers/UserManager.h
+../../CAManagers/CAManagersLib/Managers/UserManager.h

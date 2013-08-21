@@ -1,28 +1,18 @@
 PODS:
   - AFNetworking (1.1.0)
   - Base64 (1.0.1)
+  - CAColumnsControl:
+    - PSTCollectionView
   - CAManagers:
     - Base64 (= 1.0.1)
     - EasyMapping (= 0.4.3)
-    - FormatterKit (= 1.2.0)
     - LRResty (= 0.11.0)
     - RestKit (= 0.20.0)
+  - CASpecialOffers:
+    - EasyMapping (= 0.4.3)
+    - LRResty (= 0.11.0)
+    - MBProgressHUD
   - EasyMapping (0.4.3)
-  - FormatterKit (1.2.0):
-    - FormatterKit/AddressFormatter
-    - FormatterKit/ArrayFormatter
-    - FormatterKit/LocationFormatter
-    - FormatterKit/OrdinalNumberFormatter
-    - FormatterKit/TimeIntervalFormatter
-    - FormatterKit/UnitOfInformationFormatter
-    - FormatterKit/URLRequestFormatter
-  - FormatterKit/AddressFormatter (1.2.0)
-  - FormatterKit/ArrayFormatter (1.2.0)
-  - FormatterKit/LocationFormatter (1.2.0)
-  - FormatterKit/OrdinalNumberFormatter (1.2.0)
-  - FormatterKit/TimeIntervalFormatter (1.2.0)
-  - FormatterKit/UnitOfInformationFormatter (1.2.0)
-  - FormatterKit/URLRequestFormatter (1.2.0)
   - LRResty (0.11.0):
     - NSData+Base64 (~> 1.0)
   - MBProgressHUD (0.7)
@@ -45,20 +35,25 @@ PODS:
   - SOCKit (1.1)
 
 DEPENDENCIES:
-  - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/pod_managers/CAManagersLib/CAManagers.podspec`)
-  - MBProgressHUD
-  - PSTCollectionView
+  - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/Podspec/CAColumnsControl.podspec`)
+  - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/Podspec/CAManagers.podspec`)
+  - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/Podspec/CASpecialOffers.podspec`)
 
 EXTERNAL SOURCES:
+  CAColumnsControl:
+    :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/Podspec/CAColumnsControl.podspec
   CAManagers:
-    :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/pod_managers/CAManagersLib/CAManagers.podspec
+    :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/Podspec/CAManagers.podspec
+  CASpecialOffers:
+    :podspec: https://raw.github.com/BrandyMint/CA-special-offers/Podspec/CASpecialOffers.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
-  CAManagers: 1e9024c69637f9175915ea823af0cc99ae611ebb
+  CAColumnsControl: d90b67b95611501c1d2af0cd1ac6cd42685201ee
+  CAManagers: 57b0a43ac2526ae907835516e909120e3b737a92
+  CASpecialOffers: 6433ddfcf3ca500b098dc8d06072859026ee0069
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
-  FormatterKit: 36ec675a04c546948521a4ee3ddb233d17c87a3a
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
   MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
   NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7

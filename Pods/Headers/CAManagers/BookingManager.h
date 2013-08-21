@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Managers/BookingManager.h
+../../CAManagers/CAManagersLib/Managers/BookingManager.h

@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/DataMappersForSpecialOffers/DMSOMFlight.h
+../../CAManagers/CAManagersLib/Models/DataMappersForSpecialOffers/DMSOMFlight.h

@@ -7,7 +7,7 @@
 //
 
 #import "CASpecialOffersViewController.h"
-#import "CAScrollableTabView.h"
+#import <CASpecialOffers/CAScrollableTabView.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface CASpecialOffersViewController ()
@@ -48,9 +48,7 @@
     cities = [[NSMutableArray alloc] init];
     countries = [[NSMutableArray alloc] init];
     
-    self.tabCities.dataSource = (id)self;
     self.tabCities.delegate = (id)self;
-    self.tabCountries.dataSource = (id)self;
     self.tabCountries.delegate = (id)self;
     
     [self reloadCities];
@@ -79,8 +77,7 @@
              [cities addObject: tabCell];
          }
          
-         [self.tabCities reloadData];
-         [self.tabCities setSelectedItemIndex:0];
+         [self.tabCities reloadData:cities];
          
          [hud hide:YES];
      }];
@@ -106,8 +103,7 @@
              [countries addObject: tabCell];
          }
          
-         [self.tabCountries reloadData];
-         [self.tabCountries setSelectedItemIndex:0];
+         [self.tabCountries reloadData:countries];
          
          [hud hide:YES];
      }];
@@ -170,8 +166,7 @@
 
 -(IBAction) onRefresh:(id)sender
 {
-    [self.tabCities reloadData];
-    [self.tabCities setSelectedItemIndex:0];
+    [self.tabCities reloadData:cities];
 }
 
 #pragma mark
