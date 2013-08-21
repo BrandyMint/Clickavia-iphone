@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
 		7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
 		7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AF17A648290055FF8F /* Foundation.framework */; };
 		7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B117A648290055FF8F /* CoreGraphics.framework */; };
@@ -26,6 +27,25 @@
 		7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */; };
 		7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */; };
 		7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */; };
+		7C16A30917A67B220055FF8F /* CAScrollableTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2F917A67B220055FF8F /* CAScrollableTab.m */; };
+		7C16A30A17A67B220055FF8F /* CAScrollableTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2FC17A67B220055FF8F /* CAScrollableTabContentView.m */; };
+		7C16A30B17A67B220055FF8F /* CAScrollableTabScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A30017A67B220055FF8F /* CAScrollableTabScrollView.m */; };
+		7C16A30C17A67B220055FF8F /* CAScrollableTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A30317A67B220055FF8F /* CAScrollableTabView.m */; };
+		7C16A30D17A67B220055FF8F /* CATabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A30717A67B220055FF8F /* CATabCell.m */; };
+		7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A30E17A67B490055FF8F /* QuartzCore.framework */; };
+		7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */; };
+		7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */; };
+		7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31817A687840055FF8F /* CASpecialOfferCell.m */; };
+		7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */; };
+		7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */; };
+		7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */; };
+		7CC7D34817A78B9B00940C94 /* CACollectionScrollColumns.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D33A17A78B9B00940C94 /* CACollectionScrollColumns.m */; };
+		7CC7D34917A78B9B00940C94 /* CAColumnsControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D33C17A78B9B00940C94 /* CAColumnsControlView.m */; };
+		7CC7D34A17A78B9B00940C94 /* CAColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D33F17A78B9B00940C94 /* CAColumnView.m */; };
+		7CC7D34B17A78B9B00940C94 /* CAScrollColumns.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D34217A78B9B00940C94 /* CAScrollColumns.m */; };
+		7CC7D34C17A78B9B00940C94 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D34517A78B9B00940C94 /* Cell.m */; };
+		7CC7D35017A790ED00940C94 /* MockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D34F17A790ED00940C94 /* MockDates.m */; };
+		7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +83,51 @@
 		7C16A2F117A64A8D0055FF8F /* CAWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAWelcomeViewController.h; sourceTree = "<group>"; };
 		7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAWelcomeViewController.m; sourceTree = "<group>"; };
 		7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAWelcomeViewController.xib; sourceTree = "<group>"; };
+		7C16A2F817A67B220055FF8F /* CAScrollableTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTab.h; sourceTree = "<group>"; };
+		7C16A2F917A67B220055FF8F /* CAScrollableTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAScrollableTab.m; sourceTree = "<group>"; };
+		7C16A2FA17A67B220055FF8F /* CAScrollableTabColorKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabColorKeys.h; sourceTree = "<group>"; };
+		7C16A2FB17A67B220055FF8F /* CAScrollableTabContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabContentView.h; sourceTree = "<group>"; };
+		7C16A2FC17A67B220055FF8F /* CAScrollableTabContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAScrollableTabContentView.m; sourceTree = "<group>"; };
+		7C16A2FD17A67B220055FF8F /* CAScrollableTabContentViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabContentViewDelegate.h; sourceTree = "<group>"; };
+		7C16A2FE17A67B220055FF8F /* CAScrollableTabDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabDelegate.h; sourceTree = "<group>"; };
+		7C16A2FF17A67B220055FF8F /* CAScrollableTabScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabScrollView.h; sourceTree = "<group>"; };
+		7C16A30017A67B220055FF8F /* CAScrollableTabScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAScrollableTabScrollView.m; sourceTree = "<group>"; };
+		7C16A30117A67B220055FF8F /* CAScrollableTabScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabScrollViewDelegate.h; sourceTree = "<group>"; };
+		7C16A30217A67B220055FF8F /* CAScrollableTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabView.h; sourceTree = "<group>"; };
+		7C16A30317A67B220055FF8F /* CAScrollableTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAScrollableTabView.m; sourceTree = "<group>"; };
+		7C16A30417A67B220055FF8F /* CAScrollableTabViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabViewDataSource.h; sourceTree = "<group>"; };
+		7C16A30517A67B220055FF8F /* CAScrollableTabViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollableTabViewDelegate.h; sourceTree = "<group>"; };
+		7C16A30617A67B220055FF8F /* CATabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATabCell.h; sourceTree = "<group>"; };
+		7C16A30717A67B220055FF8F /* CATabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATabCell.m; sourceTree = "<group>"; };
+		7C16A30E17A67B490055FF8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOffersViewController.h; sourceTree = "<group>"; };
+		7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOffersViewController.m; sourceTree = "<group>"; };
+		7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOffersViewController.xib; sourceTree = "<group>"; };
+		7C16A31717A687840055FF8F /* CASpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASpecialOfferCell.h; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.h"; sourceTree = "<group>"; };
+		7C16A31817A687840055FF8F /* CASpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASpecialOfferCell.m; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.m"; sourceTree = "<group>"; };
+		7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CASpecialOfferCell.xib; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.xib"; sourceTree = "<group>"; };
+		7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOffersListViewController.h; sourceTree = "<group>"; };
+		7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOffersListViewController.m; sourceTree = "<group>"; };
+		7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAOffersListViewController.xib; sourceTree = "<group>"; };
+		7CC7D33917A78B9B00940C94 /* CACollectionScrollColumns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACollectionScrollColumns.h; sourceTree = "<group>"; };
+		7CC7D33A17A78B9B00940C94 /* CACollectionScrollColumns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACollectionScrollColumns.m; sourceTree = "<group>"; };
+		7CC7D33B17A78B9B00940C94 /* CAColumnsControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColumnsControlView.h; sourceTree = "<group>"; };
+		7CC7D33C17A78B9B00940C94 /* CAColumnsControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAColumnsControlView.m; sourceTree = "<group>"; };
+		7CC7D33D17A78B9B00940C94 /* CAColumnsControlViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColumnsControlViewDelegate.h; sourceTree = "<group>"; };
+		7CC7D33E17A78B9B00940C94 /* CAColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColumnView.h; sourceTree = "<group>"; };
+		7CC7D33F17A78B9B00940C94 /* CAColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAColumnView.m; sourceTree = "<group>"; };
+		7CC7D34017A78B9B00940C94 /* CAColumnViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColumnViewDelegate.h; sourceTree = "<group>"; };
+		7CC7D34117A78B9B00940C94 /* CAScrollColumns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollColumns.h; sourceTree = "<group>"; };
+		7CC7D34217A78B9B00940C94 /* CAScrollColumns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAScrollColumns.m; sourceTree = "<group>"; };
+		7CC7D34317A78B9B00940C94 /* CAScrollColumnsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAScrollColumnsDelegate.h; sourceTree = "<group>"; };
+		7CC7D34417A78B9B00940C94 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		7CC7D34517A78B9B00940C94 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		7CC7D34E17A790ED00940C94 /* MockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDates.h; sourceTree = "<group>"; };
+		7CC7D34F17A790ED00940C94 /* MockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockDates.m; sourceTree = "<group>"; };
+		7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOfferCell.h; sourceTree = "<group>"; };
+		7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOfferCell.m; sourceTree = "<group>"; };
+		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +135,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */,
 				7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */,
 				7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */,
 				7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */,
 				7C16A2B417A648290055FF8F /* CoreData.framework in Frameworks */,
+				4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +161,12 @@
 		7C16A2A117A648290055FF8F = {
 			isa = PBXGroup;
 			children = (
+				7C16A30E17A67B490055FF8F /* QuartzCore.framework */,
 				7C16A2B517A648290055FF8F /* clickavia-iphone */,
 				7C16A2D717A648290055FF8F /* clickavia-iphoneTests */,
 				7C16A2AC17A648290055FF8F /* Frameworks */,
 				7C16A2AB17A648290055FF8F /* Products */,
+				C5F76D61C419488D984C2542 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +187,7 @@
 				7C16A2B117A648290055FF8F /* CoreGraphics.framework */,
 				7C16A2B317A648290055FF8F /* CoreData.framework */,
 				7C16A2D017A648290055FF8F /* SenTestingKit.framework */,
+				BA2E1A6A65D2466D8633684C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,6 +251,8 @@
 		7C16A2E917A648B20055FF8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7CC7D33217A78B3400940C94 /* OffersListViewController */,
+				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
 				7C16A2F017A64A760055FF8F /* WelcomeViewController */,
 			);
 			path = Controllers;
@@ -221,8 +293,90 @@
 		7C16A2F617A678790055FF8F /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7CC7D33817A78B9B00940C94 /* CAColumnsControl */,
+				7C16A2F717A67B220055FF8F /* CAScrollableTab */,
 			);
 			path = External;
+			sourceTree = "<group>";
+		};
+		7C16A2F717A67B220055FF8F /* CAScrollableTab */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2F817A67B220055FF8F /* CAScrollableTab.h */,
+				7C16A2F917A67B220055FF8F /* CAScrollableTab.m */,
+				7C16A2FA17A67B220055FF8F /* CAScrollableTabColorKeys.h */,
+				7C16A2FB17A67B220055FF8F /* CAScrollableTabContentView.h */,
+				7C16A2FC17A67B220055FF8F /* CAScrollableTabContentView.m */,
+				7C16A2FD17A67B220055FF8F /* CAScrollableTabContentViewDelegate.h */,
+				7C16A2FE17A67B220055FF8F /* CAScrollableTabDelegate.h */,
+				7C16A2FF17A67B220055FF8F /* CAScrollableTabScrollView.h */,
+				7C16A30017A67B220055FF8F /* CAScrollableTabScrollView.m */,
+				7C16A30117A67B220055FF8F /* CAScrollableTabScrollViewDelegate.h */,
+				7C16A30217A67B220055FF8F /* CAScrollableTabView.h */,
+				7C16A30317A67B220055FF8F /* CAScrollableTabView.m */,
+				7C16A30417A67B220055FF8F /* CAScrollableTabViewDataSource.h */,
+				7C16A30517A67B220055FF8F /* CAScrollableTabViewDelegate.h */,
+				7C16A30617A67B220055FF8F /* CATabCell.h */,
+				7C16A30717A67B220055FF8F /* CATabCell.m */,
+				7C16A30817A67B220055FF8F /* Resources */,
+			);
+			path = CAScrollableTab;
+			sourceTree = "<group>";
+		};
+		7C16A30817A67B220055FF8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C16A31117A67BD50055FF8F /* SpecialOfferViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */,
+				7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */,
+				7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */,
+				7C16A31717A687840055FF8F /* CASpecialOfferCell.h */,
+				7C16A31817A687840055FF8F /* CASpecialOfferCell.m */,
+				7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */,
+			);
+			path = SpecialOfferViewController;
+			sourceTree = "<group>";
+		};
+		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */,
+				7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */,
+				7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */,
+				7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */,
+				7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */,
+			);
+			name = OffersListViewController;
+			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
+			sourceTree = "<group>";
+		};
+		7CC7D33817A78B9B00940C94 /* CAColumnsControl */ = {
+			isa = PBXGroup;
+			children = (
+				7CC7D34E17A790ED00940C94 /* MockDates.h */,
+				7CC7D34F17A790ED00940C94 /* MockDates.m */,
+				7CC7D33917A78B9B00940C94 /* CACollectionScrollColumns.h */,
+				7CC7D33A17A78B9B00940C94 /* CACollectionScrollColumns.m */,
+				7CC7D33B17A78B9B00940C94 /* CAColumnsControlView.h */,
+				7CC7D33C17A78B9B00940C94 /* CAColumnsControlView.m */,
+				7CC7D33D17A78B9B00940C94 /* CAColumnsControlViewDelegate.h */,
+				7CC7D33E17A78B9B00940C94 /* CAColumnView.h */,
+				7CC7D33F17A78B9B00940C94 /* CAColumnView.m */,
+				7CC7D34017A78B9B00940C94 /* CAColumnViewDelegate.h */,
+				7CC7D34117A78B9B00940C94 /* CAScrollColumns.h */,
+				7CC7D34217A78B9B00940C94 /* CAScrollColumns.m */,
+				7CC7D34317A78B9B00940C94 /* CAScrollColumnsDelegate.h */,
+				7CC7D34417A78B9B00940C94 /* Cell.h */,
+				7CC7D34517A78B9B00940C94 /* Cell.m */,
+			);
+			name = CAColumnsControl;
+			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/External/CAColumnsControl";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +386,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C16A2E217A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphone" */;
 			buildPhases = (
+				50613A499998436B9548DF0D /* Check Pods Manifest.lock */,
 				7C16A2A617A648290055FF8F /* Sources */,
 				7C16A2A717A648290055FF8F /* Frameworks */,
 				7C16A2A817A648290055FF8F /* Resources */,
+				565F7F45350348D6AC37A86B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +458,9 @@
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
 				7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */,
+				7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */,
+				7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */,
+				7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +475,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		50613A499998436B9548DF0D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		565F7F45350348D6AC37A86B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		7C16A2CD17A648290055FF8F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +527,21 @@
 				7C16A2C017A648290055FF8F /* CAAppDelegate.m in Sources */,
 				7C16A2C917A648290055FF8F /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */,
+				7C16A30917A67B220055FF8F /* CAScrollableTab.m in Sources */,
+				7C16A30A17A67B220055FF8F /* CAScrollableTabContentView.m in Sources */,
+				7C16A30B17A67B220055FF8F /* CAScrollableTabScrollView.m in Sources */,
+				7C16A30C17A67B220055FF8F /* CAScrollableTabView.m in Sources */,
+				7C16A30D17A67B220055FF8F /* CATabCell.m in Sources */,
+				7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */,
+				7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */,
+				7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */,
+				7CC7D34817A78B9B00940C94 /* CACollectionScrollColumns.m in Sources */,
+				7CC7D34917A78B9B00940C94 /* CAColumnsControlView.m in Sources */,
+				7CC7D34A17A78B9B00940C94 /* CAColumnView.m in Sources */,
+				7CC7D34B17A78B9B00940C94 /* CAScrollColumns.m in Sources */,
+				7CC7D34C17A78B9B00940C94 /* Cell.m in Sources */,
+				7CC7D35017A790ED00940C94 /* MockDates.m in Sources */,
+				7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,22 +641,28 @@
 		};
 		7C16A2E317A648290055FF8F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		7C16A2E417A648290055FF8F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -512,6 +720,7 @@
 				7C16A2E417A648290055FF8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C16A2E517A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphoneTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +729,7 @@
 				7C16A2E717A648290055FF8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

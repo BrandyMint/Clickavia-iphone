@@ -8,6 +8,9 @@
 
 #import "CAWelcomeViewController.h"
 
+#import "CASpecialOffersViewController.h"
+#import "CAOffersListViewController.h"
+
 @interface CAWelcomeViewController ()
 
 @end
@@ -26,7 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
     self.navigationController.navigationBarHidden = YES;
 }
 
@@ -34,6 +40,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction) onSpecialOfferController:(id)sender
+{
+    CASpecialOffersViewController *specialOfferViewController = [[CASpecialOffersViewController alloc] init];
+    [self.navigationController pushViewController:specialOfferViewController animated:YES];
+}
+
+-(IBAction) onOfferListController:(id)sender
+{
+    CAOffersListViewController *offerListViewController = [[CAOffersListViewController alloc] init];
+
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:offerListViewController]  animated:YES completion:nil];
 }
 
 @end
