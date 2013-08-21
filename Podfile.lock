@@ -1,0 +1,77 @@
+PODS:
+  - AFNetworking (1.1.0)
+  - AKTabBarController (1.1.0)
+  - Base64 (1.0.1)
+  - BMChat (0.0.1)
+  - CACalendarView
+  - CAColumnsControl:
+    - PSTCollectionView
+  - CAManagers:
+    - Base64 (= 1.0.1)
+    - EasyMapping (= 0.4.3)
+    - LRResty (= 0.11.0)
+    - RestKit (= 0.20.0)
+  - CASpecialOffers:
+    - EasyMapping (= 0.4.3)
+    - LRResty (= 0.11.0)
+    - MBProgressHUD
+  - EasyMapping (0.4.3)
+  - LRResty (0.11.0):
+    - NSData+Base64 (~> 1.0)
+  - MBProgressHUD (0.7)
+  - NSData+Base64 (1.0.0)
+  - PSTCollectionView (1.1.0)
+  - RestKit (0.20.0):
+    - RestKit/Core
+  - RestKit/Core (0.20.0):
+    - RestKit/CoreData
+    - RestKit/Network
+    - RestKit/ObjectMapping
+  - RestKit/CoreData (0.20.0)
+  - RestKit/Network (0.20.0):
+    - AFNetworking (= 1.1.0)
+    - RestKit/ObjectMapping
+    - RestKit/Support
+    - SOCKit
+  - RestKit/ObjectMapping (0.20.0)
+  - RestKit/Support (0.20.0)
+  - SOCKit (1.1)
+
+DEPENDENCIES:
+  - AKTabBarController
+  - BMChat (from `https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec`)
+  - CACalendarView (from `https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec`)
+  - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
+  - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
+  - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
+
+EXTERNAL SOURCES:
+  BMChat:
+    :podspec: https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec
+  CACalendarView:
+    :podspec: https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec
+  CAColumnsControl:
+    :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec
+  CAManagers:
+    :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
+  CASpecialOffers:
+    :podspec: https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec
+
+SPEC CHECKSUMS:
+  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
+  AKTabBarController: 34443d5d028700dea1d00a6f275e8ef17fc947c2
+  Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
+  BMChat: f7e0ba29e7d0647d0a9011f1090dbecb87efd060
+  CACalendarView: 8219b45f8e729b56c6a3e073297a9f9d9d5e4f54
+  CAColumnsControl: d90b67b95611501c1d2af0cd1ac6cd42685201ee
+  CAManagers: 0d4a9f5390714c3c334d9170931184dbd78ae134
+  CASpecialOffers: 6433ddfcf3ca500b098dc8d06072859026ee0069
+  EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
+  LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
+  MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
+  NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
+  PSTCollectionView: af42b0fb111200a1b87a04aee96181725977f19b
+  RestKit: 580771664a14eaaa40bf53cf83584f12fc141930
+  SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
+
+COCOAPODS: 0.19.1
