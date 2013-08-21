@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CAScrollableTabViewDelegate.h"
-#import "CAScrollableTabViewDataSource.h"
-
-#import "SpecialOffersManager.h"
+#import <CASpecialOffers/CAScrollableTabViewDelegate.h>
+#import <CAManagers/SpecialOffersManager.h>
 #import "CASpecialOfferCell.h"
 
 @class CAScrollableTabView;
 
-@interface CASpecialOffersViewController : UIViewController <CAScrollableTabViewDataSource, CAScrollableTabViewDelegate>
+@interface CASpecialOffersViewController : UIViewController <CAScrollableTabViewDelegate>
 
 @property (nonatomic, weak) IBOutlet CAScrollableTabView *tabCities;
 @property (nonatomic, weak) IBOutlet CAScrollableTabView *tabCountries;

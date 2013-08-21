@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/SearchConditions.h
+../../CAManagers/CAManagersLib/Models/SearchConditions.h

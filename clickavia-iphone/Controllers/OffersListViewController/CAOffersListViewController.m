@@ -7,10 +7,10 @@
 //
 
 #import "CAOffersListViewController.h"
-#import "CAColumnsControlView.h"
+#import <CAColumnsControl/CAColumnsControlView.h>
+#import <CAColumnsControl/CAColumnMockDates.h>
+#import <CAManagers/Flight.h>
 #import "CAOfferCell.h"
-#import "MockDates.h"
-#import "Flight.h"
 
 @interface CAOffersListViewController ()
 @property (nonatomic, strong) CAColumnsControlView *columnDepartureControlView;
@@ -34,14 +34,16 @@
 {
     [super viewDidLoad];
     
-    NSArray *departureFlights = [MockDates generateFlyToDates];
+    NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
     
-    columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(1, 1, self.view.frame.size.width-2, 150-2) type:caDepartureType];
+    columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(1, 1, self.view.frame.size.width-2, 150-2) title:@"туда" withTarget:self];
     columnDepartureControlView.delegate = (id)self;
     [self.view addSubview:columnDepartureControlView];
-    [columnDepartureControlView reloadData: departureFlights];
+    [columnDepartureControlView importFlights: departureFlights];
     
-    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(1, columnDepartureControlView.frame.size.height+2, self.view.frame.size.width-2, 150-2) type:caArrivialType];
+    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(1, columnDepartureControlView.frame.size.height+2, self.view.frame.size.width-2, 150-2)
+                                 title:@"обратно"
+                            withTarget:nil];
     [self.view addSubview:columnArrivialControlView];
 }
 
@@ -52,8 +54,8 @@
 
 - (void)columnsControlView:(CAColumnsControlView *)columnsControlView didSelectColumnWithObject:(Flight*)flight
 {
-    NSArray *arrivialFlights = [MockDates generateFlyReturnDates:flight.dateAndTimeDeparture];
-    [columnArrivialControlView reloadData: arrivialFlights];
+    NSArray *arrivialFlights = [CAColumnMockDates generateFlyReturnDates:flight.dateAndTimeDeparture];
+    [columnArrivialControlView importFlights: arrivialFlights];
 }
 
 #pragma mark

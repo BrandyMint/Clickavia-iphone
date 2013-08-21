@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Managers/FlightsManager.h
+../../CAManagers/CAManagersLib/Managers/FlightsManager.h

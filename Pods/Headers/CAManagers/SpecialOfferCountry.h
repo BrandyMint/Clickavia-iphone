@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/SpecialOfferCountry.h
+../../CAManagers/CAManagersLib/Models/SpecialOfferCountry.h
