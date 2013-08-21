@@ -1,6 +1,8 @@
 PODS:
   - AFNetworking (1.1.0)
   - Base64 (1.0.1)
+  - BMChat (0.0.1)
+  - CACalendarView
   - CAColumnsControl:
     - PSTCollectionView
   - CAManagers:
@@ -35,23 +37,31 @@ PODS:
   - SOCKit (1.1)
 
 DEPENDENCIES:
-  - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/Podspec/CAColumnsControl.podspec`)
-  - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/Podspec/CAManagers.podspec`)
-  - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/Podspec/CASpecialOffers.podspec`)
+  - BMChat (from `https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec`)
+  - CACalendarView (from `https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec`)
+  - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
+  - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
+  - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
 
 EXTERNAL SOURCES:
+  BMChat:
+    :podspec: https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec
+  CACalendarView:
+    :podspec: https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec
   CAColumnsControl:
-    :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/Podspec/CAColumnsControl.podspec
+    :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec
   CAManagers:
-    :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/Podspec/CAManagers.podspec
+    :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
   CASpecialOffers:
-    :podspec: https://raw.github.com/BrandyMint/CA-special-offers/Podspec/CASpecialOffers.podspec
+    :podspec: https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
+  BMChat: f7e0ba29e7d0647d0a9011f1090dbecb87efd060
+  CACalendarView: 8219b45f8e729b56c6a3e073297a9f9d9d5e4f54
   CAColumnsControl: d90b67b95611501c1d2af0cd1ac6cd42685201ee
-  CAManagers: 57b0a43ac2526ae907835516e909120e3b737a92
+  CAManagers: 0d4a9f5390714c3c334d9170931184dbd78ae134
   CASpecialOffers: 6433ddfcf3ca500b098dc8d06072859026ee0069
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2

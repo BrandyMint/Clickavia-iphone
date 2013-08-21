@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 	}
 	s.source = {
 		:git => 'https://github.com/BrandyMint/CA-managers-lib.git',
-		:commit => '5546c80ab20fd916b7a38143ad128d07eb89d562'
+		:branch => 'master'
 	}
 	s.platform = :ios, '5.0'
 	s.source_files = 'CAManagersLib/**/*.{h,m}'
