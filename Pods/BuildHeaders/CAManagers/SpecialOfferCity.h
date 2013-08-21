@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/SpecialOfferCity.h
+../../CAManagers/CAManagersLib/Models/SpecialOfferCity.h

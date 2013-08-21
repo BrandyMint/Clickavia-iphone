@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/DataMappersForOffersManager/DMOMMappingProvider.h
+../../CAManagers/CAManagersLib/Models/DataMappersForOffersManager/DMOMMappingProvider.h

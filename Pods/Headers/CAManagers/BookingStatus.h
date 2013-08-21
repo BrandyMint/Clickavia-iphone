@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/BookingStatus.h
+../../CAManagers/CAManagersLib/Models/BookingStatus.h

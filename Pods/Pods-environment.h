@@ -18,65 +18,29 @@
 #define COCOAPODS_VERSION_MINOR_Base64 0
 #define COCOAPODS_VERSION_PATCH_Base64 1
 
+// CAColumnsControl
+#define COCOAPODS_POD_AVAILABLE_CAColumnsControl
+#define COCOAPODS_VERSION_MAJOR_CAColumnsControl 
+#define COCOAPODS_VERSION_MINOR_CAColumnsControl 0
+#define COCOAPODS_VERSION_PATCH_CAColumnsControl 0
+
 // CAManagers
 #define COCOAPODS_POD_AVAILABLE_CAManagers
 #define COCOAPODS_VERSION_MAJOR_CAManagers 
 #define COCOAPODS_VERSION_MINOR_CAManagers 0
 #define COCOAPODS_VERSION_PATCH_CAManagers 0
 
+// CASpecialOffers
+#define COCOAPODS_POD_AVAILABLE_CASpecialOffers
+#define COCOAPODS_VERSION_MAJOR_CASpecialOffers 
+#define COCOAPODS_VERSION_MINOR_CASpecialOffers 0
+#define COCOAPODS_VERSION_PATCH_CASpecialOffers 0
+
 // EasyMapping
 #define COCOAPODS_POD_AVAILABLE_EasyMapping
 #define COCOAPODS_VERSION_MAJOR_EasyMapping 0
 #define COCOAPODS_VERSION_MINOR_EasyMapping 4
 #define COCOAPODS_VERSION_PATCH_EasyMapping 3
-
-// FormatterKit
-#define COCOAPODS_POD_AVAILABLE_FormatterKit
-#define COCOAPODS_VERSION_MAJOR_FormatterKit 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit 0
-
-// FormatterKit/AddressFormatter
-#define COCOAPODS_POD_AVAILABLE_FormatterKit_AddressFormatter
-#define COCOAPODS_VERSION_MAJOR_FormatterKit_AddressFormatter 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit_AddressFormatter 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit_AddressFormatter 0
-
-// FormatterKit/ArrayFormatter
-#define COCOAPODS_POD_AVAILABLE_FormatterKit_ArrayFormatter
-#define COCOAPODS_VERSION_MAJOR_FormatterKit_ArrayFormatter 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit_ArrayFormatter 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit_ArrayFormatter 0
-
-// FormatterKit/LocationFormatter
-#define COCOAPODS_POD_AVAILABLE_FormatterKit_LocationFormatter
-#define COCOAPODS_VERSION_MAJOR_FormatterKit_LocationFormatter 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit_LocationFormatter 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit_LocationFormatter 0
-
-// FormatterKit/OrdinalNumberFormatter
-#define COCOAPODS_POD_AVAILABLE_FormatterKit_OrdinalNumberFormatter
-#define COCOAPODS_VERSION_MAJOR_FormatterKit_OrdinalNumberFormatter 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit_OrdinalNumberFormatter 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit_OrdinalNumberFormatter 0
-
-// FormatterKit/TimeIntervalFormatter
-#define COCOAPODS_POD_AVAILABLE_FormatterKit_TimeIntervalFormatter
-#define COCOAPODS_VERSION_MAJOR_FormatterKit_TimeIntervalFormatter 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit_TimeIntervalFormatter 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit_TimeIntervalFormatter 0
-
-// FormatterKit/URLRequestFormatter
-#define COCOAPODS_POD_AVAILABLE_FormatterKit_URLRequestFormatter
-#define COCOAPODS_VERSION_MAJOR_FormatterKit_URLRequestFormatter 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit_URLRequestFormatter 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit_URLRequestFormatter 0
-
-// FormatterKit/UnitOfInformationFormatter
-#define COCOAPODS_POD_AVAILABLE_FormatterKit_UnitOfInformationFormatter
-#define COCOAPODS_VERSION_MAJOR_FormatterKit_UnitOfInformationFormatter 1
-#define COCOAPODS_VERSION_MINOR_FormatterKit_UnitOfInformationFormatter 2
-#define COCOAPODS_VERSION_PATCH_FormatterKit_UnitOfInformationFormatter 0
 
 // LRResty
 #define COCOAPODS_POD_AVAILABLE_LRResty

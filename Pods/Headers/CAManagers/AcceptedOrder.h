@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/AcceptedOrder.h
+../../CAManagers/CAManagersLib/Models/AcceptedOrder.h

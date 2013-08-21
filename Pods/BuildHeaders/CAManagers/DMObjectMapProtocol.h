@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/DataMappersForCitiesManager/DMObjectMapProtocol.h
+../../CAManagers/CAManagersLib/Models/DataMappersForCitiesManager/DMObjectMapProtocol.h

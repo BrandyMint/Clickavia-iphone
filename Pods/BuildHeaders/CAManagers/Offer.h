@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/Offer.h
+../../CAManagers/CAManagersLib/Models/Offer.h

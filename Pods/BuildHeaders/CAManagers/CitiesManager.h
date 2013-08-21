@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Managers/CitiesManager.h
+../../CAManagers/CAManagersLib/Managers/CitiesManager.h

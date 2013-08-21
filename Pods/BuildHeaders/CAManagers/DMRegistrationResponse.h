@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/DataMappersForUserManager/DMRegistrationResponse.h
+../../CAManagers/CAManagersLib/Models/DataMappersForUserManager/DMRegistrationResponse.h

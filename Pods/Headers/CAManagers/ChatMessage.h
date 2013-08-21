@@ -1,1 +1,1 @@
-../../CAManagers/CAManagersLib/CAManagersLib/Models/ChatMessage.h
+../../CAManagers/CAManagersLib/Models/ChatMessage.h
