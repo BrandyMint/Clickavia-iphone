@@ -1,1 +1,0 @@
-../../CAManagers/CAManagersLib/Models/DataMappersForOffersManager/DMOMFlight.h

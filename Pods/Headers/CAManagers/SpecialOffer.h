@@ -1,1 +1,0 @@
-../../CAManagers/CAManagersLib/Models/SpecialOffer.h

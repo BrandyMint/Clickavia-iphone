@@ -1,1 +1,0 @@
-../../CAManagers/CAManagersLib/Managers/ChatManager.h
