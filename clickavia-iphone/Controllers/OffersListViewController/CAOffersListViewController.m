@@ -43,7 +43,7 @@
     
     columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(1, columnDepartureControlView.frame.size.height+2, self.view.frame.size.width-2, 150-2)
                                  title:@"обратно"
-                            withTarget:self];
+                            withTarget:nil];
     [self.view addSubview:columnArrivialControlView];
 }
 

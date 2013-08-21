@@ -527,12 +527,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -541,12 +544,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
