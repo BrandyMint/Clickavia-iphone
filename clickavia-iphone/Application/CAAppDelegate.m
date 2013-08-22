@@ -10,6 +10,7 @@
 
 #import "CASpecialOffersViewController.h"
 #import "CAOffersListViewController.h"
+#import "MainScreenViewController.h"
 
 @implementation AKTabBarController (DelegateAutomaticDismissKeyboard)
 -(NSUInteger)supportedInterfaceOrientations{
@@ -21,6 +22,7 @@
 
 @property (nonatomic, strong) CASpecialOffersViewController *specialOfferViewController;
 @property (nonatomic, strong) CAOffersListViewController *offerListViewController;
+@property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
 
 @end
 
@@ -39,10 +41,12 @@
     
     _specialOfferViewController = [[CASpecialOffersViewController alloc] init];
     _offerListViewController = [[CAOffersListViewController alloc] init];
+    _mainScreenViewController = [[MainScreenViewController alloc] init];
     
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_offerListViewController],
+                                            [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
                                             nil]];
     
     self.window.rootViewController = _rootTabBarController;
