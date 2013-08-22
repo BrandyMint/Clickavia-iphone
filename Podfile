@@ -5,3 +5,5 @@ pod 'CAColumnsControl', :podspec => 'https://raw.github.com/BrandyMint/CA-Column
 pod 'CASpecialOffers', :podspec => 'https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec'
 pod 'CACalendarView', :podspec => 'https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec'
 pod 'BMChat', :podspec => 'https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec'
+
+pod 'AKTabBarController'
