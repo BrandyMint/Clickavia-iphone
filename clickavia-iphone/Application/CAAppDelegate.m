@@ -8,16 +8,23 @@
 
 #import "CAAppDelegate.h"
 
-#import "CAWelcomeViewController.h"
+#import "CASpecialOffersViewController.h"
+#import "CAOffersListViewController.h"
+
+@implementation AKTabBarController (DelegateAutomaticDismissKeyboard)
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+@end
 
 @interface CAAppDelegate()
 
-@property (nonatomic, strong) CAWelcomeViewController *welcomeViewController;
+@property (nonatomic, strong) CASpecialOffersViewController *specialOfferViewController;
+@property (nonatomic, strong) CAOffersListViewController *offerListViewController;
 
 @end
 
 @implementation CAAppDelegate
-@synthesize welcomeViewController;
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -27,9 +34,18 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    welcomeViewController = [[CAWelcomeViewController alloc] init];
+    _rootTabBarController = [[AKTabBarController alloc] initWithTabBarHeight: 35];
+    [_rootTabBarController setMinimumHeightToDisplayTitle: 40.0];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: welcomeViewController];
+    _specialOfferViewController = [[CASpecialOffersViewController alloc] init];
+    _offerListViewController = [[CAOffersListViewController alloc] init];
+    
+    [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
+                                            [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
+                                            [[UINavigationController alloc] initWithRootViewController:_offerListViewController],
+                                            nil]];
+    
+    self.window.rootViewController = _rootTabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -23,8 +23,6 @@
 		7C16A2D417A648290055FF8F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B317A648290055FF8F /* CoreData.framework */; };
 		7C16A2DC17A648290055FF8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2DA17A648290055FF8F /* InfoPlist.strings */; };
 		7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */; };
-		7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */; };
-		7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */; };
 		7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A30E17A67B490055FF8F /* QuartzCore.framework */; };
 		7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */; };
 		7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */; };
@@ -66,9 +64,6 @@
 		7C16A2DB17A648290055FF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C16A2DD17A648290055FF8F /* clickavia_iphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clickavia_iphoneTests.h; sourceTree = "<group>"; };
 		7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = clickavia_iphoneTests.m; sourceTree = "<group>"; };
-		7C16A2F117A64A8D0055FF8F /* CAWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAWelcomeViewController.h; sourceTree = "<group>"; };
-		7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAWelcomeViewController.m; sourceTree = "<group>"; };
-		7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAWelcomeViewController.xib; sourceTree = "<group>"; };
 		7C16A30E17A67B490055FF8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOffersViewController.h; sourceTree = "<group>"; };
 		7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOffersViewController.m; sourceTree = "<group>"; };
@@ -202,7 +197,6 @@
 			children = (
 				7CC7D33217A78B3400940C94 /* OffersListViewController */,
 				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
-				7C16A2F017A64A760055FF8F /* WelcomeViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,16 +220,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7C16A2F017A64A760055FF8F /* WelcomeViewController */ = {
-			isa = PBXGroup;
-			children = (
-				7C16A2F117A64A8D0055FF8F /* CAWelcomeViewController.h */,
-				7C16A2F217A64A8D0055FF8F /* CAWelcomeViewController.m */,
-				7C16A2F317A64A8D0055FF8F /* CAWelcomeViewController.xib */,
-			);
-			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
 		7C16A31117A67BD50055FF8F /* SpecialOfferViewController */ = {
@@ -352,7 +336,6 @@
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
-				7C16A2F517A64A8D0055FF8F /* CAWelcomeViewController.xib in Resources */,
 				7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */,
 				7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */,
 				7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */,
@@ -420,7 +403,6 @@
 			files = (
 				7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
-				7C16A2F417A64A8D0055FF8F /* CAWelcomeViewController.m in Sources */,
 				7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */,
 				7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */,
 				7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */,

@@ -34,6 +34,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBarHidden = YES;
+    
     NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
     
     columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(1, 1, self.view.frame.size.width-2, 150-2) title:@"туда" withTarget:self];
@@ -51,6 +53,20 @@
 {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark -
+#pragma mark Tab Bar delegate methods
+
+- (NSString *)tabTitle
+{
+	return @"Графики";
+}
+
+-(NSString*)tabImageName
+{
+    return nil;
+}
+
 
 - (void)columnsControlView:(CAColumnsControlView *)columnsControlView didSelectColumnWithObject:(Flight*)flight
 {
