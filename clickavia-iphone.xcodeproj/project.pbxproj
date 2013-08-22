@@ -28,6 +28,9 @@
 		7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */; };
 		7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31817A687840055FF8F /* CASpecialOfferCell.m */; };
 		7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */; };
+		7CC150C517C5D50F00796B50 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC150C317C5D50F00796B50 /* MainScreenViewController.m */; };
+		7CC150C617C5D50F00796B50 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */; };
+		7CC150C917C5D6A100796B50 /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */; };
 		7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */; };
 		7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */; };
 		7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */; };
@@ -71,6 +74,11 @@
 		7C16A31717A687840055FF8F /* CASpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASpecialOfferCell.h; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.h"; sourceTree = "<group>"; };
 		7C16A31817A687840055FF8F /* CASpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASpecialOfferCell.m; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.m"; sourceTree = "<group>"; };
 		7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CASpecialOfferCell.xib; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.xib"; sourceTree = "<group>"; };
+		7CC150C217C5D50F00796B50 /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
+		7CC150C317C5D50F00796B50 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
+		7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
+		7CC150C717C5D6A100796B50 /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarMockDates.h; sourceTree = "<group>"; };
+		7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarMockDates.m; sourceTree = "<group>"; };
 		7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOffersListViewController.h; sourceTree = "<group>"; };
 		7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOffersListViewController.m; sourceTree = "<group>"; };
 		7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAOffersListViewController.xib; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 		7C16A2E917A648B20055FF8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
 				7CC7D33217A78B3400940C94 /* OffersListViewController */,
 				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
 			);
@@ -233,6 +242,19 @@
 				7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */,
 			);
 			path = SpecialOfferViewController;
+			sourceTree = "<group>";
+		};
+		7CC150C117C5D4DE00796B50 /* MainScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7CC150C217C5D50F00796B50 /* MainScreenViewController.h */,
+				7CC150C317C5D50F00796B50 /* MainScreenViewController.m */,
+				7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */,
+				7CC150C717C5D6A100796B50 /* CACalendarMockDates.h */,
+				7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */,
+			);
+			name = MainScreenViewController;
+			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
 			sourceTree = "<group>";
 		};
 		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
@@ -339,6 +361,7 @@
 				7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */,
 				7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */,
 				7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */,
+				7CC150C617C5D50F00796B50 /* MainScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +431,8 @@
 				7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */,
 				7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */,
 				7CE49F2817C4A9D700F3EA0C /* CAAppDelegate.m in Sources */,
+				7CC150C517C5D50F00796B50 /* MainScreenViewController.m in Sources */,
+				7CC150C917C5D6A100796B50 /* CACalendarMockDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
