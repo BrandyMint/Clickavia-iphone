@@ -44,6 +44,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBarHidden = YES;
+    
     specOfferManager = [[SpecialOffersManager alloc] init];
     cities = [[NSMutableArray alloc] init];
     countries = [[NSMutableArray alloc] init];
@@ -58,6 +60,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark Tab Bar delegate methods
+
+- (NSString *)tabTitle
+{
+	return @"Спец. предл.";
+}
+
+-(NSString*)tabImageName
+{
+    return nil;
 }
 
 -(void) reloadCities
