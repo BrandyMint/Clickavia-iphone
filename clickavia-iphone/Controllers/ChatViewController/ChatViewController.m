@@ -2,7 +2,7 @@
 //  ChatViewController.m
 //  clickavia-iphone
 //
-//  Created by denisdbv@gmail.com on 22.08.13.
+//  Created by Viktor Bespalov on 8/22/13.
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning

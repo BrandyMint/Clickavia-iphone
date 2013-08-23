@@ -13,8 +13,8 @@
 #import "MainScreenViewController.h"
 #import "ChatViewController.h"
 
-#import <BMChat/BMMessage.h>
-#import <BMChat/MessageReceiver.h>
+#import "MessageReceiver.h"
+#import "BMMessage.h"
 
 @implementation AKTabBarController (DelegateAutomaticDismissKeyboard)
 -(NSUInteger)supportedInterfaceOrientations{
@@ -27,8 +27,8 @@
 @property (nonatomic, strong) CASpecialOffersViewController *specialOfferViewController;
 @property (nonatomic, strong) CAOffersListViewController *offerListViewController;
 @property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
-@property (nonatomic, strong) ChatViewController *chatViewController;
 
+@property (nonatomic, strong) ChatViewController *chatViewController;
 @property (strong, nonatomic) MessageReceiver *message_reciever;
 
 @end
@@ -50,7 +50,7 @@
     _offerListViewController = [[CAOffersListViewController alloc] init];
     _mainScreenViewController = [[MainScreenViewController alloc] init];
     
-    UIImage *remoteAvatar = [UIImage imageNamed:@""];
+    UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
     _message_reciever = [MessageReceiver new];
     _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:@"Gagа" localAvatar:remoteAvatar];
     _message_reciever.bmChatViewController = _chatViewController;
@@ -59,7 +59,7 @@
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_offerListViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
-                                            _chatViewController,
+                                            [[UINavigationController alloc] initWithRootViewController:_chatViewController],
                                             nil]];
     
     self.window.rootViewController = _rootTabBarController;

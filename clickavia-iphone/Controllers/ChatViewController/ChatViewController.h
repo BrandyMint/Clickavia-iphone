@@ -2,7 +2,7 @@
 //  ChatViewController.h
 //  clickavia-iphone
 //
-//  Created by denisdbv@gmail.com on 22.08.13.
+//  Created by Viktor Bespalov on 8/22/13.
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
