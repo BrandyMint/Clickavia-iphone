@@ -136,7 +136,7 @@
     if (cell == nil) {
         cell = [[CAOfferCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+
     return cell;
 }
 
