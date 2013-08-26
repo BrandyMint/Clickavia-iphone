@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
+		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
+		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
+		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
+		6639CA0117C5E6AE00CF772D /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FD17C5E6AE00CF772D /* CAOfferCell.m */; };
+		6639CA0217C5E6AE00CF772D /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
+		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
+		6639CA0717C5E6BF00CF772D /* CASpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0517C5E6BF00CF772D /* CASpecialOfferCell.m */; };
+		6639CA0817C5E6BF00CF772D /* CASpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0617C5E6BF00CF772D /* CASpecialOfferCell.xib */; };
+		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
+		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
 		7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
 		7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AF17A648290055FF8F /* Foundation.framework */; };
 		7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B117A648290055FF8F /* CoreGraphics.framework */; };
@@ -26,16 +36,14 @@
 		7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A30E17A67B490055FF8F /* QuartzCore.framework */; };
 		7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */; };
 		7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */; };
-		7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31817A687840055FF8F /* CASpecialOfferCell.m */; };
-		7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */; };
-		7CC150C517C5D50F00796B50 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC150C317C5D50F00796B50 /* MainScreenViewController.m */; };
-		7CC150C617C5D50F00796B50 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */; };
-		7CC150C917C5D6A100796B50 /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */; };
-		7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */; };
-		7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */; };
-		7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */; };
+		7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */; };
+		7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */; };
+		7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */; };
+		7C2670B417CB1FAE002EE876 /* local.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AD17CB1FAE002EE876 /* local.png */; };
+		7C2670B517CB1FAE002EE876 /* local@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AE17CB1FAE002EE876 /* local@2x.png */; };
+		7C2670B617CB1FAE002EE876 /* what.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AF17CB1FAE002EE876 /* what.png */; };
+		7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670B017CB1FAE002EE876 /* what@2x.png */; };
 		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
-		7CE49F2817C4A9D700F3EA0C /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2717C4A9D700F3EA0C /* CAAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
+		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
+		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
+		6639C9F717C5E6A100CF772D /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreenViewController.m; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.m"; sourceTree = SOURCE_ROOT; };
+		6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainScreenViewController.xib; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
+		6639C9FC17C5E6AE00CF772D /* CAOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferCell.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferCell.h"; sourceTree = SOURCE_ROOT; };
+		6639C9FD17C5E6AE00CF772D /* CAOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferCell.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferCell.m"; sourceTree = SOURCE_ROOT; };
+		6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersListViewController.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.h"; sourceTree = SOURCE_ROOT; };
+		6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersListViewController.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.m"; sourceTree = SOURCE_ROOT; };
+		6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAOffersListViewController.xib; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.xib"; sourceTree = SOURCE_ROOT; };
+		6639CA0417C5E6BF00CF772D /* CASpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOfferCell.h; sourceTree = "<group>"; };
+		6639CA0517C5E6BF00CF772D /* CASpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOfferCell.m; sourceTree = "<group>"; };
+		6639CA0617C5E6BF00CF772D /* CASpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOfferCell.xib; sourceTree = "<group>"; };
+		6639CA0917C5E6D600CF772D /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAppDelegate.h; path = "clickavia-iphone/Application/CAAppDelegate.h"; sourceTree = SOURCE_ROOT; };
+		6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = "clickavia-iphone/Application/CAAppDelegate.m"; sourceTree = SOURCE_ROOT; };
+		6639CA0E17C5FE5600CF772D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.h"; sourceTree = SOURCE_ROOT; };
+		6639CA0F17C5FE5600CF772D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.m"; sourceTree = SOURCE_ROOT; };
 		7C16A2AA17A648290055FF8F /* clickavia-iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "clickavia-iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C16A2AD17A648290055FF8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7C16A2AF17A648290055FF8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,22 +96,14 @@
 		7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOffersViewController.h; sourceTree = "<group>"; };
 		7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOffersViewController.m; sourceTree = "<group>"; };
 		7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOffersViewController.xib; sourceTree = "<group>"; };
-		7C16A31717A687840055FF8F /* CASpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASpecialOfferCell.h; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.h"; sourceTree = "<group>"; };
-		7C16A31817A687840055FF8F /* CASpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASpecialOfferCell.m; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.m"; sourceTree = "<group>"; };
-		7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CASpecialOfferCell.xib; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.xib"; sourceTree = "<group>"; };
-		7CC150C217C5D50F00796B50 /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
-		7CC150C317C5D50F00796B50 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
-		7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
-		7CC150C717C5D6A100796B50 /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarMockDates.h; sourceTree = "<group>"; };
-		7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarMockDates.m; sourceTree = "<group>"; };
-		7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOffersListViewController.h; sourceTree = "<group>"; };
-		7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOffersListViewController.m; sourceTree = "<group>"; };
-		7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAOffersListViewController.xib; sourceTree = "<group>"; };
-		7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOfferCell.h; sourceTree = "<group>"; };
-		7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOfferCell.m; sourceTree = "<group>"; };
+		7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatTableCellView.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatTableCellView.xib; sourceTree = SOURCE_ROOT; };
+		7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatViewController.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController.xib; sourceTree = SOURCE_ROOT; };
+		7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "BMChatViewController~iPad.xib"; path = "Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController~iPad.xib"; sourceTree = SOURCE_ROOT; };
+		7C2670AD17CB1FAE002EE876 /* local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = local.png; path = Pods/BMChat/BMChat/BMChat.bundle/local.png; sourceTree = SOURCE_ROOT; };
+		7C2670AE17CB1FAE002EE876 /* local@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "local@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/local@2x.png"; sourceTree = SOURCE_ROOT; };
+		7C2670AF17CB1FAE002EE876 /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
+		7C2670B017CB1FAE002EE876 /* what@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "what@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/what@2x.png"; sourceTree = SOURCE_ROOT; };
 		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
-		7CE49F2617C4A9D700F3EA0C /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
-		7CE49F2717C4A9D700F3EA0C /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -203,6 +220,7 @@
 		7C16A2E917A648B20055FF8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7CC150CA17C5DD9300796B50 /* ChatViewController */,
 				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
 				7CC7D33217A78B3400940C94 /* OffersListViewController */,
 				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
@@ -213,6 +231,13 @@
 		7C16A2EA17A648B20055FF8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */,
+				7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */,
+				7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */,
+				7C2670AD17CB1FAE002EE876 /* local.png */,
+				7C2670AE17CB1FAE002EE876 /* local@2x.png */,
+				7C2670AF17CB1FAE002EE876 /* what.png */,
+				7C2670B017CB1FAE002EE876 /* what@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -234,12 +259,12 @@
 		7C16A31117A67BD50055FF8F /* SpecialOfferViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6639CA0417C5E6BF00CF772D /* CASpecialOfferCell.h */,
+				6639CA0517C5E6BF00CF772D /* CASpecialOfferCell.m */,
+				6639CA0617C5E6BF00CF772D /* CASpecialOfferCell.xib */,
 				7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */,
 				7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */,
 				7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */,
-				7C16A31717A687840055FF8F /* CASpecialOfferCell.h */,
-				7C16A31817A687840055FF8F /* CASpecialOfferCell.m */,
-				7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */,
 			);
 			path = SpecialOfferViewController;
 			sourceTree = "<group>";
@@ -247,24 +272,34 @@
 		7CC150C117C5D4DE00796B50 /* MainScreenViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7CC150C217C5D50F00796B50 /* MainScreenViewController.h */,
-				7CC150C317C5D50F00796B50 /* MainScreenViewController.m */,
-				7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */,
-				7CC150C717C5D6A100796B50 /* CACalendarMockDates.h */,
-				7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */,
+				6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */,
+				6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */,
+				6639C9F617C5E6A100CF772D /* MainScreenViewController.h */,
+				6639C9F717C5E6A100CF772D /* MainScreenViewController.m */,
+				6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */,
 			);
 			name = MainScreenViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
 			sourceTree = "<group>";
 		};
+		7CC150CA17C5DD9300796B50 /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6639CA0E17C5FE5600CF772D /* ChatViewController.h */,
+				6639CA0F17C5FE5600CF772D /* ChatViewController.m */,
+			);
+			name = ChatViewController;
+			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/ChatViewController";
+			sourceTree = "<group>";
+		};
 		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */,
-				7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */,
-				7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */,
-				7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */,
-				7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */,
+				6639C9FC17C5E6AE00CF772D /* CAOfferCell.h */,
+				6639C9FD17C5E6AE00CF772D /* CAOfferCell.m */,
+				6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */,
+				6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */,
+				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
 			);
 			name = OffersListViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -273,8 +308,8 @@
 		7CE49F2517C4A9D700F3EA0C /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				7CE49F2617C4A9D700F3EA0C /* CAAppDelegate.h */,
-				7CE49F2717C4A9D700F3EA0C /* CAAppDelegate.m */,
+				6639CA0917C5E6D600CF772D /* CAAppDelegate.h */,
+				6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */,
 			);
 			name = Application;
 			path = "../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Application";
@@ -359,9 +394,16 @@
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
 				7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */,
-				7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */,
-				7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */,
-				7CC150C617C5D50F00796B50 /* MainScreenViewController.xib in Resources */,
+				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
+				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
+				6639CA0817C5E6BF00CF772D /* CASpecialOfferCell.xib in Resources */,
+				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
+				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
+				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
+				7C2670B417CB1FAE002EE876 /* local.png in Resources */,
+				7C2670B517CB1FAE002EE876 /* local@2x.png in Resources */,
+				7C2670B617CB1FAE002EE876 /* what.png in Resources */,
+				7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,12 +469,13 @@
 				7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
 				7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */,
-				7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */,
-				7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */,
-				7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */,
-				7CE49F2817C4A9D700F3EA0C /* CAAppDelegate.m in Sources */,
-				7CC150C517C5D50F00796B50 /* MainScreenViewController.m in Sources */,
-				7CC150C917C5D6A100796B50 /* CACalendarMockDates.m in Sources */,
+				6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */,
+				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
+				6639CA0117C5E6AE00CF772D /* CAOfferCell.m in Sources */,
+				6639CA0217C5E6AE00CF772D /* CAOffersListViewController.m in Sources */,
+				6639CA0717C5E6BF00CF772D /* CASpecialOfferCell.m in Sources */,
+				6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */,
+				6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
