@@ -24,18 +24,18 @@
 		7C16A2DC17A648290055FF8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2DA17A648290055FF8F /* InfoPlist.strings */; };
 		7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */; };
 		7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A30E17A67B490055FF8F /* QuartzCore.framework */; };
-		7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */; };
-		7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */; };
-		7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31817A687840055FF8F /* CASpecialOfferCell.m */; };
-		7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */; };
-		7CC150C517C5D50F00796B50 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC150C317C5D50F00796B50 /* MainScreenViewController.m */; };
-		7CC150C617C5D50F00796B50 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */; };
-		7CC150C917C5D6A100796B50 /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */; };
-		7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */; };
-		7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */; };
-		7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */; };
 		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
-		7CE49F2817C4A9D700F3EA0C /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2717C4A9D700F3EA0C /* CAAppDelegate.m */; };
+		8C2014C217CB692D0061E2D5 /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014AD17CB692D0061E2D5 /* CAAppDelegate.m */; };
+		8C2014C417CB692D0061E2D5 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014B317CB692D0061E2D5 /* MainScreenViewController.m */; };
+		8C2014C517CB692D0061E2D5 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2014B417CB692D0061E2D5 /* MainScreenViewController.xib */; };
+		8C2014C617CB692D0061E2D5 /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014B717CB692D0061E2D5 /* CAOfferCell.m */; };
+		8C2014C717CB692D0061E2D5 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014B917CB692D0061E2D5 /* CAOffersListViewController.m */; };
+		8C2014C817CB692D0061E2D5 /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2014BA17CB692D0061E2D5 /* CAOffersListViewController.xib */; };
+		8C2014C917CB692D0061E2D5 /* CASpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014BD17CB692D0061E2D5 /* CASpecialOfferCell.m */; };
+		8C2014CA17CB692D0061E2D5 /* CASpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2014BE17CB692D0061E2D5 /* CASpecialOfferCell.xib */; };
+		8C2014CB17CB692D0061E2D5 /* CASpecialOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014C017CB692D0061E2D5 /* CASpecialOffersViewController.m */; };
+		8C2014CC17CB692D0061E2D5 /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2014C117CB692D0061E2D5 /* CASpecialOffersViewController.xib */; };
+		8C2014CF17CB6F8D0061E2D5 /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014CE17CB6F8C0061E2D5 /* CACalendarMockDates.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,25 +68,25 @@
 		7C16A2DD17A648290055FF8F /* clickavia_iphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clickavia_iphoneTests.h; sourceTree = "<group>"; };
 		7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = clickavia_iphoneTests.m; sourceTree = "<group>"; };
 		7C16A30E17A67B490055FF8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOffersViewController.h; sourceTree = "<group>"; };
-		7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOffersViewController.m; sourceTree = "<group>"; };
-		7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOffersViewController.xib; sourceTree = "<group>"; };
-		7C16A31717A687840055FF8F /* CASpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASpecialOfferCell.h; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.h"; sourceTree = "<group>"; };
-		7C16A31817A687840055FF8F /* CASpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASpecialOfferCell.m; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.m"; sourceTree = "<group>"; };
-		7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CASpecialOfferCell.xib; path = "../../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/SpecialOfferViewController/CASpecialOfferCell.xib"; sourceTree = "<group>"; };
-		7CC150C217C5D50F00796B50 /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
-		7CC150C317C5D50F00796B50 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
-		7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
-		7CC150C717C5D6A100796B50 /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarMockDates.h; sourceTree = "<group>"; };
-		7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarMockDates.m; sourceTree = "<group>"; };
-		7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOffersListViewController.h; sourceTree = "<group>"; };
-		7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOffersListViewController.m; sourceTree = "<group>"; };
-		7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAOffersListViewController.xib; sourceTree = "<group>"; };
-		7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOfferCell.h; sourceTree = "<group>"; };
-		7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOfferCell.m; sourceTree = "<group>"; };
 		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
-		7CE49F2617C4A9D700F3EA0C /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
-		7CE49F2717C4A9D700F3EA0C /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
+		8C2014AC17CB692D0061E2D5 /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
+		8C2014AD17CB692D0061E2D5 /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
+		8C2014B217CB692D0061E2D5 /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
+		8C2014B317CB692D0061E2D5 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
+		8C2014B417CB692D0061E2D5 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
+		8C2014B617CB692D0061E2D5 /* CAOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOfferCell.h; sourceTree = "<group>"; };
+		8C2014B717CB692D0061E2D5 /* CAOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOfferCell.m; sourceTree = "<group>"; };
+		8C2014B817CB692D0061E2D5 /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAOffersListViewController.h; sourceTree = "<group>"; };
+		8C2014B917CB692D0061E2D5 /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAOffersListViewController.m; sourceTree = "<group>"; };
+		8C2014BA17CB692D0061E2D5 /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAOffersListViewController.xib; sourceTree = "<group>"; };
+		8C2014BC17CB692D0061E2D5 /* CASpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOfferCell.h; sourceTree = "<group>"; };
+		8C2014BD17CB692D0061E2D5 /* CASpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOfferCell.m; sourceTree = "<group>"; };
+		8C2014BE17CB692D0061E2D5 /* CASpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOfferCell.xib; sourceTree = "<group>"; };
+		8C2014BF17CB692D0061E2D5 /* CASpecialOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOffersViewController.h; sourceTree = "<group>"; };
+		8C2014C017CB692D0061E2D5 /* CASpecialOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOffersViewController.m; sourceTree = "<group>"; };
+		8C2014C117CB692D0061E2D5 /* CASpecialOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOffersViewController.xib; sourceTree = "<group>"; };
+		8C2014CD17CB6F8C0061E2D5 /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarMockDates.h; sourceTree = "<group>"; };
+		8C2014CE17CB6F8C0061E2D5 /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarMockDates.m; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -157,8 +157,8 @@
 		7C16A2B517A648290055FF8F /* clickavia-iphone */ = {
 			isa = PBXGroup;
 			children = (
-				7CE49F2517C4A9D700F3EA0C /* Application */,
-				7C16A2E917A648B20055FF8F /* Controllers */,
+				8C2014AB17CB692D0061E2D5 /* Application */,
+				8C2014AE17CB692D0061E2D5 /* Controllers */,
 				7C16A2EA17A648B20055FF8F /* Resources */,
 				7C16A2EB17A648B20055FF8F /* Views */,
 				7C16A2EF17A64A3B0055FF8F /* Model */,
@@ -200,16 +200,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7C16A2E917A648B20055FF8F /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
-				7CC7D33217A78B3400940C94 /* OffersListViewController */,
-				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		7C16A2EA17A648B20055FF8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,53 +221,60 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7C16A31117A67BD50055FF8F /* SpecialOfferViewController */ = {
+		8C2014AB17CB692D0061E2D5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */,
-				7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */,
-				7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */,
-				7C16A31717A687840055FF8F /* CASpecialOfferCell.h */,
-				7C16A31817A687840055FF8F /* CASpecialOfferCell.m */,
-				7C16A31A17A687A30055FF8F /* CASpecialOfferCell.xib */,
+				8C2014AC17CB692D0061E2D5 /* CAAppDelegate.h */,
+				8C2014AD17CB692D0061E2D5 /* CAAppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8C2014AE17CB692D0061E2D5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C2014AF17CB692D0061E2D5 /* MainScreenViewController */,
+				8C2014B517CB692D0061E2D5 /* OffersListViewController */,
+				8C2014BB17CB692D0061E2D5 /* SpecialOfferViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8C2014AF17CB692D0061E2D5 /* MainScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C2014CD17CB6F8C0061E2D5 /* CACalendarMockDates.h */,
+				8C2014CE17CB6F8C0061E2D5 /* CACalendarMockDates.m */,
+				8C2014B217CB692D0061E2D5 /* MainScreenViewController.h */,
+				8C2014B317CB692D0061E2D5 /* MainScreenViewController.m */,
+				8C2014B417CB692D0061E2D5 /* MainScreenViewController.xib */,
+			);
+			path = MainScreenViewController;
+			sourceTree = "<group>";
+		};
+		8C2014B517CB692D0061E2D5 /* OffersListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C2014B617CB692D0061E2D5 /* CAOfferCell.h */,
+				8C2014B717CB692D0061E2D5 /* CAOfferCell.m */,
+				8C2014B817CB692D0061E2D5 /* CAOffersListViewController.h */,
+				8C2014B917CB692D0061E2D5 /* CAOffersListViewController.m */,
+				8C2014BA17CB692D0061E2D5 /* CAOffersListViewController.xib */,
+			);
+			path = OffersListViewController;
+			sourceTree = "<group>";
+		};
+		8C2014BB17CB692D0061E2D5 /* SpecialOfferViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C2014BC17CB692D0061E2D5 /* CASpecialOfferCell.h */,
+				8C2014BD17CB692D0061E2D5 /* CASpecialOfferCell.m */,
+				8C2014BE17CB692D0061E2D5 /* CASpecialOfferCell.xib */,
+				8C2014BF17CB692D0061E2D5 /* CASpecialOffersViewController.h */,
+				8C2014C017CB692D0061E2D5 /* CASpecialOffersViewController.m */,
+				8C2014C117CB692D0061E2D5 /* CASpecialOffersViewController.xib */,
 			);
 			path = SpecialOfferViewController;
-			sourceTree = "<group>";
-		};
-		7CC150C117C5D4DE00796B50 /* MainScreenViewController */ = {
-			isa = PBXGroup;
-			children = (
-				7CC150C217C5D50F00796B50 /* MainScreenViewController.h */,
-				7CC150C317C5D50F00796B50 /* MainScreenViewController.m */,
-				7CC150C417C5D50F00796B50 /* MainScreenViewController.xib */,
-				7CC150C717C5D6A100796B50 /* CACalendarMockDates.h */,
-				7CC150C817C5D6A100796B50 /* CACalendarMockDates.m */,
-			);
-			name = MainScreenViewController;
-			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
-			sourceTree = "<group>";
-		};
-		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
-			isa = PBXGroup;
-			children = (
-				7CC7D33317A78B5300940C94 /* CAOffersListViewController.h */,
-				7CC7D33417A78B5300940C94 /* CAOffersListViewController.m */,
-				7CC7D33517A78B5300940C94 /* CAOffersListViewController.xib */,
-				7CC7D35517A7CB2E00940C94 /* CAOfferCell.h */,
-				7CC7D35617A7CB2E00940C94 /* CAOfferCell.m */,
-			);
-			name = OffersListViewController;
-			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
-			sourceTree = "<group>";
-		};
-		7CE49F2517C4A9D700F3EA0C /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				7CE49F2617C4A9D700F3EA0C /* CAAppDelegate.h */,
-				7CE49F2717C4A9D700F3EA0C /* CAAppDelegate.m */,
-			);
-			name = Application;
-			path = "../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Application";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,10 +355,10 @@
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
-				7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */,
-				7C16A31B17A687A30055FF8F /* CASpecialOfferCell.xib in Resources */,
-				7CC7D33717A78B5300940C94 /* CAOffersListViewController.xib in Resources */,
-				7CC150C617C5D50F00796B50 /* MainScreenViewController.xib in Resources */,
+				8C2014C517CB692D0061E2D5 /* MainScreenViewController.xib in Resources */,
+				8C2014C817CB692D0061E2D5 /* CAOffersListViewController.xib in Resources */,
+				8C2014CA17CB692D0061E2D5 /* CASpecialOfferCell.xib in Resources */,
+				8C2014CC17CB692D0061E2D5 /* CASpecialOffersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,13 +423,13 @@
 			files = (
 				7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
-				7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */,
-				7C16A31917A687840055FF8F /* CASpecialOfferCell.m in Sources */,
-				7CC7D33617A78B5300940C94 /* CAOffersListViewController.m in Sources */,
-				7CC7D35717A7CB2F00940C94 /* CAOfferCell.m in Sources */,
-				7CE49F2817C4A9D700F3EA0C /* CAAppDelegate.m in Sources */,
-				7CC150C517C5D50F00796B50 /* MainScreenViewController.m in Sources */,
-				7CC150C917C5D6A100796B50 /* CACalendarMockDates.m in Sources */,
+				8C2014C217CB692D0061E2D5 /* CAAppDelegate.m in Sources */,
+				8C2014C417CB692D0061E2D5 /* MainScreenViewController.m in Sources */,
+				8C2014C617CB692D0061E2D5 /* CAOfferCell.m in Sources */,
+				8C2014C717CB692D0061E2D5 /* CAOffersListViewController.m in Sources */,
+				8C2014C917CB692D0061E2D5 /* CASpecialOfferCell.m in Sources */,
+				8C2014CB17CB692D0061E2D5 /* CASpecialOffersViewController.m in Sources */,
+				8C2014CF17CB6F8D0061E2D5 /* CACalendarMockDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
