@@ -29,18 +29,29 @@
     
     self.navigationController.navigationBarHidden = YES;
     
-    _cm = [CitiesManager new];
-    _cm.delay = 10;
+    cm = [CitiesManager new];
+    cm.delay = 10;
+    fm = [FlightsManager new];
+
     _departureDestination = [Destination new];
     _returnDestination = [Destination new];
-    _departureCompleteView.isReturn = NO;
-    _departureCompleteView.delegate = self;
-    _returnCompleteView.delegate = self;
-    _returnCompleteView.isReturn = YES;
+    _departureCompleteView.offsetTopForAutocomplete = _departureCompleteView.frame.origin.y+_departureCompleteView.frame.size.height;
+    _returnCompleteView.offsetTopForAutocomplete = _returnCompleteView.frame.origin.y+_departureCompleteView.frame.size.height;
+    _departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
+    _returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
+   
     
+    currentSearchConditions = [[SearchConditions alloc] init];
+    currentSearchConditions.isBothWays = NO;
+    currentSearchConditions.countOfTickets = [[NSNumber alloc] initWithInt:1];
+    currentSearchConditions.typeOfFlight = econom;
+    currentSearchConditions.direction_departure = nil;
+    currentSearchConditions.direction_return = nil;
+    
+    [self setupTextForFlightTypeButton];
+    [self setupSwitchBoth];
     [_calendarView setDelegate:self];
-    [_calendarView selectFlyToDaysByDateArray:[CACalendarMockDates generateFlyToDates]];
-    [_calendarView selectFlyReturnDaysByDateArray:[CACalendarMockDates generateFlyReturnDates:[NSDate date]]];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,53 +76,40 @@
 #pragma mark CAFieldCompleteViewDelegate
 - (void)fieldCompleteView:(CAFieldCompleteView*) fieldCompleteView selectedDestination:(Destination*) destination
 {
-    if(fieldCompleteView==_departureCompleteView)
-    {
-        _departureDestination = destination;
-        [_cm getDestinationsForReturn:@"" forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
-         {
-             [_returnCompleteView setAutocompleteData:array];
-         }];
-    }
-    else
-    {
-        _returnDestination = destination;
-    }
+    [self setupDestinationFrom:fieldCompleteView withValue:destination];
+    [self reloadDates];
 }
 
 - (void)fieldCompleteView:(CAFieldCompleteView*) fieldCompleteView textChanged:(NSString*) text
 {
     if(fieldCompleteView == _departureCompleteView)
     {
-        [_cm getDestinationsForDeparture:text completeBlock:^(NSArray *array)
+        [cm getDestinationsForDeparture:text completeBlock:^(NSArray *array)
          {
              [_departureCompleteView setAutocompleteData:array];
          }];
     }
     if(fieldCompleteView == _returnCompleteView)
     {
-        [_cm getDestinationsForReturn:text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
+        [cm getDestinationsForReturn:text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
          {
              [_returnCompleteView setAutocompleteData:array];
          }];
     }
 }
--(void)fieldCompleteViewNeedFront:(CAFieldCompleteView *)fieldCompleteView
-{
-    [self.view bringSubviewToFront:fieldCompleteView];
-}
+
 -(void)fieldCompleteViewBeginEditing:(CAFieldCompleteView *)fieldCompleteView
 {
     if(fieldCompleteView == _departureCompleteView)
     {
-        [_cm getDestinationsForDeparture:_departureCompleteView.text completeBlock:^(NSArray *array)
+        [cm getDestinationsForDeparture:_departureCompleteView.text completeBlock:^(NSArray *array)
          {
              [_departureCompleteView setAutocompleteData:array];
          }];
     }
     if(fieldCompleteView == _returnCompleteView)
     {
-        [_cm getDestinationsForReturn:_returnCompleteView.text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
+        [cm getDestinationsForReturn:_returnCompleteView.text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
          {
              [_returnCompleteView setAutocompleteData:array];
          }];
@@ -129,12 +127,101 @@
             NSLog(@"Была выбрана дата вылета");
         }
     }
-    
-    NSLog([date description]);
 }
 - (void) calendarView:(CACalendarView *)calendarView didSelectMonth:(NSDate *)date
 {
-    NSLog([date description]);
+
 }
 
+- (void) reloadDates
+{
+    if(currentSearchConditions.direction_departure!=nil&&currentSearchConditions.direction_return!=nil)
+    {
+        [_calendarView resetSelections];
+        [fm getAvailableDepartureDates:currentSearchConditions departureDate:[NSDate date] completeBlock:^(NSArray *dates)
+         {
+             departureDates = dates;
+             [fm getAvailableReturnDates:currentSearchConditions withDepartureDate:[NSDate date] completeBlock:^(NSArray *array)
+              {
+                  returnDates = array;
+                  [self updateCalendarDates];
+              }];
+             
+         }];
+        
+    }
+    else
+    {
+        [_calendarView resetSelections];
+    }
+}
+-(void)updateCalendarDates
+{
+    [_calendarView selectFlyToDaysByDateArray:departureDates];
+    [_calendarView selectFlyReturnDaysByDateArray:returnDates];
+}
+-(void)setupDestinationFrom:(CAFieldCompleteView*) fieldCompleteView withValue:(Destination*) destination
+{
+    if(fieldCompleteView==_departureCompleteView)
+    {
+        currentSearchConditions.direction_departure = destination;
+    }
+    else
+    {
+        currentSearchConditions.direction_return = destination;
+    }
+    [self reloadDates];
+}
+
+- (IBAction)changeFlightType:(id)sender
+{
+    currentSearchConditions.typeOfFlight = currentSearchConditions.typeOfFlight==econom?business:econom;
+    [self setupTextForFlightTypeButton];
+    [self reloadDates];
+}
+- (void)setupTextForFlightTypeButton
+{
+    NSString *title;
+    if(currentSearchConditions.typeOfFlight==econom)
+    {
+        title = @"Эконом";
+    }
+    else
+    {
+        title = @"Бизнес";
+    }
+    
+    [_flightClassButton setTitle: title forState: UIControlStateNormal];
+    [_flightClassButton setTitle: title forState: UIControlStateHighlighted];
+    [_flightClassButton setTitle: title forState: UIControlStateSelected];
+    [self reloadDates];
+}
+- (IBAction)changeIsBothWays:(id)sender
+{
+    currentSearchConditions.isBothWays = _switchBoth.isOn;
+    if(currentSearchConditions.isBothWays)
+    {
+        _switchDescription.text = @"Both";
+    }
+    else
+    {
+        _switchDescription.text = @"1 way";
+    }
+}
+- (void)setupSwitchBoth
+{
+    [_switchBoth setOn:currentSearchConditions.isBothWays];
+    if(currentSearchConditions.isBothWays)
+    {
+        _switchDescription.text = @"Both";
+    }
+    else
+    {
+        _switchDescription.text = @"1 way";
+    }
+}
+- (SearchConditions*)getSearchConditions
+{
+    return currentSearchConditions;
+}
 @end
