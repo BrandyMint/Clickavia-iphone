@@ -18,6 +18,10 @@
 @end
 
 @implementation CAOffersListViewController
+{
+    NSMutableArray *offerArray;
+    Offer *offer1, *offer2, *offer3;
+}
 @synthesize columnDepartureControlView, columnArrivialControlView;
 @synthesize tableOffers;
 
@@ -48,6 +52,17 @@
                                  title:@"обратно"
                             withTarget:nil];
     [self.view addSubview:columnArrivialControlView];
+    
+    offerArray = [[NSMutableArray alloc] init];
+    offer1 = [[Offer alloc] init];
+    offer1.isSpecial = NO;
+    [offerArray addObject:offer1];
+    offer2 = [[Offer alloc] init];
+    offer2.isSpecial = YES;
+    [offerArray addObject:offer2];
+    offer3 = [[Offer alloc] init];
+    offer3.isSpecial = NO;
+    [offerArray addObject:offer3];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -86,7 +101,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return offerArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -96,7 +111,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CELL_HEIGHT_SPECIAL;
+    Offer *offer = [offerArray objectAtIndex:indexPath.section];
+    if(offer.isSpecial)
+        return CELL_HEIGHT_SPECIAL;
+    else
+        return CELL_HEIGHT_NORMAL;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -123,11 +142,12 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Offer *offer = [offerArray objectAtIndex:indexPath.section];
     CAOfferCell *customCell = (CAOfferCell*)cell;
 
     customCell.backgroundView = [[UIView alloc] initWithFrame:customCell.frame];
     
-    [customCell initByOfferModel:nil];
+    [customCell initByOfferModel:offer];
 }
 
 -(void) tableView:(UITableView*) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

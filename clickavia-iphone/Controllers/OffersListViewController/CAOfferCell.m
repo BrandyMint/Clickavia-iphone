@@ -16,8 +16,7 @@
 {
     Offer *_offer;
     
-    UIView *flightToBlockView;
-    UIView *flightReturnBlockView;
+    UIView *blockView;
     
     UILabel *airlineTitleLabel;
     UILabel *airlineCodeLabel;
@@ -36,7 +35,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
+        
     }
     return self;
 }
@@ -64,20 +63,40 @@
     self.backgroundView.layer.shadowRadius = 1;
     self.backgroundView.layer.shadowOpacity = 0.7;
     [self.backgroundView setClipsToBounds:NO];
-    
     self.backgroundView.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
+    
+
+    blockView = [[UIView alloc] init];
+    blockView.backgroundColor = [UIColor whiteColor];
+    if(!_offer.isSpecial)   {
+        [blockView.layer setCornerRadius:6];
+        blockView.layer.shadowColor = [[UIColor colorWithRed:71.0/255.0 green:71.0/255.0 blue:71.0/255.0 alpha:1.0] CGColor];
+        blockView.layer.shadowOffset = CGSizeMake(0.0, -1.0);
+        blockView.layer.shadowRadius = 1;
+        blockView.layer.shadowOpacity = 0.7;
+        [blockView setClipsToBounds:NO];
+    }
+    else    {
+        UILabel *specialTitle = [[UILabel alloc] initWithFrame:CGRectMake(6, 1, 0, 0)];
+        specialTitle.backgroundColor = [UIColor clearColor];
+        specialTitle.textColor = [UIColor whiteColor];
+        specialTitle.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10];
+        specialTitle.text = @"СПЕЦПРЕДЛОЖЕНИЕ";
+        [self.backgroundView addSubview:specialTitle];
+        [specialTitle sizeToFit];
+    }
+    
+    [self.backgroundView addSubview:blockView];
+    
+    [self createFlightBlock];
 }
 
--(UIView*) createFlightBlock:(BOOL)isReturn
+-(UIView*) createFlightBlock
 {
-    UIView *blockView;
-    if(isReturn)
-        blockView = flightReturnBlockView;
-    else
-        blockView = flightToBlockView;
-    
-    if(blockView == nil)    {
-        blockView = [[UIView alloc] init];
+    if(!_offer.isSpecial)
+        blockView.frame = CGRectMake(0, 0, self.frame.size.width-18, CELL_HEIGHT_NORMAL+2);
+    else    {
+        blockView.frame = CGRectMake(0, (CELL_HEIGHT_SPECIAL-CELL_HEIGHT_NORMAL)/2, self.frame.size.width-18, CELL_HEIGHT_NORMAL+2);
     }
     
     if(airlineTitleLabel == nil)    {

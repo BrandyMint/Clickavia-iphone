@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CAManagers/Offer.h>
 
-#define CELL_HEIGHT_NORMAL 60
-#define CELL_HEIGHT_SPECIAL 80
+#define CELL_HEIGHT_NORMAL 100
+#define CELL_HEIGHT_SPECIAL 130
 
 typedef enum {
     kAirlineTitle = 1,
