@@ -36,6 +36,13 @@
 		7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A30E17A67B490055FF8F /* QuartzCore.framework */; };
 		7C16A31517A67BF00055FF8F /* CASpecialOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */; };
 		7C16A31617A67BF00055FF8F /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */; };
+		7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */; };
+		7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */; };
+		7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */; };
+		7C2670B417CB1FAE002EE876 /* local.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AD17CB1FAE002EE876 /* local.png */; };
+		7C2670B517CB1FAE002EE876 /* local@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AE17CB1FAE002EE876 /* local@2x.png */; };
+		7C2670B617CB1FAE002EE876 /* what.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AF17CB1FAE002EE876 /* what.png */; };
+		7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670B017CB1FAE002EE876 /* what@2x.png */; };
 		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +96,13 @@
 		7C16A31217A67BF00055FF8F /* CASpecialOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOffersViewController.h; sourceTree = "<group>"; };
 		7C16A31317A67BF00055FF8F /* CASpecialOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOffersViewController.m; sourceTree = "<group>"; };
 		7C16A31417A67BF00055FF8F /* CASpecialOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOffersViewController.xib; sourceTree = "<group>"; };
+		7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatTableCellView.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatTableCellView.xib; sourceTree = SOURCE_ROOT; };
+		7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatViewController.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController.xib; sourceTree = SOURCE_ROOT; };
+		7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "BMChatViewController~iPad.xib"; path = "Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController~iPad.xib"; sourceTree = SOURCE_ROOT; };
+		7C2670AD17CB1FAE002EE876 /* local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = local.png; path = Pods/BMChat/BMChat/BMChat.bundle/local.png; sourceTree = SOURCE_ROOT; };
+		7C2670AE17CB1FAE002EE876 /* local@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "local@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/local@2x.png"; sourceTree = SOURCE_ROOT; };
+		7C2670AF17CB1FAE002EE876 /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
+		7C2670B017CB1FAE002EE876 /* what@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "what@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/what@2x.png"; sourceTree = SOURCE_ROOT; };
 		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -217,6 +231,13 @@
 		7C16A2EA17A648B20055FF8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */,
+				7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */,
+				7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */,
+				7C2670AD17CB1FAE002EE876 /* local.png */,
+				7C2670AE17CB1FAE002EE876 /* local@2x.png */,
+				7C2670AF17CB1FAE002EE876 /* what.png */,
+				7C2670B017CB1FAE002EE876 /* what@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -376,6 +397,13 @@
 				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
 				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
 				6639CA0817C5E6BF00CF772D /* CASpecialOfferCell.xib in Resources */,
+				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
+				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
+				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
+				7C2670B417CB1FAE002EE876 /* local.png in Resources */,
+				7C2670B517CB1FAE002EE876 /* local@2x.png in Resources */,
+				7C2670B617CB1FAE002EE876 /* what.png in Resources */,
+				7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
