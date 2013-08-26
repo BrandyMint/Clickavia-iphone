@@ -34,7 +34,8 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
+    //self.navigationController.navigationBarHidden = YES;
+    self.title = @"Москва - Краснодар";
     
     NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
     
@@ -47,6 +48,12 @@
                                  title:@"обратно"
                             withTarget:nil];
     [self.view addSubview:columnArrivialControlView];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    tableOffers.frame = CGRectMake(1, columnArrivialControlView.frame.origin.y+columnArrivialControlView.frame.size.height,
+                                   self.view.frame.size.width-2, 170);
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +86,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 100;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
