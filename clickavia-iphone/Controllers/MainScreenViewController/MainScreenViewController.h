@@ -12,7 +12,7 @@
 #import <CACalendarView/CACalendarView.h>
 #import "CACalendarMockDates.h"
 
-@interface MainScreenViewController : UIViewController
+@interface MainScreenViewController : UIViewController <CACalendarViewDelegate,CAFieldCompleteViewDelegate>
 
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* departureCompleteView;
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* returnCompleteView;

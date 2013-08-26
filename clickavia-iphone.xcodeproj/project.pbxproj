@@ -26,7 +26,6 @@
 		7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A30E17A67B490055FF8F /* QuartzCore.framework */; };
 		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
 		8C2014C217CB692D0061E2D5 /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014AD17CB692D0061E2D5 /* CAAppDelegate.m */; };
-		8C2014C317CB692D0061E2D5 /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014B117CB692D0061E2D5 /* CACalendarMockDates.m */; };
 		8C2014C417CB692D0061E2D5 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014B317CB692D0061E2D5 /* MainScreenViewController.m */; };
 		8C2014C517CB692D0061E2D5 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2014B417CB692D0061E2D5 /* MainScreenViewController.xib */; };
 		8C2014C617CB692D0061E2D5 /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014B717CB692D0061E2D5 /* CAOfferCell.m */; };
@@ -36,6 +35,7 @@
 		8C2014CA17CB692D0061E2D5 /* CASpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2014BE17CB692D0061E2D5 /* CASpecialOfferCell.xib */; };
 		8C2014CB17CB692D0061E2D5 /* CASpecialOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014C017CB692D0061E2D5 /* CASpecialOffersViewController.m */; };
 		8C2014CC17CB692D0061E2D5 /* CASpecialOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2014C117CB692D0061E2D5 /* CASpecialOffersViewController.xib */; };
+		8C2014CF17CB6F8D0061E2D5 /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2014CE17CB6F8C0061E2D5 /* CACalendarMockDates.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,6 @@
 		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
 		8C2014AC17CB692D0061E2D5 /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
 		8C2014AD17CB692D0061E2D5 /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
-		8C2014B017CB692D0061E2D5 /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarMockDates.h; sourceTree = "<group>"; };
-		8C2014B117CB692D0061E2D5 /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarMockDates.m; sourceTree = "<group>"; };
 		8C2014B217CB692D0061E2D5 /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
 		8C2014B317CB692D0061E2D5 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
 		8C2014B417CB692D0061E2D5 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
@@ -87,6 +85,8 @@
 		8C2014BF17CB692D0061E2D5 /* CASpecialOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecialOffersViewController.h; sourceTree = "<group>"; };
 		8C2014C017CB692D0061E2D5 /* CASpecialOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecialOffersViewController.m; sourceTree = "<group>"; };
 		8C2014C117CB692D0061E2D5 /* CASpecialOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecialOffersViewController.xib; sourceTree = "<group>"; };
+		8C2014CD17CB6F8C0061E2D5 /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACalendarMockDates.h; sourceTree = "<group>"; };
+		8C2014CE17CB6F8C0061E2D5 /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACalendarMockDates.m; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -243,8 +243,8 @@
 		8C2014AF17CB692D0061E2D5 /* MainScreenViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8C2014B017CB692D0061E2D5 /* CACalendarMockDates.h */,
-				8C2014B117CB692D0061E2D5 /* CACalendarMockDates.m */,
+				8C2014CD17CB6F8C0061E2D5 /* CACalendarMockDates.h */,
+				8C2014CE17CB6F8C0061E2D5 /* CACalendarMockDates.m */,
 				8C2014B217CB692D0061E2D5 /* MainScreenViewController.h */,
 				8C2014B317CB692D0061E2D5 /* MainScreenViewController.m */,
 				8C2014B417CB692D0061E2D5 /* MainScreenViewController.xib */,
@@ -424,12 +424,12 @@
 				7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
 				8C2014C217CB692D0061E2D5 /* CAAppDelegate.m in Sources */,
-				8C2014C317CB692D0061E2D5 /* CACalendarMockDates.m in Sources */,
 				8C2014C417CB692D0061E2D5 /* MainScreenViewController.m in Sources */,
 				8C2014C617CB692D0061E2D5 /* CAOfferCell.m in Sources */,
 				8C2014C717CB692D0061E2D5 /* CAOffersListViewController.m in Sources */,
 				8C2014C917CB692D0061E2D5 /* CASpecialOfferCell.m in Sources */,
 				8C2014CB17CB692D0061E2D5 /* CASpecialOffersViewController.m in Sources */,
+				8C2014CF17CB6F8D0061E2D5 /* CACalendarMockDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

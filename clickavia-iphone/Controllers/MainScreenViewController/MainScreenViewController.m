@@ -33,11 +33,11 @@
     _cm.delay = 10;
     _departureDestination = [Destination new];
     _returnDestination = [Destination new];
-    _departureCompleteView.isReturn = NO;
-    _departureCompleteView.delegate = self;
-    _returnCompleteView.delegate = self;
-    _returnCompleteView.isReturn = YES;
-    
+    _departureCompleteView.offsetTopForAutocomplete = _departureCompleteView.frame.origin.y+_departureCompleteView.frame.size.height;
+    _returnCompleteView.offsetTopForAutocomplete = _returnCompleteView.frame.origin.y+_departureCompleteView.frame.size.height;
+    _departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
+    _returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
+   
     [_calendarView setDelegate:self];
     [_calendarView selectFlyToDaysByDateArray:[CACalendarMockDates generateFlyToDates]];
     [_calendarView selectFlyReturnDaysByDateArray:[CACalendarMockDates generateFlyReturnDates:[NSDate date]]];
