@@ -8,7 +8,7 @@
 
 #import "CAAppDelegate.h"
 
-#import "CASpecialOffersViewController.h"
+#import "CASpecOffersViewController.h"
 #import "CAOffersListViewController.h"
 #import "MainScreenViewController.h"
 #import "ChatViewController.h"
@@ -24,7 +24,7 @@
 
 @interface CAAppDelegate()
 
-@property (nonatomic, strong) CASpecialOffersViewController *specialOfferViewController;
+@property (nonatomic, strong) CASpecOffersViewController *specialOfferViewController;
 @property (nonatomic, strong) CAOffersListViewController *offerListViewController;
 @property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
 
@@ -46,7 +46,7 @@
     _rootTabBarController = [[AKTabBarController alloc] initWithTabBarHeight: 35];
     [_rootTabBarController setMinimumHeightToDisplayTitle: 40.0];
     
-    _specialOfferViewController = [[CASpecialOffersViewController alloc] init];
+    _specialOfferViewController = [[CASpecOffersViewController alloc] init];
     _offerListViewController = [[CAOffersListViewController alloc] init];
     _mainScreenViewController = [[MainScreenViewController alloc] init];
     

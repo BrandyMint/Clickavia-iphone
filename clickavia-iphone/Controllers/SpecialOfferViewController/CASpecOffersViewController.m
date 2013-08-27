@@ -1,20 +1,28 @@
 //
-//  CASpecialOffersViewController.m
-//  clickavia-iphone
+//  CASpecOffersViewController.m
+//  CASpecialOffers
 //
-//  Created by denisdbv@gmail.com on 29.07.13.
-//  Copyright (c) 2013 brandymint. All rights reserved.
+//  Created by denisdbv@gmail.com on 25.06.13.
+//  Copyright (c) 2013 denisdbv@gmail.com. All rights reserved.
 //
 
-#import "CASpecialOffersViewController.h"
-#import <CASpecialOffers/CAScrollableTabView.h>
+#import "CASpecOffersViewController.h"
+#import "CAScrollableTabView.h"
+#import "SpecialOfferCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <QuartzCore/QuartzCore.h>
+#import "CAColor.h"
 
-@interface CASpecialOffersViewController ()
+@interface CASpecOffersViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleText;
+@property (retain, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundCity;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundCountry;
 
 @end
 
-@implementation CASpecialOffersViewController
+@implementation CASpecOffersViewController
 {
     SpecialOffersManager *specOfferManager;
     
@@ -29,12 +37,17 @@
     
     NSArray *offersContainer;
 }
+
 @synthesize offerCell;
+@synthesize backgroundImage, titleText;
+@synthesize backgroundCity, backgroundCountry;
+@synthesize tabCities, tabCountries, tabTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+       
         // Custom initialization
     }
     return self;
@@ -43,36 +56,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    backgroundImage.frame = self.view.frame;
     
-    self.navigationController.navigationBarHidden = YES;
+    titleText.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    titleText.textColor = [UIColor COLOR_TITLE_TEXT];
+    
+    titleText.layer.shadowOpacity = 0.4f;
+    titleText.layer.shadowRadius = 0.0f;
+    titleText.layer.shadowColor = [[UIColor COLOR_TITLE_TEXT_SHADOW] CGColor];
+    titleText.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
     
     specOfferManager = [[SpecialOffersManager alloc] init];
     cities = [[NSMutableArray alloc] init];
     countries = [[NSMutableArray alloc] init];
     
-    self.tabCities.delegate = (id)self;
-    self.tabCountries.delegate = (id)self;
-    
     [self reloadCities];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark -
-#pragma mark Tab Bar delegate methods
 
 - (NSString *)tabTitle
 {
 	return @"Спец. предл.";
 }
 
--(NSString*)tabImageName
+- (void)didReceiveMemoryWarning
 {
-    return nil;
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(void) reloadCities
@@ -154,16 +163,6 @@
     return nil;
 }
 
-- (UIColor *)lightColorInScrollableView:(CAScrollableTabView *)tabView
-{
-    return [UIColor colorWithRed:0.0706f green:0.1529f blue:0.4235f alpha:1.0f];
-}
-
-- (UIColor *)darkColorInScrollableView:(CAScrollableTabView *)tabView
-{
-    return [UIColor colorWithRed:0.258f green:0.639f blue:0.890f alpha:1.0f];
-}
-
 - (void)scrollableTabView:(CAScrollableTabView *)tabView didSelectItemAtIndex:(NSInteger)index
 {
     if(tabView == self.tabCities)
@@ -182,6 +181,7 @@
 -(IBAction) onRefresh:(id)sender
 {
     [self.tabCities reloadData:cities];
+    [self.tabCities setSelectedItemIndex:0];
 }
 
 #pragma mark
@@ -199,7 +199,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 68;
+    return 56;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -207,36 +207,29 @@
     return 1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if(section == 0)
-        return 6;
-    else
-        return 3;
-}
-
 -(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"SpecialOfferCell";
     
-    CASpecialOfferCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SpecialOfferCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        [[NSBundle mainBundle] loadNibNamed:@"CASpecialOfferCell" owner:self options:nil];
+        [[NSBundle mainBundle] loadNibNamed:@"SpecialOfferCell" owner:self options:nil];
         cell = offerCell;
+        
+
+        cell.bounds = self.view.frame;
+        
 		self.offerCell = nil;
     }
-    
+
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CASpecialOfferCell *customCell = (CASpecialOfferCell*)cell;
+    SpecialOfferCell *customCell = (SpecialOfferCell*)cell;
     
-    customCell.backgroundView = [[UIView alloc] initWithFrame:customCell.frame];
-    customCell.backgroundView.backgroundColor = [UIColor whiteColor];
-    
-    SpecialOffer *specialOffer = [offersContainer objectAtIndex:indexPath.row];
+    SpecialOffer *specialOffer = [offersContainer objectAtIndex:indexPath.section];
     [customCell initByOfferModel:specialOffer];
 }
 
@@ -245,9 +238,5 @@
     //
 }
 
--(IBAction) onBack:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 @end
