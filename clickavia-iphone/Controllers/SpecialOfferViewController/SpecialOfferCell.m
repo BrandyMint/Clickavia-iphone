@@ -69,9 +69,9 @@
 
 -(void) initByOfferModel:(SpecialOffer*)offer
 {        
-    self.contentView.backgroundColor = [[UIColor alloc] initWithCGColor:[[UIColor whiteColor] CGColor] ];
+    self.contentView.backgroundColor = [[UIColor alloc] initWithCGColor:[[UIColor COLOR_STANDART_FON_CELL] CGColor] ];
     [self.contentView.layer setCornerRadius:6];
-    self.contentView.layer.shadowColor = [[UIColor colorWithRed:71.0/255.0 green:71.0/255.0 blue:71.0/255.0 alpha:1.0] CGColor];
+    self.contentView.layer.shadowColor = [[COLOR_CELL_SHADOW ] CGColor];
     self.contentView.layer.shadowOffset = CGSizeMake(0.0, 1.0);
     self.contentView.layer.shadowRadius = 1;
     self.contentView.layer.shadowOpacity = 0.7;
