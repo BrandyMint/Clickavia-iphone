@@ -8,7 +8,7 @@
 
 #import "SpecialOfferCell.h"
 #import <QuartzCore/QuartzCore.h>
-#import "CAColor.h"
+#import "CAColorSpecOffers.h"
 
 
 //Отступы в таблице слева и справа до view

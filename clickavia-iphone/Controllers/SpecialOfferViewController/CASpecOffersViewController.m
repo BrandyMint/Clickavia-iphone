@@ -11,7 +11,7 @@
 #import "SpecialOfferCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <QuartzCore/QuartzCore.h>
-#import "CAColor.h"
+#import "CAColorSpecOffers.h"
 
 @interface CASpecOffersViewController ()
 
@@ -71,6 +71,16 @@
     countries = [[NSMutableArray alloc] init];
     
     [self reloadCities];
+    
+    backgroundCity.layer.shadowOpacity = 1.0f;
+    backgroundCity.layer.shadowRadius = 0.0f;
+    backgroundCity.layer.shadowColor = [[COLOR_SCROLLVIEW_SPECOFFERS_CITY_SHADOW] CGColor];
+    backgroundCity.layer.shadowOffset = CGSizeMake(0.0f, -1.0f);
+    
+    backgroundCountry.layer.shadowOpacity = 1.0f;
+    backgroundCountry.layer.shadowRadius = 0.0f;
+    backgroundCountry.layer.shadowColor = [[COLOR_SCROLLVIEW_SPECOFFERS_COUNTRY_SHADOW] CGColor];
+    backgroundCountry.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
 }
 
 - (NSString *)tabTitle
