@@ -21,14 +21,6 @@
 #define COLOR_STANDART_FON_CELL colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f
 #define COLOR_CELL_SHADOW UIColor colorWithRed:71.0/255.0 green:71.0/255.0 blue:71.0/255.0 alpha:1.0
 
-//CAScrollableTab
-#define COLOR_SUBTITLE_LABLE colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.7f
-#define COLOR_SUBTITLE_LABLE_SHADOW colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f
-#define COLOR_TITLE_COUNTRY colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f
-#define COLOR_TITLE_COUNTRY_SHADOW colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f
-#define COLOR_TITLE_COUNTRY_INACTIVE colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.9f
-#define COLOR_TITLE_COUNTRY_INACTIVE_SHADOW colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.4f
-#define COLOR_TITLE_CITY colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f
-#define COLOR_TITLE_CITY_SHADOW colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.4f
-#define COLOR_TITLE_CITY_INACTIVE colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.7f
-#define COLOR_TITLE_CITY_INACTIVE_SHADOW colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.4f
+//CASpecOffersViewController
+#define COLOR_SCROLLVIEW_SPECOFFERS_CITY_SHADOW UIColor colorWithRed:98.0f/255.0f green:155.0f/255.0f blue:20.0f/255.0f alpha:1
+#define COLOR_SCROLLVIEW_SPECOFFERS_COUNTRY_SHADOW UIColor colorWithRed:57.0f/255.0f green:57.0f/255.0f blue:57.0f/255.0f alpha:1
