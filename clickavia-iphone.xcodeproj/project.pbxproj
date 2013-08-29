@@ -46,6 +46,16 @@
 		7C2670B617CB1FAE002EE876 /* what.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AF17CB1FAE002EE876 /* what.png */; };
 		7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670B017CB1FAE002EE876 /* what@2x.png */; };
 		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
+		83944D7917CF385700DAC5D7 /* background-gray-textured.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D6F17CF385700DAC5D7 /* background-gray-textured.png */; };
+		83944D7A17CF385700DAC5D7 /* background-gray-textured@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7017CF385700DAC5D7 /* background-gray-textured@2x.png */; };
+		83944D7B17CF385700DAC5D7 /* bar-green-cold.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7117CF385700DAC5D7 /* bar-green-cold.png */; };
+		83944D7C17CF385700DAC5D7 /* bar-green-cold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7217CF385700DAC5D7 /* bar-green-cold@2x.png */; };
+		83944D7D17CF385700DAC5D7 /* bar-green-warm.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7317CF385700DAC5D7 /* bar-green-warm.png */; };
+		83944D7E17CF385700DAC5D7 /* bar-green-warm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7417CF385700DAC5D7 /* bar-green-warm@2x.png */; };
+		83944D7F17CF385700DAC5D7 /* specials-card-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7517CF385700DAC5D7 /* specials-card-red.png */; };
+		83944D8017CF385700DAC5D7 /* specials-card-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7617CF385700DAC5D7 /* specials-card-red@2x.png */; };
+		83944D8117CF385700DAC5D7 /* specials-country-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7717CF385700DAC5D7 /* specials-country-selected.png */; };
+		83944D8217CF385700DAC5D7 /* specials-country-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83944D7817CF385700DAC5D7 /* specials-country-selected@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +120,16 @@
 		7C2670AF17CB1FAE002EE876 /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
 		7C2670B017CB1FAE002EE876 /* what@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "what@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/what@2x.png"; sourceTree = SOURCE_ROOT; };
 		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
+		83944D6F17CF385700DAC5D7 /* background-gray-textured.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-gray-textured.png"; path = "SpecialOffer.bundle/background-gray-textured.png"; sourceTree = "<group>"; };
+		83944D7017CF385700DAC5D7 /* background-gray-textured@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-gray-textured@2x.png"; path = "SpecialOffer.bundle/background-gray-textured@2x.png"; sourceTree = "<group>"; };
+		83944D7117CF385700DAC5D7 /* bar-green-cold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-green-cold.png"; path = "SpecialOffer.bundle/bar-green-cold.png"; sourceTree = "<group>"; };
+		83944D7217CF385700DAC5D7 /* bar-green-cold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-green-cold@2x.png"; path = "SpecialOffer.bundle/bar-green-cold@2x.png"; sourceTree = "<group>"; };
+		83944D7317CF385700DAC5D7 /* bar-green-warm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-green-warm.png"; path = "SpecialOffer.bundle/bar-green-warm.png"; sourceTree = "<group>"; };
+		83944D7417CF385700DAC5D7 /* bar-green-warm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-green-warm@2x.png"; path = "SpecialOffer.bundle/bar-green-warm@2x.png"; sourceTree = "<group>"; };
+		83944D7517CF385700DAC5D7 /* specials-card-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-card-red.png"; path = "SpecialOffer.bundle/specials-card-red.png"; sourceTree = "<group>"; };
+		83944D7617CF385700DAC5D7 /* specials-card-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-card-red@2x.png"; path = "SpecialOffer.bundle/specials-card-red@2x.png"; sourceTree = "<group>"; };
+		83944D7717CF385700DAC5D7 /* specials-country-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected.png"; path = "SpecialOffer.bundle/specials-country-selected.png"; sourceTree = "<group>"; };
+		83944D7817CF385700DAC5D7 /* specials-country-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected@2x.png"; path = "SpecialOffer.bundle/specials-country-selected@2x.png"; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -271,6 +291,16 @@
 				666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */,
 				666C60DE17CCDFA9008220AC /* drawArrowView.h */,
 				666C60DF17CCDFA9008220AC /* drawArrowView.m */,
+				83944D6F17CF385700DAC5D7 /* background-gray-textured.png */,
+				83944D7017CF385700DAC5D7 /* background-gray-textured@2x.png */,
+				83944D7117CF385700DAC5D7 /* bar-green-cold.png */,
+				83944D7217CF385700DAC5D7 /* bar-green-cold@2x.png */,
+				83944D7317CF385700DAC5D7 /* bar-green-warm.png */,
+				83944D7417CF385700DAC5D7 /* bar-green-warm@2x.png */,
+				83944D7517CF385700DAC5D7 /* specials-card-red.png */,
+				83944D7617CF385700DAC5D7 /* specials-card-red@2x.png */,
+				83944D7717CF385700DAC5D7 /* specials-country-selected.png */,
+				83944D7817CF385700DAC5D7 /* specials-country-selected@2x.png */,
 				666C60E017CCDFA9008220AC /* SpecialOffer.bundle */,
 				666C60E117CCDFA9008220AC /* SpecialOfferCell.h */,
 				666C60E217CCDFA9008220AC /* SpecialOfferCell.m */,
@@ -415,6 +445,16 @@
 				666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */,
 				666C60E717CCDFA9008220AC /* SpecialOffer.bundle in Resources */,
 				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
+				83944D7917CF385700DAC5D7 /* background-gray-textured.png in Resources */,
+				83944D7A17CF385700DAC5D7 /* background-gray-textured@2x.png in Resources */,
+				83944D7B17CF385700DAC5D7 /* bar-green-cold.png in Resources */,
+				83944D7C17CF385700DAC5D7 /* bar-green-cold@2x.png in Resources */,
+				83944D7D17CF385700DAC5D7 /* bar-green-warm.png in Resources */,
+				83944D7E17CF385700DAC5D7 /* bar-green-warm@2x.png in Resources */,
+				83944D7F17CF385700DAC5D7 /* specials-card-red.png in Resources */,
+				83944D8017CF385700DAC5D7 /* specials-card-red@2x.png in Resources */,
+				83944D8117CF385700DAC5D7 /* specials-country-selected.png in Resources */,
+				83944D8217CF385700DAC5D7 /* specials-country-selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,13 +630,13 @@
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -607,13 +647,13 @@
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
