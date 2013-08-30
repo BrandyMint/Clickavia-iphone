@@ -56,7 +56,8 @@
     _message_reciever.bmChatViewController = _chatViewController;
     
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
-                                            [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
+                                            //[[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
+                                            _specialOfferViewController,
                                             [[UINavigationController alloc] initWithRootViewController:_offerListViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_chatViewController],
