@@ -57,6 +57,7 @@
 {
     [super viewDidLoad];
     backgroundImage.frame = self.view.frame;
+    self.navigationController.navigationBarHidden = YES;
     
     titleText.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     titleText.textColor = [UIColor COLOR_TITLE_TEXT];
