@@ -19,6 +19,7 @@
 @interface CAOffersListViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (retain, nonatomic) IBOutlet CAOfferGreenBar *topGreenView;
+
 @property (weak, nonatomic) IBOutlet UILabel *topGreenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberFlights;
 
@@ -32,10 +33,15 @@
     Offer *offer1, *offer2, *offer3;
     
     BOOL isReturn;
-    NSUInteger factor;
+    //NSUInteger factor;
     CGRect mainFrame;
     UIBarButtonItem *onAddGreenBar;
+    UIBarButtonItem *onReturn;
     float heightTable;
+    NSUInteger counter;
+    UISwitch *returnFly;
+    UIView *viewOneWay;
+    UIView *viewOnBack;
 }
 @synthesize columnDepartureControlView, columnArrivialControlView;
 @synthesize tableOffers;
@@ -52,20 +58,9 @@
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    mainFrame = self.view.frame;
-
-    tableOffers.frame = CGRectMake(mainFrame.origin.x,
-                                   factor*columnDepartureControlView.frame.size.height + numberFlights.frame.size.height + 2*MARGIN_NUMBER_FLIGHT,
-                                   mainFrame.size.width,
-                                   heightTable);
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    isReturn = YES;
     self.navigationController.navigationBarHidden = NO;
     self.title = @"Москва - Краснодар";
     tableOffers.scrollEnabled = NO;
@@ -78,36 +73,12 @@
     onAddGreenBar = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(bar)];
     self.navigationItem.rightBarButtonItem = onAddGreenBar;
     
-    NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
+    returnFly = [[UISwitch alloc] init];
+    [returnFly addTarget:self action:@selector(switchToggled) forControlEvents: UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:returnFly];
+    self.navigationItem.leftBarButtonItem = item;
     
-    columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) title:@"туда" withTarget:nil];
-    columnDepartureControlView.delegate = (id)self;
-    [scroll addSubview:columnDepartureControlView];
-    
-    [columnDepartureControlView importFlights: departureFlights];
-    
-    if (isReturn) {
-        columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(columnDepartureControlView.frame.origin.x,
-                                                                                           columnDepartureControlView.frame.size.height,
-                                                                                           self.view.frame.size.width,
-                                                                                           columnDepartureControlView.frame.size.height)
-                                                                          title:@"обратно"
-                                                                     withTarget:nil];
-        [scroll addSubview:columnArrivialControlView];
-        factor = 2;
-    }
-    else{
-        factor = 1;
-    }
-    
-    numberFlights.text = @"Доступно перелетов: 3";
-    CGSize textSize = [numberFlights.text sizeWithFont:[UIFont fontWithName:@"Arial" size:14]];
-    numberFlights.frame = CGRectMake(0,
-                                     factor*columnDepartureControlView.frame.size.height + MARGIN_NUMBER_FLIGHT,
-                                     self.view.frame.size.width,
-                                     textSize.height);
-    
-    UITapGestureRecognizer *tapGreenBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushGreenBar)];
+    UITapGestureRecognizer *tapGreenBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bar)];
     [topGreenView addGestureRecognizer:tapGreenBar];
     topGreenView.userInteractionEnabled = YES;
     
@@ -123,52 +94,136 @@
     [offerArray addObject:offer3];
     
     heightTable = [self heightScrollView];
-    scroll.frame = CGRectMake(columnDepartureControlView.frame.origin.x,
-                              topGreenView.frame.size.height,
-                              scroll.frame.size.width,
-                              scroll.frame.size.height) ;
-    scroll.contentSize = CGSizeMake(mainFrame.size.width,
-                                    factor*columnDepartureControlView.frame.size.height + numberFlights.frame.size.height + 2*MARGIN_NUMBER_FLIGHT + heightTable);
-    NSLog(@">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> %f %f %d %f",
-          factor*columnDepartureControlView.frame.size.height, numberFlights.frame.size.height, 2*MARGIN_NUMBER_FLIGHT, heightTable);
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    mainFrame = self.view.frame;
+    NSInteger factor = [self factor];
     
-    [scroll setContentOffset:CGPointMake(0, factor*columnDepartureControlView.frame.size.height) animated:NO];
+    NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
+    
+    viewOneWay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 150)];
+    viewOnBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 300)];
+
+    columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 150) title:@"туда" withTarget:nil];
+    columnDepartureControlView.delegate = (id)self;
+    
+    [columnDepartureControlView importFlights: departureFlights];
+    
+    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 150, mainFrame.size.width, 150) title:@"обратно" withTarget:nil];
+    
+    numberFlights.text = @"Доступно перелетов: 3";
+    CGSize textSize = [numberFlights.text sizeWithFont:[UIFont fontWithName:@"Arial" size:14]];
+    numberFlights.frame = CGRectMake(mainFrame.origin.x,
+                                     viewOneWay.frame.size.height + MARGIN_NUMBER_FLIGHT,
+                                     mainFrame.size.width,
+                                     textSize.height);
+    
+    tableOffers.frame = CGRectMake(mainFrame.origin.x,
+                                   viewOneWay.frame.size.height + numberFlights.frame.size.height + 2*MARGIN_NUMBER_FLIGHT,
+                                   mainFrame.size.width,
+                                   heightTable);
+
+    
+    scroll.frame = CGRectMake(mainFrame.origin.x,
+                              mainFrame.origin.y,
+                              mainFrame.size.width,
+                              mainFrame.size.height) ;
+    scroll.contentSize = CGSizeMake(mainFrame.size.width,
+                                    viewOneWay.frame.size.height + heightTable + numberFlights.frame.size.height);
+    [scroll setContentOffset:CGPointMake(0, viewOneWay.frame.size.height - topGreenView.frame.size.height) animated:NO];
 }
 
 -(void)bar
 {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3f];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    topGreenLabel.alpha = topGreenView.alpha = 1;
-    [scroll setContentOffset:CGPointMake(0, factor*columnDepartureControlView.frame.size.height) animated:YES];
-    scroll.frame = CGRectMake(columnDepartureControlView.frame.origin.x,
-                              topGreenView.frame.size.height,
-                              scroll.frame.size.width,
-                              scroll.frame.size.height);
-    [UIView commitAnimations];
+    [self factor];
+    NSInteger heightFrame = 0;
+    if (isReturn) {
+        [viewOneWay removeFromSuperview];
+        [viewOnBack removeFromSuperview];
+        [viewOnBack addSubview:columnDepartureControlView];
+        [viewOnBack addSubview:columnArrivialControlView];
+        [scroll addSubview:viewOnBack];
+        heightFrame = viewOnBack.frame.size.height;
+        
+        numberFlights.frame = CGRectMake(mainFrame.origin.x,
+                                         heightFrame + MARGIN_NUMBER_FLIGHT,
+                                         numberFlights.frame.size.width,
+                                         numberFlights.frame.size.height);
+        
+        tableOffers.frame = CGRectMake(mainFrame.origin.x,
+                                       heightFrame + numberFlights.frame.size.height + 2*MARGIN_NUMBER_FLIGHT,
+                                       tableOffers.frame.size.width,
+                                       tableOffers.frame.size.height);
+    }
+    else {
+        [viewOneWay removeFromSuperview];
+        [viewOnBack removeFromSuperview];
+        [viewOneWay addSubview:columnDepartureControlView];
+        [scroll addSubview:viewOneWay];
+        heightFrame = viewOneWay.frame.size.height;
+        
+        numberFlights.frame = CGRectMake(mainFrame.origin.x,
+                                         heightFrame + MARGIN_NUMBER_FLIGHT,
+                                         numberFlights.frame.size.width,
+                                         numberFlights.frame.size.height);
+        
+        tableOffers.frame = CGRectMake(mainFrame.origin.x,
+                                       heightFrame + numberFlights.frame.size.height + 2*MARGIN_NUMBER_FLIGHT,
+                                       tableOffers.frame.size.width,
+                                       tableOffers.frame.size.height);
+    }
+    
+    counter++;
+    if (counter%2 == 0) {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3f];
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        topGreenLabel.alpha = topGreenView.alpha = 1;
+        [scroll setContentOffset:CGPointMake(0, heightFrame - topGreenView.frame.size.height) animated:YES];
+        /*
+        scroll.frame = CGRectMake(columnDepartureControlView.frame.origin.x,
+                                  topGreenView.frame.size.height,
+                                  scroll.frame.size.width,
+                                  scroll.frame.size.height);
+         */
+        [UIView commitAnimations];
+
+    }
+    else {
+        counter = 1;
+        [scroll setContentOffset:CGPointMake(0, 0) animated:YES];
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.5f];
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        topGreenLabel.alpha = topGreenView.alpha = 0;
+        /*
+        scroll.frame = CGRectMake(columnDepartureControlView.frame.origin.x,
+                                   0,
+                                   scroll.frame.size.width,
+                                   scroll.frame.size.height);
+         */
+        [UIView commitAnimations];
+    }
 }
 
--(void) pushGreenBar
+-(void)switchToggled
 {
-    [scroll setContentOffset:CGPointMake(0, 0) animated:YES];
-        
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5f];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    topGreenLabel.alpha = topGreenView.alpha = 0;
-    scroll.frame = CGRectMake(columnDepartureControlView.frame.origin.x,
-                              0,
-                              scroll.frame.size.width,
-                              scroll.frame.size.height);
-    [UIView commitAnimations];
-        
-    if (isReturn) {
-        factor = 2;
+    [self factor];
+}
+
+-(NSInteger )factor
+{
+    if ([returnFly isOn]) {
+        isReturn = YES;
+        NSLog(@"on");
+        return 2;
     }
-    else{
-        factor = 1;
-    }
+    isReturn = NO;
+    NSLog(@"off");
+    return 1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -262,6 +317,7 @@
         }
         heightScroll += MARGIN_NUMBER_FLIGHT;  
     }
+    heightScroll += 2*MARGIN_NUMBER_FLIGHT;
     return heightScroll;
 }
 
