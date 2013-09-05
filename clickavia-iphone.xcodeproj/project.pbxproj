@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
+		66308B9717D5BF7000B2510C /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */; };
 		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
 		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
 		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
@@ -16,10 +17,19 @@
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
 		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
 		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
+		663C335517D0CF78002CAE26 /* background-gray-textured.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C334B17D0CF78002CAE26 /* background-gray-textured.png */; };
+		663C335617D0CF78002CAE26 /* background-gray-textured@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C334C17D0CF78002CAE26 /* background-gray-textured@2x.png */; };
+		663C335717D0CF78002CAE26 /* bar-green-cold.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C334D17D0CF78002CAE26 /* bar-green-cold.png */; };
+		663C335817D0CF78002CAE26 /* bar-green-cold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C334E17D0CF78002CAE26 /* bar-green-cold@2x.png */; };
+		663C335917D0CF78002CAE26 /* bar-green-warm.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C334F17D0CF78002CAE26 /* bar-green-warm.png */; };
+		663C335A17D0CF78002CAE26 /* bar-green-warm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335017D0CF78002CAE26 /* bar-green-warm@2x.png */; };
+		663C335B17D0CF78002CAE26 /* specials-card-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335117D0CF78002CAE26 /* specials-card-red.png */; };
+		663C335C17D0CF78002CAE26 /* specials-card-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335217D0CF78002CAE26 /* specials-card-red@2x.png */; };
+		663C335D17D0CF78002CAE26 /* specials-country-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335317D0CF78002CAE26 /* specials-country-selected.png */; };
+		663C335E17D0CF78002CAE26 /* specials-country-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335417D0CF78002CAE26 /* specials-country-selected@2x.png */; };
 		666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */; };
 		666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */; };
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
-		666C60E717CCDFA9008220AC /* SpecialOffer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E017CCDFA9008220AC /* SpecialOffer.bundle */; };
 		666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60E217CCDFA9008220AC /* SpecialOfferCell.m */; };
 		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
 		7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
@@ -59,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66308B9517D5BF7000B2510C /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
+		66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
 		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -73,13 +85,22 @@
 		6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = "clickavia-iphone/Application/CAAppDelegate.m"; sourceTree = SOURCE_ROOT; };
 		6639CA0E17C5FE5600CF772D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.h"; sourceTree = SOURCE_ROOT; };
 		6639CA0F17C5FE5600CF772D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.m"; sourceTree = SOURCE_ROOT; };
+		663C334B17D0CF78002CAE26 /* background-gray-textured.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-gray-textured.png"; sourceTree = "<group>"; };
+		663C334C17D0CF78002CAE26 /* background-gray-textured@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-gray-textured@2x.png"; sourceTree = "<group>"; };
+		663C334D17D0CF78002CAE26 /* bar-green-cold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-green-cold.png"; sourceTree = "<group>"; };
+		663C334E17D0CF78002CAE26 /* bar-green-cold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-green-cold@2x.png"; sourceTree = "<group>"; };
+		663C334F17D0CF78002CAE26 /* bar-green-warm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-green-warm.png"; sourceTree = "<group>"; };
+		663C335017D0CF78002CAE26 /* bar-green-warm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-green-warm@2x.png"; sourceTree = "<group>"; };
+		663C335117D0CF78002CAE26 /* specials-card-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-card-red.png"; sourceTree = "<group>"; };
+		663C335217D0CF78002CAE26 /* specials-card-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-card-red@2x.png"; sourceTree = "<group>"; };
+		663C335317D0CF78002CAE26 /* specials-country-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-country-selected.png"; sourceTree = "<group>"; };
+		663C335417D0CF78002CAE26 /* specials-country-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-country-selected@2x.png"; sourceTree = "<group>"; };
 		666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColorSpecOffers.h; sourceTree = "<group>"; };
 		666C60DB17CCDFA9008220AC /* CASpecOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecOffersViewController.h; sourceTree = "<group>"; };
 		666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecOffersViewController.m; sourceTree = "<group>"; };
 		666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecOffersViewController.xib; sourceTree = "<group>"; };
 		666C60DE17CCDFA9008220AC /* drawArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawArrowView.h; sourceTree = "<group>"; };
 		666C60DF17CCDFA9008220AC /* drawArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drawArrowView.m; sourceTree = "<group>"; };
-		666C60E017CCDFA9008220AC /* SpecialOffer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SpecialOffer.bundle; sourceTree = "<group>"; };
 		666C60E117CCDFA9008220AC /* SpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOfferCell.h; sourceTree = "<group>"; };
 		666C60E217CCDFA9008220AC /* SpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOfferCell.m; sourceTree = "<group>"; };
 		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
@@ -142,6 +163,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		663C334A17D0CF78002CAE26 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				663C334B17D0CF78002CAE26 /* background-gray-textured.png */,
+				663C334C17D0CF78002CAE26 /* background-gray-textured@2x.png */,
+				663C334D17D0CF78002CAE26 /* bar-green-cold.png */,
+				663C334E17D0CF78002CAE26 /* bar-green-cold@2x.png */,
+				663C334F17D0CF78002CAE26 /* bar-green-warm.png */,
+				663C335017D0CF78002CAE26 /* bar-green-warm@2x.png */,
+				663C335117D0CF78002CAE26 /* specials-card-red.png */,
+				663C335217D0CF78002CAE26 /* specials-card-red@2x.png */,
+				663C335317D0CF78002CAE26 /* specials-country-selected.png */,
+				663C335417D0CF78002CAE26 /* specials-country-selected@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7C16A2A117A648290055FF8F = {
 			isa = PBXGroup;
 			children = (
@@ -271,10 +309,10 @@
 				666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */,
 				666C60DE17CCDFA9008220AC /* drawArrowView.h */,
 				666C60DF17CCDFA9008220AC /* drawArrowView.m */,
-				666C60E017CCDFA9008220AC /* SpecialOffer.bundle */,
 				666C60E117CCDFA9008220AC /* SpecialOfferCell.h */,
 				666C60E217CCDFA9008220AC /* SpecialOfferCell.m */,
 				666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */,
+				663C334A17D0CF78002CAE26 /* Resources */,
 			);
 			path = SpecialOfferViewController;
 			sourceTree = "<group>";
@@ -310,6 +348,8 @@
 				6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */,
 				6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */,
 				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
+				66308B9517D5BF7000B2510C /* CAOfferGreenBar.h */,
+				66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */,
 			);
 			name = OffersListViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -413,8 +453,17 @@
 				7C2670B617CB1FAE002EE876 /* what.png in Resources */,
 				7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */,
 				666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */,
-				666C60E717CCDFA9008220AC /* SpecialOffer.bundle in Resources */,
 				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
+				663C335517D0CF78002CAE26 /* background-gray-textured.png in Resources */,
+				663C335617D0CF78002CAE26 /* background-gray-textured@2x.png in Resources */,
+				663C335717D0CF78002CAE26 /* bar-green-cold.png in Resources */,
+				663C335817D0CF78002CAE26 /* bar-green-cold@2x.png in Resources */,
+				663C335917D0CF78002CAE26 /* bar-green-warm.png in Resources */,
+				663C335A17D0CF78002CAE26 /* bar-green-warm@2x.png in Resources */,
+				663C335B17D0CF78002CAE26 /* specials-card-red.png in Resources */,
+				663C335C17D0CF78002CAE26 /* specials-card-red@2x.png in Resources */,
+				663C335D17D0CF78002CAE26 /* specials-country-selected.png in Resources */,
+				663C335E17D0CF78002CAE26 /* specials-country-selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +537,7 @@
 				666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */,
 				666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */,
 				666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */,
+				66308B9717D5BF7000B2510C /* CAOfferGreenBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,13 +640,13 @@
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -607,13 +657,13 @@
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Denis Dubov (DVLA4WK9D2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
 				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6922374E-2C8B-417A-A2B5-1A2934335619";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

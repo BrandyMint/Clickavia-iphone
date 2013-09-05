@@ -57,6 +57,7 @@
 {
     [super viewDidLoad];
     backgroundImage.frame = self.view.frame;
+    self.navigationController.navigationBarHidden = YES;
     
     titleText.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     titleText.textColor = [UIColor COLOR_TITLE_TEXT];
@@ -238,8 +239,8 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SpecialOfferCell *customCell = (SpecialOfferCell*)cell;
-    
-    SpecialOffer *specialOffer = [offersContainer objectAtIndex:indexPath.section];
+    NSArray* firstHotSpecialOffer = [self firstHot];
+    SpecialOffer *specialOffer = [firstHotSpecialOffer objectAtIndex:indexPath.section];
     [customCell initByOfferModel:specialOffer];
 }
 
@@ -248,5 +249,23 @@
     //
 }
 
+- (NSArray *)firstHot
+{
+    NSMutableArray* hotOffer = [NSMutableArray new];
+    NSMutableArray* usuallyOffer = [NSMutableArray new];
+    
+    for (int i = 0; i < offersContainer.count; i++) {
+        SpecialOffer *specialOffer = [offersContainer objectAtIndex:i];
+        if (specialOffer.isHot) {
+            [hotOffer addObject:specialOffer];
+        }
+        else{
+            [usuallyOffer addObject:specialOffer];
+        }
+    }
+    [hotOffer addObjectsFromArray:usuallyOffer];
+
+    return hotOffer;
+}
 
 @end

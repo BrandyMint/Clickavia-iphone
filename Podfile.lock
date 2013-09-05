@@ -6,6 +6,7 @@ PODS:
   - CACalendarView
   - CAColumnsControl:
     - PSTCollectionView
+  - CAFieldComplete
   - CAManagers:
     - Base64 (= 1.0.1)
     - EasyMapping (= 0.4.3)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - BMChat (from `https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec`)
   - CACalendarView (from `https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec`)
   - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
+  - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec`)
   - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
   - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
 
@@ -52,6 +54,8 @@ EXTERNAL SOURCES:
     :podspec: https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec
   CAColumnsControl:
     :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec
+  CAFieldComplete:
+    :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec
   CAManagers:
     :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
   CASpecialOffers:
@@ -64,6 +68,7 @@ SPEC CHECKSUMS:
   BMChat: b4312ff0cb28975eb379307864c8b7aba20928dd
   CACalendarView: 8219b45f8e729b56c6a3e073297a9f9d9d5e4f54
   CAColumnsControl: d90b67b95611501c1d2af0cd1ac6cd42685201ee
+  CAFieldComplete: 6d373dc27015e2c82fe79ab678722cbaccc3dd0f
   CAManagers: 0d4a9f5390714c3c334d9170931184dbd78ae134
   CASpecialOffers: e71214f144919a3889f16bd723d0f791fa5de86a
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
