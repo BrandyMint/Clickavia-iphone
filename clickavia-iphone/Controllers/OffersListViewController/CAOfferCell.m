@@ -47,8 +47,8 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    frame.origin.x += -5;
-    frame.size.width -= 2 * -5;
+    frame.origin.x += -4;
+    frame.size.width -= 2 * -4;
     [super setFrame:frame];
 }
 
@@ -189,20 +189,20 @@
     UIView *subBlockView = [[UIView alloc] init];
     
     //if(airlineTitleLabel == nil)    {
-    UILabel *airlineTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 6, 0, 0)];
+    UILabel *airlineTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 6, 0, 0)];
     airlineTitleLabel.backgroundColor = [UIColor clearColor];
-    airlineTitleLabel.textColor = [UIColor lightGrayColor];
-    airlineTitleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    airlineTitleLabel.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
+    airlineTitleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [subBlockView addSubview:airlineTitleLabel];
     // }
     airlineTitleLabel.text = (isDest)?@"Aeroflot":@"Aeroflot";
     [airlineTitleLabel sizeToFit];
     
     //if(airlineCodeLabel == nil)    {
-    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, [self getBottom:airlineTitleLabel.frame], 0, 0)];
+    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, [self getBottom:airlineTitleLabel.frame], 0, 0)];
     airlineCodeLabel.backgroundColor = [UIColor clearColor];
-    airlineCodeLabel.textColor = [UIColor lightGrayColor];
-    airlineCodeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
+    airlineCodeLabel.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
+    airlineCodeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
     [subBlockView addSubview:airlineCodeLabel];
     //}
     airlineCodeLabel.text = (isDest)?@"SU 1568":@"SU 1567";
@@ -211,8 +211,8 @@
     //if(timeDepartureLabel == nil)    {
     UILabel *timeDepartureLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 6, 0, 0)];
     timeDepartureLabel.backgroundColor = [UIColor clearColor];
-    timeDepartureLabel.textColor = [UIColor blackColor];
-    timeDepartureLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
+    timeDepartureLabel.textColor = [UIColor colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1];
+    timeDepartureLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
     [subBlockView addSubview:timeDepartureLabel];
     //}
     timeDepartureLabel.text = (isDest)?@"20:30":@"22:30";
@@ -231,8 +231,8 @@
     //if(timeArrivalLabel == nil)    {
     UILabel *timeArrivalLabel = [[UILabel alloc] initWithFrame:CGRectMake(195, 6, 0, 0)];
     timeArrivalLabel.backgroundColor = [UIColor clearColor];
-    timeArrivalLabel.textColor = [UIColor blackColor];
-    timeArrivalLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
+    timeArrivalLabel.textColor = [UIColor colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1];
+    timeArrivalLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
     [subBlockView addSubview:timeArrivalLabel];
     //}
     timeArrivalLabel.text = (isDest)?@"21:45":@"23:40";
@@ -251,14 +251,80 @@
     //if(timeInFlightLabel == nil)    {
     UILabel *timeInFlightLabel = [[UILabel alloc] init];
     timeInFlightLabel.backgroundColor = [UIColor clearColor];
-    timeInFlightLabel.textColor = [UIColor lightGrayColor];
+    timeInFlightLabel.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
     timeInFlightLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [subBlockView addSubview:timeInFlightLabel];
     //}
     timeInFlightLabel.text = (isDest)?@"1:15":@"1:15";
     [timeInFlightLabel sizeToFit];
-    timeInFlightLabel.frame = CGRectMake(self.frame.size.width-timeInFlightLabel.frame.size.width-18-5, 6, timeInFlightLabel.frame.size.width, timeInFlightLabel.frame.size.height);
+    timeInFlightLabel.frame = CGRectMake(self.frame.size.width-timeInFlightLabel.frame.size.width-23, 6, timeInFlightLabel.frame.size.width, timeInFlightLabel.frame.size.height);
     
+    UIImageView* clock = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width-timeInFlightLabel.frame.size.width-45, 6, 15, 15)];
+    clock.image = [UIImage imageNamed:@"clock-icon@2x.png"];
+    [subBlockView addSubview:clock];
+    
+    if (isDest) {        
+        UIImageView* man = [[UIImageView alloc] initWithFrame:CGRectMake(4, 103, 10, 26)];
+        man.image = [UIImage imageNamed:@"passengers-icon-man@2x.png"];
+        [subBlockView addSubview:man];
+        
+        UILabel* manCount = [[UILabel alloc] initWithFrame:CGRectMake(man.frame.origin.x + man.frame.size.width + 4, 108, 0, 0)];
+        manCount.backgroundColor = [UIColor clearColor];
+        manCount.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
+        manCount.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        manCount.text = @"2";
+        [subBlockView addSubview:manCount];
+        [manCount sizeToFit];
+        
+        UIImageView* kid = [[UIImageView alloc] initWithFrame:CGRectMake(manCount.frame.origin.x + manCount.frame.size.width + 9, 105, 11, 23)];
+        kid.image = [UIImage imageNamed:@"passengers-icon-kid@2x.png"];
+        [subBlockView addSubview:kid];
+        
+        UILabel* kidCount = [[UILabel alloc] initWithFrame:CGRectMake(kid.frame.origin.x + kid.frame.size.width + 4, 108, 0, 0)];
+        kidCount.backgroundColor = [UIColor clearColor];
+        kidCount.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
+        kidCount.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        kidCount.text = @"1";
+        [subBlockView addSubview:kidCount];
+        [kidCount sizeToFit];
+        
+        UIImageView* baby = [[UIImageView alloc] initWithFrame:CGRectMake(kidCount.frame.origin.x + kidCount.frame.size.width + 9, 108, 12, 18)];
+        baby.image = [UIImage imageNamed:@"passengers-icon-baby@2x.png"];
+        [subBlockView addSubview:baby];
+        
+        UILabel* babyCount = [[UILabel alloc] initWithFrame:CGRectMake(baby.frame.origin.x + baby.frame.size.width + 4, 108, 0, 0)];
+        babyCount.backgroundColor = [UIColor clearColor];
+        babyCount.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
+        babyCount.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        babyCount.text = @"1";
+        [subBlockView addSubview:babyCount];
+        [babyCount sizeToFit];
+        
+        UIImageView* check = [[UIImageView alloc] initWithFrame:CGRectMake(132, 138, 10, 10)];
+        check.image = [UIImage imageNamed:@"check-icon-green@2x.png"];
+        [subBlockView addSubview:check];
+        
+        UILabel *instant = [[UILabel alloc] initWithFrame:CGRectMake(145, 135, 0, 0)];
+        instant.backgroundColor = [UIColor clearColor];
+        instant.textColor = [UIColor colorWithRed:100.0f/255.0f green:148.0f/255.0f blue:28.0f/255.0f alpha:1];
+        instant.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
+        [subBlockView addSubview:instant];
+        instant.text = @"мгновенное подтверждение";
+        [instant sizeToFit];
+        
+        UIButton *button = [[UIButton alloc] initWithFrame: CGRectMake(119, 95, 186, 40)];
+        UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
+        [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
+        [button setTitle: @"Купить за 17800 руб." forState: UIControlStateNormal];
+        [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+        button.titleLabel.layer.shadowOpacity = 0.4f;
+        button.titleLabel.layer.shadowRadius = 0.0f;
+        button.titleLabel.shadowColor = [UIColor blackColor];
+        button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        [subBlockView addSubview:button];
+    }
+
     subBlockView.frame = CGRectMake(0, 0, self.frame.size.width-18, [self getBottom:cityArrivalLabel.frame]);
     
     return subBlockView;
