@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
 		66308B9717D5BF7000B2510C /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */; };
+		6633A92817DEE68900FEB066 /* btn-primary-for-light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A92217DEE68900FEB066 /* btn-primary-for-light@2x.png */; };
+		6633A92917DEE68900FEB066 /* check-icon-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A92317DEE68900FEB066 /* check-icon-green@2x.png */; };
+		6633A92A17DEE68900FEB066 /* clock-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A92417DEE68900FEB066 /* clock-icon@2x.png */; };
+		6633A92B17DEE68900FEB066 /* passengers-icon-baby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A92517DEE68900FEB066 /* passengers-icon-baby@2x.png */; };
+		6633A92C17DEE68900FEB066 /* passengers-icon-kid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A92617DEE68900FEB066 /* passengers-icon-kid@2x.png */; };
+		6633A92D17DEE68900FEB066 /* passengers-icon-man@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A92717DEE68900FEB066 /* passengers-icon-man@2x.png */; };
 		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
 		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
 		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
@@ -71,6 +77,12 @@
 /* Begin PBXFileReference section */
 		66308B9517D5BF7000B2510C /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
 		66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
+		6633A92217DEE68900FEB066 /* btn-primary-for-light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-primary-for-light@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/btn-primary-for-light@2x.png"; sourceTree = SOURCE_ROOT; };
+		6633A92317DEE68900FEB066 /* check-icon-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-icon-green@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/check-icon-green@2x.png"; sourceTree = SOURCE_ROOT; };
+		6633A92417DEE68900FEB066 /* clock-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-icon@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/clock-icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		6633A92517DEE68900FEB066 /* passengers-icon-baby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-baby@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/passengers-icon-baby@2x.png"; sourceTree = SOURCE_ROOT; };
+		6633A92617DEE68900FEB066 /* passengers-icon-kid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-kid@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/passengers-icon-kid@2x.png"; sourceTree = SOURCE_ROOT; };
+		6633A92717DEE68900FEB066 /* passengers-icon-man@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-man@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/passengers-icon-man@2x.png"; sourceTree = SOURCE_ROOT; };
 		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
 		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -350,6 +362,12 @@
 				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
 				66308B9517D5BF7000B2510C /* CAOfferGreenBar.h */,
 				66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */,
+				6633A92217DEE68900FEB066 /* btn-primary-for-light@2x.png */,
+				6633A92317DEE68900FEB066 /* check-icon-green@2x.png */,
+				6633A92417DEE68900FEB066 /* clock-icon@2x.png */,
+				6633A92517DEE68900FEB066 /* passengers-icon-baby@2x.png */,
+				6633A92617DEE68900FEB066 /* passengers-icon-kid@2x.png */,
+				6633A92717DEE68900FEB066 /* passengers-icon-man@2x.png */,
 			);
 			name = OffersListViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -464,6 +482,12 @@
 				663C335C17D0CF78002CAE26 /* specials-card-red@2x.png in Resources */,
 				663C335D17D0CF78002CAE26 /* specials-country-selected.png in Resources */,
 				663C335E17D0CF78002CAE26 /* specials-country-selected@2x.png in Resources */,
+				6633A92817DEE68900FEB066 /* btn-primary-for-light@2x.png in Resources */,
+				6633A92917DEE68900FEB066 /* check-icon-green@2x.png in Resources */,
+				6633A92A17DEE68900FEB066 /* clock-icon@2x.png in Resources */,
+				6633A92B17DEE68900FEB066 /* passengers-icon-baby@2x.png in Resources */,
+				6633A92C17DEE68900FEB066 /* passengers-icon-kid@2x.png in Resources */,
+				6633A92D17DEE68900FEB066 /* passengers-icon-man@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
