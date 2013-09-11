@@ -101,12 +101,12 @@
     
     UIView *topFlightView = [self createFlightSubblock:YES];
     [blockView addSubview:topFlightView];
-    [self createLineByBottom: [self getBottom:topFlightView.frame]];
+    [self createLineByBottom: [self getBottom:topFlightView.frame]+3];
     
     UIView *middleFlightView = [self createFlightSubblock:NO];
     middleFlightView.frame = CGRectMake(0, [self getBottom:topFlightView.frame]+1, middleFlightView.frame.size.width, middleFlightView.frame.size.height);
     [blockView addSubview:middleFlightView];
-    [self createLineByBottom: [self getBottom:middleFlightView.frame]];
+    [self createLineByBottom: [self getBottom:middleFlightView.frame]+3];
     
     /*
     //if(airlineTitleLabel == nil)    {
@@ -189,27 +189,27 @@
     UIView *subBlockView = [[UIView alloc] init];
     
     //if(airlineTitleLabel == nil)    {
-    UILabel *airlineTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 6, 0, 0)];
+    UILabel *airlineTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 10, 85, 14)];
     airlineTitleLabel.backgroundColor = [UIColor clearColor];
     airlineTitleLabel.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
     airlineTitleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [subBlockView addSubview:airlineTitleLabel];
     // }
     airlineTitleLabel.text = (isDest)?@"Aeroflot":@"Aeroflot";
-    [airlineTitleLabel sizeToFit];
+    //[airlineTitleLabel sizeToFit];
     
     //if(airlineCodeLabel == nil)    {
-    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, [self getBottom:airlineTitleLabel.frame], 0, 0)];
+    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, [self getBottom:airlineTitleLabel.frame], 80, 14)];
     airlineCodeLabel.backgroundColor = [UIColor clearColor];
     airlineCodeLabel.textColor = [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1];
     airlineCodeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
     [subBlockView addSubview:airlineCodeLabel];
     //}
     airlineCodeLabel.text = (isDest)?@"SU 1568":@"SU 1567";
-    [airlineCodeLabel sizeToFit];
+    //[airlineCodeLabel sizeToFit];
     
     //if(timeDepartureLabel == nil)    {
-    UILabel *timeDepartureLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 6, 0, 0)];
+    UILabel *timeDepartureLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, 4, 0, 0)];
     timeDepartureLabel.backgroundColor = [UIColor clearColor];
     timeDepartureLabel.textColor = [UIColor colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1];
     timeDepartureLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
@@ -219,17 +219,17 @@
     [timeDepartureLabel sizeToFit];
     
     //if(cityDepartureLabel == nil)    {
-    UILabel *cityDepartureLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, [self getBottom:timeDepartureLabel.frame], 0, 0)];
+    UILabel *cityDepartureLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, [self getBottom:timeDepartureLabel.frame], 100, 14)];
     cityDepartureLabel.backgroundColor = [UIColor clearColor];
     cityDepartureLabel.textColor = [UIColor blackColor];
     cityDepartureLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     [subBlockView addSubview:cityDepartureLabel];
     //}
     cityDepartureLabel.text = (isDest)?@"Москва":@"Краснодар";
-    [cityDepartureLabel sizeToFit];
+    //[cityDepartureLabel sizeToFit];
     
     //if(timeArrivalLabel == nil)    {
-    UILabel *timeArrivalLabel = [[UILabel alloc] initWithFrame:CGRectMake(195, 6, 0, 0)];
+    UILabel *timeArrivalLabel = [[UILabel alloc] initWithFrame:CGRectMake(195, 4, 0, 0)];
     timeArrivalLabel.backgroundColor = [UIColor clearColor];
     timeArrivalLabel.textColor = [UIColor colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1];
     timeArrivalLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
@@ -239,14 +239,14 @@
     [timeArrivalLabel sizeToFit];
     
     //if(cityArrivalLabel == nil)    {
-    UILabel *cityArrivalLabel = [[UILabel alloc] initWithFrame:CGRectMake(195, [self getBottom:timeArrivalLabel.frame], 0, 0)];
+    UILabel *cityArrivalLabel = [[UILabel alloc] initWithFrame:CGRectMake(195, [self getBottom:timeArrivalLabel.frame], 100, 14)];
     cityArrivalLabel.backgroundColor = [UIColor clearColor];
     cityArrivalLabel.textColor = [UIColor blackColor];
     cityArrivalLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     [subBlockView addSubview:cityArrivalLabel];
     //}
     cityArrivalLabel.text = (isDest)?@"Краснодар":@"Москва";
-    [cityArrivalLabel sizeToFit];
+    //[cityArrivalLabel sizeToFit];
     
     //if(timeInFlightLabel == nil)    {
     UILabel *timeInFlightLabel = [[UILabel alloc] init];
@@ -311,18 +311,6 @@
         [subBlockView addSubview:instant];
         instant.text = @"мгновенное подтверждение";
         [instant sizeToFit];
-        
-        UIButton *button = [[UIButton alloc] initWithFrame: CGRectMake(119, 95, 186, 40)];
-        UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
-        [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
-        [button setTitle: @"Купить за 17800 руб." forState: UIControlStateNormal];
-        [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-        button.titleLabel.layer.shadowOpacity = 0.4f;
-        button.titleLabel.layer.shadowRadius = 0.0f;
-        button.titleLabel.shadowColor = [UIColor blackColor];
-        button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-        [subBlockView addSubview:button];
     }
 
     subBlockView.frame = CGRectMake(0, 0, self.frame.size.width-18, [self getBottom:cityArrivalLabel.frame]);
