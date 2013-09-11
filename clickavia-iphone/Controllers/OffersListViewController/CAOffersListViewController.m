@@ -12,15 +12,24 @@
 #import <CAManagers/Flight.h>
 #import "CAOfferCell.h"
 #import "CAOfferGreenBar.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
 #define SectionHeaderHeight 170
 
+#define WIDTH_BUTTON 186
+#define HEIGHT_BUTTON 44
+#define MARGIN_RIGHT_BUTTON 15
+
+#define COLOR_AVAILABLE_FLIGHTS colorWithRed:193.0f/255.0f green:193.0f/255.0f blue:193.0f/255.0f alpha:1
+
 @interface CAOffersListViewController ()
 @property (retain, nonatomic) IBOutlet CAOfferGreenBar *topGreenView;
-
-@property (weak, nonatomic) IBOutlet UILabel *topGreenLabel;
+@property (weak, nonatomic) IBOutlet UILabel *labelThere;
+@property (weak, nonatomic) IBOutlet UILabel *labelThereDate;
+@property (weak, nonatomic) IBOutlet UILabel *labelBack;
+@property (weak, nonatomic) IBOutlet UILabel *labelBackDate;
 
 @property (nonatomic, strong) CAColumnsControlView *columnDepartureControlView;
 @property (nonatomic, strong) CAColumnsControlView *columnArrivialControlView;
@@ -35,16 +44,17 @@
     CGRect mainFrame;
     UIBarButtonItem *onAddGreenBar;
     UIBarButtonItem *onReturn;
-    float heightTable;
-    NSUInteger counter;
-    UISwitch *returnFly;
+
+    UISwitch *switchReturnFlight;
     UIView *viewOneWay;
     UIView *viewOnBack;
+    
+    UIButton *onDetail;
 }
 @synthesize columnDepartureControlView, columnArrivialControlView;
 @synthesize tableOffers;
 @synthesize topGreenView;
-@synthesize topGreenLabel;
+@synthesize labelBack, labelBackDate, labelThere, labelThereDate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,25 +69,44 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
-    self.title = @"Москва - Краснодар";
-
+    [self showNavBar];
+    
     tableOffers.scrollEnabled = YES;
-    topGreenLabel.text = @"Москва - Краснодар";
     
     [topGreenView setFrame:CGRectMake(self.view.frame.origin.x,
                                       self.view.frame.origin.y,
                                       self.view.frame.size.width,
                                       HEIGHT_GREEN_BAR)];
+    topGreenView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bar-green-warm@2x.png"]];
+
+    labelThere.frame = CGRectMake(30, 15, 0, 0);
+    labelBack.backgroundColor = labelThere.backgroundColor = [UIColor clearColor];
+    labelBack.textColor = labelThere.textColor = [UIColor whiteColor];
+    labelBack.font = labelThere.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    labelThere.text = @"туда";
+    [labelThere sizeToFit];
     
-    onAddGreenBar = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(bar)];
-    self.navigationItem.rightBarButtonItem = onAddGreenBar;
+    labelThereDate.frame = CGRectMake(labelThere.frame.origin.x + labelThere.frame.size.width +3, 14, 0, 0);
+    labelBackDate.backgroundColor = labelThereDate.backgroundColor = [UIColor clearColor];
+    labelBackDate.textColor = labelThereDate.textColor = [UIColor whiteColor];
+    labelBackDate.font = labelThereDate.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
+    labelThereDate.text = @"21 сентября";
+    [labelThereDate sizeToFit];
     
-    returnFly = [[UISwitch alloc] init];
-    [returnFly addTarget:self action:@selector(switchToggled) forControlEvents: UIControlEventTouchUpInside];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:returnFly];
-    self.navigationItem.leftBarButtonItem = item;
+    labelBack.frame = CGRectMake(labelThereDate.frame.origin.x + labelThereDate.frame.size.width + 20, 15, 0, 0);
+    labelBack.text = @"обратно";
+    [labelBack sizeToFit];
     
-    UITapGestureRecognizer *tapGreenBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bar)];
+    labelBackDate.frame = CGRectMake(labelBack.frame.origin.x + labelBack.frame.size.width +3, 14, 0, 0);
+    labelBackDate.text = @"22 сентября";
+    [labelBackDate sizeToFit];
+    
+    labelThereDate.layer.shadowOpacity = labelBackDate.layer.shadowOpacity = 0.2f;
+    labelThereDate.layer.shadowRadius = labelBackDate.layer.shadowRadius = 0.0f;
+    labelThereDate.layer.shadowColor = labelBackDate.layer.shadowColor = [[UIColor blackColor] CGColor];
+    labelThereDate.layer.shadowOffset = labelBackDate.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    
+    UITapGestureRecognizer *tapGreenBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(detail)];
     [topGreenView addGestureRecognizer:tapGreenBar];
     topGreenView.userInteractionEnabled = YES;
     
@@ -115,28 +144,88 @@
     [tableOffers setContentOffset:CGPointMake(0, viewOneWay.frame.size.height - topGreenView.frame.size.height) animated:NO];
 }
 
--(void)bar
+-(void)showNavBar
+{
+    UIButton *onBack = [[UIButton alloc] initWithFrame: CGRectMake(5, 12, 20, 20)];
+    [onBack setImage:[UIImage imageNamed:@"toolbar-back-icon@2x.png"] forState:UIControlStateNormal];
+    
+    switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(onBack.frame.origin.x + onBack.frame.size.width + 3, 8, 10, 10)];
+    [switchReturnFlight addTarget:self action:@selector(switchToggled) forControlEvents: UIControlEventTouchUpInside];
+    
+    UILabel *departureCity = [[UILabel alloc] initWithFrame:CGRectMake(switchReturnFlight.frame.origin.x + switchReturnFlight.frame.size.width + 3 , 11, 0, 0)];
+    departureCity.backgroundColor = [UIColor clearColor];
+    departureCity.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    departureCity.textColor = [UIColor whiteColor];
+    departureCity.text = @"Москва";
+    departureCity.layer.shadowOpacity = 0.8f;
+    departureCity.layer.shadowRadius = 0.0f;
+    departureCity.layer.shadowColor = [[UIColor blackColor] CGColor];
+    departureCity.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    [departureCity sizeToFit];
+    
+    UIImageView* arrow = [[UIImageView alloc] initWithFrame:CGRectMake(departureCity.frame.origin.x + departureCity.frame.size.width + 3, 18, 8, 10)];
+    arrow.image = [UIImage imageNamed:@"toolbar-arrow-right@2x.png"];
+    
+    UILabel *arrivalCity = [[UILabel alloc] initWithFrame:CGRectMake(arrow.frame.origin.x + arrow.frame.size.width + 3 , 11, 0, 0)];
+    arrivalCity.backgroundColor = [UIColor clearColor];
+    arrivalCity.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    arrivalCity.textColor = [UIColor whiteColor];
+    arrivalCity.text = @"Краснодар";
+    arrivalCity.layer.shadowOpacity = 0.8f;
+    arrivalCity.layer.shadowRadius = 0.0f;
+    arrivalCity.layer.shadowColor = [[UIColor blackColor] CGColor];
+    arrivalCity.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    [arrivalCity sizeToFit];
+    
+    onDetail = [[UIButton alloc] initWithFrame: CGRectMake(arrivalCity.frame.origin.x + arrivalCity.frame.size.width + 3, 4, 50, 35)];
+    [onDetail setImage:[UIImage imageNamed:@"toolbar-button@2x.png"] forState:UIControlStateNormal];
+    [onDetail setImage:[UIImage imageNamed:@"toolbar-button-selected@2x.png"] forState:UIControlStateHighlighted];
+    [onDetail setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
+    [onDetail addTarget: self action: @selector(detail) forControlEvents: UIControlEventTouchDown];
+    
+    UIView* navControllerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x,
+                                                                         self.view.frame.origin.y,
+                                                                         self.view.frame.size.width,
+                                                                         self.navigationController.toolbar.frame.size.height)];
+    navControllerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toolbar-background@2x.png"]];
+    [navControllerView addSubview:onBack];
+    [navControllerView addSubview:switchReturnFlight];
+    [navControllerView addSubview:departureCity];
+    [navControllerView addSubview:arrow];
+    [navControllerView addSubview:arrivalCity];
+    [navControllerView addSubview:onDetail];
+    [self.navigationController.view addSubview:navControllerView];
+}
+
+-(void) detail
 {
     [self factor];
     NSInteger factor = [self factor];
     
-    counter++;
-    if (counter%2 == 0) {
+    if(onDetail.selected) {
+        [onDetail setSelected:NO];
+        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button@2x.png"] forState:UIControlStateNormal];
+        
+        
+        
         [tableOffers setContentOffset:CGPointMake(0, factor*viewOneWay.frame.size.height - topGreenView.frame.size.height) animated:YES];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
         [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-        topGreenLabel.alpha = topGreenView.alpha = 1;
+        topGreenView.alpha = 1;
         [UIView commitAnimations];
-
+        
     }
-    else {
+    else
+    {
+        [onDetail setSelected:YES];
+        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button-selected@2x.png"] forState:UIControlStateSelected];
+        
         [tableOffers setContentOffset:CGPointMake(0, 0) animated:YES];
-        counter = 1;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
         [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-        topGreenLabel.alpha = topGreenView.alpha = 0;
+        topGreenView.alpha = 0;
         [UIView commitAnimations];
     }
 }
@@ -144,19 +233,26 @@
 -(void)switchToggled
 {
     [self factor];
-    [self bar];
+    [self detail];
     [tableOffers reloadData];
 }
 
 -(NSInteger )factor
 {
-    if ([returnFly isOn]) {
+    if ([switchReturnFlight isOn]) {
         isReturn = YES;
-        topGreenLabel.text = @"летим туда/обратно 1 сентября";
+        labelThere.text = @"туда";
+        labelThereDate.text = @"21 сентября";
+        labelThere.alpha = labelThereDate.alpha = 1;
+        labelBack.alpha = labelBackDate.alpha = 1;
+        
         return 2;
     }
     isReturn = NO;
-    topGreenLabel.text = @"летим в одну сторону 21 января";
+    labelBack.text = @"обратно";
+    labelBackDate.text = @"22 сентября";
+    labelThere.alpha = labelThereDate.alpha = 1;
+    labelBack.alpha = labelBackDate.alpha = 0;
     return 1;
 }
 
@@ -206,6 +302,7 @@
         cell = [[CAOfferCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
 }
 
@@ -217,6 +314,23 @@
     customCell.backgroundView = [[UIView alloc] initWithFrame:customCell.frame];
     
     [customCell initByOfferModel:offer];
+    
+    CGRect frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON, cell.frame.size.height - MARGIN_RIGHT_BUTTON - HEIGHT_BUTTON, WIDTH_BUTTON, HEIGHT_BUTTON);
+    if (offer.isSpecial) {
+        frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON, cell.frame.size.height - 2*MARGIN_RIGHT_BUTTON - HEIGHT_BUTTON, WIDTH_BUTTON, HEIGHT_BUTTON);
+    }
+    UIButton *button = [[UIButton alloc] initWithFrame: frameButton];
+    UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
+    [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
+    [button setTitle: @"Купить за 17800 руб." forState: UIControlStateNormal];
+    [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+    button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    button.titleLabel.layer.shadowOpacity = 0.4f;
+    button.titleLabel.layer.shadowRadius = 0.0f;
+    button.titleLabel.shadowColor = [UIColor blackColor];
+    button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [cell addSubview:button];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -225,10 +339,10 @@
         
         UILabel* numberFlights = [[UILabel alloc] init];
         numberFlights.text = @" Доступно перелетов: 3";
-        numberFlights.font = [UIFont fontWithName:@"Arial" size:14];
+        numberFlights.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
+        numberFlights.textColor = [UIColor COLOR_AVAILABLE_FLIGHTS];
         CGSize textSize = [numberFlights.text sizeWithFont:numberFlights.font];
         numberFlights.frame = CGRectMake(mainFrame.size.width/2 - textSize.width/2, factor*viewOneWay.frame.size.height + 4, 0, 0);
-        numberFlights.textColor = [UIColor blackColor];
         numberFlights.backgroundColor = [UIColor clearColor];
         [numberFlights sizeToFit];
 
@@ -265,7 +379,6 @@
         return CELL_HEIGHT_NORMAL;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         NSInteger factor = [self factor];
@@ -276,7 +389,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     NSLog(@"нажал на %d ячейку",indexPath.section);
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
@@ -291,9 +403,9 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3f];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    topGreenLabel.alpha = topGreenView.alpha = 0;
+    onDetail.selected = YES;
+    topGreenView.alpha = 0;
     [UIView commitAnimations];
-    counter = 1;
 }
 
 @end
