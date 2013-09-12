@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CAManagers/Offer.h>
+#import "Offer.h"
+#import "Flight.h"
+#import "FlightPassengersCount.h"
+#import "CAOffersData.h"
 
 #define CELL_HEIGHT_NORMAL 150
 #define CELL_HEIGHT_SPECIAL 180
@@ -23,6 +27,20 @@ typedef enum {
 } FlightBlock;
 
 @interface CAOfferCell : UITableViewCell
+@property (nonatomic, retain) CAOffersData* caoffersData;
+
+@property (nonatomic) BOOL isSpecial;
+@property (nonatomic) BOOL isMomentaryConfirmation;
+@property (nonatomic, strong) NSString *airlineTitle;
+@property (nonatomic, strong) NSString *airlineCode;
+@property (nonatomic, strong) NSDate *timeDeparture;
+@property (nonatomic, strong) NSString *cityDeparture;
+@property (nonatomic, strong) NSDate *timeArrival;
+@property (nonatomic, strong) NSString *cityArrival;
+@property (nonatomic, strong) NSDate *timeInFlight;
+@property (nonatomic) NSUInteger *adultCount;
+@property (nonatomic) NSUInteger *kidCount;
+@property (nonatomic) NSUInteger *babuCount;
 
 -(void) initByOfferModel:(Offer*)offer;
 

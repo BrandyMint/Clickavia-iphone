@@ -35,6 +35,8 @@
 		663C335C17D0CF78002CAE26 /* specials-card-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335217D0CF78002CAE26 /* specials-card-red@2x.png */; };
 		663C335D17D0CF78002CAE26 /* specials-country-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335317D0CF78002CAE26 /* specials-country-selected.png */; };
 		663C335E17D0CF78002CAE26 /* specials-country-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 663C335417D0CF78002CAE26 /* specials-country-selected@2x.png */; };
+		6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE2E17E0ED43002A85D0 /* CAOffersData.m */; };
+		6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */; };
 		666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */; };
 		666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */; };
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
@@ -114,6 +116,10 @@
 		663C335217D0CF78002CAE26 /* specials-card-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-card-red@2x.png"; sourceTree = "<group>"; };
 		663C335317D0CF78002CAE26 /* specials-country-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-country-selected.png"; sourceTree = "<group>"; };
 		663C335417D0CF78002CAE26 /* specials-country-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-country-selected@2x.png"; sourceTree = "<group>"; };
+		6644BE2D17E0ED43002A85D0 /* CAOffersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersData.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.h"; sourceTree = SOURCE_ROOT; };
+		6644BE2E17E0ED43002A85D0 /* CAOffersData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersData.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.m"; sourceTree = SOURCE_ROOT; };
+		6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightPassengersCount.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.h"; sourceTree = SOURCE_ROOT; };
+		6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightPassengersCount.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.m"; sourceTree = SOURCE_ROOT; };
 		666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColorSpecOffers.h; sourceTree = "<group>"; };
 		666C60DB17CCDFA9008220AC /* CASpecOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecOffersViewController.h; sourceTree = "<group>"; };
 		666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecOffersViewController.m; sourceTree = "<group>"; };
@@ -365,6 +371,10 @@
 		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6644BE2D17E0ED43002A85D0 /* CAOffersData.h */,
+				6644BE2E17E0ED43002A85D0 /* CAOffersData.m */,
+				6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */,
+				6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */,
 				6639C9FC17C5E6AE00CF772D /* CAOfferCell.h */,
 				6639C9FD17C5E6AE00CF772D /* CAOfferCell.m */,
 				6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */,
@@ -582,6 +592,8 @@
 				666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */,
 				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
+				6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */,
+				6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

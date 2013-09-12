@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CAOffersData.h"
 
 @interface CAOffersListViewController : UIViewController
 
