@@ -13,6 +13,9 @@
 #import "CAOfferCell.h"
 #import "CAOfferGreenBar.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Offer.h"
+#import "Flight.h"
+#import "FlightPassengersCount.h"
 
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
@@ -25,6 +28,7 @@
 #define COLOR_AVAILABLE_FLIGHTS colorWithRed:193.0f/255.0f green:193.0f/255.0f blue:193.0f/255.0f alpha:1
 
 @interface CAOffersListViewController ()
+@property (nonatomic, retain) CAOffersData* caoffersData;
 @property (retain, nonatomic) IBOutlet CAOfferGreenBar *topGreenView;
 @property (weak, nonatomic) IBOutlet UILabel *labelThere;
 @property (weak, nonatomic) IBOutlet UILabel *labelThereDate;
@@ -50,11 +54,15 @@
     UIView *viewOnBack;
     
     UIButton *onDetail;
+    
+    NSArray* arrayOffers;
+    NSArray* arrayPassangers;
 }
 @synthesize columnDepartureControlView, columnArrivialControlView;
 @synthesize tableOffers;
 @synthesize topGreenView;
 @synthesize labelBack, labelBackDate, labelThere, labelThereDate;
+@synthesize caoffersData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -110,16 +118,9 @@
     [topGreenView addGestureRecognizer:tapGreenBar];
     topGreenView.userInteractionEnabled = YES;
     
-    offerArray = [[NSMutableArray alloc] init];
-    offer1 = [[Offer alloc] init];
-    offer1.isSpecial = NO;
-    [offerArray addObject:offer1];
-    offer2 = [[Offer alloc] init];
-    offer2.isSpecial = YES;
-    [offerArray addObject:offer2];
-    offer3 = [[Offer alloc] init];
-    offer3.isSpecial = NO;
-    [offerArray addObject:offer3];
+    caoffersData = [[CAOffersData alloc] init];
+    arrayOffers = [caoffersData arrayOffer];
+    arrayPassangers = [caoffersData arrayPassangers];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -132,7 +133,7 @@
     columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, viewOneWay.frame.size.height) title:@"туда" withTarget:nil];
     columnDepartureControlView.delegate = (id)self;
     NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
-    [columnDepartureControlView importFlights: departureFlights];
+    //[columnDepartureControlView importFlights: departureFlights];
     
     columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, viewOneWay.frame.size.height, mainFrame.size.width, viewOneWay.frame.size.height) title:@"обратно" withTarget:nil];
     
@@ -285,7 +286,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [offerArray count];
+    return arrayOffers.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -298,8 +299,47 @@
     static NSString *CellIdentifier = @"OfferCell";
     
     CAOfferCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    Offer* offerdata = [[Offer alloc] init];
+    Flight* flightdata = [[Flight alloc] init];
+    FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
+    offerdata = [arrayOffers objectAtIndex:indexPath.section];
+    flightdata = [arrayOffers objectAtIndex:indexPath.section];
+    passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
+    flightdata = offerdata.flightDeparture;
+    
     if (cell == nil) {
         cell = [[CAOfferCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.isSpecial = offerdata.isSpecial;
+        cell.isMomentaryConfirmation = offerdata.isMomentaryConfirmation;
+        cell.cityDeparture = flightdata.cityDeparture;
+        cell.cityArrival = flightdata.cityArrival;
+        cell.airlineTitle = flightdata.airlineTitle;
+        cell.airlineCode = flightdata.ID;
+        cell.timeDeparture = flightdata.dateAndTimeDeparture;
+        cell.timeArrival = flightdata.dateAndTimeArrival;
+        cell.timeInFlight = flightdata.timeInFlight;
+        
+        cell.adultCount = passengersCount.adults;
+        cell.kidCount = passengersCount.kids;
+        cell.babuCount = passengersCount.babies;
+        
+        CGRect frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON, cell.frame.size.height - 2*MARGIN_RIGHT_BUTTON - HEIGHT_BUTTON, WIDTH_BUTTON, HEIGHT_BUTTON);
+        NSDecimalNumber *boothPrice = offerdata.bothPrice;
+        UIButton *button = [[UIButton alloc] initWithFrame: frameButton];
+        UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
+        [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
+        [button setTitle: [NSString stringWithFormat:@"Купить за %@ руб.",[boothPrice stringValue]] forState: UIControlStateNormal];
+        [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+        button.titleLabel.layer.shadowOpacity = 0.4f;
+        button.titleLabel.layer.shadowRadius = 0.0f;
+        button.titleLabel.shadowColor = [UIColor blackColor];
+        button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+        //[cell addSubview:button];
+        
+        //cell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+        [cell initByOfferModel:offerdata];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -308,29 +348,8 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Offer *offer = [offerArray objectAtIndex:indexPath.section];
-    CAOfferCell *customCell = (CAOfferCell*)cell;
+
     
-    customCell.backgroundView = [[UIView alloc] initWithFrame:customCell.frame];
-    
-    [customCell initByOfferModel:offer];
-    
-    CGRect frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON, cell.frame.size.height - MARGIN_RIGHT_BUTTON - HEIGHT_BUTTON, WIDTH_BUTTON, HEIGHT_BUTTON);
-    if (offer.isSpecial) {
-        frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON, cell.frame.size.height - 2*MARGIN_RIGHT_BUTTON - HEIGHT_BUTTON, WIDTH_BUTTON, HEIGHT_BUTTON);
-    }
-    UIButton *button = [[UIButton alloc] initWithFrame: frameButton];
-    UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
-    [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
-    [button setTitle: @"Купить за 17800 руб." forState: UIControlStateNormal];
-    [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-    button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    button.titleLabel.layer.shadowOpacity = 0.4f;
-    button.titleLabel.layer.shadowRadius = 0.0f;
-    button.titleLabel.shadowColor = [UIColor blackColor];
-    button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [cell addSubview:button];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -338,7 +357,7 @@
         NSInteger factor = [self factor];
         
         UILabel* numberFlights = [[UILabel alloc] init];
-        numberFlights.text = @" Доступно перелетов: 3";
+        numberFlights.text = [NSString stringWithFormat:@"Доступно перелетов %d",arrayOffers.count];
         numberFlights.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
         numberFlights.textColor = [UIColor COLOR_AVAILABLE_FLIGHTS];
         CGSize textSize = [numberFlights.text sizeWithFont:numberFlights.font];
@@ -372,8 +391,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Offer *offer = [offerArray objectAtIndex:indexPath.section];
-    if(offer.isSpecial)
+    Offer* offerdata = [[Offer alloc] init];
+    offerdata = [arrayOffers objectAtIndex:indexPath.section];
+    if(offerdata.isSpecial)
         return CELL_HEIGHT_SPECIAL;
     else
         return CELL_HEIGHT_NORMAL;
@@ -389,7 +409,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"нажал на %d ячейку",indexPath.section);
+    Offer* offerdata = [[Offer alloc] init];
+    offerdata = [arrayOffers objectAtIndex:indexPath.section];
+    NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
