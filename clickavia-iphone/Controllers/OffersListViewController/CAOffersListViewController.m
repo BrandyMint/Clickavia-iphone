@@ -18,6 +18,7 @@
 
 #import "CAOffersCell.h"
 #import "CAOffersCellView.h"
+#import "OfferCellDetails.h"
 
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
@@ -112,6 +113,7 @@
     labelBackDate.text = @"22 сентября";
     [labelBackDate sizeToFit];
     
+    labelBack.alpha = labelBack.alpha = labelBackDate.alpha = 0;
     labelThereDate.layer.shadowOpacity = labelBackDate.layer.shadowOpacity = 0.2f;
     labelThereDate.layer.shadowRadius = labelBackDate.layer.shadowRadius = 0.0f;
     labelThereDate.layer.shadowColor = labelBackDate.layer.shadowColor = [[UIColor blackColor] CGColor];
@@ -323,6 +325,9 @@
         
         UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerdata passangers:passengersCount];
         [cell transferView:cardView];
+        
+        UIView* cardView2 = [[OfferCellDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
+        [cell addSubview:cardView2];
     }
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -407,7 +412,7 @@
         }
         
         UILabel* numberFlights = [[UILabel alloc] init];
-        numberFlights.text = [NSString stringWithFormat:@"Доступно перелетов %d",arrayOffers.count];
+        numberFlights.text = [NSString stringWithFormat:@"Доступно перелетов: %d",arrayOffers.count];
         numberFlights.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
         numberFlights.textColor = [UIColor COLOR_AVAILABLE_FLIGHTS];
         CGSize textSize = [numberFlights.text sizeWithFont:numberFlights.font];
@@ -465,7 +470,7 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3f];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    topGreenView.alpha = 0;
+    //topGreenView.alpha = 0;
     [UIView commitAnimations];
 }
 

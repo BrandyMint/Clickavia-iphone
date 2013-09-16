@@ -1,9 +1,9 @@
 //
-//  MyCell.h
+//  CAOffersCell.h
 //  TableView
 //
-//  Created by Alximik on 09.04.11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Viktor Bespalov on 9/13/13.
+//  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,10 +16,8 @@
 #define CELL_MARGIN_LEFT 5
 
 @interface CAOffersCell : UITableViewCell
-@property (nonatomic, retain) CAOffersListViewController* caOffersListViewController;
-
 
 -(void)transferView:(UIView*) customView;
--(void)initByOfferModel:(Offer*)offers;
+
 
 @end

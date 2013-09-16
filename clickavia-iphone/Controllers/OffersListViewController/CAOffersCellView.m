@@ -8,12 +8,7 @@
 
 #import "CAOffersCellView.h"
 #import "CAOffersCell.h"
-#import <QuartzCore/QuartzCore.h>
-#define COLOR_BACKGROUND_CARD_VIEW colorWithRed:236.0f/255.0f green:128.0f/255.0f blue:128.0f/255.0f alpha:1.0f
-#define COLOR_BACKGROUND_CARD_VIEW_SHADOW colorWithRed:71.0f/255.0f green:71.0f/255.0f blue:71.0f/255.0f alpha:1.0f
-#define COLOR_TEXT_MOMENTARYCONFIRMATION colorWithRed:100.0f/255.0f green:148.0f/255.0f blue:28.0f/255.0f alpha:1.0f
-#define COLOR_PASSANGER_COUNT colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1.0f
-#define COLOR_LABEL_TIME colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1.0f
+
 
 #define LABEL_AIRPORT_WIDTH 80
 #define LABEL_COLUMN_DEPARTURE 100
@@ -21,22 +16,20 @@
 @implementation CAOffersCellView
 {
     UIView* contenView;
-    Flight* flightDepartureObject;
-    Flight* flightReturnObject;
-    
     UILabel *momentaryConfirmationLabel;
 }
+
 @synthesize caOffersListViewController;
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passangers:(FlightPassengersCount*)passengersCountObject
+- (UIView*) initByOfferModel:(Offer*)offers passangers:(FlightPassengersCount*)passangers;
 {
     flightDepartureObject = [[Flight alloc] init];
     flightReturnObject = [[Flight alloc] init];
-    flightDepartureObject = offerObject.flightDeparture;
-    flightReturnObject = offerObject.flightReturn;
-
+    flightDepartureObject = offers.flightDeparture;
+    flightReturnObject = offers.flightReturn;
+    
     int heightViewFrame = 0;
-    if (offerObject.isSpecial)
+    if (offers.isSpecial)
         heightViewFrame = CELL_HEIGHT_SPECIAL;
     else
         heightViewFrame = CELL_HEIGHT_NORMAL;
@@ -52,7 +45,7 @@
     
     CGRect contenViewFrame = CGRectZero;
     
-    if (offerObject.isSpecial) {
+    if (offers.isSpecial) {
         UILabel *specialTitle = [[UILabel alloc] initWithFrame:CGRectMake(6, 1, 0, 0)];
         specialTitle.backgroundColor = [UIColor clearColor];
         specialTitle.textColor = [UIColor whiteColor];
@@ -70,11 +63,11 @@
     }
     contenView = [[UIView alloc] initWithFrame:contenViewFrame];
     contenView.backgroundColor = [UIColor whiteColor];
-    if (!offerObject.isSpecial) {
+    if (!offers.isSpecial) {
         [contenView.layer setCornerRadius:6];
     }
     
-    if (offerObject.isMomentaryConfirmation) {
+    if (offers.isMomentaryConfirmation) {
         UIImageView* check = [[UIImageView alloc] initWithFrame:CGRectMake(130, CELL_HEIGHT_NORMAL - 14, 10, 10)];
         check.image = [UIImage imageNamed:@"check-icon-green@2x.png"];
         [contenView addSubview:check];
@@ -105,7 +98,7 @@
     adultsCountLabel.backgroundColor = [UIColor clearColor];
     adultsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     adultsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    adultsCountLabel.text = [NSString stringWithFormat:@"%d",passengersCountObject.adults];
+    adultsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.adults];
     [adultsCountLabel sizeToFit];
     
     [contenView addSubview:adultsImage];
@@ -117,7 +110,7 @@
     kidsCountLabel.backgroundColor = [UIColor clearColor];
     kidsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     kidsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    kidsCountLabel.text = [NSString stringWithFormat:@"%d",passengersCountObject.kids];
+    kidsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.kids];
     [kidsCountLabel sizeToFit];
     
     [contenView addSubview:kidsImage];
@@ -129,9 +122,8 @@
     babyiesCountLabel.backgroundColor = [UIColor clearColor];
     babyiesCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     babyiesCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",passengersCountObject.babies];
+    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",passangers.babies];
     [babyiesCountLabel sizeToFit];
-    
     
     [contenView addSubview:babyImage];
     [contenView addSubview:babyiesCountLabel];
