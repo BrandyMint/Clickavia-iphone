@@ -10,20 +10,22 @@
 #import <CAColumnsControl/CAColumnsControlView.h>
 #import <CAColumnsControl/CAColumnMockDates.h>
 #import <CAManagers/Flight.h>
-#import "CAOfferCell.h"
 #import "CAOfferGreenBar.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Offer.h"
 #import "Flight.h"
 #import "FlightPassengersCount.h"
 
+#import "CAOffersCell.h"
+#import "CAOffersCellView.h"
+
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
 #define SectionHeaderHeight 170
 
 #define WIDTH_BUTTON 186
-#define HEIGHT_BUTTON 44
-#define MARGIN_RIGHT_BUTTON 15
+#define HEIGHT_BUTTON 30
+#define MARGIN_RIGHT_BUTTON 8
 
 #define COLOR_AVAILABLE_FLIGHTS colorWithRed:193.0f/255.0f green:193.0f/255.0f blue:193.0f/255.0f alpha:1
 
@@ -42,7 +44,6 @@
 @implementation CAOffersListViewController
 {
     NSMutableArray *offerArray;
-    Offer *offer1, *offer2, *offer3;
     
     BOOL isReturn;
     CGRect mainFrame;
@@ -57,6 +58,8 @@
     
     NSArray* arrayOffers;
     NSArray* arrayPassangers;
+    
+    UIView *headerTableView;
 }
 @synthesize columnDepartureControlView, columnArrivialControlView;
 @synthesize tableOffers;
@@ -126,23 +129,24 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     mainFrame = self.view.frame;
-
+    
     viewOneWay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 140)];
     viewOnBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 280)];
     
-    columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, viewOneWay.frame.size.height) title:@"туда" withTarget:nil];
+   columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, viewOneWay.frame.size.height) title:@"туда" flight_kind:ONEWAY_FLIGHT withTarget:nil];
+
     columnDepartureControlView.delegate = (id)self;
     NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
-    //[columnDepartureControlView importFlights: departureFlights];
+    [columnDepartureControlView importFlights: departureFlights];
     
-    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, viewOneWay.frame.size.height, mainFrame.size.width, viewOneWay.frame.size.height) title:@"обратно" withTarget:nil];
+    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, viewOneWay.frame.size.height, mainFrame.size.width, viewOneWay.frame.size.height) title:@"обратно" flight_kind:FLIGHT_BACK withTarget:nil];
     
     tableOffers.bounds = mainFrame;
     tableOffers.frame = CGRectMake(mainFrame.origin.x,
                                    mainFrame.origin.y,
                                    mainFrame.size.width,
                                    mainFrame.size.height);
-    [tableOffers setContentOffset:CGPointMake(0, viewOneWay.frame.size.height - topGreenView.frame.size.height) animated:NO];
+    [tableOffers setContentOffset:CGPointMake(0, 0) animated:NO];
 }
 
 -(void)showNavBar
@@ -202,14 +206,12 @@
 {
     [self factor];
     NSInteger factor = [self factor];
-    
+    NSLog(@"factor %d",factor);
     if(onDetail.selected) {
         [onDetail setSelected:NO];
         [onDetail setImage:[UIImage  imageNamed:@"toolbar-button@2x.png"] forState:UIControlStateNormal];
         
-        
-        
-        [tableOffers setContentOffset:CGPointMake(0, factor*viewOneWay.frame.size.height - topGreenView.frame.size.height) animated:YES];
+        //[tableOffers setContentOffset:CGPointMake(0, - topGreenView.frame.size.height) animated:YES];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
         [UIView setAnimationCurve:UIViewAnimationCurveLinear];
@@ -222,39 +224,45 @@
         [onDetail setSelected:YES];
         [onDetail setImage:[UIImage  imageNamed:@"toolbar-button-selected@2x.png"] forState:UIControlStateSelected];
         
-        [tableOffers setContentOffset:CGPointMake(0, 0) animated:YES];
+        
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
         [UIView setAnimationCurve:UIViewAnimationCurveLinear];
         topGreenView.alpha = 0;
         [UIView commitAnimations];
     }
+    [tableOffers setContentOffset:CGPointMake(0, 0) animated:YES];
+    [tableOffers reloadData];
 }
 
 -(void)switchToggled
 {
     [self factor];
-    [self detail];
-    [tableOffers reloadData];
 }
 
 -(NSInteger )factor
 {
-    if ([switchReturnFlight isOn]) {
-        isReturn = YES;
-        labelThere.text = @"туда";
-        labelThereDate.text = @"21 сентября";
-        labelThere.alpha = labelThereDate.alpha = 1;
-        labelBack.alpha = labelBackDate.alpha = 1;
-        
-        return 2;
+    if (onDetail.selected) {
+        if ([switchReturnFlight isOn]) {
+            isReturn = YES;
+            labelThere.text = @"туда";
+            labelThereDate.text = @"21 сентября";
+            labelThere.alpha = labelThereDate.alpha = 1;
+            labelBack.alpha = labelBackDate.alpha = 1;
+            
+            return 2;
+        }
+        else
+        {
+            isReturn = NO;
+            labelBack.text = @"обратно";
+            labelBackDate.text = @"22 сентября";
+            labelThere.alpha = labelThereDate.alpha = 1;
+            labelBack.alpha = labelBackDate.alpha = 0;
+            return 1;
+        }
     }
-    isReturn = NO;
-    labelBack.text = @"обратно";
-    labelBackDate.text = @"22 сентября";
-    labelThere.alpha = labelThereDate.alpha = 1;
-    labelBack.alpha = labelBackDate.alpha = 0;
-    return 1;
+    return 0;
 }
 
 #pragma mark -
@@ -296,9 +304,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"OfferCell";
+    static NSString *CellIdentifier = @"Cell";
     
-    CAOfferCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     Offer* offerdata = [[Offer alloc] init];
     Flight* flightdata = [[Flight alloc] init];
     FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
@@ -306,83 +313,110 @@
     flightdata = [arrayOffers objectAtIndex:indexPath.section];
     passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
     flightdata = offerdata.flightDeparture;
-    
-    if (cell == nil) {
-        cell = [[CAOfferCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.isSpecial = offerdata.isSpecial;
-        cell.isMomentaryConfirmation = offerdata.isMomentaryConfirmation;
-        cell.cityDeparture = flightdata.cityDeparture;
-        cell.cityArrival = flightdata.cityArrival;
-        cell.airlineTitle = flightdata.airlineTitle;
-        cell.airlineCode = flightdata.ID;
-        cell.timeDeparture = flightdata.dateAndTimeDeparture;
-        cell.timeArrival = flightdata.dateAndTimeArrival;
-        cell.timeInFlight = flightdata.timeInFlight;
-        
-        cell.adultCount = passengersCount.adults;
-        cell.kidCount = passengersCount.kids;
-        cell.babuCount = passengersCount.babies;
-        
-        CGRect frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON, cell.frame.size.height - 2*MARGIN_RIGHT_BUTTON - HEIGHT_BUTTON, WIDTH_BUTTON, HEIGHT_BUTTON);
-        NSDecimalNumber *boothPrice = offerdata.bothPrice;
-        UIButton *button = [[UIButton alloc] initWithFrame: frameButton];
-        UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
-        [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
-        [button setTitle: [NSString stringWithFormat:@"Купить за %@ руб.",[boothPrice stringValue]] forState: UIControlStateNormal];
-        [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-        button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-        button.titleLabel.layer.shadowOpacity = 0.4f;
-        button.titleLabel.layer.shadowRadius = 0.0f;
-        button.titleLabel.shadowColor = [UIColor blackColor];
-        button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-        [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
-        //[cell addSubview:button];
-        
-        //cell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-        [cell initByOfferModel:offerdata];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
+    //поиск ячейки
+	CAOffersCell *cell = (CAOffersCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        //если ячейка не найдена - создаем новую
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CAOffersCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        
+        UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerdata passangers:passengersCount];
+        [cell transferView:cardView];
+    }
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    Offer* offerdata = [[Offer alloc] init];
+    offerdata = [arrayOffers objectAtIndex:indexPath.section];
     
+    CGRect frameButton = CGRectZero;
+    if (offerdata.isSpecial) {
+        if (offerdata.isMomentaryConfirmation) {
+            frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON,
+                                     cell.frame.size.height - HEIGHT_BUTTON - 2*CELL_SPECIAL_PADDING,
+                                     WIDTH_BUTTON,
+                                     HEIGHT_BUTTON);
+        }
+        else{
+            frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON,
+                                     cell.frame.size.height - HEIGHT_BUTTON - 1.7*CELL_SPECIAL_PADDING,
+                                     WIDTH_BUTTON,
+                                     HEIGHT_BUTTON);
+        }
+    }
+    else {
+        if (offerdata.isMomentaryConfirmation) {
+        frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON,
+                                 cell.frame.size.height - HEIGHT_BUTTON - CELL_SPECIAL_PADDING,
+                                 WIDTH_BUTTON,
+                                 HEIGHT_BUTTON);
+        }
+        else {
+            frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON,
+                                     cell.frame.size.height - HEIGHT_BUTTON - 0.7*CELL_SPECIAL_PADDING,
+                                     WIDTH_BUTTON,
+                                     HEIGHT_BUTTON);
+        }
+    }
+    
+    NSDecimalNumber *boothPrice = offerdata.bothPrice;
+    UIButton *button = [[UIButton alloc] initWithFrame: frameButton];
+    UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
+    [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
+    [button setTitle: [NSString stringWithFormat:@"Купить за %@ руб.",[boothPrice stringValue]] forState: UIControlStateNormal];
+    [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+    button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    button.titleLabel.layer.shadowOpacity = 0.4f;
+    button.titleLabel.layer.shadowRadius = 0.0f;
+    button.titleLabel.shadowColor = [UIColor blackColor];
+    button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [cell addSubview:button];
+
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         NSInteger factor = [self factor];
+        float marginNumberFlights = topGreenView.frame.size.height + 5;
+        
+        headerTableView = [[UIView alloc] initWithFrame:CGRectMake(mainFrame.origin.x,
+                                                                   mainFrame.origin.y,
+                                                                   mainFrame.size.width,
+                                                                   factor*viewOneWay.frame.size.height + 20)];
+        if (onDetail.selected) {
+            if (isReturn) {
+                [viewOneWay removeFromSuperview];
+                [viewOnBack removeFromSuperview];
+                [viewOnBack addSubview:columnDepartureControlView];
+                [viewOnBack addSubview:columnArrivialControlView];
+                [headerTableView addSubview:viewOnBack];
+            }
+            else {
+                [viewOneWay removeFromSuperview];
+                [viewOnBack removeFromSuperview];
+                [viewOneWay addSubview:columnDepartureControlView];
+                [headerTableView addSubview:viewOneWay];
+            }
+            marginNumberFlights = factor*viewOneWay.frame.size.height + 5;
+        }
         
         UILabel* numberFlights = [[UILabel alloc] init];
         numberFlights.text = [NSString stringWithFormat:@"Доступно перелетов %d",arrayOffers.count];
         numberFlights.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
         numberFlights.textColor = [UIColor COLOR_AVAILABLE_FLIGHTS];
         CGSize textSize = [numberFlights.text sizeWithFont:numberFlights.font];
-        numberFlights.frame = CGRectMake(mainFrame.size.width/2 - textSize.width/2, factor*viewOneWay.frame.size.height + 4, 0, 0);
+        numberFlights.frame = CGRectMake(mainFrame.size.width/2 - textSize.width/2, marginNumberFlights, 0, 0);
         numberFlights.backgroundColor = [UIColor clearColor];
         [numberFlights sizeToFit];
 
-        UIView *headerTableView = [[UIView alloc] initWithFrame:CGRectMake(mainFrame.origin.x,
-                                                                mainFrame.origin.y,
-                                                                mainFrame.size.width,
-                                                                factor*viewOneWay.frame.size.height + 20)];
-        if (isReturn) {
-            [viewOneWay removeFromSuperview];
-            [viewOnBack removeFromSuperview];
-            [viewOnBack addSubview:columnDepartureControlView];
-            [viewOnBack addSubview:columnArrivialControlView];
-            [headerTableView addSubview:viewOnBack];
-            
-        }
-        else {
-            [viewOneWay removeFromSuperview];
-            [viewOnBack removeFromSuperview];
-            [viewOneWay addSubview:columnDepartureControlView];
-            [headerTableView addSubview:viewOneWay];
-        }
+
+        
         [headerTableView addSubview:numberFlights];
         return headerTableView;
     }
@@ -402,7 +436,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         NSInteger factor = [self factor];
-        return factor*viewOneWay.frame.size.height + 26; }
+        if (onDetail.selected) {
+            return factor*viewOneWay.frame.size.height + 26;
+        }
+        else {
+            return factor*viewOneWay.frame.size.height + 26 + topGreenView.frame.size.height;
+        }
+    }
     else
         return 1;
 }
@@ -425,9 +465,10 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3f];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    onDetail.selected = YES;
     topGreenView.alpha = 0;
     [UIView commitAnimations];
 }
+
+
 
 @end
