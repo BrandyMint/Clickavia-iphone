@@ -106,12 +106,12 @@
     viewOneWay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 150)];
     viewOnBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 300)];
 
-    columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 150) title:@"туда" withTarget:nil];
+    columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 150) title:@"туда" flight_kind:@"" withTarget:nil];
     columnDepartureControlView.delegate = (id)self;
     
     [columnDepartureControlView importFlights: departureFlights];
     
-    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 150, mainFrame.size.width, 150) title:@"обратно" withTarget:nil];
+    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 150, mainFrame.size.width, 150) title:@"обратно" flight_kind:@"" withTarget:nil];
     
     numberFlights.text = @"Доступно перелетов: 3";
     CGSize textSize = [numberFlights.text sizeWithFont:[UIFont fontWithName:@"Arial" size:14]];

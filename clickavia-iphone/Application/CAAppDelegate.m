@@ -10,7 +10,7 @@
 
 #import "CASpecOffersViewController.h"
 #import "CAOffersListViewController.h"
-#import "MainScreenViewController.h"
+#import "SearchFlightViewController.h"
 #import "ChatViewController.h"
 
 #import "MessageReceiver.h"
@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong) CASpecOffersViewController *specialOfferViewController;
 @property (nonatomic, strong) CAOffersListViewController *offerListViewController;
-@property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
+@property (nonatomic, strong) SearchFlightViewController *searchFlightViewController;
 
 @property (nonatomic, strong) ChatViewController *chatViewController;
 @property (strong, nonatomic) MessageReceiver *message_reciever;
@@ -48,7 +48,8 @@
     
     _specialOfferViewController = [[CASpecOffersViewController alloc] init];
     _offerListViewController = [[CAOffersListViewController alloc] init];
-    _mainScreenViewController = [[MainScreenViewController alloc] init];
+    _searchFlightViewController = [[SearchFlightViewController alloc] init];
+
     
     UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
     _message_reciever = [MessageReceiver new];
@@ -58,7 +59,7 @@
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_offerListViewController],
-                                            [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
+                                            [[UINavigationController alloc] initWithRootViewController:_searchFlightViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_chatViewController],
                                             nil]];
     
