@@ -5,6 +5,6 @@ pod 'CAColumnsControl', :podspec => 'https://raw.github.com/BrandyMint/CA-Column
 pod 'CASpecialOffers', :podspec => 'https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec'
 pod 'CACalendarView', :podspec => 'https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec'
 pod 'BMChat', :podspec => 'https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec'
-pod 'CAFieldComplete', :podspec => 'https://raw.github.com/BrandyMint/CA-FieldComplete/branch_for_correct_podspec/CAFieldComplete.podspec'
+pod 'CAFieldComplete', :podspec => 'https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec'
 
 pod 'AKTabBarController'

@@ -21,15 +21,15 @@
     Flight* flightReturnObject;
 }
 
-- (UIView*) initByOfferModel:(Offer*)offers passangers:(FlightPassengersCount*)passangers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
 {
     flightDepartureObject = [[Flight alloc] init];
     flightReturnObject = [[Flight alloc] init];
-    flightDepartureObject = offers.flightDeparture;
-    flightReturnObject = offers.flightReturn;
+    flightDepartureObject = offerObject.flightDeparture;
+    flightReturnObject = offerObject.flightReturn;
     
     int heightViewFrame = 0;
-    if (offers.isSpecial)
+    if (offerObject.isSpecial)
         heightViewFrame = CELL_HEIGHT_SPECIAL;
     else
         heightViewFrame = CELL_HEIGHT_NORMAL;
@@ -45,7 +45,7 @@
     
     CGRect contenViewFrame = CGRectZero;
     
-    if (offers.isSpecial) {
+    if (offerObject.isSpecial) {
         UILabel *specialTitle = [[UILabel alloc] initWithFrame:CGRectMake(6, 1, 0, 0)];
         specialTitle.backgroundColor = [UIColor clearColor];
         specialTitle.textColor = [UIColor whiteColor];
@@ -62,11 +62,11 @@
     }
     contenView = [[UIView alloc] initWithFrame:contenViewFrame];
     contenView.backgroundColor = [UIColor whiteColor];
-    if (!offers.isSpecial) {
+    if (!offerObject.isSpecial) {
         [contenView.layer setCornerRadius:6];
     }
     
-    if (offers.isMomentaryConfirmation) {
+    if (offerObject.isMomentaryConfirmation) {
         UIImageView* check = [[UIImageView alloc] initWithFrame:CGRectMake(130, CELL_HEIGHT_NORMAL - 14, 10, 10)];
         check.image = [UIImage imageNamed:@"check-icon-green@2x.png"];
         [contenView addSubview:check];
@@ -97,7 +97,7 @@
     adultsCountLabel.backgroundColor = [UIColor clearColor];
     adultsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     adultsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    adultsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.adults];
+    adultsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.adults];
     [adultsCountLabel sizeToFit];
     
     [contenView addSubview:adultsImage];
@@ -109,7 +109,7 @@
     kidsCountLabel.backgroundColor = [UIColor clearColor];
     kidsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     kidsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    kidsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.kids];
+    kidsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.kids];
     [kidsCountLabel sizeToFit];
     
     [contenView addSubview:kidsImage];
@@ -121,7 +121,7 @@
     babyiesCountLabel.backgroundColor = [UIColor clearColor];
     babyiesCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     babyiesCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",passangers.babies];
+    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.babies];
     [babyiesCountLabel sizeToFit];
     
     [contenView addSubview:babyImage];

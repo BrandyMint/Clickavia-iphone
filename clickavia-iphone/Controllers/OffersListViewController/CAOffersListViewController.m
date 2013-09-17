@@ -19,8 +19,8 @@
 #import "CAOffersCell.h"
 #import "CAOffersCellView.h"
 
-#import "OfferDetails.h"
-#import "FlightDetails.h"
+#import "CAOrderDetails.h"
+#import "CAOrderDetailsPersonal.h"
 
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
@@ -91,27 +91,25 @@
                                       self.view.frame.origin.y,
                                       self.view.frame.size.width,
                                       HEIGHT_GREEN_BAR)];
-    topGreenView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bar-green-warm@2x.png"]];
-
-    labelThere.frame = CGRectMake(30, 15, 0, 0);
+    labelThere.frame = CGRectMake(self.view.frame.size.width/2-60, 16, 0, 0);
     labelBack.backgroundColor = labelThere.backgroundColor = [UIColor clearColor];
     labelBack.textColor = labelThere.textColor = [UIColor whiteColor];
     labelBack.font = labelThere.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     labelThere.text = @"туда";
     [labelThere sizeToFit];
     
-    labelThereDate.frame = CGRectMake(labelThere.frame.origin.x + labelThere.frame.size.width +3, 14, 0, 0);
+    labelThereDate.frame = CGRectMake(labelThere.frame.origin.x + labelThere.frame.size.width +5, 15, 0, 0);
     labelBackDate.backgroundColor = labelThereDate.backgroundColor = [UIColor clearColor];
     labelBackDate.textColor = labelThereDate.textColor = [UIColor whiteColor];
     labelBackDate.font = labelThereDate.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
     labelThereDate.text = @"21 сентября";
     [labelThereDate sizeToFit];
     
-    labelBack.frame = CGRectMake(labelThereDate.frame.origin.x + labelThereDate.frame.size.width + 20, 15, 0, 0);
+    labelBack.frame = CGRectMake(self.view.frame.size.width/2+20, 16, 0, 0);
     labelBack.text = @"обратно";
     [labelBack sizeToFit];
     
-    labelBackDate.frame = CGRectMake(labelBack.frame.origin.x + labelBack.frame.size.width +3, 14, 0, 0);
+    labelBackDate.frame = CGRectMake(labelBack.frame.origin.x + labelBack.frame.size.width +5, 15, 0, 0);
     labelBackDate.text = @"22 сентября";
     [labelBackDate sizeToFit];
     
@@ -156,7 +154,7 @@
 -(void)showNavBar
 {
     UIButton *onBack = [[UIButton alloc] initWithFrame: CGRectMake(5, 12, 20, 20)];
-    [onBack setImage:[UIImage imageNamed:@"toolbar-back-icon@2x.png"] forState:UIControlStateNormal];
+    [onBack setImage:[UIImage imageNamed:@"toolbar-back-icon.png"] forState:UIControlStateNormal];
     
     switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(onBack.frame.origin.x + onBack.frame.size.width + 3, 8, 10, 10)];
     [switchReturnFlight addTarget:self action:@selector(switchToggled) forControlEvents: UIControlEventTouchUpInside];
@@ -173,7 +171,7 @@
     [departureCity sizeToFit];
     
     UIImageView* arrow = [[UIImageView alloc] initWithFrame:CGRectMake(departureCity.frame.origin.x + departureCity.frame.size.width + 3, 18, 8, 10)];
-    arrow.image = [UIImage imageNamed:@"toolbar-arrow-right@2x.png"];
+    arrow.image = [UIImage imageNamed:@"toolbar-arrow-right.png"];
     
     UILabel *arrivalCity = [[UILabel alloc] initWithFrame:CGRectMake(arrow.frame.origin.x + arrow.frame.size.width + 3 , 11, 0, 0)];
     arrivalCity.backgroundColor = [UIColor clearColor];
@@ -187,8 +185,8 @@
     [arrivalCity sizeToFit];
     
     onDetail = [[UIButton alloc] initWithFrame: CGRectMake(arrivalCity.frame.origin.x + arrivalCity.frame.size.width + 3, 4, 50, 35)];
-    [onDetail setImage:[UIImage imageNamed:@"toolbar-button@2x.png"] forState:UIControlStateNormal];
-    [onDetail setImage:[UIImage imageNamed:@"toolbar-button-selected@2x.png"] forState:UIControlStateHighlighted];
+    [onDetail setImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
+    [onDetail setImage:[UIImage imageNamed:@"toolbar-button-selected.png"] forState:UIControlStateHighlighted];
     [onDetail setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
     [onDetail addTarget: self action: @selector(detail) forControlEvents: UIControlEventTouchDown];
     
@@ -196,7 +194,7 @@
                                                                          self.view.frame.origin.y,
                                                                          self.view.frame.size.width,
                                                                          self.navigationController.toolbar.frame.size.height)];
-    navControllerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toolbar-background@2x.png"]];
+    navControllerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toolbar-background.png"]];
     [navControllerView addSubview:onBack];
     [navControllerView addSubview:switchReturnFlight];
     [navControllerView addSubview:departureCity];
@@ -210,12 +208,10 @@
 {
     [self factor];
     NSInteger factor = [self factor];
-    NSLog(@"factor %d",factor);
     if(onDetail.selected) {
         [onDetail setSelected:NO];
-        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button@2x.png"] forState:UIControlStateNormal];
-        
-        //[tableOffers setContentOffset:CGPointMake(0, - topGreenView.frame.size.height) animated:YES];
+        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
+
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
         [UIView setAnimationCurve:UIViewAnimationCurveLinear];
@@ -226,8 +222,7 @@
     else
     {
         [onDetail setSelected:YES];
-        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button-selected@2x.png"] forState:UIControlStateSelected];
-        
+        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button-selected.png"] forState:UIControlStateSelected];
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
@@ -251,6 +246,9 @@
             isReturn = YES;
             labelThere.text = @"туда";
             labelThereDate.text = @"21 сентября";
+            labelThere.frame = CGRectMake(20, 11, labelThere.frame.size.width, labelThere.frame.size.width);
+            labelThereDate.frame = CGRectMake(labelThere.frame.origin.x + labelThere.frame.size.width + 5, 15, 0, 0);
+            [labelThereDate sizeToFit];
             labelThere.alpha = labelThereDate.alpha = 1;
             labelBack.alpha = labelBackDate.alpha = 1;
             
@@ -261,6 +259,9 @@
             isReturn = NO;
             labelBack.text = @"обратно";
             labelBackDate.text = @"22 сентября";
+            labelThere.frame = CGRectMake(self.view.frame.size.width/2-60, 11, labelThere.frame.size.width, labelThere.frame.size.width);
+            labelThereDate.frame = CGRectMake(labelThere.frame.origin.x + labelThere.frame.size.width + 5, 15, 0, 0);
+            [labelThereDate sizeToFit];
             labelThere.alpha = labelThereDate.alpha = 1;
             labelBack.alpha = labelBackDate.alpha = 0;
             return 1;
@@ -310,13 +311,13 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    Offer* offerdata = [[Offer alloc] init];
-    Flight* flightdata = [[Flight alloc] init];
+    Offer* offerObject = [[Offer alloc] init];
+    Flight* flightObject = [[Flight alloc] init];
     FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
-    offerdata = [arrayOffers objectAtIndex:indexPath.section];
-    flightdata = [arrayOffers objectAtIndex:indexPath.section];
+    offerObject = [arrayOffers objectAtIndex:indexPath.section];
+    flightObject = [arrayOffers objectAtIndex:indexPath.section];
     passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
-    flightdata = offerdata.flightDeparture;
+    flightObject = offerObject.flightDeparture;
 
     //поиск ячейки
 	CAOffersCell *cell = (CAOffersCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -325,26 +326,36 @@
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CAOffersCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
         
-        UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerdata passangers:passengersCount];
+        UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerObject passengers:passengersCount];
         [cell transferView:cardView];
         
         //UIView* offerDataCard = [[OfferDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
         //UIView* detailsPersonal = [[FlightDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
         //[cell transferView:detailsPersonal];
+        
+        UIView *v = [[UIView alloc] init];
+        v.backgroundColor = [UIColor redColor]; // any color of your choice.
+        [v.layer setCornerRadius:6];
+        v.layer.shadowColor = [[UIColor whiteColor] CGColor];
+        v.layer.shadowOffset = CGSizeMake(0.0, 1.0);
+        v.layer.shadowRadius = 10;
+        v.layer.shadowOpacity = 1.0;
+        cell.selectedBackgroundView = v;
     }
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Offer* offerdata = [[Offer alloc] init];
-    offerdata = [arrayOffers objectAtIndex:indexPath.section];
+    Offer* offerObject = [[Offer alloc] init];
+    offerObject = [arrayOffers objectAtIndex:indexPath.section];
     
     CGRect frameButton = CGRectZero;
-    if (offerdata.isSpecial) {
-        if (offerdata.isMomentaryConfirmation) {
+    if (offerObject.isSpecial) {
+        if (offerObject.isMomentaryConfirmation) {
             frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON,
                                      cell.frame.size.height - HEIGHT_BUTTON - 2*CELL_SPECIAL_PADDING,
                                      WIDTH_BUTTON,
@@ -358,7 +369,7 @@
         }
     }
     else {
-        if (offerdata.isMomentaryConfirmation) {
+        if (offerObject.isMomentaryConfirmation) {
         frameButton = CGRectMake(cell.frame.size.width - WIDTH_BUTTON - MARGIN_RIGHT_BUTTON,
                                  cell.frame.size.height - HEIGHT_BUTTON - CELL_SPECIAL_PADDING,
                                  WIDTH_BUTTON,
@@ -372,9 +383,9 @@
         }
     }
     
-    NSDecimalNumber *boothPrice = offerdata.bothPrice;
+    NSDecimalNumber *boothPrice = offerObject.bothPrice;
     UIButton *button = [[UIButton alloc] initWithFrame: frameButton];
-    UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light@2x.png"];
+    UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light.png"];
     [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
     [button setTitle: [NSString stringWithFormat:@"Купить за %@ руб.",[boothPrice stringValue]] forState: UIControlStateNormal];
     [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
@@ -433,9 +444,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Offer* offerdata = [[Offer alloc] init];
-    offerdata = [arrayOffers objectAtIndex:indexPath.section];
-    if(offerdata.isSpecial)
+    Offer* offerObject = [[Offer alloc] init];
+    offerObject = [arrayOffers objectAtIndex:indexPath.section];
+    if(offerObject.isSpecial)
         return CELL_HEIGHT_SPECIAL;
     else
         return CELL_HEIGHT_NORMAL;
@@ -470,11 +481,7 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3f];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    //topGreenView.alpha = 0;
-    [UIView commitAnimations];
+
 }
 
 
