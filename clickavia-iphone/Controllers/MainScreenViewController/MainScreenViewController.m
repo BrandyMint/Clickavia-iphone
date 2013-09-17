@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBarHidden = YES;
-    /*
+    
     [_calendarView setDelegate:self];
     [_calendarView selectFlyToDaysByDateArray:[CACalendarMockDates generateFlyToDates]];
     [_calendarView selectFlyReturnDaysByDateArray:[CACalendarMockDates generateFlyReturnDates:[NSDate date]]];
@@ -37,11 +37,11 @@
     _cm.delay = 10;
     _departureDestination = [Destination new];
     _returnDestination = [Destination new];
-    _departureCompleteView.isReturn = NO;
+    //_departureCompleteView.isReturn = NO;
     _departureCompleteView.delegate = self;
     _returnCompleteView.delegate = self;
-    _returnCompleteView.isReturn = YES;
-     */
+    //_returnCompleteView.isReturn = YES;
+     
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,7 +62,7 @@
 {
     return nil;
 }
-/*
+
 - (void) calendarView:(CACalendarView*)calendarView didSelectDate:(NSDate*)date
 {
     if(_calendarView.flyToDate!=nil)
@@ -135,5 +135,5 @@
          }];
     }
 }
-*/
+
 @end

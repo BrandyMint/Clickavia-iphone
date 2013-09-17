@@ -10,6 +10,9 @@
 #import "Offer.h"
 #import "Flight.h"
 #import "FlightPassengersCount.h"
+#import "OfferConditions.h"
+#import "SearchConditions.h"
+#import "Destination.h"
 
 @interface CAOffersData : NSObject
 
