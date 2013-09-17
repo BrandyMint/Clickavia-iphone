@@ -1,8 +1,8 @@
 //
-//  FlightDetails.h
+//  OfferCellDetails.h
 //  clickavia-iphone
 //
-//  Created by bespalown on 9/16/13.
+//  Created by Viktor Bespalov on 9/16/13.
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
@@ -23,15 +23,15 @@
 #define COLOR_PASSANGER_COUNT colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1.0f
 #define COLOR_LABEL_TIME colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1.0f
 
-@interface FlightDetails : UIView
+@interface CAOrderDetails : UIView
 
 @property (nonatomic, retain) Offer* offerObject;
 @property (nonatomic, retain) Flight* flightObject;
-@property (nonatomic, retain) FlightPassengersCount* flightPassengersCountObject;
+@property (nonatomic, retain) FlightPassengersCount* offerPassengers;
 @property (nonatomic, retain) OfferConditions* offerConditionsObject;
 @property (nonatomic, retain) SearchConditions* searchConditionsObject;
 @property (nonatomic, retain) Destination* destinationObject;
 
-- (UIView*) initByOfferModel:(Offer*)offers passangers:(FlightPassengersCount*)passangers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
 
 @end

@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
-#import "OfferDetails.h"
+#import "CAOrderDetails.h"
 
 #define LABEL_AIRPORT_WIDTH 80
 #define LABEL_COLUMN_DEPARTURE 100
 
-@implementation OfferDetails
+@implementation CAOrderDetails
 {
     Flight* flightDepartureObject;
     Flight* flightReturnObject;
@@ -23,7 +23,7 @@
     UIView* contenView;
 }
 
-- (UIView*) initByOfferModel:(Offer*)offers passangers:(FlightPassengersCount*)passangers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
 {
     flightDepartureObject = [[Flight alloc] init];
     flightReturnObject = [[Flight alloc] init];
@@ -32,9 +32,9 @@
     destinationDeparture = [[Destination alloc] init];
     destinationReturn = [[Destination alloc] init];
     
-    flightDepartureObject = offers.flightDeparture;
-    flightReturnObject = offers.flightReturn;
-    offerConditions = offers.offerConditions;
+    flightDepartureObject = offerObject.flightDeparture;
+    flightReturnObject = offerObject.flightReturn;
+    offerConditions = offerObject.offerConditions;
     searchConditions = offerConditions.searchConditions;
     destinationDeparture = searchConditions.direction_departure;
     destinationReturn = searchConditions.direction_return;
@@ -54,7 +54,7 @@
     [contenView addSubview:departFlightView];
     [contenView addSubview:returnFlightView];
     
-    UIView* passangersBlockView = [self flightPassengersBlockView:passangers];
+    UIView* passangersBlockView = [self flightPassengersBlockView:offerPassengers];
     passangersBlockView.frame = CGRectMake(10,
                                            140,
                                            passangersBlockView.frame.size.width,
@@ -65,7 +65,7 @@
     price.backgroundColor = [UIColor clearColor];
     price.textColor = [UIColor COLOR_PASSANGER_COUNT];
     price.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    price.text = [NSString stringWithFormat:@"%@ р.",offers.bothPrice];
+    price.text = [NSString stringWithFormat:@"%@ р.",offerObject.bothPrice];
     [contenView addSubview:price];
     [price sizeToFit];
 

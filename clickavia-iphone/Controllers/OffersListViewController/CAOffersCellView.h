@@ -26,9 +26,9 @@
 
 @property (nonatomic, retain) Offer* offerObject;
 @property (nonatomic, retain) Flight* flightObject;
-@property (nonatomic, retain) FlightPassengersCount* FlightPassengersCount;
+@property (nonatomic, retain) FlightPassengersCount* offerPassengers;
 @property (nonatomic, retain) CAOffersListViewController* caOffersListViewController;
 
-- (UIView*) initByOfferModel:(Offer*)offers passangers:(FlightPassengersCount*)passangers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
 
 @end
