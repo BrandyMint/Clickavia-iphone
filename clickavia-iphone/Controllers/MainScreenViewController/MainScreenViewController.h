@@ -9,17 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <CACalendarView/CACalendarView.h>
 #import "CACalendarMockDates.h"
-//#import "CAFieldCompleteView.h"
+#import "CAFieldCompleteView.h"
 #import <CAManagers/CitiesManager.h>
 
-@interface MainScreenViewController : UIViewController //<CAFieldCompleteViewDelegate>
+@interface MainScreenViewController : UIViewController <CAFieldCompleteViewDelegate>
 
-//@property (strong,nonatomic) IBOutlet CAFieldCompleteView* departureCompleteView;
-//@property (strong,nonatomic) IBOutlet CAFieldCompleteView* returnCompleteView;
-//@property (strong,nonatomic) CitiesManager *cm;
-//@property (strong,nonatomic) Destination *departureDestination;
-//@property (strong,nonatomic) Destination *returnDestination;
+@property (strong,nonatomic) IBOutlet CAFieldCompleteView* departureCompleteView;
+@property (strong,nonatomic) IBOutlet CAFieldCompleteView* returnCompleteView;
+@property (strong,nonatomic) CitiesManager *cm;
+@property (strong,nonatomic) Destination *departureDestination;
+@property (strong,nonatomic) Destination *returnDestination;
 
-//@property (strong,nonatomic) IBOutlet CACalendarView* calendarView;
+@property (strong,nonatomic) IBOutlet CACalendarView* calendarView;
 
 @end

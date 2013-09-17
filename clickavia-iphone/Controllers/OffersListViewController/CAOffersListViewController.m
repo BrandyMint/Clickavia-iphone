@@ -18,7 +18,9 @@
 
 #import "CAOffersCell.h"
 #import "CAOffersCellView.h"
-#import "OfferCellDetails.h"
+
+#import "OfferDetails.h"
+#import "FlightDetails.h"
 
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
@@ -326,8 +328,9 @@
         UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerdata passangers:passengersCount];
         [cell transferView:cardView];
         
-        UIView* cardView2 = [[OfferCellDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
-        [cell addSubview:cardView2];
+        //UIView* offerDataCard = [[OfferDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
+        //UIView* detailsPersonal = [[FlightDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
+        //[cell transferView:detailsPersonal];
     }
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

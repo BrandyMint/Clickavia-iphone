@@ -9,24 +9,36 @@
 #import "CAOffersData.h"
 
 @implementation CAOffersData
+{
+    /*
+    Flight* flightDepartureObject;
+    Flight* flightReturnObject;
+    OfferConditions* offerConditions;
+    SearchConditions* searchConditions;
+    Destination* destinationDeparture;
+    Destination* destinationReturn;
+     */
+}
 
 -(NSArray*)arrayOffer
 {
     NSMutableArray* arrayOffers = [[NSMutableArray alloc] initWithCapacity:10];
     
-    NSArray* arraycityDeparture = [[NSArray alloc] initWithObjects:@"D-Анкона", @"D-Бари", @"D-Бергамо" , @"D-Болонья" , @"D-Больцано" , @"D-Брешиа" , @"D-Венеция" , @"D-Верона" , @"D-Виченца" , @"D-Генуя" , @"D-Милан" , @"D-Латина" ,@"D-Модена" , @"D-Парма" ,@"D-Пескара D-" ,@"D-Прато" , @"D-Реджо-дэ Калабрия" , @"D-Реджо-Эмилия" , @"D-Рим" , @"D-Сиракуза" , @"D-Таранто" ,@"D-Триест" ,@"D-Турин" ,@"D-Феррара" ,@"D-Флоренция" , nil];
-    NSArray* arraycityArrival = [[NSArray alloc] initWithObjects:@"D-Мытищи", @"D-Нижний Новгород", @"D-Нижний Тагил", @"D-Новороссийск", @"D-Омск", @"D-Орёл", @"D-Павлово на Оке", @"D-Пенза", @"D-Переславль-Залесский", @"D-Ростов-на-Дону", @"D-Санкт-Петербург", @"D-Москва", @"D-Чебоксары", @"D-Рыбинск", @"D-Пятигорск",@"D-Пушкинские горы", @"D-Покров",@" D-Петрозаводск", @"D-Петергоф", nil];
-    NSArray* arrayAirport = [[NSArray alloc] initWithObjects:@"D-Aeroflot",@"D-Morflot",@"D-Flot",@"D-Pilot", nil];
-    NSArray* arrayAirportTitle = [[NSArray alloc] initWithObjects:@"D-SU 1567",@"D-AB 1234",@"D-BC 5678",@"D-CD 9012", nil];
+    NSArray* arraycityDeparture = [[NSArray alloc] initWithObjects:@"Анкона", @"Бари", @"Бергамо" , @"Болонья" , @"Больцано" , @"Брешиа" , @"Венеция" , @"Верона" , @"Виченца" , @"Генуя" , @"Милан" , @"Латина" ,@"Модена" , @"Парма" ,@"Пескара " ,@"Прато" , @"Реджо-дэ Калабрия" , @"Реджо-Эмилия" , @"Рим" , @"Сиракуза" , @"Таранто" ,@"Триест" ,@"Турин" ,@"Феррара" ,@"Флоренция" , nil];
+    NSArray* arraycityArrival = [[NSArray alloc] initWithObjects:@"Мытищи", @"Нижний Новгород", @"Нижний Тагил", @"Новороссийск", @"Омск", @"Орёл", @"Павлово на Оке", @"Пенза", @"Переславль-Залесский", @"Ростов-на-Дону", @"Санкт-Петербург", @"Москва", @"Чебоксары", @"Рыбинск", @"Пятигорск",@"Пушкинские горы", @"Покров",@" Петрозаводск", @"Петергоф", nil];
+    NSArray* arrayAirport = [[NSArray alloc] initWithObjects:@"Aeroflot",@"Morflot",@"Flot",@"Pilot", nil];
+    NSArray* arrayAirportTitle = [[NSArray alloc] initWithObjects:@"SU 1567",@"AB 1234",@"BC 5678",@"CD 9012", nil];
     
-    NSArray* RarraycityDeparture = [[NSArray alloc] initWithObjects:@"R-Анкона", @"R-Бари", @"R-Бергамо" , @"R-Болонья" , @"R-Больцано" , @"R-Брешиа" , @"R-Венеция" , @"R-Верона" , @"R-Виченца" , @"R-Генуя" , @"R-Милан" , @"R-Латина" ,@"R-Модена" , @"R-Парма" ,@"R-Пескара R-" ,@"R-Прато" , @"R-Реджо-дэ Калабрия" , @"R-Реджо-Эмилия" , @"R-Рим" , @"R-Сиракуза" , @"R-Таранто" ,@"R-Триест" ,@"R-Турин" ,@"R-Феррара" ,@"R-Флоренция" , nil];
-    NSArray* RarraycityArrival = [[NSArray alloc] initWithObjects:@"R-Мытищи", @"R-Нижний Новгород", @"R-Нижний Тагил", @"R-Новороссийск", @"R-Омск", @"R-Орёл", @"R-Павлово на Оке", @"R-Пенза", @"R-Переславль-Залесский", @"R-Ростов-на-Дону", @"R-Санкт-Петербург", @"R-Москва", @"R-Чебоксары", @"R-Рыбинск", @"R-Пятигорск",@"R-Пушкинские горы", @"R-Покров",@" R-Петрозаводск", @"R-Петергоф", nil];
-    NSArray* RarrayAirport = [[NSArray alloc] initWithObjects:@"R-Aeroflot",@"R-Morflot",@"R-Flot",@"R-Pilot", nil];
-    NSArray* RarrayAirportTitle = [[NSArray alloc] initWithObjects:@"R-SU 1567",@"R-AB 1234",@"R-BC 5678",@"R-CD 9012", nil];
+    NSArray* RarraycityDeparture = [[NSArray alloc] initWithObjects:@"Анкона", @"Бари", @"Бергамо" , @"Болонья" , @"Больцано" , @"Брешиа" , @"Венеция" , @"Верона" , @"Виченца" , @"Генуя" , @"Милан" , @"Латина" ,@"Модена" , @"Парма" ,@"Пескара " ,@"Прато" , @"Реджо-дэ Калабрия" , @"Реджо-Эмилия" , @"Рим" , @"Сиракуза" , @"Таранто" ,@"Триест" ,@"Турин" ,@"Феррара" ,@"Флоренция" , nil];
+    NSArray* RarraycityArrival = [[NSArray alloc] initWithObjects:@"Мытищи", @"Нижний Новгород", @"Нижний Тагил", @"Новороссийск", @"Омск", @"Орёл", @"Павлово на Оке", @"Пенза", @"Переславль-Залесский", @"Ростов-на-Дону", @"Санкт-Петербург", @"Москва", @"Чебоксары", @"Рыбинск", @"Пятигорск",@"Пушкинские горы", @"Покров",@" Петрозаводск", @"Петергоф", nil];
+    NSArray* RarrayAirport = [[NSArray alloc] initWithObjects:@"Aeroflot",@"Morflot",@"Flot",@"Pilot", nil];
+    NSArray* RarrayAirportTitle = [[NSArray alloc] initWithObjects:@"SU 1567",@"AB 1234",@"BC 5678",@"CD 9012", nil];
+    NSArray *DestinationCodeArray = [[NSArray alloc] initWithObjects:@"SVO", @"KVO", @"PVO", @"TVO", @"OGO", @"ITD", nil];
+    NSArray *DestinationCityCodeArray = [[NSArray alloc] initWithObjects:@"MOW",@"SPT", @"CHE", @"VOR", nil];
+    NSArray* airportTitle = [[NSArray alloc] initWithObjects:@"Шереметьево",@"Пашковский",@"Московский",@"Домодедово",@"Внуково", nil];
     
     for (int i = 0; i<10; i++) {
         Offer* offer = [[Offer alloc] init];
-        
         
         offer.isSpecial = arc4random()%2;
         offer.isMomentaryConfirmation = arc4random()%2;
@@ -57,7 +69,27 @@
         
         NSDecimalNumber *bothPrice = [[NSDecimalNumber alloc] initWithInt:arc4random()%10000+1000];
         offer.bothPrice = bothPrice;
-    
+
+        OfferConditions* offerConditions = [[OfferConditions alloc] init];
+
+        
+        SearchConditions* searchConditions = [[SearchConditions alloc] init];
+
+        
+        Destination* destinationDeparture = [[Destination alloc] init];
+        destinationDeparture.airportTitle = [airportTitle objectAtIndex:arc4random()%airportTitle.count];
+        destinationDeparture.code = [DestinationCodeArray objectAtIndex:arc4random()%DestinationCodeArray.count];
+        
+        Destination* destinationReturn = [[Destination alloc] init];
+        destinationReturn.airportTitle = [airportTitle objectAtIndex:arc4random()%airportTitle.count];
+        destinationReturn.code = [DestinationCodeArray objectAtIndex:arc4random()%DestinationCodeArray.count];
+        
+        searchConditions.direction_return = destinationReturn;
+        searchConditions.direction_departure = destinationDeparture;
+        offerConditions.searchConditions = searchConditions;
+        offer.offerConditions = offerConditions;
+
+        
         [arrayOffers addObject:offer];
     }
     return arrayOffers;
