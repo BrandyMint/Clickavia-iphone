@@ -37,10 +37,11 @@
     _cm.delay = 10;
     _departureDestination = [Destination new];
     _returnDestination = [Destination new];
-    _departureCompleteView.isReturn = NO;
+    //_departureCompleteView.isReturn = NO;
     _departureCompleteView.delegate = self;
     _returnCompleteView.delegate = self;
-    _returnCompleteView.isReturn = YES;
+    //_returnCompleteView.isReturn = YES;
+     
 }
 
 - (void)didReceiveMemoryWarning

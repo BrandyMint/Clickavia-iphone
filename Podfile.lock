@@ -3,11 +3,11 @@ PODS:
   - AKTabBarController (1.1.0)
   - Base64 (1.0.1)
   - BMChat (0.0.1)
-  - CACalendarView
+  - CACalendarView (0.0.1)
   - CAColumnsControl:
     - PSTCollectionView
-  - CAFieldComplete
-  - CAManagers:
+  - CAFieldComplete (0.0.1)
+  - CAManagers (0.0.1):
     - Base64 (= 1.0.1)
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
@@ -43,7 +43,7 @@ DEPENDENCIES:
   - BMChat (from `https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec`)
   - CACalendarView (from `https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec`)
   - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
-  - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec`)
+  - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/branch_for_correct_podspec/CAFieldComplete.podspec`)
   - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
   - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
 
@@ -55,7 +55,7 @@ EXTERNAL SOURCES:
   CAColumnsControl:
     :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec
   CAFieldComplete:
-    :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec
+    :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/branch_for_correct_podspec/CAFieldComplete.podspec
   CAManagers:
     :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
   CASpecialOffers:
@@ -66,10 +66,10 @@ SPEC CHECKSUMS:
   AKTabBarController: 34443d5d028700dea1d00a6f275e8ef17fc947c2
   Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
   BMChat: b4312ff0cb28975eb379307864c8b7aba20928dd
-  CACalendarView: 8219b45f8e729b56c6a3e073297a9f9d9d5e4f54
+  CACalendarView: 5943f356a01934ad7a7ee810064d75ebd8829876
   CAColumnsControl: d90b67b95611501c1d2af0cd1ac6cd42685201ee
-  CAFieldComplete: 6d373dc27015e2c82fe79ab678722cbaccc3dd0f
-  CAManagers: 0d4a9f5390714c3c334d9170931184dbd78ae134
+  CAFieldComplete: 3c269a2a5ac1b1eb36eacbe089c835a4b1f3339d
+  CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
   CASpecialOffers: e71214f144919a3889f16bd723d0f791fa5de86a
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
