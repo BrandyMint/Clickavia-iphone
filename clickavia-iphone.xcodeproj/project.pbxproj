@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
 		66308B9717D5BF7000B2510C /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */; };
-		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
-		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
-		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
+		6639C9FA17C5E6A100CF772D /* SearchFlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* SearchFlightViewController.m */; };
+		6639C9FB17C5E6A100CF772D /* SearchFlightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* SearchFlightViewController.xib */; };
 		6639CA0117C5E6AE00CF772D /* CAOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FD17C5E6AE00CF772D /* CAOfferCell.m */; };
 		6639CA0217C5E6AE00CF772D /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
@@ -71,11 +70,9 @@
 /* Begin PBXFileReference section */
 		66308B9517D5BF7000B2510C /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
 		66308B9617D5BF7000B2510C /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
-		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
-		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
-		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
-		6639C9F717C5E6A100CF772D /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreenViewController.m; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.m"; sourceTree = SOURCE_ROOT; };
-		6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainScreenViewController.xib; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
+		6639C9F617C5E6A100CF772D /* SearchFlightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchFlightViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/SearchFlightViewController.h"; sourceTree = SOURCE_ROOT; };
+		6639C9F717C5E6A100CF772D /* SearchFlightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchFlightViewController.m; path = "clickavia-iphone/Controllers/MainScreenViewController/SearchFlightViewController.m"; sourceTree = SOURCE_ROOT; };
+		6639C9F817C5E6A100CF772D /* SearchFlightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchFlightViewController.xib; path = "clickavia-iphone/Controllers/MainScreenViewController/SearchFlightViewController.xib"; sourceTree = SOURCE_ROOT; };
 		6639C9FC17C5E6AE00CF772D /* CAOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferCell.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferCell.h"; sourceTree = SOURCE_ROOT; };
 		6639C9FD17C5E6AE00CF772D /* CAOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferCell.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferCell.m"; sourceTree = SOURCE_ROOT; };
 		6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersListViewController.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -265,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				7CC150CA17C5DD9300796B50 /* ChatViewController */,
-				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
+				7CC150C117C5D4DE00796B50 /* SearchFlightViewController */,
 				7CC7D33217A78B3400940C94 /* OffersListViewController */,
 				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
 			);
@@ -317,16 +314,14 @@
 			path = SpecialOfferViewController;
 			sourceTree = "<group>";
 		};
-		7CC150C117C5D4DE00796B50 /* MainScreenViewController */ = {
+		7CC150C117C5D4DE00796B50 /* SearchFlightViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */,
-				6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */,
-				6639C9F617C5E6A100CF772D /* MainScreenViewController.h */,
-				6639C9F717C5E6A100CF772D /* MainScreenViewController.m */,
-				6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */,
+				6639C9F617C5E6A100CF772D /* SearchFlightViewController.h */,
+				6639C9F717C5E6A100CF772D /* SearchFlightViewController.m */,
+				6639C9F817C5E6A100CF772D /* SearchFlightViewController.xib */,
 			);
-			name = MainScreenViewController;
+			name = SearchFlightViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
 			sourceTree = "<group>";
 		};
@@ -443,7 +438,7 @@
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
-				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
+				6639C9FB17C5E6A100CF772D /* SearchFlightViewController.xib in Resources */,
 				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
 				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
 				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
@@ -528,8 +523,7 @@
 			files = (
 				7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
-				6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */,
-				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
+				6639C9FA17C5E6A100CF772D /* SearchFlightViewController.m in Sources */,
 				6639CA0117C5E6AE00CF772D /* CAOfferCell.m in Sources */,
 				6639CA0217C5E6AE00CF772D /* CAOffersListViewController.m in Sources */,
 				6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */,
