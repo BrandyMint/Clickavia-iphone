@@ -23,6 +23,19 @@
 		6633A93D17DF306500FEB066 /* toolbar-back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A93717DF306300FEB066 /* toolbar-back-icon@2x.png */; };
 		6633A93F17DF306500FEB066 /* toolbar-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A93917DF306400FEB066 /* toolbar-button@2x.png */; };
 		6633A94117DF340C00FEB066 /* toolbar-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A94017DF340B00FEB066 /* toolbar-button-selected@2x.png */; };
+		6636ACF317E9EA80008A788D /* bnt-primary-large-for-dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACE617E9EA80008A788D /* bnt-primary-large-for-dark@2x.png */; };
+		6636ACF417E9EA80008A788D /* btn-primary-large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACE717E9EA80008A788D /* btn-primary-large@2x.png */; };
+		6636ACF517E9EA80008A788D /* calendar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACE817E9EA80008A788D /* calendar-background@2x.png */; };
+		6636ACF617E9EA80008A788D /* calendar-departure-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACE917E9EA80008A788D /* calendar-departure-date-bg@2x.png */; };
+		6636ACF717E9EA80008A788D /* calendar-interval-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACEA17E9EA80008A788D /* calendar-interval-bg@2x.png */; };
+		6636ACF817E9EA80008A788D /* calendar-return-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACEB17E9EA80008A788D /* calendar-return-date-bg@2x.png */; };
+		6636ACF917E9EA80008A788D /* calendar-tabs-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACEC17E9EA80008A788D /* calendar-tabs-background@2x.png */; };
+		6636ACFA17E9EA80008A788D /* calendar-tabs-icon-reset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACED17E9EA80008A788D /* calendar-tabs-icon-reset@2x.png */; };
+		6636ACFB17E9EA80008A788D /* calendar-tabs-plane-icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACEE17E9EA80008A788D /* calendar-tabs-plane-icon-back@2x.png */; };
+		6636ACFC17E9EA80008A788D /* calendar-tabs-plane-icon-forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACEF17E9EA80008A788D /* calendar-tabs-plane-icon-forward@2x.png */; };
+		6636ACFD17E9EA80008A788D /* calendar-today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACF017E9EA80008A788D /* calendar-today@2x.png */; };
+		6636ACFE17E9EA80008A788D /* months-silder-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACF117E9EA80008A788D /* months-silder-bar@2x.png */; };
+		6636ACFF17E9EA80008A788D /* months-slider-selection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6636ACF217E9EA80008A788D /* months-slider-selection@2x.png */; };
 		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
 		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
 		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
@@ -68,10 +81,6 @@
 		7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */; };
 		7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */; };
 		7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */; };
-		7C2670B417CB1FAE002EE876 /* local.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AD17CB1FAE002EE876 /* local.png */; };
-		7C2670B517CB1FAE002EE876 /* local@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AE17CB1FAE002EE876 /* local@2x.png */; };
-		7C2670B617CB1FAE002EE876 /* what.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AF17CB1FAE002EE876 /* what.png */; };
-		7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670B017CB1FAE002EE876 /* what@2x.png */; };
 		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +114,19 @@
 		6633A93717DF306300FEB066 /* toolbar-back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-back-icon@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/toolbar-back-icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		6633A93917DF306400FEB066 /* toolbar-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/toolbar-button@2x.png"; sourceTree = SOURCE_ROOT; };
 		6633A94017DF340B00FEB066 /* toolbar-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button-selected@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/toolbar-button-selected@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACE617E9EA80008A788D /* bnt-primary-large-for-dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bnt-primary-large-for-dark@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/bnt-primary-large-for-dark@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACE717E9EA80008A788D /* btn-primary-large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-primary-large@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/btn-primary-large@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACE817E9EA80008A788D /* calendar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-background@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-background@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACE917E9EA80008A788D /* calendar-departure-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-departure-date-bg@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-departure-date-bg@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACEA17E9EA80008A788D /* calendar-interval-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-interval-bg@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-interval-bg@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACEB17E9EA80008A788D /* calendar-return-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-return-date-bg@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-return-date-bg@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACEC17E9EA80008A788D /* calendar-tabs-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-background@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-tabs-background@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACED17E9EA80008A788D /* calendar-tabs-icon-reset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-icon-reset@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-tabs-icon-reset@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACEE17E9EA80008A788D /* calendar-tabs-plane-icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-plane-icon-back@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-tabs-plane-icon-back@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACEF17E9EA80008A788D /* calendar-tabs-plane-icon-forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-plane-icon-forward@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-tabs-plane-icon-forward@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACF017E9EA80008A788D /* calendar-today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-today@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/calendar-today@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACF117E9EA80008A788D /* months-silder-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "months-silder-bar@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/months-silder-bar@2x.png"; sourceTree = SOURCE_ROOT; };
+		6636ACF217E9EA80008A788D /* months-slider-selection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "months-slider-selection@2x.png"; path = "Pods/CACalendarView/CACalendarView/Resources/months-slider-selection@2x.png"; sourceTree = SOURCE_ROOT; };
 		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
 		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -165,10 +187,6 @@
 		7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatTableCellView.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatTableCellView.xib; sourceTree = SOURCE_ROOT; };
 		7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatViewController.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController.xib; sourceTree = SOURCE_ROOT; };
 		7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "BMChatViewController~iPad.xib"; path = "Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController~iPad.xib"; sourceTree = SOURCE_ROOT; };
-		7C2670AD17CB1FAE002EE876 /* local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = local.png; path = Pods/BMChat/BMChat/BMChat.bundle/local.png; sourceTree = SOURCE_ROOT; };
-		7C2670AE17CB1FAE002EE876 /* local@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "local@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/local@2x.png"; sourceTree = SOURCE_ROOT; };
-		7C2670AF17CB1FAE002EE876 /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
-		7C2670B017CB1FAE002EE876 /* what@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "what@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/what@2x.png"; sourceTree = SOURCE_ROOT; };
 		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -335,10 +353,6 @@
 				7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */,
 				7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */,
 				7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */,
-				7C2670AD17CB1FAE002EE876 /* local.png */,
-				7C2670AE17CB1FAE002EE876 /* local@2x.png */,
-				7C2670AF17CB1FAE002EE876 /* what.png */,
-				7C2670B017CB1FAE002EE876 /* what@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -382,6 +396,19 @@
 				6639C9F617C5E6A100CF772D /* MainScreenViewController.h */,
 				6639C9F717C5E6A100CF772D /* MainScreenViewController.m */,
 				6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */,
+				6636ACE617E9EA80008A788D /* bnt-primary-large-for-dark@2x.png */,
+				6636ACE717E9EA80008A788D /* btn-primary-large@2x.png */,
+				6636ACE817E9EA80008A788D /* calendar-background@2x.png */,
+				6636ACE917E9EA80008A788D /* calendar-departure-date-bg@2x.png */,
+				6636ACEA17E9EA80008A788D /* calendar-interval-bg@2x.png */,
+				6636ACEB17E9EA80008A788D /* calendar-return-date-bg@2x.png */,
+				6636ACEC17E9EA80008A788D /* calendar-tabs-background@2x.png */,
+				6636ACED17E9EA80008A788D /* calendar-tabs-icon-reset@2x.png */,
+				6636ACEE17E9EA80008A788D /* calendar-tabs-plane-icon-back@2x.png */,
+				6636ACEF17E9EA80008A788D /* calendar-tabs-plane-icon-forward@2x.png */,
+				6636ACF017E9EA80008A788D /* calendar-today@2x.png */,
+				6636ACF117E9EA80008A788D /* months-silder-bar@2x.png */,
+				6636ACF217E9EA80008A788D /* months-slider-selection@2x.png */,
 			);
 			name = MainScreenViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
@@ -525,10 +552,6 @@
 				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
 				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
 				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
-				7C2670B417CB1FAE002EE876 /* local.png in Resources */,
-				7C2670B517CB1FAE002EE876 /* local@2x.png in Resources */,
-				7C2670B617CB1FAE002EE876 /* what.png in Resources */,
-				7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */,
 				666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */,
 				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
 				663C335517D0CF78002CAE26 /* background-gray-textured.png in Resources */,
@@ -553,6 +576,19 @@
 				6633A94117DF340C00FEB066 /* toolbar-button-selected@2x.png in Resources */,
 				66CCF64317E0570B002BF4A6 /* toolbar-background@2x.png in Resources */,
 				662972DE17E2F40900D9324B /* CAOffersCell.xib in Resources */,
+				6636ACF317E9EA80008A788D /* bnt-primary-large-for-dark@2x.png in Resources */,
+				6636ACF417E9EA80008A788D /* btn-primary-large@2x.png in Resources */,
+				6636ACF517E9EA80008A788D /* calendar-background@2x.png in Resources */,
+				6636ACF617E9EA80008A788D /* calendar-departure-date-bg@2x.png in Resources */,
+				6636ACF717E9EA80008A788D /* calendar-interval-bg@2x.png in Resources */,
+				6636ACF817E9EA80008A788D /* calendar-return-date-bg@2x.png in Resources */,
+				6636ACF917E9EA80008A788D /* calendar-tabs-background@2x.png in Resources */,
+				6636ACFA17E9EA80008A788D /* calendar-tabs-icon-reset@2x.png in Resources */,
+				6636ACFB17E9EA80008A788D /* calendar-tabs-plane-icon-back@2x.png in Resources */,
+				6636ACFC17E9EA80008A788D /* calendar-tabs-plane-icon-forward@2x.png in Resources */,
+				6636ACFD17E9EA80008A788D /* calendar-today@2x.png in Resources */,
+				6636ACFE17E9EA80008A788D /* months-silder-bar@2x.png in Resources */,
+				6636ACFF17E9EA80008A788D /* months-slider-selection@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
