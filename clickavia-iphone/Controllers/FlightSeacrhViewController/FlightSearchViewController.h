@@ -11,6 +11,8 @@
 #import "CAFieldCompleteView.h"
 #import <CAManagers/CitiesManager.h>
 #import <CAManagers/FlightsManager.h>
+#import <CAManagers/OfferConditions.h>
+#import "CAAppDelegate.h"
 
 @interface FlightSearchViewController : UIViewController <CAFieldCompleteViewDelegate,CACalendarViewDelegate>
 {
@@ -31,7 +33,8 @@
 @property (strong,nonatomic) IBOutlet UIButton *flightClassButton;
 @property (strong,nonatomic) IBOutlet UILabel *switchDescription;
 - (SearchConditions*) getSearchConditions;
+- (OfferConditions*) getOfferConditions;
 - (IBAction)changeFlightType:(id)sender;
 - (IBAction)changeIsBothWays:(id)sender;
-
+- (IBAction)find:(id)sender;
 @end

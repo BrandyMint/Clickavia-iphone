@@ -123,7 +123,14 @@
     {
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
-            NSLog(@"Была выбрана дата вылета");
+            departureDate = date;
+        }
+    }
+    if(_calendarView.flyReturnDate!=nil)
+    {
+        if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
+        {
+            returnDate = date;
         }
     }
 }
@@ -223,7 +230,24 @@
 
 - (SearchConditions*)getSearchConditions
 {
+    if(currentSearchConditions.direction_departure==nil||currentSearchConditions.direction_return==nil)
+        return nil;
     return currentSearchConditions;
 }
-
+- (OfferConditions*)getOfferConditions
+{
+    if([self getSearchConditions]==nil)
+        return  nil;
+    else
+    {
+        CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        OfferConditions *fc = [[OfferConditions alloc] initWithSearchConditions:currentSearchConditions withDepartureDate:departureDate andReturnDate:returnDate];
+        appDelegate.offerConditions = fc;
+        return fc;
+    }
+}
+- (IBAction)find:(id)sender
+{
+    [self getOfferConditions];
+}
 @end

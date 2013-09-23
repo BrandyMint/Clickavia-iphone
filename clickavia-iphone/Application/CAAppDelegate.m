@@ -44,6 +44,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     _rootTabBarController = [[AKTabBarController alloc] initWithTabBarHeight: 35];
+    
     [_rootTabBarController setMinimumHeightToDisplayTitle: 40.0];
     
     _specialOfferViewController = [[CASpecOffersViewController alloc] init];
@@ -108,7 +109,6 @@
         } 
     }
 }
-
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
