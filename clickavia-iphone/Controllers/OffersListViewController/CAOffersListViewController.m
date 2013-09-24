@@ -22,6 +22,7 @@
 #import "CAOrderDetails.h"
 #import "CAOrderDetailsPersonal.h"
 #import "CAContract.h"
+#import "CAColorSpecOffers.h"
 
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
@@ -154,63 +155,46 @@
 
 -(void)showNavBar
 {
-    UIButton *onBack = [[UIButton alloc] initWithFrame: CGRectMake(5, 12, 20, 20)];
-    [onBack setImage:[UIImage imageNamed:@"toolbar-back-icon.png"] forState:UIControlStateNormal];
-    
-    switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(onBack.frame.origin.x + onBack.frame.size.width + 3, 8, 10, 10)];
+    switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [switchReturnFlight addTarget:self action:@selector(switchToggled) forControlEvents: UIControlEventTouchUpInside];
+    UIBarButtonItem *switchBarItem = [[UIBarButtonItem alloc] initWithCustomView:switchReturnFlight];
+    self.navigationItem.leftBarButtonItem = switchBarItem;
     
-    UILabel *departureCity = [[UILabel alloc] initWithFrame:CGRectMake(switchReturnFlight.frame.origin.x + switchReturnFlight.frame.size.width + 3 , 11, 0, 0)];
-    departureCity.backgroundColor = [UIColor clearColor];
-    departureCity.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    departureCity.textColor = [UIColor whiteColor];
-    departureCity.text = @"Москва";
-    departureCity.layer.shadowOpacity = 0.8f;
-    departureCity.layer.shadowRadius = 0.0f;
-    departureCity.layer.shadowColor = [[UIColor blackColor] CGColor];
-    departureCity.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    [departureCity sizeToFit];
-    
-    UIImageView* arrow = [[UIImageView alloc] initWithFrame:CGRectMake(departureCity.frame.origin.x + departureCity.frame.size.width + 3, 18, 8, 10)];
-    arrow.image = [UIImage imageNamed:@"toolbar-arrow-right.png"];
-    
-    UILabel *arrivalCity = [[UILabel alloc] initWithFrame:CGRectMake(arrow.frame.origin.x + arrow.frame.size.width + 3 , 11, 0, 0)];
-    arrivalCity.backgroundColor = [UIColor clearColor];
-    arrivalCity.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    arrivalCity.textColor = [UIColor whiteColor];
-    arrivalCity.text = @"Краснодар";
-    arrivalCity.layer.shadowOpacity = 0.8f;
-    arrivalCity.layer.shadowRadius = 0.0f;
-    arrivalCity.layer.shadowColor = [[UIColor blackColor] CGColor];
-    arrivalCity.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    [arrivalCity sizeToFit];
-    
-    onDetail = [[UIButton alloc] initWithFrame: CGRectMake(arrivalCity.frame.origin.x + arrivalCity.frame.size.width + 3, 4, 50, 35)];
+    onDetail = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 50, 35)];
     [onDetail setImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
     [onDetail setImage:[UIImage imageNamed:@"toolbar-button-selected.png"] forState:UIControlStateHighlighted];
     [onDetail setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
     [onDetail addTarget: self action: @selector(detail) forControlEvents: UIControlEventTouchDown];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:onDetail];
+    self.navigationItem.rightBarButtonItem = customBarItem;
     
-    UIView* navControllerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x,
-                                                                         self.view.frame.origin.y,
-                                                                         self.view.frame.size.width,
-                                                                         self.navigationController.toolbar.frame.size.height)];
-    navControllerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toolbar-background.png"]];
-    [navControllerView addSubview:onBack];
-    [navControllerView addSubview:switchReturnFlight];
-    [navControllerView addSubview:departureCity];
-    [navControllerView addSubview:arrow];
-    [navControllerView addSubview:arrivalCity];
-    [navControllerView addSubview:onDetail];
-    //[self.navigationController.view addSubview:navControllerView];
+    UILabel *departureCity = [[UILabel alloc] initWithFrame:CGRectZero];
+    departureCity.text = @"Москва";
+    [departureCity sizeToFit];
     
-    UIImage* navigationBarImage = [UIImage imageNamed:@"btn-primary-for-light.png"];
-    //[[UINavigationBar appearance] setBackgroundImage:navigationBarImage forBarMetrics:UIBarMetricsDefault];
+    UIImageView* arrow = [[UIImageView alloc] initWithFrame:CGRectMake(departureCity.frame.origin.x + departureCity.frame.size.width + 3, 6, 8, 10)];
+    arrow.image = [UIImage imageNamed:@"toolbar-arrow-right.png"];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage: navigationBarImage];
-    //self.navigationItem.titleView = imageView;
-    self.title = @"Ыыы";
-
+    UILabel *arrivalCity = [[UILabel alloc] initWithFrame:CGRectMake(arrow.frame.origin.x + arrow.frame.size.width + 3 , 0, 0, 0)];
+    arrivalCity.text = @"Краснодар";
+    
+    departureCity.backgroundColor = arrivalCity.backgroundColor = [UIColor clearColor];
+    departureCity.font = arrivalCity.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    departureCity.textColor = arrivalCity.textColor = [UIColor COLOR_TITLE_TEXT];
+    departureCity.layer.shadowOpacity = arrivalCity.layer.shadowOpacity = 0.4f;
+    departureCity.layer.shadowRadius = arrivalCity.layer.shadowRadius = 0.0f;
+    departureCity.layer.shadowColor = arrivalCity.layer.shadowColor = [[UIColor COLOR_TITLE_TEXT_SHADOW] CGColor];
+    departureCity.layer.shadowOffset =  arrivalCity.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    [arrivalCity sizeToFit];
+    
+    UIView* titleBarItemView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                        0,
+                                                                        arrivalCity.frame.origin.x + arrivalCity.frame.size.width,
+                                                                        self.navigationController.navigationBar.frame.size.height/2)];
+    [titleBarItemView addSubview:departureCity];
+    [titleBarItemView addSubview:arrow];
+    [titleBarItemView addSubview:arrivalCity];
+    self.navigationItem.titleView = titleBarItemView;
 }
 
 -(void) detail
@@ -484,24 +468,14 @@
     
     NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    [self buttonClicked];
+
+    CAContract* caContract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil offer:offerdata passengers:passengersCount];
+    [self.navigationController pushViewController:caContract animated:YES];
 }
 
 -(void)buttonClicked
 {
-    CAContract *contract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil];
-    /*
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.75f;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
-    [self.navigationController.view.layer addAnimation:transition forKey:nil];
-    */
 
-    [self.navigationController pushViewController:contract animated:YES];
-    
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

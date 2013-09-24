@@ -1,17 +1,16 @@
 //
-//  CAContract.h
+//  CAFligthDataView.h
 //  clickavia-iphone
 //
-//  Created by Viktor Bespalov on 9/19/13.
+//  Created by bespalown on 9/23/13.
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "CAFligthDataView.h"
 #import "Offer.h"
 #import "FlightPassengersCount.h"
 
-@interface CAContract : UIViewController
+@interface CAFligthDataView : UIViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
 

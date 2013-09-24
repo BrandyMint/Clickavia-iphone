@@ -46,6 +46,10 @@
 		661623A617EB3D0F00B6A19C /* specials-card-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616239C17EB3D0F00B6A19C /* specials-card-red@2x.png */; };
 		661623A717EB3D0F00B6A19C /* specials-country-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616239D17EB3D0F00B6A19C /* specials-country-selected.png */; };
 		661623A817EB3D0F00B6A19C /* specials-country-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616239E17EB3D0F00B6A19C /* specials-country-selected@2x.png */; };
+		661E40BF17F1D88000DE8B0D /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BB17F1D88000DE8B0D /* Gemfile */; };
+		661E40C017F1D88000DE8B0D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BC17F1D88000DE8B0D /* Podfile */; };
+		661E40C117F1D88000DE8B0D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BD17F1D88000DE8B0D /* Podfile.lock */; };
+		661E40C217F1D88000DE8B0D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BE17F1D88000DE8B0D /* README.md */; };
 		66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */; };
 		66245FDD17E82656003A1611 /* CAOrderDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 66245FDB17E82656003A1611 /* CAOrderDetails.m */; };
 		662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 662972D817E2F3AE00D9324B /* CAOffersCell.m */; };
@@ -64,6 +68,11 @@
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
 		666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60E217CCDFA9008220AC /* SpecialOfferCell.m */; };
 		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
+		668CB98C17F2033600A26506 /* _bar-green-warm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */; };
+		668CB98D17F2033600A26506 /* Contract.html in Resources */ = {isa = PBXBuildFile; fileRef = 668CB98B17F2033600A26506 /* Contract.html */; };
+		668CB99217F2063400A26506 /* CAFligthDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99017F2063400A26506 /* CAFligthDataView.m */; };
+		668CB99317F2063400A26506 /* CAFligthDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668CB99117F2063400A26506 /* CAFligthDataView.xib */; };
+		668CB99717F2066B00A26506 /* CAAssistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99617F2066B00A26506 /* CAAssistView.m */; };
 		66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
 		66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */; };
 		7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
@@ -85,7 +94,6 @@
 		7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */; };
 		7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */; };
 		7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */; };
-		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +146,10 @@
 		6616239C17EB3D0F00B6A19C /* specials-card-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-card-red@2x.png"; path = "Pods/CASpecialOffers/CASpecialOffers/SpecialOffer.bundle/specials-card-red@2x.png"; sourceTree = SOURCE_ROOT; };
 		6616239D17EB3D0F00B6A19C /* specials-country-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected.png"; path = "Pods/CASpecialOffers/CASpecialOffers/SpecialOffer.bundle/specials-country-selected.png"; sourceTree = SOURCE_ROOT; };
 		6616239E17EB3D0F00B6A19C /* specials-country-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected@2x.png"; path = "Pods/CASpecialOffers/CASpecialOffers/SpecialOffer.bundle/specials-country-selected@2x.png"; sourceTree = SOURCE_ROOT; };
+		661E40BB17F1D88000DE8B0D /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		661E40BC17F1D88000DE8B0D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		661E40BD17F1D88000DE8B0D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		661E40BE17F1D88000DE8B0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderDetailsPersonal.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetailsPersonal.h"; sourceTree = SOURCE_ROOT; };
 		66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOrderDetailsPersonal.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetailsPersonal.m"; sourceTree = SOURCE_ROOT; };
 		66245FDA17E82656003A1611 /* CAOrderDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderDetails.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetails.h"; sourceTree = SOURCE_ROOT; };
@@ -172,6 +184,13 @@
 		666C60E117CCDFA9008220AC /* SpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOfferCell.h; sourceTree = "<group>"; };
 		666C60E217CCDFA9008220AC /* SpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOfferCell.m; sourceTree = "<group>"; };
 		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
+		668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "_bar-green-warm@2x.png"; path = "clickavia-iphone/Controllers/_bar-green-warm@2x.png"; sourceTree = SOURCE_ROOT; };
+		668CB98B17F2033600A26506 /* Contract.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Contract.html; path = "clickavia-iphone/Controllers/Contract.html"; sourceTree = SOURCE_ROOT; };
+		668CB98F17F2063400A26506 /* CAFligthDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAFligthDataView.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFligthDataView.h"; sourceTree = SOURCE_ROOT; };
+		668CB99017F2063400A26506 /* CAFligthDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAFligthDataView.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFligthDataView.m"; sourceTree = SOURCE_ROOT; };
+		668CB99117F2063400A26506 /* CAFligthDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAFligthDataView.xib; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFligthDataView.xib"; sourceTree = SOURCE_ROOT; };
+		668CB99517F2066B00A26506 /* CAAssistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAssistView.h; path = "clickavia-iphone/Controllers/OffersListViewController/AssistView/CAAssistView.h"; sourceTree = SOURCE_ROOT; };
+		668CB99617F2066B00A26506 /* CAAssistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAssistView.m; path = "clickavia-iphone/Controllers/OffersListViewController/AssistView/CAAssistView.m"; sourceTree = SOURCE_ROOT; };
 		66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
 		66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
 		7C16A2AA17A648290055FF8F /* clickavia-iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "clickavia-iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +215,6 @@
 		7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatTableCellView.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatTableCellView.xib; sourceTree = SOURCE_ROOT; };
 		7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatViewController.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController.xib; sourceTree = SOURCE_ROOT; };
 		7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "BMChatViewController~iPad.xib"; path = "Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController~iPad.xib"; sourceTree = SOURCE_ROOT; };
-		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -233,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				6616230617EB397000B6A19C /* btn-primary-for-light@2x.png */,
+				668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */,
 				6616230717EB397000B6A19C /* check-icon-green@2x.png */,
 				6616230817EB397000B6A19C /* clock-icon@2x.png */,
 				6616230917EB397000B6A19C /* passengers-icon-baby@2x.png */,
@@ -305,6 +324,27 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		668CB98E17F2060A00A26506 /* FlightData */ = {
+			isa = PBXGroup;
+			children = (
+				668CB98F17F2063400A26506 /* CAFligthDataView.h */,
+				668CB99017F2063400A26506 /* CAFligthDataView.m */,
+				668CB99117F2063400A26506 /* CAFligthDataView.xib */,
+				66245FDA17E82656003A1611 /* CAOrderDetails.h */,
+				66245FDB17E82656003A1611 /* CAOrderDetails.m */,
+			);
+			name = FlightData;
+			sourceTree = "<group>";
+		};
+		668CB99417F2064800A26506 /* AssistView */ = {
+			isa = PBXGroup;
+			children = (
+				668CB99517F2066B00A26506 /* CAAssistView.h */,
+				668CB99617F2066B00A26506 /* CAAssistView.m */,
+			);
+			name = AssistView;
+			sourceTree = "<group>";
+		};
 		66EB074817E62505003469E4 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +360,7 @@
 				6616230017EB395300B6A19C /* CAContract.h */,
 				6616230117EB395300B6A19C /* CAContract.m */,
 				6616230217EB395300B6A19C /* CAContract.xib */,
+				668CB98B17F2033600A26506 /* Contract.html */,
 			);
 			name = Contrtact;
 			sourceTree = "<group>";
@@ -327,8 +368,10 @@
 		7C16A2A117A648290055FF8F = {
 			isa = PBXGroup;
 			children = (
-				7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */,
-				7C16A30E17A67B490055FF8F /* QuartzCore.framework */,
+				661E40BB17F1D88000DE8B0D /* Gemfile */,
+				661E40BC17F1D88000DE8B0D /* Podfile */,
+				661E40BD17F1D88000DE8B0D /* Podfile.lock */,
+				661E40BE17F1D88000DE8B0D /* README.md */,
 				7C16A2B517A648290055FF8F /* clickavia-iphone */,
 				7C16A2D717A648290055FF8F /* clickavia-iphoneTests */,
 				7C16A2AC17A648290055FF8F /* Frameworks */,
@@ -349,6 +392,7 @@
 		7C16A2AC17A648290055FF8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C16A30E17A67B490055FF8F /* QuartzCore.framework */,
 				7C16A2AD17A648290055FF8F /* UIKit.framework */,
 				7C16A2AF17A648290055FF8F /* Foundation.framework */,
 				7C16A2B117A648290055FF8F /* CoreGraphics.framework */,
@@ -486,8 +530,6 @@
 				662972DF17E2F56500D9324B /* Model */,
 				66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */,
 				66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */,
-				66245FDA17E82656003A1611 /* CAOrderDetails.h */,
-				66245FDB17E82656003A1611 /* CAOrderDetails.m */,
 				662972E017E31F6700D9324B /* CAOffersCellView.h */,
 				662972E117E31F6700D9324B /* CAOffersCellView.m */,
 				662972D717E2F3AE00D9324B /* CAOffersCell.h */,
@@ -498,8 +540,10 @@
 				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
 				66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */,
 				66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */,
-				6616230517EB395F00B6A19C /* Resources */,
 				66F4C7E217EB0FDB0004DB88 /* Contrtact */,
+				668CB98E17F2060A00A26506 /* FlightData */,
+				668CB99417F2064800A26506 /* AssistView */,
+				6616230517EB395F00B6A19C /* Resources */,
 			);
 			name = OffersListViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -593,13 +637,16 @@
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
+				668CB99317F2063400A26506 /* CAFligthDataView.xib in Resources */,
 				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
 				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
 				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
 				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
 				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
+				668CB98C17F2033600A26506 /* _bar-green-warm@2x.png in Resources */,
 				666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */,
 				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
+				668CB98D17F2033600A26506 /* Contract.html in Resources */,
 				662972DE17E2F40900D9324B /* CAOffersCell.xib in Resources */,
 				6616230417EB395300B6A19C /* CAContract.xib in Resources */,
 				6616231117EB397000B6A19C /* btn-primary-for-light@2x.png in Resources */,
@@ -638,6 +685,10 @@
 				661623A617EB3D0F00B6A19C /* specials-card-red@2x.png in Resources */,
 				661623A717EB3D0F00B6A19C /* specials-country-selected.png in Resources */,
 				661623A817EB3D0F00B6A19C /* specials-country-selected@2x.png in Resources */,
+				661E40BF17F1D88000DE8B0D /* Gemfile in Resources */,
+				661E40C017F1D88000DE8B0D /* Podfile in Resources */,
+				661E40C117F1D88000DE8B0D /* Podfile.lock in Resources */,
+				661E40C217F1D88000DE8B0D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +751,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
 				6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */,
 				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
@@ -711,10 +761,12 @@
 				666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */,
 				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
+				668CB99717F2066B00A26506 /* CAAssistView.m in Sources */,
 				6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */,
 				6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
+				668CB99217F2063400A26506 /* CAFligthDataView.m in Sources */,
 				66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */,
 				66245FDD17E82656003A1611 /* CAOrderDetails.m in Sources */,
 				6616230317EB395300B6A19C /* CAContract.m in Sources */,
@@ -914,20 +966,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */,
-			);
-			currentVersion = 7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */;
-			name = clickavia_iphone.xcdatamodeld;
-			path = "../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/clickavia_iphone.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7C16A2A217A648290055FF8F /* Project object */;
 }

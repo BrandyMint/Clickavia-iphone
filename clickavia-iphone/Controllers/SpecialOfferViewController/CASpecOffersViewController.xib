@@ -13,7 +13,6 @@
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
 			<string>IBUIImageView</string>
-			<string>IBUILabel</string>
 			<string>IBUITableView</string>
 			<string>IBUIView</string>
 		</array>
@@ -42,7 +41,8 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 548}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="161197126"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="948379293"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="IBUIContentMode">4</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -51,36 +51,6 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">background-gray-textured.png</string>
 						</object>
-					</object>
-					<object class="IBUILabel" id="161197126">
-						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{11, 10}, {300, 16}}</string>
-						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="948379293"/>
-						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">7</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Спецпредложения для города</string>
-						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-						</object>
-						<nil key="IBUIHighlightedColor"/>
-						<int key="IBUIBaselineAdjustment">0</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<int key="type">1</int>
-							<double key="pointSize">11</double>
-						</object>
-						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
-							<double key="NSSize">11</double>
-							<int key="NSfFlags">16</int>
-						</object>
-						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 					<object class="IBUIView" id="453950232">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -91,6 +61,7 @@
 								<int key="NSvFlags">274</int>
 								<string key="NSFrameSize">{320, 45}</string>
 								<reference key="NSSuperview" ref="453950232"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="374910223"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -103,8 +74,9 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrame">{{0, 80}, {320, 45}}</string>
+						<string key="NSFrame">{{0, 42}, {320, 45}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="476806056"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="903298057">
@@ -122,6 +94,7 @@
 								<int key="NSvFlags">274</int>
 								<string key="NSFrameSize">{320, 43}</string>
 								<reference key="NSSuperview" ref="948379293"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="453950232"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -134,8 +107,9 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrame">{{0, 37}, {320, 43}}</string>
+						<string key="NSFrameSize">{320, 43}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="63066422"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="903298057"/>
@@ -148,8 +122,10 @@
 							<object class="IBUITableView" id="604439586">
 								<reference key="NSNextResponder" ref="374910223"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{0, 10}, {320, 410}}</string>
+								<string key="NSFrameSize">{320, 461}</string>
 								<reference key="NSSuperview" ref="374910223"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="903298057"/>
 								<bool key="IBUIAutoresizesSubviews">NO</bool>
@@ -170,8 +146,9 @@
 								<float key="IBUISectionFooterHeight">5</float>
 							</object>
 						</array>
-						<string key="NSFrame">{{0, 121}, {320, 427}}</string>
+						<string key="NSFrame">{{0, 87}, {320, 461}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="604439586"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="903298057"/>
@@ -180,6 +157,7 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 548}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="96670710"/>
 				<reference key="IBUIBackgroundColor" ref="903298057"/>
 				<bool key="IBUIAutoresizesSubviews">NO</bool>
@@ -264,14 +242,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">titleText</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="161197126"/>
-					</object>
-					<int key="connectionID">31</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="948379293"/>
 						<reference key="destination" ref="372490531"/>
@@ -319,7 +289,6 @@
 							<reference ref="948379293"/>
 							<reference ref="96670710"/>
 							<reference ref="453950232"/>
-							<reference ref="161197126"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -378,11 +347,6 @@
 						<reference key="object" ref="476806056"/>
 						<reference key="parent" ref="453950232"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">25</int>
-						<reference key="object" ref="161197126"/>
-						<reference key="parent" ref="191373211"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -395,7 +359,6 @@
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="33.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -408,7 +371,152 @@
 			<nil key="sourceID"/>
 			<int key="maxID">42</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">CAScrollableTabView</string>
+					<string key="superclassName">UIView</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">delegate</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">delegate</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">delegate</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CAScrollableTabView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">CASpecOffersViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">onRefresh:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">onRefresh:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">onRefresh:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="backgroundCity">UIImageView</string>
+						<string key="backgroundCountry">UIImageView</string>
+						<string key="backgroundImage">UIImageView</string>
+						<string key="offerCell">SpecialOfferCell</string>
+						<string key="tabCities">CAScrollableTabView</string>
+						<string key="tabCountries">CAScrollableTabView</string>
+						<string key="tabTitle">CAScrollableTabView</string>
+						<string key="tableOffers">UITableView</string>
+						<string key="titleText">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="backgroundCity">
+							<string key="name">backgroundCity</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="backgroundCountry">
+							<string key="name">backgroundCountry</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="backgroundImage">
+							<string key="name">backgroundImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="offerCell">
+							<string key="name">offerCell</string>
+							<string key="candidateClassName">SpecialOfferCell</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tabCities">
+							<string key="name">tabCities</string>
+							<string key="candidateClassName">CAScrollableTabView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tabCountries">
+							<string key="name">tabCountries</string>
+							<string key="candidateClassName">CAScrollableTabView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tabTitle">
+							<string key="name">tabTitle</string>
+							<string key="candidateClassName">CAScrollableTabView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tableOffers">
+							<string key="name">tableOffers</string>
+							<string key="candidateClassName">UITableView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="titleText">
+							<string key="name">titleText</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CASpecOffersViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SpecialOfferCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="backCity">UILabel</string>
+						<string key="dateLabel">UILabel</string>
+						<string key="drawArrow">drawArrowView</string>
+						<string key="drawArrowTwo">drawArrowView</string>
+						<string key="fromCity">UILabel</string>
+						<string key="inCity">UILabel</string>
+						<string key="priceLabel">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="backCity">
+							<string key="name">backCity</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dateLabel">
+							<string key="name">dateLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="drawArrow">
+							<string key="name">drawArrow</string>
+							<string key="candidateClassName">drawArrowView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="drawArrowTwo">
+							<string key="name">drawArrowTwo</string>
+							<string key="candidateClassName">drawArrowView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="fromCity">
+							<string key="name">fromCity</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="inCity">
+							<string key="name">inCity</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="priceLabel">
+							<string key="name">priceLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SpecialOfferCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">drawArrowView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/drawArrowView.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
