@@ -4,7 +4,7 @@ PODS:
   - Base64 (1.0.1)
   - BMChat (0.0.1)
   - CACalendarView (0.0.1)
-  - CAColumnsControl:
+  - CAColumnsControl (0.0.1):
     - PSTCollectionView
   - CAFieldComplete (0.0.1)
   - CAManagers (0.0.1):
@@ -67,7 +67,7 @@ SPEC CHECKSUMS:
   Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
   BMChat: b4312ff0cb28975eb379307864c8b7aba20928dd
   CACalendarView: 7c5432edf7c4f0e77be1966e385ae1c59601fda2
-  CAColumnsControl: d90b67b95611501c1d2af0cd1ac6cd42685201ee
+  CAColumnsControl: 3fa1489e6e2eaa06ba67556ea4bfc4f20fad7aa4
   CAFieldComplete: d33b1a8dc32b1f582e3ce2ae08f185b887d4912a
   CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
   CASpecialOffers: e71214f144919a3889f16bd723d0f791fa5de86a

@@ -1,30 +1,27 @@
 //
-//  CAContract.m
+//  CAFligthDataView.m
 //  clickavia-iphone
 //
-//  Created by Viktor Bespalov on 9/19/13.
+//  Created by bespalown on 9/23/13.
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
-#import "CAContract.h"
-#import <QuartzCore/QuartzCore.h>
+#import "CAFligthDataView.h"
+#import "CAAssistView.h"
+#import "CAOrderDetails.h"
 #import "CAColorSpecOffers.h"
 
-@interface CAContract ()
-@property (weak, nonatomic) IBOutlet UITextView *contractTextView;
-@property (weak, nonatomic) IBOutlet UIButton *onConfirmation;
-- (IBAction)onConfrmation:(id)sender;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@interface CAFligthDataView ()
 
 @end
 
-@implementation CAContract
+@implementation CAFligthDataView
 {
     Offer* offerdata;
     FlightPassengersCount* passengersCount;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -32,6 +29,8 @@
         offerdata = offer;
         passengersCount = [[FlightPassengersCount alloc] init];
         passengersCount = passengers;
+        
+        NSLog(@"/*|sss special: %d, momentary: %d", offerdata.isSpecial, offerdata.isMomentaryConfirmation);
     }
     return self;
 }
@@ -39,13 +38,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib
+    // Do any additional setup after loading the view from its nib.
     [self showNavBar];
-
     
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Contract" ofType:@"html"];
-    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
-    [_webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+    UIView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5];
+    [self.view addSubview:assistView];
+    
+    UIView* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
+    CGRect orderDetalsFrame = orderDetailsView.frame;
+    orderDetalsFrame.origin.y = assistView.frame.origin.y + assistView.frame.size.height;
+    orderDetailsView.frame = orderDetalsFrame;
+    [self.view addSubview:orderDetailsView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +71,7 @@
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     titleLabel.textColor = [UIColor COLOR_TITLE_TEXT];
-    titleLabel.text = @"Договор";
+    titleLabel.text = @"Данные перелета";
     titleLabel.layer.shadowOpacity = 0.4f;
     titleLabel.layer.shadowRadius = 0.0f;
     titleLabel.layer.shadowColor = [[UIColor COLOR_TITLE_TEXT_SHADOW] CGColor];
@@ -88,9 +91,4 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)onConfrmation:(id)sender
-{    
-    CAFligthDataView *flightDataView = [[CAFligthDataView alloc] initWithNibName:@"CAFligthDataView" bundle:nil offer:offerdata passengers:passengersCount];
-    [self.navigationController pushViewController:flightDataView animated:YES];
-}
 @end

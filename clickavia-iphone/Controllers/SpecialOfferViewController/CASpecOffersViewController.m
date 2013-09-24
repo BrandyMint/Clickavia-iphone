@@ -57,7 +57,8 @@
 {
     [super viewDidLoad];
     backgroundImage.frame = self.view.frame;
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+    [self showNavBar];
     
     titleText.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     titleText.textColor = [UIColor COLOR_TITLE_TEXT];
@@ -82,6 +83,27 @@
     backgroundCountry.layer.shadowRadius = 0.0f;
     backgroundCountry.layer.shadowColor = [[COLOR_SCROLLVIEW_SPECOFFERS_COUNTRY_SHADOW] CGColor];
     backgroundCountry.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+}
+
+-(void)showNavBar
+{
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    titleLabel.textColor = [UIColor COLOR_TITLE_TEXT];
+    titleLabel.text = @"Спецпредложения для города";
+    titleLabel.layer.shadowOpacity = 0.4f;
+    titleLabel.layer.shadowRadius = 0.0f;
+    titleLabel.layer.shadowColor = [[UIColor COLOR_TITLE_TEXT_SHADOW] CGColor];
+    titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    [titleLabel sizeToFit];
+    
+    UIView* titleBarItemView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                        0,
+                                                                        titleLabel.frame.origin.x + titleLabel.frame.size.width,
+                                                                        self.navigationController.navigationBar.frame.size.height/2)];
+    [titleBarItemView addSubview:titleLabel];
+    self.navigationItem.titleView = titleBarItemView;
 }
 
 - (NSString *)tabTitle
