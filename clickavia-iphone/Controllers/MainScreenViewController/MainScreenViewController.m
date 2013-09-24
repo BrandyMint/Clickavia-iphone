@@ -120,13 +120,11 @@
 
 - (void)fieldCompleteView:(CAFieldCompleteView*) fieldCompleteView textChanged:(NSString*) text
 {
-    [fieldCompleteView showSpinner:YES];
     if(fieldCompleteView == _departureCompleteView)
     {
         [_cm getDestinationsForDeparture:text completeBlock:^(NSArray *array)
          {
              [_departureCompleteView setAutocompleteData:array];
-             [fieldCompleteView showSpinner:NO];
          }];
     }
     if(fieldCompleteView == _returnCompleteView)
@@ -134,27 +132,23 @@
         [_cm getDestinationsForReturn:text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
          {
              [_returnCompleteView setAutocompleteData:array];
-             [fieldCompleteView showSpinner:NO];
          }];
     }
 }
 -(void)fieldCompleteViewBeginEditing:(CAFieldCompleteView *)fieldCompleteView
 {
-    [fieldCompleteView showSpinner:YES];
     if(fieldCompleteView == _departureCompleteView)
     {
         
         [_cm getDestinationsForDeparture:_departureCompleteView.text completeBlock:^(NSArray *array)
          {
              [_departureCompleteView setAutocompleteData:array];
-             [fieldCompleteView showSpinner:NO];
          }];
     }
     if(fieldCompleteView == _returnCompleteView)
     {
         [_cm getDestinationsForReturn:_returnCompleteView.text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
          {
-             [fieldCompleteView showSpinner:NO];
              [_returnCompleteView setAutocompleteData:array];
          }];
     }

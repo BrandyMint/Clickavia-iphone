@@ -21,6 +21,7 @@
 
 #import "CAOrderDetails.h"
 #import "CAOrderDetailsPersonal.h"
+#import "CAContract.h"
 
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
@@ -201,7 +202,15 @@
     [navControllerView addSubview:arrow];
     [navControllerView addSubview:arrivalCity];
     [navControllerView addSubview:onDetail];
-    [self.navigationController.view addSubview:navControllerView];
+    //[self.navigationController.view addSubview:navControllerView];
+    
+    UIImage* navigationBarImage = [UIImage imageNamed:@"btn-primary-for-light.png"];
+    //[[UINavigationBar appearance] setBackgroundImage:navigationBarImage forBarMetrics:UIBarMetricsDefault];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage: navigationBarImage];
+    //self.navigationItem.titleView = imageView;
+    self.title = @"Ыыы";
+
 }
 
 -(void) detail
@@ -470,13 +479,29 @@
 {
     Offer* offerdata = [[Offer alloc] init];
     offerdata = [arrayOffers objectAtIndex:indexPath.section];
+    FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
+    passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
+    
     NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    [self buttonClicked];
 }
 
 -(void)buttonClicked
 {
-    NSLog(@"click");
+    CAContract *contract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil];
+    /*
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.75f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    */
+
+    [self.navigationController pushViewController:contract animated:YES];
+    
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
