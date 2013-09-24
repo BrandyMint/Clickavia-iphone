@@ -70,8 +70,8 @@
 		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
 		668CB98C17F2033600A26506 /* _bar-green-warm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */; };
 		668CB98D17F2033600A26506 /* Contract.html in Resources */ = {isa = PBXBuildFile; fileRef = 668CB98B17F2033600A26506 /* Contract.html */; };
-		668CB99217F2063400A26506 /* CAFligthDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99017F2063400A26506 /* CAFligthDataView.m */; };
-		668CB99317F2063400A26506 /* CAFligthDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668CB99117F2063400A26506 /* CAFligthDataView.xib */; };
+		668CB99217F2063400A26506 /* CAFlightDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99017F2063400A26506 /* CAFlightDataView.m */; };
+		668CB99317F2063400A26506 /* CAFlightDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668CB99117F2063400A26506 /* CAFlightDataView.xib */; };
 		668CB99717F2066B00A26506 /* CAAssistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99617F2066B00A26506 /* CAAssistView.m */; };
 		66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
 		66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */; };
@@ -186,9 +186,9 @@
 		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
 		668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "_bar-green-warm@2x.png"; path = "clickavia-iphone/Controllers/_bar-green-warm@2x.png"; sourceTree = SOURCE_ROOT; };
 		668CB98B17F2033600A26506 /* Contract.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Contract.html; path = "clickavia-iphone/Controllers/Contract.html"; sourceTree = SOURCE_ROOT; };
-		668CB98F17F2063400A26506 /* CAFligthDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAFligthDataView.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFligthDataView.h"; sourceTree = SOURCE_ROOT; };
-		668CB99017F2063400A26506 /* CAFligthDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAFligthDataView.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFligthDataView.m"; sourceTree = SOURCE_ROOT; };
-		668CB99117F2063400A26506 /* CAFligthDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAFligthDataView.xib; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFligthDataView.xib"; sourceTree = SOURCE_ROOT; };
+		668CB98F17F2063400A26506 /* CAFlightDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAFlightDataView.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.h"; sourceTree = SOURCE_ROOT; };
+		668CB99017F2063400A26506 /* CAFlightDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAFlightDataView.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.m"; sourceTree = SOURCE_ROOT; };
+		668CB99117F2063400A26506 /* CAFlightDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAFlightDataView.xib; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.xib"; sourceTree = SOURCE_ROOT; };
 		668CB99517F2066B00A26506 /* CAAssistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAssistView.h; path = "clickavia-iphone/Controllers/OffersListViewController/AssistView/CAAssistView.h"; sourceTree = SOURCE_ROOT; };
 		668CB99617F2066B00A26506 /* CAAssistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAssistView.m; path = "clickavia-iphone/Controllers/OffersListViewController/AssistView/CAAssistView.m"; sourceTree = SOURCE_ROOT; };
 		66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
@@ -327,9 +327,9 @@
 		668CB98E17F2060A00A26506 /* FlightData */ = {
 			isa = PBXGroup;
 			children = (
-				668CB98F17F2063400A26506 /* CAFligthDataView.h */,
-				668CB99017F2063400A26506 /* CAFligthDataView.m */,
-				668CB99117F2063400A26506 /* CAFligthDataView.xib */,
+				668CB98F17F2063400A26506 /* CAFlightDataView.h */,
+				668CB99017F2063400A26506 /* CAFlightDataView.m */,
+				668CB99117F2063400A26506 /* CAFlightDataView.xib */,
 				66245FDA17E82656003A1611 /* CAOrderDetails.h */,
 				66245FDB17E82656003A1611 /* CAOrderDetails.m */,
 			);
@@ -637,7 +637,7 @@
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
-				668CB99317F2063400A26506 /* CAFligthDataView.xib in Resources */,
+				668CB99317F2063400A26506 /* CAFlightDataView.xib in Resources */,
 				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
 				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
 				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
@@ -766,7 +766,7 @@
 				6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
-				668CB99217F2063400A26506 /* CAFligthDataView.m in Sources */,
+				668CB99217F2063400A26506 /* CAFlightDataView.m in Sources */,
 				66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */,
 				66245FDD17E82656003A1611 /* CAOrderDetails.m in Sources */,
 				6616230317EB395300B6A19C /* CAContract.m in Sources */,
