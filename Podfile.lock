@@ -4,7 +4,7 @@ PODS:
   - Base64 (1.0.1)
   - BMChat (0.0.1)
   - CACalendarView (0.0.1)
-  - CAColumnsControl:
+  - CAColumnsControl (0.0.1):
     - PSTCollectionView
   - CAFieldComplete (0.0.1)
   - CAManagers (0.0.1):
@@ -19,7 +19,7 @@ PODS:
   - EasyMapping (0.4.3)
   - LRResty (0.11.0):
     - NSData+Base64 (~> 1.0)
-  - MBProgressHUD (0.7)
+  - MBProgressHUD (0.8)
   - NSData+Base64 (1.0.0)
   - PSTCollectionView (1.1.0)
   - RestKit (0.20.0):
@@ -43,7 +43,7 @@ DEPENDENCIES:
   - BMChat (from `https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec`)
   - CACalendarView (from `https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec`)
   - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
-  - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/branch_for_correct_podspec/CAFieldComplete.podspec`)
+  - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec`)
   - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
   - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
 
@@ -55,7 +55,7 @@ EXTERNAL SOURCES:
   CAColumnsControl:
     :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec
   CAFieldComplete:
-    :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/branch_for_correct_podspec/CAFieldComplete.podspec
+    :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec
   CAManagers:
     :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
   CASpecialOffers:
@@ -66,17 +66,17 @@ SPEC CHECKSUMS:
   AKTabBarController: 34443d5d028700dea1d00a6f275e8ef17fc947c2
   Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
   BMChat: b4312ff0cb28975eb379307864c8b7aba20928dd
-  CACalendarView: 5943f356a01934ad7a7ee810064d75ebd8829876
-  CAColumnsControl: d90b67b95611501c1d2af0cd1ac6cd42685201ee
-  CAFieldComplete: 3c269a2a5ac1b1eb36eacbe089c835a4b1f3339d
+  CACalendarView: 7c5432edf7c4f0e77be1966e385ae1c59601fda2
+  CAColumnsControl: 3fa1489e6e2eaa06ba67556ea4bfc4f20fad7aa4
+  CAFieldComplete: d33b1a8dc32b1f582e3ce2ae08f185b887d4912a
   CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
   CASpecialOffers: e71214f144919a3889f16bd723d0f791fa5de86a
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
-  MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
   PSTCollectionView: af42b0fb111200a1b87a04aee96181725977f19b
   RestKit: 580771664a14eaaa40bf53cf83584f12fc141930
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.24.0

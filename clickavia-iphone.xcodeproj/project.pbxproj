@@ -23,9 +23,6 @@
 		6633A93D17DF306500FEB066 /* toolbar-back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A93717DF306300FEB066 /* toolbar-back-icon@2x.png */; };
 		6633A93F17DF306500FEB066 /* toolbar-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A93917DF306400FEB066 /* toolbar-button@2x.png */; };
 		6633A94117DF340C00FEB066 /* toolbar-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6633A94017DF340B00FEB066 /* toolbar-button-selected@2x.png */; };
-		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
-		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
-		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
 		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
 		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
@@ -73,6 +70,16 @@
 		7C2670B617CB1FAE002EE876 /* what.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AF17CB1FAE002EE876 /* what.png */; };
 		7C2670B717CB1FAE002EE876 /* what@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670B017CB1FAE002EE876 /* what@2x.png */; };
 		7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CE49F2217C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld */; };
+		8C1BD7AE17F029C000CE7A94 /* FlightSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1BD7A217F029C000CE7A94 /* FlightSearchViewController.m */; };
+		8C1BD7AF17F029C000CE7A94 /* FlightSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7A317F029C000CE7A94 /* FlightSearchViewController.xib */; };
+		8C1BD7B017F029C000CE7A94 /* btn-primary-large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7A517F029C000CE7A94 /* btn-primary-large@2x.png */; };
+		8C1BD7B117F029C000CE7A94 /* calendar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7A617F029C000CE7A94 /* calendar-background@2x.png */; };
+		8C1BD7B217F029C000CE7A94 /* calendar-departure-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7A717F029C000CE7A94 /* calendar-departure-date-bg@2x.png */; };
+		8C1BD7B317F029C000CE7A94 /* calendar-interval-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7A817F029C000CE7A94 /* calendar-interval-bg@2x.png */; };
+		8C1BD7B417F029C000CE7A94 /* calendar-return-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7A917F029C000CE7A94 /* calendar-return-date-bg@2x.png */; };
+		8C1BD7B517F029C000CE7A94 /* calendar-today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7AA17F029C000CE7A94 /* calendar-today@2x.png */; };
+		8C1BD7B617F029C000CE7A94 /* months-silder-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7AB17F029C000CE7A94 /* months-silder-bar@2x.png */; };
+		8C1BD7B717F029C000CE7A94 /* months-slider-selection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1BD7AC17F029C000CE7A94 /* months-slider-selection@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,11 +112,6 @@
 		6633A93717DF306300FEB066 /* toolbar-back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-back-icon@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/toolbar-back-icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		6633A93917DF306400FEB066 /* toolbar-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/toolbar-button@2x.png"; sourceTree = SOURCE_ROOT; };
 		6633A94017DF340B00FEB066 /* toolbar-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button-selected@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/toolbar-button-selected@2x.png"; sourceTree = SOURCE_ROOT; };
-		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
-		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
-		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
-		6639C9F717C5E6A100CF772D /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreenViewController.m; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.m"; sourceTree = SOURCE_ROOT; };
-		6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainScreenViewController.xib; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
 		6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersListViewController.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.h"; sourceTree = SOURCE_ROOT; };
 		6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersListViewController.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.m"; sourceTree = SOURCE_ROOT; };
 		6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAOffersListViewController.xib; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -170,6 +172,17 @@
 		7C2670AF17CB1FAE002EE876 /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
 		7C2670B017CB1FAE002EE876 /* what@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "what@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/what@2x.png"; sourceTree = SOURCE_ROOT; };
 		7CE49F2317C4A99100F3EA0C /* clickavia_iphone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = clickavia_iphone.xcdatamodel; sourceTree = "<group>"; };
+		8C1BD7A117F029C000CE7A94 /* FlightSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchViewController.h; sourceTree = "<group>"; };
+		8C1BD7A217F029C000CE7A94 /* FlightSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchViewController.m; sourceTree = "<group>"; };
+		8C1BD7A317F029C000CE7A94 /* FlightSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightSearchViewController.xib; sourceTree = "<group>"; };
+		8C1BD7A517F029C000CE7A94 /* btn-primary-large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-primary-large@2x.png"; sourceTree = "<group>"; };
+		8C1BD7A617F029C000CE7A94 /* calendar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-background@2x.png"; sourceTree = "<group>"; };
+		8C1BD7A717F029C000CE7A94 /* calendar-departure-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-departure-date-bg@2x.png"; sourceTree = "<group>"; };
+		8C1BD7A817F029C000CE7A94 /* calendar-interval-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-interval-bg@2x.png"; sourceTree = "<group>"; };
+		8C1BD7A917F029C000CE7A94 /* calendar-return-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-return-date-bg@2x.png"; sourceTree = "<group>"; };
+		8C1BD7AA17F029C000CE7A94 /* calendar-today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-today@2x.png"; sourceTree = "<group>"; };
+		8C1BD7AB17F029C000CE7A94 /* months-silder-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "months-silder-bar@2x.png"; sourceTree = "<group>"; };
+		8C1BD7AC17F029C000CE7A94 /* months-slider-selection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "months-slider-selection@2x.png"; sourceTree = "<group>"; };
 		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -321,8 +334,8 @@
 		7C16A2E917A648B20055FF8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8C1BD79E17F029C000CE7A94 /* FlightSeacrhViewController */,
 				7CC150CA17C5DD9300796B50 /* ChatViewController */,
-				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
 				7CC7D33217A78B3400940C94 /* OffersListViewController */,
 				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
 			);
@@ -372,19 +385,6 @@
 				663C334A17D0CF78002CAE26 /* Resources */,
 			);
 			path = SpecialOfferViewController;
-			sourceTree = "<group>";
-		};
-		7CC150C117C5D4DE00796B50 /* MainScreenViewController */ = {
-			isa = PBXGroup;
-			children = (
-				6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */,
-				6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */,
-				6639C9F617C5E6A100CF772D /* MainScreenViewController.h */,
-				6639C9F717C5E6A100CF772D /* MainScreenViewController.m */,
-				6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */,
-			);
-			name = MainScreenViewController;
-			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
 			sourceTree = "<group>";
 		};
 		7CC150CA17C5DD9300796B50 /* ChatViewController */ = {
@@ -440,6 +440,32 @@
 			);
 			name = Application;
 			path = "../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Application";
+			sourceTree = "<group>";
+		};
+		8C1BD79E17F029C000CE7A94 /* FlightSeacrhViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C1BD7A117F029C000CE7A94 /* FlightSearchViewController.h */,
+				8C1BD7A217F029C000CE7A94 /* FlightSearchViewController.m */,
+				8C1BD7A317F029C000CE7A94 /* FlightSearchViewController.xib */,
+				8C1BD7A417F029C000CE7A94 /* Resources */,
+			);
+			path = FlightSeacrhViewController;
+			sourceTree = "<group>";
+		};
+		8C1BD7A417F029C000CE7A94 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C1BD7A517F029C000CE7A94 /* btn-primary-large@2x.png */,
+				8C1BD7A617F029C000CE7A94 /* calendar-background@2x.png */,
+				8C1BD7A717F029C000CE7A94 /* calendar-departure-date-bg@2x.png */,
+				8C1BD7A817F029C000CE7A94 /* calendar-interval-bg@2x.png */,
+				8C1BD7A917F029C000CE7A94 /* calendar-return-date-bg@2x.png */,
+				8C1BD7AA17F029C000CE7A94 /* calendar-today@2x.png */,
+				8C1BD7AB17F029C000CE7A94 /* months-silder-bar@2x.png */,
+				8C1BD7AC17F029C000CE7A94 /* months-slider-selection@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,12 +544,15 @@
 			files = (
 				7C16A2BA17A648290055FF8F /* InfoPlist.strings in Resources */,
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
+				8C1BD7AF17F029C000CE7A94 /* FlightSearchViewController.xib in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
+				8C1BD7B617F029C000CE7A94 /* months-silder-bar@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
-				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
 				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
 				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
 				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
+				8C1BD7B517F029C000CE7A94 /* calendar-today@2x.png in Resources */,
+				8C1BD7B717F029C000CE7A94 /* months-slider-selection@2x.png in Resources */,
 				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
 				7C2670B417CB1FAE002EE876 /* local.png in Resources */,
 				7C2670B517CB1FAE002EE876 /* local@2x.png in Resources */,
@@ -533,17 +562,22 @@
 				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
 				663C335517D0CF78002CAE26 /* background-gray-textured.png in Resources */,
 				663C335617D0CF78002CAE26 /* background-gray-textured@2x.png in Resources */,
+				8C1BD7B417F029C000CE7A94 /* calendar-return-date-bg@2x.png in Resources */,
 				663C335717D0CF78002CAE26 /* bar-green-cold.png in Resources */,
 				663C335817D0CF78002CAE26 /* bar-green-cold@2x.png in Resources */,
 				663C335917D0CF78002CAE26 /* bar-green-warm.png in Resources */,
 				663C335A17D0CF78002CAE26 /* bar-green-warm@2x.png in Resources */,
 				663C335B17D0CF78002CAE26 /* specials-card-red.png in Resources */,
+				8C1BD7B217F029C000CE7A94 /* calendar-departure-date-bg@2x.png in Resources */,
+				8C1BD7B117F029C000CE7A94 /* calendar-background@2x.png in Resources */,
 				663C335C17D0CF78002CAE26 /* specials-card-red@2x.png in Resources */,
 				663C335D17D0CF78002CAE26 /* specials-country-selected.png in Resources */,
+				8C1BD7B017F029C000CE7A94 /* btn-primary-large@2x.png in Resources */,
 				663C335E17D0CF78002CAE26 /* specials-country-selected@2x.png in Resources */,
 				6633A92817DEE68900FEB066 /* btn-primary-for-light@2x.png in Resources */,
 				6633A92917DEE68900FEB066 /* check-icon-green@2x.png in Resources */,
 				6633A92A17DEE68900FEB066 /* clock-icon@2x.png in Resources */,
+				8C1BD7B317F029C000CE7A94 /* calendar-interval-bg@2x.png in Resources */,
 				6633A92B17DEE68900FEB066 /* passengers-icon-baby@2x.png in Resources */,
 				6633A92C17DEE68900FEB066 /* passengers-icon-kid@2x.png in Resources */,
 				6633A92D17DEE68900FEB066 /* passengers-icon-man@2x.png in Resources */,
@@ -617,9 +651,8 @@
 			files = (
 				7CE49F2417C4A99100F3EA0C /* clickavia_iphone.xcdatamodeld in Sources */,
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
-				6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */,
-				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
 				6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */,
+				8C1BD7AE17F029C000CE7A94 /* FlightSearchViewController.m in Sources */,
 				6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */,
 				666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */,
 				666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */,

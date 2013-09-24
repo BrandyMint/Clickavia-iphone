@@ -21,20 +21,16 @@
     Flight* flightReturnObject;
 }
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
+- (NSInteger)heightViewFrame:(Offer*)offerObject
 {
-    flightDepartureObject = [[Flight alloc] init];
-    flightReturnObject = [[Flight alloc] init];
-    flightDepartureObject = offerObject.flightDeparture;
-    flightReturnObject = offerObject.flightReturn;
-    
-    int heightViewFrame = 0;
     if (offerObject.isSpecial)
-        heightViewFrame = CELL_HEIGHT_SPECIAL;
+        return CELL_HEIGHT_SPECIAL;
     else
-        heightViewFrame = CELL_HEIGHT_NORMAL;
-    
-    UIView* cardView = [[UIView alloc] initWithFrame:CGRectMake(CELL_MARGIN_LEFT, 0, [[UIScreen mainScreen] bounds].size.width-2*CELL_MARGIN_LEFT, heightViewFrame)];
+        return CELL_HEIGHT_NORMAL;
+}
+
+-(void)setupCardViewAppearence:(UIView*)cardView
+{
     [cardView.layer setCornerRadius:6];
     cardView.layer.shadowColor = [[UIColor COLOR_BACKGROUND_CARD_VIEW_SHADOW] CGColor];
     cardView.layer.shadowOffset = CGSizeMake(0.0, -1.0);
@@ -42,18 +38,55 @@
     cardView.layer.shadowOpacity = 0.7;
     [cardView setClipsToBounds:NO];
     cardView.backgroundColor = [UIColor COLOR_BACKGROUND_CARD_VIEW];
+}
+-(void)setupSpecialTitleAppearence:(UILabel*)specialTitle
+{
+    specialTitle.backgroundColor = [UIColor clearColor];
+    specialTitle.textColor = [UIColor whiteColor];
+    specialTitle.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10];
+    specialTitle.text = @"СПЕЦПРЕДЛОЖЕНИЕ";
+    [specialTitle sizeToFit];
+}
+-(void)setupMomentaryConfirmationAppearence:(UILabel*)momentaryConfirmationLabel
+{
+    momentaryConfirmationLabel.backgroundColor = [UIColor clearColor];
+    momentaryConfirmationLabel.textColor = [UIColor COLOR_TEXT_MOMENTARYCONFIRMATION];
+    momentaryConfirmationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
+    momentaryConfirmationLabel.text = @"мгновенное подтверждение";
+    [momentaryConfirmationLabel sizeToFit];
+}
+-(void)setupPassengerCountLabelAppearence:(UILabel*)passengerCountLabel
+{
+    passengerCountLabel.backgroundColor = [UIColor clearColor];
+    passengerCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
+    passengerCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    [passengerCountLabel sizeToFit];
+}
+- (void)addMomentaryConfirmation:(UIView*)view
+{
+    UIImageView* check = [[UIImageView alloc] initWithFrame:CGRectMake(130, CELL_HEIGHT_NORMAL - 14, 10, 10)];
+    check.image = [UIImage imageNamed:@"check-icon-green@2x.png"];
+    [view addSubview:check];
+    UILabel *momentaryConfirmationLabel = [[UILabel alloc] initWithFrame:CGRectMake(check.frame.origin.x + check.frame.size.width + 5, CELL_HEIGHT_NORMAL - 17, 0, 0)];
+    [self setupMomentaryConfirmationAppearence:momentaryConfirmationLabel];
+    [view addSubview:momentaryConfirmationLabel];
+}
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
+{
+    flightDepartureObject = offerObject.flightDeparture;
+    flightReturnObject = offerObject.flightReturn;
+    
+    int heightViewFrame = [self heightViewFrame:offerObject];
+    
+    UIView* cardView = [[UIView alloc] initWithFrame:CGRectMake(CELL_MARGIN_LEFT, 0, [[UIScreen mainScreen] bounds].size.width-2*CELL_MARGIN_LEFT, heightViewFrame)];
+    [self setupCardViewAppearence:cardView];
     
     CGRect contenViewFrame = CGRectZero;
     
     if (offerObject.isSpecial) {
         UILabel *specialTitle = [[UILabel alloc] initWithFrame:CGRectMake(6, 1, 0, 0)];
-        specialTitle.backgroundColor = [UIColor clearColor];
-        specialTitle.textColor = [UIColor whiteColor];
-        specialTitle.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10];
-        specialTitle.text = @"СПЕЦПРЕДЛОЖЕНИЕ";
-        [specialTitle sizeToFit];
+        [self setupSpecialTitleAppearence:specialTitle];
         [cardView addSubview:specialTitle];
-        
         contenViewFrame = CGRectMake(0, CELL_SPECIAL_PADDING, cardView.frame.size.width, CELL_HEIGHT_NORMAL);
     }
     else
@@ -67,63 +100,48 @@
     }
     
     if (offerObject.isMomentaryConfirmation) {
-        UIImageView* check = [[UIImageView alloc] initWithFrame:CGRectMake(130, CELL_HEIGHT_NORMAL - 14, 10, 10)];
-        check.image = [UIImage imageNamed:@"check-icon-green@2x.png"];
-        [contenView addSubview:check];
-        
-        UILabel *momentaryConfirmationLabel = [[UILabel alloc] initWithFrame:CGRectMake(check.frame.origin.x + check.frame.size.width + 5, CELL_HEIGHT_NORMAL - 17, 0, 0)];
-        momentaryConfirmationLabel.backgroundColor = [UIColor clearColor];
-        momentaryConfirmationLabel.textColor = [UIColor COLOR_TEXT_MOMENTARYCONFIRMATION];
-        momentaryConfirmationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
-        [contenView addSubview:momentaryConfirmationLabel];
-        momentaryConfirmationLabel.text = @"мгновенное подтверждение";
-        [momentaryConfirmationLabel sizeToFit];
+        [self addMomentaryConfirmation:contenView];
+
     }
     
     UIView *departFlightView = [self createFlightSubblock:YES];
     departFlightView.frame = CGRectMake(contenView.frame.origin.x, 0, contenView.frame.size.width, 50);
     [self createLineByBottom: [self getBottom:departFlightView.frame]];
-    
-    UIView *returnFlightView = [self createFlightSubblock:NO];
-    returnFlightView.frame = CGRectMake(contenView.frame.origin.x, [self getBottom:departFlightView.frame], contenView.frame.size.width, departFlightView.frame.size.height);
-    [self createLineByBottom: [self getBottom:returnFlightView.frame]];
-    
+
     [contenView addSubview:departFlightView];
-    [contenView addSubview:returnFlightView];
+    NSInteger bottomBorderForFlightsView =[self getBottom:departFlightView.frame];;
     
-    UIImageView* adultsImage = [[UIImageView alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 10, [self getBottom:returnFlightView.frame]+10, 10, 26)];
+    if(flightReturnObject!=nil)
+    {
+        UIView *returnFlightView = [self createFlightSubblock:NO];
+        returnFlightView.frame = CGRectMake(contenView.frame.origin.x, [self getBottom:departFlightView.frame], contenView.frame.size.width, departFlightView.frame.size.height);
+        [self createLineByBottom: [self getBottom:returnFlightView.frame]];
+        [contenView addSubview:returnFlightView];
+        bottomBorderForFlightsView = [self getBottom:returnFlightView.frame];
+    }
+   
+    
+    UIImageView* adultsImage = [[UIImageView alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 10, bottomBorderForFlightsView+10, 10, 26)];
     adultsImage.image = [UIImage imageNamed:@"passengers-icon-man@2x.png"];
-    UILabel* adultsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(adultsImage.frame.origin.x + adultsImage.frame.size.width + 4, [self getBottom:returnFlightView.frame]+14, 0, 0)];
-    adultsCountLabel.backgroundColor = [UIColor clearColor];
-    adultsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
-    adultsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    UILabel* adultsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(adultsImage.frame.origin.x + adultsImage.frame.size.width + 4, bottomBorderForFlightsView+14, 0, 0)];
     adultsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.adults];
-    [adultsCountLabel sizeToFit];
-    
+    [self setupPassengerCountLabelAppearence:adultsCountLabel];
     [contenView addSubview:adultsImage];
     [contenView addSubview:adultsCountLabel];
     
-    UIImageView* kidsImage = [[UIImageView alloc] initWithFrame:CGRectMake(adultsCountLabel.frame.origin.x + adultsCountLabel.frame.size.width + 9, [self getBottom:returnFlightView.frame]+13, 8, 20)];
+    UIImageView* kidsImage = [[UIImageView alloc] initWithFrame:CGRectMake(adultsCountLabel.frame.origin.x + adultsCountLabel.frame.size.width + 9, bottomBorderForFlightsView+13, 8, 20)];
     kidsImage.image = [UIImage imageNamed:@"passengers-icon-kid@2x.png"];
-    UILabel* kidsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(kidsImage.frame.origin.x + kidsImage.frame.size.width + 4, [self getBottom:returnFlightView.frame]+14, 0, 0)];
-    kidsCountLabel.backgroundColor = [UIColor clearColor];
-    kidsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
-    kidsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    UILabel* kidsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(kidsImage.frame.origin.x + kidsImage.frame.size.width + 4, bottomBorderForFlightsView+14, 0, 0)];
     kidsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.kids];
-    [kidsCountLabel sizeToFit];
-    
+    [self setupPassengerCountLabelAppearence:kidsCountLabel];
     [contenView addSubview:kidsImage];
     [contenView addSubview:kidsCountLabel];
     
-    UIImageView* babyImage = [[UIImageView alloc] initWithFrame:CGRectMake(kidsCountLabel.frame.origin.x + kidsCountLabel.frame.size.width + 9, [self getBottom:returnFlightView.frame]+14, 11, 18)];
+    UIImageView* babyImage = [[UIImageView alloc] initWithFrame:CGRectMake(kidsCountLabel.frame.origin.x + kidsCountLabel.frame.size.width + 9, bottomBorderForFlightsView+14, 11, 18)];
     babyImage.image = [UIImage imageNamed:@"passengers-icon-baby@2x.png"];
-    UILabel* babyiesCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(babyImage.frame.origin.x + babyImage.frame.size.width + 4, [self getBottom:returnFlightView.frame]+14, 0, 0)];
-    babyiesCountLabel.backgroundColor = [UIColor clearColor];
-    babyiesCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
-    babyiesCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+    UILabel* babyiesCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(babyImage.frame.origin.x + babyImage.frame.size.width + 4, bottomBorderForFlightsView+14, 0, 0)];
     babyiesCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.babies];
-    [babyiesCountLabel sizeToFit];
-    
+    [self setupPassengerCountLabelAppearence:babyiesCountLabel];
     [contenView addSubview:babyImage];
     [contenView addSubview:babyiesCountLabel];
     
@@ -147,7 +165,7 @@
     airlineCodeLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     airlineCodeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
     [subBlockView addSubview:airlineCodeLabel];
-    airlineCodeLabel.text = (isDest)?flightDepartureObject.ID:flightReturnObject.ID;
+    airlineCodeLabel.text = (isDest)? flightDepartureObject.code:flightReturnObject.code;
     
     UILabel *timeDepartureLabel = [[UILabel alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + LABEL_AIRPORT_WIDTH + 10, 7, 0, 0)];
     timeDepartureLabel.backgroundColor = [UIColor clearColor];

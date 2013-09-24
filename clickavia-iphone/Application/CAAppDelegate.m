@@ -10,7 +10,7 @@
 
 #import "CASpecOffersViewController.h"
 #import "CAOffersListViewController.h"
-#import "MainScreenViewController.h"
+#import "FlightSearchViewController.h"
 #import "ChatViewController.h"
 
 #import "MessageReceiver.h"
@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong) CASpecOffersViewController *specialOfferViewController;
 @property (nonatomic, strong) CAOffersListViewController *offerListViewController;
-@property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
+@property (nonatomic, strong) FlightSearchViewController *flightSearchViewController;
 
 @property (nonatomic, strong) ChatViewController *chatViewController;
 @property (strong, nonatomic) MessageReceiver *message_reciever;
@@ -44,11 +44,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     _rootTabBarController = [[AKTabBarController alloc] initWithTabBarHeight: 35];
+    
     [_rootTabBarController setMinimumHeightToDisplayTitle: 40.0];
     
     _specialOfferViewController = [[CASpecOffersViewController alloc] init];
     _offerListViewController = [[CAOffersListViewController alloc] init];
-    _mainScreenViewController = [[MainScreenViewController alloc] init];
+    _flightSearchViewController = [[FlightSearchViewController alloc] init];
     
     UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
     _message_reciever = [MessageReceiver new];
@@ -58,7 +59,7 @@
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_offerListViewController],
-                                            [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
+                                            [[UINavigationController alloc] initWithRootViewController:_flightSearchViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_chatViewController],
                                             nil]];
     
@@ -108,7 +109,6 @@
         } 
     }
 }
-
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
