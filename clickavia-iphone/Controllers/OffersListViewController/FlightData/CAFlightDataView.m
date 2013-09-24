@@ -1,21 +1,21 @@
 //
-//  CAFligthDataView.m
+//  CAFlightDataView.m
 //  clickavia-iphone
 //
 //  Created by bespalown on 9/23/13.
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
-#import "CAFligthDataView.h"
+#import "CAFlightDataView.h"
 #import "CAAssistView.h"
 #import "CAOrderDetails.h"
 #import "CAColorSpecOffers.h"
 
-@interface CAFligthDataView ()
+@interface CAFlightDataView ()
 
 @end
 
-@implementation CAFligthDataView
+@implementation CAFlightDataView
 {
     Offer* offerdata;
     FlightPassengersCount* passengersCount;
@@ -88,7 +88,8 @@
 
 -(void)back
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    offerdata = passengersCount = nil;
 }
 
 @end

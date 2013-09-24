@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CAFligthDataView.h"
+#import "CAFlightDataView.h"
 #import "Offer.h"
 #import "FlightPassengersCount.h"
 

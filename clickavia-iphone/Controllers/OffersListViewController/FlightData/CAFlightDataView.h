@@ -1,5 +1,5 @@
 //
-//  CAFligthDataView.h
+//  CAFlightDataView.h
 //  clickavia-iphone
 //
 //  Created by bespalown on 9/23/13.
@@ -10,7 +10,7 @@
 #import "Offer.h"
 #import "FlightPassengersCount.h"
 
-@interface CAFligthDataView : UIViewController
+@interface CAFlightDataView : UIViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
 
