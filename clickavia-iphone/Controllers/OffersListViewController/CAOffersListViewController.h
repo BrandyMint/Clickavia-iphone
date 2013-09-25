@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CAOffersData.h"
-
 #define ONEWAY_FLIGHT @"departure"
 #define FLIGHT_BACK @"return"
 
 @interface CAOffersListViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITableView *tableOffers;
-
+@property (nonatomic,weak) OfferConditions *offerConditions;
+@property (nonatomic,strong) IBOutlet UIView *loadingView;
 @end
