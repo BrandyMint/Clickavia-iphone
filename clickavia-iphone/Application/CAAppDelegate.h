@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CAManagers/OfferConditions.h>
 #import <AKTabBarController/AKTabBarController.h>
 
 @interface CAAppDelegate : UIResponder <UIApplicationDelegate>
@@ -17,6 +18,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (strong,nonatomic) OfferConditions *offerConditions; //для проброса данных из календаря в графики
 @property (nonatomic, strong) AKTabBarController *rootTabBarController;
 
 - (void)saveContext;

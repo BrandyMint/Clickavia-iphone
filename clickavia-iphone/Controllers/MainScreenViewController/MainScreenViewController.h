@@ -12,14 +12,35 @@
 #import "CAFieldCompleteView.h"
 #import <CAManagers/CitiesManager.h>
 
-@interface MainScreenViewController : UIViewController <CAFieldCompleteViewDelegate, CACalendarViewDelegate>
+#import <UIKit/UIKit.h>
+#import <CACalendarView/CACalendarView.h>
+#import "CAFieldCompleteView.h"
+#import <CAManagers/CitiesManager.h>
+#import <CAManagers/FlightsManager.h>
+#import <CAManagers/OfferConditions.h>
+#import "CAAppDelegate.h"
 
+@interface MainScreenViewController : UIViewController <CAFieldCompleteViewDelegate,CACalendarViewDelegate>
+{
+    FlightsManager *fm;
+    CitiesManager *cm;
+    SearchConditions *currentSearchConditions;
+    NSArray *departureDates;
+    NSArray *returnDates;
+    NSDate *departureDate;
+    NSDate *returnDate;
+}
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* departureCompleteView;
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* returnCompleteView;
-@property (strong,nonatomic) CitiesManager *cm;
-@property (strong,nonatomic) Destination *departureDestination;
-@property (strong,nonatomic) Destination *returnDestination;
-
 @property (strong,nonatomic) IBOutlet CACalendarView* calendarView;
 
+@property (strong,nonatomic) IBOutlet UISwitch *switchBoth;
+@property (strong,nonatomic) IBOutlet UIButton *countButton;
+@property (strong,nonatomic) IBOutlet UIButton *flightClassButton;
+@property (strong,nonatomic) IBOutlet UILabel *switchDescription;
+- (SearchConditions*) getSearchConditions;
+- (OfferConditions*) getOfferConditions;
+- (IBAction)changeFlightType:(id)sender;
+- (IBAction)changeIsBothWays:(id)sender;
+- (IBAction)find:(id)sender;
 @end
