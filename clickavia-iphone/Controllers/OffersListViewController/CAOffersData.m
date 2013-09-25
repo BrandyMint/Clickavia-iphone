@@ -99,10 +99,10 @@
 {
     NSMutableArray* arrayPassangers = [[NSMutableArray alloc] initWithCapacity:10];
     for (int i=0; i<10; i++) {
-        FlightPassengersCount* passangers = [[FlightPassengersCount alloc] init];
-        passangers.adults = arc4random()%5+1;
-        passangers.kids = arc4random()%4;
-        passangers.babies = arc4random()%3;
+        CAFlightPassengersCount* passangers = [[CAFlightPassengersCount alloc] init];
+        passangers.adultsCount = arc4random()%5+1;
+        passangers.childrenCount = arc4random()%4;
+        passangers.infantsCount = arc4random()%3;
         [arrayPassangers addObject:passangers];
     }
     return arrayPassangers;

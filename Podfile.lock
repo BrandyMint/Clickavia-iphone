@@ -12,6 +12,8 @@ PODS:
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
     - RestKit (= 0.20.0)
+  - CASearchForm
+  - CASearchFormControls (0.0.1)
   - CASpecialOffers:
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
@@ -45,6 +47,8 @@ DEPENDENCIES:
   - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
   - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec`)
   - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
+  - CASearchForm (from `https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec`)
+  - CASearchFormControls (from `https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec`)
   - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
 
 EXTERNAL SOURCES:
@@ -58,6 +62,10 @@ EXTERNAL SOURCES:
     :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec
   CAManagers:
     :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
+  CASearchForm:
+    :podspec: https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec
+  CASearchFormControls:
+    :podspec: https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec
   CASpecialOffers:
     :podspec: https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec
 
@@ -70,6 +78,8 @@ SPEC CHECKSUMS:
   CAColumnsControl: 3fa1489e6e2eaa06ba67556ea4bfc4f20fad7aa4
   CAFieldComplete: d33b1a8dc32b1f582e3ce2ae08f185b887d4912a
   CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
+  CASearchForm: b0867bfde62b28b477e870978537ec7c0f9ff8ab
+  CASearchFormControls: 5f2eab7ac174d1260b5280059d96ae6b4e3e9eee
   CASpecialOffers: e71214f144919a3889f16bd723d0f791fa5de86a
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2

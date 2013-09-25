@@ -1,6 +1,6 @@
 #Clickavia-iphone
 
-####В основном проекте находится модель объекта пассажиров: FlightPassengersCount
+####В основном проекте находится модель объекта пассажиров: CAFlightPassengersCount
 		
 		@property NSUInteger adults;
 		@property NSUInteger kids;
@@ -20,10 +20,10 @@
 		
 ###Описание методов:
 
-		- (UIView*) initByOfferModel:(Offer*)offers passangers:(FlightPassengersCount*)passangers;
+		- (UIView*) initByOfferModel:(Offer*)offers passangers:(CAFlightPassengersCount*)passangers;
 
 
-Передаем 2 объекта Offer и FlightPassengersCount на выходе получаем готовый View. 
+Передаем 2 объекта Offer и CAFlightPassengersCount на выходе получаем готовый View. 
 
 
 ### подсказки к экранам [CA-AssistView]:
@@ -32,3 +32,10 @@
 
 Передаем строку с подсказкой, шрифт и отспуп текста от границ создаваемого View. 
 На выходе получаем готовое представление в верхней части экрана.
+
+
+### сумма прописью NumberToString
+
+        -(NSString*) numberToString:(NSInteger)number;
+        
+Преобразует число в строку прописью, например "142 - сто сорок два"

@@ -46,6 +46,17 @@
 		661623A617EB3D0F00B6A19C /* specials-card-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616239C17EB3D0F00B6A19C /* specials-card-red@2x.png */; };
 		661623A717EB3D0F00B6A19C /* specials-country-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616239D17EB3D0F00B6A19C /* specials-country-selected.png */; };
 		661623A817EB3D0F00B6A19C /* specials-country-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616239E17EB3D0F00B6A19C /* specials-country-selected@2x.png */; };
+		661A38BE17F2C38000AA71AE /* CASearchFormControls-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38B417F2C38000AA71AE /* CASearchFormControls-button@2x.png */; };
+		661A38BF17F2C38000AA71AE /* PassengersButton-baby-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38B517F2C38000AA71AE /* PassengersButton-baby-icon@2x.png */; };
+		661A38C017F2C38000AA71AE /* PassengersButton-kid-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38B617F2C38000AA71AE /* PassengersButton-kid-icon@2x.png */; };
+		661A38C117F2C38000AA71AE /* PassengersButton-man-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38B717F2C38000AA71AE /* PassengersButton-man-icon@2x.png */; };
+		661A38C217F2C38000AA71AE /* UISwitch-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38B817F2C38000AA71AE /* UISwitch-background@2x.png */; };
+		661A38C317F2C38000AA71AE /* UISwitch-handler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38B917F2C38000AA71AE /* UISwitch-handler@2x.png */; };
+		661A38C417F2C38000AA71AE /* UISwitch-planes-one-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38BA17F2C38000AA71AE /* UISwitch-planes-one-active@2x.png */; };
+		661A38C517F2C38000AA71AE /* UISwitch-planes-one@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38BB17F2C38000AA71AE /* UISwitch-planes-one@2x.png */; };
+		661A38C617F2C38000AA71AE /* UISwitch-planes-two-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38BC17F2C38000AA71AE /* UISwitch-planes-two-active@2x.png */; };
+		661A38C717F2C38000AA71AE /* UISwitch-planes-two@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661A38BD17F2C38000AA71AE /* UISwitch-planes-two@2x.png */; };
+		661A38CA17F2CE7100AA71AE /* NumberToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 661A38C917F2CE7100AA71AE /* NumberToString.m */; };
 		661E40BF17F1D88000DE8B0D /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BB17F1D88000DE8B0D /* Gemfile */; };
 		661E40C017F1D88000DE8B0D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BC17F1D88000DE8B0D /* Podfile */; };
 		661E40C117F1D88000DE8B0D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BD17F1D88000DE8B0D /* Podfile.lock */; };
@@ -62,7 +73,6 @@
 		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
 		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
 		6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE2E17E0ED43002A85D0 /* CAOffersData.m */; };
-		6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */; };
 		666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */; };
 		666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */; };
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
@@ -146,8 +156,20 @@
 		6616239C17EB3D0F00B6A19C /* specials-card-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-card-red@2x.png"; path = "Pods/CASpecialOffers/CASpecialOffers/SpecialOffer.bundle/specials-card-red@2x.png"; sourceTree = SOURCE_ROOT; };
 		6616239D17EB3D0F00B6A19C /* specials-country-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected.png"; path = "Pods/CASpecialOffers/CASpecialOffers/SpecialOffer.bundle/specials-country-selected.png"; sourceTree = SOURCE_ROOT; };
 		6616239E17EB3D0F00B6A19C /* specials-country-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected@2x.png"; path = "Pods/CASpecialOffers/CASpecialOffers/SpecialOffer.bundle/specials-country-selected@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38B417F2C38000AA71AE /* CASearchFormControls-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CASearchFormControls-button@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/CASearchFormControls-button@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38B517F2C38000AA71AE /* PassengersButton-baby-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PassengersButton-baby-icon@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/PassengersButton-baby-icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38B617F2C38000AA71AE /* PassengersButton-kid-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PassengersButton-kid-icon@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/PassengersButton-kid-icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38B717F2C38000AA71AE /* PassengersButton-man-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PassengersButton-man-icon@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/PassengersButton-man-icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38B817F2C38000AA71AE /* UISwitch-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-background@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/UISwitch-background@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38B917F2C38000AA71AE /* UISwitch-handler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-handler@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/UISwitch-handler@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38BA17F2C38000AA71AE /* UISwitch-planes-one-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-one-active@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/UISwitch-planes-one-active@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38BB17F2C38000AA71AE /* UISwitch-planes-one@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-one@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/UISwitch-planes-one@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38BC17F2C38000AA71AE /* UISwitch-planes-two-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-two-active@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/UISwitch-planes-two-active@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38BD17F2C38000AA71AE /* UISwitch-planes-two@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-two@2x.png"; path = "Pods/CASearchFormControls/CASearchFormControls/Resources/UISwitch-planes-two@2x.png"; sourceTree = SOURCE_ROOT; };
+		661A38C817F2CE7000AA71AE /* NumberToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumberToString.h; path = "clickavia-iphone/Controllers/OffersListViewController/NumberToString.h"; sourceTree = SOURCE_ROOT; };
+		661A38C917F2CE7100AA71AE /* NumberToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumberToString.m; path = "clickavia-iphone/Controllers/OffersListViewController/NumberToString.m"; sourceTree = SOURCE_ROOT; };
 		661E40BB17F1D88000DE8B0D /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
-		661E40BC17F1D88000DE8B0D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		661E40BC17F1D88000DE8B0D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		661E40BD17F1D88000DE8B0D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		661E40BE17F1D88000DE8B0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderDetailsPersonal.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetailsPersonal.h"; sourceTree = SOURCE_ROOT; };
@@ -173,8 +195,6 @@
 		6639CA0F17C5FE5600CF772D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.m"; sourceTree = SOURCE_ROOT; };
 		6644BE2D17E0ED43002A85D0 /* CAOffersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersData.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.h"; sourceTree = SOURCE_ROOT; };
 		6644BE2E17E0ED43002A85D0 /* CAOffersData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersData.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.m"; sourceTree = SOURCE_ROOT; };
-		6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightPassengersCount.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.h"; sourceTree = SOURCE_ROOT; };
-		6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightPassengersCount.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.m"; sourceTree = SOURCE_ROOT; };
 		666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColorSpecOffers.h; sourceTree = "<group>"; };
 		666C60DB17CCDFA9008220AC /* CASpecOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecOffersViewController.h; sourceTree = "<group>"; };
 		666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecOffersViewController.m; sourceTree = "<group>"; };
@@ -296,15 +316,6 @@
 				6616237A17EB3BB200B6A19C /* what@2x.png */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		662972DF17E2F56500D9324B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */,
-				6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		663C334A17D0CF78002CAE26 /* Resources */ = {
@@ -463,6 +474,16 @@
 		7C16A2EA17A648B20055FF8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				661A38B417F2C38000AA71AE /* CASearchFormControls-button@2x.png */,
+				661A38B517F2C38000AA71AE /* PassengersButton-baby-icon@2x.png */,
+				661A38B617F2C38000AA71AE /* PassengersButton-kid-icon@2x.png */,
+				661A38B717F2C38000AA71AE /* PassengersButton-man-icon@2x.png */,
+				661A38B817F2C38000AA71AE /* UISwitch-background@2x.png */,
+				661A38B917F2C38000AA71AE /* UISwitch-handler@2x.png */,
+				661A38BA17F2C38000AA71AE /* UISwitch-planes-one-active@2x.png */,
+				661A38BB17F2C38000AA71AE /* UISwitch-planes-one@2x.png */,
+				661A38BC17F2C38000AA71AE /* UISwitch-planes-two-active@2x.png */,
+				661A38BD17F2C38000AA71AE /* UISwitch-planes-two@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -527,7 +548,6 @@
 			isa = PBXGroup;
 			children = (
 				66EB074817E62505003469E4 /* Objects */,
-				662972DF17E2F56500D9324B /* Model */,
 				66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */,
 				66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */,
 				662972E017E31F6700D9324B /* CAOffersCellView.h */,
@@ -540,6 +560,8 @@
 				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
 				66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */,
 				66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */,
+				661A38C817F2CE7000AA71AE /* NumberToString.h */,
+				661A38C917F2CE7100AA71AE /* NumberToString.m */,
 				66F4C7E217EB0FDB0004DB88 /* Contrtact */,
 				668CB98E17F2060A00A26506 /* FlightData */,
 				668CB99417F2064800A26506 /* AssistView */,
@@ -689,6 +711,16 @@
 				661E40C017F1D88000DE8B0D /* Podfile in Resources */,
 				661E40C117F1D88000DE8B0D /* Podfile.lock in Resources */,
 				661E40C217F1D88000DE8B0D /* README.md in Resources */,
+				661A38BE17F2C38000AA71AE /* CASearchFormControls-button@2x.png in Resources */,
+				661A38BF17F2C38000AA71AE /* PassengersButton-baby-icon@2x.png in Resources */,
+				661A38C017F2C38000AA71AE /* PassengersButton-kid-icon@2x.png in Resources */,
+				661A38C117F2C38000AA71AE /* PassengersButton-man-icon@2x.png in Resources */,
+				661A38C217F2C38000AA71AE /* UISwitch-background@2x.png in Resources */,
+				661A38C317F2C38000AA71AE /* UISwitch-handler@2x.png in Resources */,
+				661A38C417F2C38000AA71AE /* UISwitch-planes-one-active@2x.png in Resources */,
+				661A38C517F2C38000AA71AE /* UISwitch-planes-one@2x.png in Resources */,
+				661A38C617F2C38000AA71AE /* UISwitch-planes-two-active@2x.png in Resources */,
+				661A38C717F2C38000AA71AE /* UISwitch-planes-two@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,13 +795,13 @@
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
 				668CB99717F2066B00A26506 /* CAAssistView.m in Sources */,
 				6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */,
-				6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
 				668CB99217F2063400A26506 /* CAFlightDataView.m in Sources */,
 				66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */,
 				66245FDD17E82656003A1611 /* CAOrderDetails.m in Sources */,
 				6616230317EB395300B6A19C /* CAContract.m in Sources */,
+				661A38CA17F2CE7100AA71AE /* NumberToString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

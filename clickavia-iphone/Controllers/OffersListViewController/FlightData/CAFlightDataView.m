@@ -10,6 +10,7 @@
 #import "CAAssistView.h"
 #import "CAOrderDetails.h"
 #import "CAColorSpecOffers.h"
+#import "CAPassengersCountButton.h"
 
 @interface CAFlightDataView ()
 
@@ -18,16 +19,17 @@
 @implementation CAFlightDataView
 {
     Offer* offerdata;
-    FlightPassengersCount* passengersCount;
+    CAFlightPassengersCount* passengersCount;
+    CAPassengersCountButton *passengerCountButton;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(CAFlightPassengersCount*)passengers
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         offerdata = [[Offer alloc] init];
         offerdata = offer;
-        passengersCount = [[FlightPassengersCount alloc] init];
+        passengersCount = [[CAFlightPassengersCount alloc] init];
         passengersCount = passengers;
         
         NSLog(@"/*|sss special: %d, momentary: %d", offerdata.isSpecial, offerdata.isMomentaryConfirmation);
@@ -44,10 +46,20 @@
     UIView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5];
     [self.view addSubview:assistView];
     
+    UIButton* passengersButton = [[CAPassengersCountButton alloc] init];
+    CGRect passengersButtonFrame = passengersButton.frame;
+    passengersButtonFrame.origin.x = 50;
+    passengersButtonFrame.origin.y = assistView.frame.origin.y + assistView.frame.size.height + 20;
+    passengersButton.frame = passengersButtonFrame;
+    passengersButton.backgroundColor = [UIColor lightGrayColor];
+    //[passengersButton setimageForAdults:[UIImage imageNamed:@"toolbar-back-icon.png"]];
+    [self.view addSubview:passengersButton];
+    
     UIView* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
     CGRect orderDetalsFrame = orderDetailsView.frame;
-    orderDetalsFrame.origin.y = assistView.frame.origin.y + assistView.frame.size.height;
+    orderDetalsFrame.origin.y = passengersButton.frame.origin.y + passengersButton.frame.size.height + 50;
     orderDetailsView.frame = orderDetalsFrame;
+    orderDetailsView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:orderDetailsView];
 }
 

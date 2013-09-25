@@ -21,7 +21,7 @@
     Flight* flightReturnObject;
 }
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers;
 {
     flightDepartureObject = [[Flight alloc] init];
     flightReturnObject = [[Flight alloc] init];
@@ -97,7 +97,7 @@
     adultsCountLabel.backgroundColor = [UIColor clearColor];
     adultsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     adultsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    adultsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.adults];
+    adultsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.adultsCount];
     [adultsCountLabel sizeToFit];
     
     [contenView addSubview:adultsImage];
@@ -109,7 +109,7 @@
     kidsCountLabel.backgroundColor = [UIColor clearColor];
     kidsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     kidsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    kidsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.kids];
+    kidsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.childrenCount];
     [kidsCountLabel sizeToFit];
     
     [contenView addSubview:kidsImage];
@@ -121,7 +121,7 @@
     babyiesCountLabel.backgroundColor = [UIColor clearColor];
     babyiesCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     babyiesCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.babies];
+    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.infantsCount];
     [babyiesCountLabel sizeToFit];
     
     [contenView addSubview:babyImage];

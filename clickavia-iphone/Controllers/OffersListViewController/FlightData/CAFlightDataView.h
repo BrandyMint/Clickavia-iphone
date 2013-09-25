@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Offer.h"
-#import "FlightPassengersCount.h"
+#import "CAFlightPassengersCount.h"
 
 @interface CAFlightDataView : UIViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(CAFlightPassengersCount*)passengers;
 
 @end

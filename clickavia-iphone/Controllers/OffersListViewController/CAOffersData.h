@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Offer.h"
 #import "Flight.h"
-#import "FlightPassengersCount.h"
+#import "CAFlightPassengersCount.h"
 #import "OfferConditions.h"
 #import "SearchConditions.h"
 #import "Destination.h"

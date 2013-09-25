@@ -14,7 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Offer.h"
 #import "Flight.h"
-#import "FlightPassengersCount.h"
+#import "CAFlightPassengersCount.h"
 
 #import "CAOffersCell.h"
 #import "CAOffersCellView.h"
@@ -306,7 +306,7 @@
     
     Offer* offerObject = [[Offer alloc] init];
     Flight* flightObject = [[Flight alloc] init];
-    FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
+    CAFlightPassengersCount* passengersCount = [[CAFlightPassengersCount alloc] init];
     offerObject = [arrayOffers objectAtIndex:indexPath.section];
     flightObject = [arrayOffers objectAtIndex:indexPath.section];
     passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
@@ -463,7 +463,7 @@
 {
     Offer* offerdata = [[Offer alloc] init];
     offerdata = [arrayOffers objectAtIndex:indexPath.section];
-    FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
+    CAFlightPassengersCount* passengersCount = [[CAFlightPassengersCount alloc] init];
     passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
     
     NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
