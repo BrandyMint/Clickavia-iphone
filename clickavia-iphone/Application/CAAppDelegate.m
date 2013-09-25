@@ -61,11 +61,18 @@
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_chatViewController],
                                             nil]];
-    
+    [self customAppearance];
     self.window.rootViewController = _rootTabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+-(void)customAppearance
+{
+    UIImage* navBG = [UIImage imageNamed:@"toolbar-background.png"];
+    [[UINavigationBar appearance] setBackgroundImage:navBG forBarMetrics:UIBarMetricsDefault];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

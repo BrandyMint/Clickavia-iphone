@@ -12,7 +12,7 @@
 #import "CAFieldCompleteView.h"
 #import <CAManagers/CitiesManager.h>
 
-@interface MainScreenViewController : UIViewController <CAFieldCompleteViewDelegate>
+@interface MainScreenViewController : UIViewController <CAFieldCompleteViewDelegate, CACalendarViewDelegate>
 
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* departureCompleteView;
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* returnCompleteView;
