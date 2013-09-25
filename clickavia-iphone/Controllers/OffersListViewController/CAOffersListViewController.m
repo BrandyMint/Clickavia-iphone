@@ -10,10 +10,10 @@
 #import <CAColumnsControl/CAColumnsControlView.h>
 #import <CAColumnsControl/CAColumnMockDates.h>
 #import <CAManagers/Flight.h>
+#import <CAManagers/FlightDescriptionManager.h>
 #import "CAOfferGreenBar.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Offer.h"
-#import "Flight.h"
 #import "FlightPassengersCount.h"
 
 #import "CAOffersCell.h"
@@ -23,7 +23,7 @@
 #import "CAOrderDetailsPersonal.h"
 #import "CAContract.h"
 #import "CAColorSpecOffers.h"
-
+#import "CAAppDelegate.h"
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
 #define SectionHeaderHeight 170
@@ -65,6 +65,9 @@
     NSArray* arrayPassangers;
     
     UIView *headerTableView;
+    FlightDescriptionManager *fdm;
+    
+    UIActivityIndicatorView *indicatorView;
 }
 @synthesize columnDepartureControlView, columnArrivialControlView;
 @synthesize tableOffers;
@@ -84,8 +87,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    fdm = [FlightDescriptionManager new];
     self.navigationController.navigationBarHidden = NO;
-    [self showNavBar];
+}
+- (void)initControls
+{
     
     tableOffers.scrollEnabled = YES;
     
@@ -125,34 +131,168 @@
     [topGreenView addGestureRecognizer:tapGreenBar];
     topGreenView.userInteractionEnabled = YES;
     
-    caoffersData = [[CAOffersData alloc] init];
-    arrayOffers = [caoffersData arrayOffer];
-    arrayPassangers = [caoffersData arrayPassangers];
+    arrayOffers = nil;
+    arrayPassangers = nil;
+    [self setupDatesText];
+    indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2.0-20, self.view.frame.size.height/2.0-20, 10, 10)];
+    indicatorView.color = [UIColor lightGrayColor];
+    [_loadingView addSubview:indicatorView];
+    
 }
-
+-(void)showLoading:(BOOL)show
+{
+    
+    if(show)
+    {
+        [_loadingView removeFromSuperview];
+        [[[UIApplication sharedApplication] keyWindow] addSubview:_loadingView];
+        [_loadingView setHidden:NO];
+        [indicatorView startAnimating];
+        
+    }
+    else
+    {
+        [_loadingView removeFromSuperview];
+        [_loadingView setHidden:YES];
+        [indicatorView stopAnimating];
+    }
+}
+-(void)setupDestinationsLabelsFrom:(UILabel*)fromLabel andTo:(UILabel*)toLabel
+{
+    fromLabel.text = _offerConditions.searchConditions.direction_departure.title;
+    toLabel.text = _offerConditions.searchConditions.direction_return.title;
+}
+-(void)setupDatesText
+{
+    if(_offerConditions!=nil&&_offerConditions.departureDate!=nil)
+    {
+        labelThereDate.text = [self textForDate:_offerConditions.departureDate];
+    }
+    if(_offerConditions!=nil&&_offerConditions.returnDate!=nil)
+    {
+        labelThereDate.text = [self textForDate:_offerConditions.returnDate];
+    }
+}
+-(NSString*)textForDate:(NSDate*)date
+{
+    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
+    int month = dateComponents.month;
+    NSString *monthString = @"";
+    int day = dateComponents.day;
+    switch (month) {
+            
+        case 1:
+            monthString =@"января";
+            break;
+        case 2:
+            monthString =@"февраля";
+            break;
+        case 3:
+            monthString =@"марта";
+            break;
+        case 4:
+            monthString =@"апреля";
+            break;
+        case 5:
+            monthString =@"мая";
+            break;
+        case 6:
+            monthString =@"июня";
+            break;
+        case 7:
+            monthString =@"июля";
+            break;
+        case 8:
+            monthString =@"августа";
+            break;
+        case 9:
+            monthString =@"сентября";
+            break;
+        case 10:
+            monthString =@"октября";
+            break;
+        case 11:
+            monthString =@"ноября";
+            break;
+        case 12:
+            monthString =@"декабря";
+            break;
+        default:
+            break;
+    }
+    NSString *result = [[NSString alloc] initWithFormat:@"%i %@",day,monthString];
+    return result;
+    
+}
 -(void) viewWillAppear:(BOOL)animated
 {
-    mainFrame = self.view.frame;
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    _offerConditions = appDelegate.offerConditions;
+    if(_offerConditions!=nil)
+    {
+        topGreenView.hidden = NO;
+        [self loadOffers];
+        [self showNavBar];
+        [self initControls];
+        [self loadDataForColumnDeparture];
+        mainFrame = self.view.frame;
+        
+        viewOneWay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 140)];
+        viewOnBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 280)];
+        
+        columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, viewOneWay.frame.size.height) title:@"туда" flight_kind:ONEWAY_FLIGHT withTarget:nil];
+        
+        columnDepartureControlView.delegate = (id)self;
+        
+        
+        columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, viewOneWay.frame.size.height, mainFrame.size.width, viewOneWay.frame.size.height) title:@"обратно" flight_kind:FLIGHT_BACK withTarget:nil];
+        columnArrivialControlView.delegate = (id)self;
+        tableOffers.bounds = mainFrame;
+        tableOffers.frame = CGRectMake(mainFrame.origin.x,
+                                       mainFrame.origin.y,
+                                       mainFrame.size.width,
+                                       mainFrame.size.height);
+        [tableOffers setContentOffset:CGPointMake(0, 0) animated:NO];
+    }
+    else
+    {
+        topGreenView.hidden = YES;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Данные для поиска пусты" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     
-    viewOneWay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 140)];
-    viewOnBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 280)];
-    
-   columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, viewOneWay.frame.size.height) title:@"туда" flight_kind:ONEWAY_FLIGHT withTarget:nil];
-
-    columnDepartureControlView.delegate = (id)self;
-    NSArray *departureFlights = [CAColumnMockDates generateFlyToDates];
-    [columnDepartureControlView importFlights: departureFlights];
-    
-    columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, viewOneWay.frame.size.height, mainFrame.size.width, viewOneWay.frame.size.height) title:@"обратно" flight_kind:FLIGHT_BACK withTarget:nil];
-    
-    tableOffers.bounds = mainFrame;
-    tableOffers.frame = CGRectMake(mainFrame.origin.x,
-                                   mainFrame.origin.y,
-                                   mainFrame.size.width,
-                                   mainFrame.size.height);
-    [tableOffers setContentOffset:CGPointMake(0, 0) animated:NO];
 }
-
+- (void)loadOffers
+{
+    [self showLoading:YES];
+    fdm.offerConditions = _offerConditions;
+    [fdm getAvailableOffersWithCompleteBlock:^(NSArray *offers)
+     {
+         arrayOffers = offers;
+         [tableOffers reloadData];
+         [self showLoading:NO];
+     }];
+}
+-(void)loadDataForColumnDeparture
+{
+    [self showLoading:YES];
+    fdm.offerConditions = _offerConditions;
+    [fdm getFlightsDepartureByDateWithCompleteBlock:^(NSArray *flights){
+        [columnDepartureControlView importFlights:flights];
+        [self showLoading:NO];
+        //[columnArrivialControlView importFlights:[NSArray new]];
+    }];
+}
+-(void)loadDataForColumnsArrival
+{
+    [self showLoading:YES];
+    fdm.offerConditions = _offerConditions;
+    [fdm getFlightsReturnByDateWithCompleteBlock:^(NSArray *flights)
+     {
+         [columnArrivialControlView importFlights:flights];
+         [self showLoading:NO];
+     }];
+}
 -(void)showNavBar
 {
     switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
@@ -195,6 +335,7 @@
     [titleBarItemView addSubview:arrow];
     [titleBarItemView addSubview:arrivalCity];
     self.navigationItem.titleView = titleBarItemView;
+    [self setupDestinationsLabelsFrom:departureCity andTo:arrivalCity];
 }
 
 -(void) detail
@@ -230,6 +371,10 @@
 -(void)switchToggled
 {
     [self factor];
+    [self setupDatesText];
+    _offerConditions.searchConditions.isBothWays = switchReturnFlight.isOn;
+    [self loadDataForColumnDeparture];
+    [tableOffers reloadData];
 }
 
 -(NSInteger )factor
@@ -278,8 +423,23 @@
 
 - (void)columnsControlView:(CAColumnsControlView *)columnsControlView didSelectColumnWithObject:(Flight*)flight
 {
-    NSArray *arrivialFlights = [CAColumnMockDates generateFlyReturnDates:flight.dateAndTimeDeparture];
-    [columnArrivialControlView importFlights: arrivialFlights];
+    if(columnsControlView==columnDepartureControlView)
+    {
+        _offerConditions.departureDate = flight.dateAndTimeDeparture;
+        if(_offerConditions.searchConditions.isBothWays)
+        {
+            [self loadDataForColumnsArrival];
+        }
+        else
+        {
+            [self loadOffers];
+        }
+    }
+    if(columnsControlView==columnArrivialControlView)
+    {
+        _offerConditions.returnDate = flight.dateAndTimeArrival;
+        [self loadOffers];
+    }
 }
 
 #pragma mark
@@ -391,6 +551,22 @@
     [cell addSubview:button];
 
 }
+- (void)showOrCloseWays
+{
+    if (isReturn) {
+        [viewOneWay removeFromSuperview];
+        [viewOnBack removeFromSuperview];
+        [viewOnBack addSubview:columnDepartureControlView];
+        [viewOnBack addSubview:columnArrivialControlView];
+        [headerTableView addSubview:viewOnBack];
+    }
+    else {
+        [viewOneWay removeFromSuperview];
+        [viewOnBack removeFromSuperview];
+        [viewOneWay addSubview:columnDepartureControlView];
+        [headerTableView addSubview:viewOneWay];
+    }
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
@@ -402,19 +578,7 @@
                                                                    mainFrame.size.width,
                                                                    factor*viewOneWay.frame.size.height + 20)];
         if (onDetail.selected) {
-            if (isReturn) {
-                [viewOneWay removeFromSuperview];
-                [viewOnBack removeFromSuperview];
-                [viewOnBack addSubview:columnDepartureControlView];
-                [viewOnBack addSubview:columnArrivialControlView];
-                [headerTableView addSubview:viewOnBack];
-            }
-            else {
-                [viewOneWay removeFromSuperview];
-                [viewOnBack removeFromSuperview];
-                [viewOneWay addSubview:columnDepartureControlView];
-                [headerTableView addSubview:viewOneWay];
-            }
+            [self showOrCloseWays];
             marginNumberFlights = factor*viewOneWay.frame.size.height + 5;
         }
         
