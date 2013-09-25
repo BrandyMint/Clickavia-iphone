@@ -8,8 +8,9 @@
 
 #import "CAOrderDetails.h"
 
-#define LABEL_AIRPORT_WIDTH 80
+#define LABEL_AIRPORT_TYPE_WIDTH 80
 #define LABEL_COLUMN_DEPARTURE 100
+#define LABEL_AIRPORT 120
 
 @implementation CAOrderDetails
 {
@@ -128,7 +129,7 @@
     airlineTitleLabel.text = (isDest)?flightDepartureObject.airportArrival:flightReturnObject.airportDeparture;
     [airlineTitleLabel sizeToFit];
     
-    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(airlineTitleLabel.frame.origin.x + airlineTitleLabel.frame.size.width + 10, airlineTitleLabel.frame.origin.y + 1, LABEL_AIRPORT_WIDTH, 14)];
+    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(airlineTitleLabel.frame.origin.x + airlineTitleLabel.frame.size.width + 10, airlineTitleLabel.frame.origin.y + 1, LABEL_AIRPORT_TYPE_WIDTH, 14)];
     airlineCodeLabel.backgroundColor = [UIColor clearColor];
     airlineCodeLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     airlineCodeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
@@ -186,22 +187,21 @@
     clock.image = [UIImage imageNamed:@"clock-icon@2x.png"];
     [subBlockView addSubview:clock];
     
-    UILabel *airportDeparture = [[UILabel alloc] initWithFrame:CGRectMake(airlineTitleLabel.frame.origin.x, [self getBottom:timeDepartureLabel.frame], 0, 0)];
+    UILabel *airportDeparture = [[UILabel alloc] initWithFrame:CGRectMake(airlineTitleLabel.frame.origin.x, [self getBottom:timeDepartureLabel.frame], LABEL_AIRPORT, 14)];
     airportDeparture.backgroundColor = [UIColor clearColor];
     airportDeparture.textColor = [UIColor COLOR_PASSANGER_COUNT];
     airportDeparture.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [subBlockView addSubview:airportDeparture];
     airportDeparture.text = (isDest)?[NSString stringWithFormat:@"%@, %@",destinationDeparture.airportTitle, destinationDeparture.code]:[NSString stringWithFormat:@"%@, %@",destinationReturn.airportTitle, destinationReturn.code];
-    [airportDeparture sizeToFit];
-
+    //[airportDeparture sizeToFit];
     
-    UILabel *airportArrival = [[UILabel alloc] initWithFrame:CGRectMake(timeArrivalLabel.frame.origin.x, airportDeparture.frame.origin.y, 0, 0)];
+    UILabel *airportArrival = [[UILabel alloc] initWithFrame:CGRectMake(timeArrivalLabel.frame.origin.x, airportDeparture.frame.origin.y, LABEL_AIRPORT, 14)];
     airportArrival.backgroundColor = [UIColor clearColor];
     airportArrival.textColor = [UIColor COLOR_PASSANGER_COUNT];
     airportArrival.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [subBlockView addSubview:airportArrival];
     airportArrival.text = airportDeparture.text = (isDest)?[NSString stringWithFormat:@"%@, %@",destinationReturn.airportTitle, destinationReturn.code]:[NSString stringWithFormat:@"%@, %@",destinationDeparture.airportTitle, destinationDeparture.code];
-    [airportArrival sizeToFit];
+    //[airportArrival sizeToFit];
     
     return subBlockView;
 }
