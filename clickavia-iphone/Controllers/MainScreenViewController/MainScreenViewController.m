@@ -33,9 +33,6 @@
     _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
     _departureCompleteView.backgroundColor = [UIColor orangeColor];
     
-    [_calendarView setDelegate:self];
-    [_calendarView selectFlyToDaysByDateArray:[CACalendarMockDates generateFlyToDates]];
-    [_calendarView selectFlyReturnDaysByDateArray:[CACalendarMockDates generateFlyReturnDates:[NSDate date]]];
     
     ///autocomplete
     
