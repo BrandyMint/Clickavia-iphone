@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
-#import "FlightSearchViewController.h"
+#import "MainScreenViewController.h"
 
-@interface FlightSearchViewController ()
+@interface MainScreenViewController ()
 
 @end
 
-@implementation FlightSearchViewController
+@implementation MainScreenViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

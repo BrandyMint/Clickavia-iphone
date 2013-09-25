@@ -14,7 +14,7 @@
 #import <CAManagers/OfferConditions.h>
 #import "CAAppDelegate.h"
 
-@interface FlightSearchViewController : UIViewController <CAFieldCompleteViewDelegate,CACalendarViewDelegate>
+@interface MainScreenViewController : UIViewController <CAFieldCompleteViewDelegate,CACalendarViewDelegate>
 {
     FlightsManager *fm;
     CitiesManager *cm;
