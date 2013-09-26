@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.navigationController.navigationBarHidden = YES;
     
     _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
@@ -39,26 +40,7 @@
     
     _searchForm.viewForSpawnSubviews = self.view;
     _searchForm.citiesManager = cm;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    //_departureCompleteView.offsetTopForAutocomplete = 60;
-    //_departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
-    //[_departureCompleteView setIsDeparture:YES];
-    
-=======
-    
-    //_departureCompleteView.offsetTopForAutocomplete = 60;
-    //_departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
-    //[_departureCompleteView setIsDeparture:YES];
-    
->>>>>>> CASearchForm added. temp fix in CASpecOffersViewController.m
-    //_returnCompleteView.offsetTopForAutocomplete = 60;
-    //_returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
-    //[_returnCompleteView setIsDeparture:NO];
-=======
     _searchForm.delegate = self;
->>>>>>> searchform connected
     
     currentSearchConditions = [[SearchConditions alloc] init];
     currentSearchConditions.isBothWays = NO;
