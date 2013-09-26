@@ -7,6 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17710E4817F46479008A8E11 /* specials-card-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1817F46479008A8E11 /* specials-card-red@2x.png */; };
+		17710E4917F46479008A8E11 /* specials-country-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1917F46479008A8E11 /* specials-country-selected@2x.png */; };
+		17710E4A17F46479008A8E11 /* bar-green-cold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1A17F46479008A8E11 /* bar-green-cold@2x.png */; };
+		17710E4B17F46479008A8E11 /* bar-green-warm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1B17F46479008A8E11 /* bar-green-warm@2x.png */; };
+		17710E4C17F46479008A8E11 /* background-gray-textured@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1C17F46479008A8E11 /* background-gray-textured@2x.png */; };
+		17710E4D17F46479008A8E11 /* columns-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1D17F46479008A8E11 /* columns-icon@2x.png */; };
+		17710E4E17F46479008A8E11 /* toolbar-button-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1E17F46479008A8E11 /* toolbar-button-active@2x.png */; };
+		17710E4F17F46479008A8E11 /* toolbar-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E1F17F46479008A8E11 /* toolbar-button@2x.png */; };
+		17710E5017F46479008A8E11 /* toolbar-arrow-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2017F46479008A8E11 /* toolbar-arrow-right@2x.png */; };
+		17710E5117F46479008A8E11 /* toolbar-back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2117F46479008A8E11 /* toolbar-back-icon@2x.png */; };
+		17710E5217F46479008A8E11 /* toolbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2217F46479008A8E11 /* toolbar-background@2x.png */; };
+		17710E5317F46479008A8E11 /* btn-primary-for-light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2317F46479008A8E11 /* btn-primary-for-light@2x.png */; };
+		17710E5417F46479008A8E11 /* passengers-icon-baby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2417F46479008A8E11 /* passengers-icon-baby@2x.png */; };
+		17710E5517F46479008A8E11 /* passengers-icon-kid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2517F46479008A8E11 /* passengers-icon-kid@2x.png */; };
+		17710E5617F46479008A8E11 /* passengers-icon-man@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2617F46479008A8E11 /* passengers-icon-man@2x.png */; };
+		17710E5717F46479008A8E11 /* results-columns-green-cold-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2717F46479008A8E11 /* results-columns-green-cold-background@2x.png */; };
+		17710E5817F46479008A8E11 /* results-column-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2817F46479008A8E11 /* results-column-selected@2x.png */; };
+		17710E5917F46479008A8E11 /* results-column@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2917F46479008A8E11 /* results-column@2x.png */; };
+		17710E5A17F46479008A8E11 /* results-columns-green-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2A17F46479008A8E11 /* results-columns-green-background@2x.png */; };
+		17710E5B17F46479008A8E11 /* calendar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2B17F46479008A8E11 /* calendar-background@2x.png */; };
+		17710E5C17F46479008A8E11 /* calendar-tabs-icon-reset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2C17F46479008A8E11 /* calendar-tabs-icon-reset@2x.png */; };
+		17710E5D17F46479008A8E11 /* calendar-tabs-plane-icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2D17F46479008A8E11 /* calendar-tabs-plane-icon-back@2x.png */; };
+		17710E5E17F46479008A8E11 /* calendar-tabs-plane-icon-forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2E17F46479008A8E11 /* calendar-tabs-plane-icon-forward@2x.png */; };
+		17710E5F17F46479008A8E11 /* calendar-tabs-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E2F17F46479008A8E11 /* calendar-tabs-background@2x.png */; };
+		17710E6017F46479008A8E11 /* bnt-primary-large-for-dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3017F46479008A8E11 /* bnt-primary-large-for-dark@2x.png */; };
+		17710E6117F46479008A8E11 /* btn-primary-large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3117F46479008A8E11 /* btn-primary-large@2x.png */; };
+		17710E6217F46479008A8E11 /* calendar-return-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3217F46479008A8E11 /* calendar-return-date-bg@2x.png */; };
+		17710E6317F46479008A8E11 /* calendar-departure-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3317F46479008A8E11 /* calendar-departure-date-bg@2x.png */; };
+		17710E6417F46479008A8E11 /* calendar-interval-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3417F46479008A8E11 /* calendar-interval-bg@2x.png */; };
+		17710E6517F46479008A8E11 /* calendar-today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3517F46479008A8E11 /* calendar-today@2x.png */; };
+		17710E6617F46479008A8E11 /* months-slider-selection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3617F46479008A8E11 /* months-slider-selection@2x.png */; };
+		17710E6717F46479008A8E11 /* months-silder-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3717F46479008A8E11 /* months-silder-bar@2x.png */; };
+		17710E6817F46479008A8E11 /* CAFieldComplete-icon-reset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3817F46479008A8E11 /* CAFieldComplete-icon-reset@2x.png */; };
+		17710E6917F46479008A8E11 /* PassengersButton-baby-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3917F46479008A8E11 /* PassengersButton-baby-icon@2x.png */; };
+		17710E6A17F46479008A8E11 /* PassengersButton-kid-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3A17F46479008A8E11 /* PassengersButton-kid-icon@2x.png */; };
+		17710E6B17F46479008A8E11 /* PassengersButton-man-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3B17F46479008A8E11 /* PassengersButton-man-icon@2x.png */; };
+		17710E6C17F46479008A8E11 /* CASearchFormControls-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3C17F46479008A8E11 /* CASearchFormControls-button@2x.png */; };
+		17710E6D17F46479008A8E11 /* UISwitch-handler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3D17F46479008A8E11 /* UISwitch-handler@2x.png */; };
+		17710E6E17F46479008A8E11 /* UISwitch-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3E17F46479008A8E11 /* UISwitch-background@2x.png */; };
+		17710E6F17F46479008A8E11 /* UISwitch-planes-one-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E3F17F46479008A8E11 /* UISwitch-planes-one-active@2x.png */; };
+		17710E7017F46479008A8E11 /* UISwitch-planes-one@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4017F46479008A8E11 /* UISwitch-planes-one@2x.png */; };
+		17710E7117F46479008A8E11 /* UISwitch-planes-two-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4117F46479008A8E11 /* UISwitch-planes-two-active@2x.png */; };
+		17710E7217F46479008A8E11 /* UISwitch-planes-two@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4217F46479008A8E11 /* UISwitch-planes-two@2x.png */; };
+		17710E7317F46479008A8E11 /* clickavia_iphone5_results_screen@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4317F46479008A8E11 /* clickavia_iphone5_results_screen@2x.psd */; };
+		17710E7417F46479008A8E11 /* check-icon-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4417F46479008A8E11 /* check-icon-green@2x.png */; };
+		17710E7517F46479008A8E11 /* clock-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4517F46479008A8E11 /* clock-icon@2x.png */; };
+		17710E7617F46479008A8E11 /* specials-card-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4617F46479008A8E11 /* specials-card-red.png */; };
+		17710E7717F46479008A8E11 /* specials-country-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E4717F46479008A8E11 /* specials-country-selected.png */; };
 		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
 		6616230317EB395300B6A19C /* CAContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 6616230117EB395300B6A19C /* CAContract.m */; };
 		6616230417EB395300B6A19C /* CAContract.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6616230217EB395300B6A19C /* CAContract.xib */; };
@@ -107,6 +155,54 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17710E1817F46479008A8E11 /* specials-card-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-card-red@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/specials-card-red@2x.png"; sourceTree = "<group>"; };
+		17710E1917F46479008A8E11 /* specials-country-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/specials-country-selected@2x.png"; sourceTree = "<group>"; };
+		17710E1A17F46479008A8E11 /* bar-green-cold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-green-cold@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/bar-green-cold@2x.png"; sourceTree = "<group>"; };
+		17710E1B17F46479008A8E11 /* bar-green-warm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-green-warm@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/bar-green-warm@2x.png"; sourceTree = "<group>"; };
+		17710E1C17F46479008A8E11 /* background-gray-textured@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-gray-textured@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/background-gray-textured@2x.png"; sourceTree = "<group>"; };
+		17710E1D17F46479008A8E11 /* columns-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "columns-icon@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/columns-icon@2x.png"; sourceTree = "<group>"; };
+		17710E1E17F46479008A8E11 /* toolbar-button-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button-active@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/toolbar-button-active@2x.png"; sourceTree = "<group>"; };
+		17710E1F17F46479008A8E11 /* toolbar-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/toolbar-button@2x.png"; sourceTree = "<group>"; };
+		17710E2017F46479008A8E11 /* toolbar-arrow-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-arrow-right@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/toolbar-arrow-right@2x.png"; sourceTree = "<group>"; };
+		17710E2117F46479008A8E11 /* toolbar-back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-back-icon@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/toolbar-back-icon@2x.png"; sourceTree = "<group>"; };
+		17710E2217F46479008A8E11 /* toolbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-background@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/toolbar-background@2x.png"; sourceTree = "<group>"; };
+		17710E2317F46479008A8E11 /* btn-primary-for-light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-primary-for-light@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/btn-primary-for-light@2x.png"; sourceTree = "<group>"; };
+		17710E2417F46479008A8E11 /* passengers-icon-baby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-baby@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/passengers-icon-baby@2x.png"; sourceTree = "<group>"; };
+		17710E2517F46479008A8E11 /* passengers-icon-kid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-kid@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/passengers-icon-kid@2x.png"; sourceTree = "<group>"; };
+		17710E2617F46479008A8E11 /* passengers-icon-man@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-man@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/passengers-icon-man@2x.png"; sourceTree = "<group>"; };
+		17710E2717F46479008A8E11 /* results-columns-green-cold-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "results-columns-green-cold-background@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/results-columns-green-cold-background@2x.png"; sourceTree = "<group>"; };
+		17710E2817F46479008A8E11 /* results-column-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "results-column-selected@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/results-column-selected@2x.png"; sourceTree = "<group>"; };
+		17710E2917F46479008A8E11 /* results-column@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "results-column@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/results-column@2x.png"; sourceTree = "<group>"; };
+		17710E2A17F46479008A8E11 /* results-columns-green-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "results-columns-green-background@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/results-columns-green-background@2x.png"; sourceTree = "<group>"; };
+		17710E2B17F46479008A8E11 /* calendar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-background@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-background@2x.png"; sourceTree = "<group>"; };
+		17710E2C17F46479008A8E11 /* calendar-tabs-icon-reset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-icon-reset@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-tabs-icon-reset@2x.png"; sourceTree = "<group>"; };
+		17710E2D17F46479008A8E11 /* calendar-tabs-plane-icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-plane-icon-back@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-tabs-plane-icon-back@2x.png"; sourceTree = "<group>"; };
+		17710E2E17F46479008A8E11 /* calendar-tabs-plane-icon-forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-plane-icon-forward@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-tabs-plane-icon-forward@2x.png"; sourceTree = "<group>"; };
+		17710E2F17F46479008A8E11 /* calendar-tabs-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-tabs-background@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-tabs-background@2x.png"; sourceTree = "<group>"; };
+		17710E3017F46479008A8E11 /* bnt-primary-large-for-dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bnt-primary-large-for-dark@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/bnt-primary-large-for-dark@2x.png"; sourceTree = "<group>"; };
+		17710E3117F46479008A8E11 /* btn-primary-large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-primary-large@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/btn-primary-large@2x.png"; sourceTree = "<group>"; };
+		17710E3217F46479008A8E11 /* calendar-return-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-return-date-bg@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-return-date-bg@2x.png"; sourceTree = "<group>"; };
+		17710E3317F46479008A8E11 /* calendar-departure-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-departure-date-bg@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-departure-date-bg@2x.png"; sourceTree = "<group>"; };
+		17710E3417F46479008A8E11 /* calendar-interval-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-interval-bg@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-interval-bg@2x.png"; sourceTree = "<group>"; };
+		17710E3517F46479008A8E11 /* calendar-today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-today@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/calendar-today@2x.png"; sourceTree = "<group>"; };
+		17710E3617F46479008A8E11 /* months-slider-selection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "months-slider-selection@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/months-slider-selection@2x.png"; sourceTree = "<group>"; };
+		17710E3717F46479008A8E11 /* months-silder-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "months-silder-bar@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/months-silder-bar@2x.png"; sourceTree = "<group>"; };
+		17710E3817F46479008A8E11 /* CAFieldComplete-icon-reset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CAFieldComplete-icon-reset@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/CAFieldComplete-icon-reset@2x.png"; sourceTree = "<group>"; };
+		17710E3917F46479008A8E11 /* PassengersButton-baby-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PassengersButton-baby-icon@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/PassengersButton-baby-icon@2x.png"; sourceTree = "<group>"; };
+		17710E3A17F46479008A8E11 /* PassengersButton-kid-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PassengersButton-kid-icon@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/PassengersButton-kid-icon@2x.png"; sourceTree = "<group>"; };
+		17710E3B17F46479008A8E11 /* PassengersButton-man-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PassengersButton-man-icon@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/PassengersButton-man-icon@2x.png"; sourceTree = "<group>"; };
+		17710E3C17F46479008A8E11 /* CASearchFormControls-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CASearchFormControls-button@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/CASearchFormControls-button@2x.png"; sourceTree = "<group>"; };
+		17710E3D17F46479008A8E11 /* UISwitch-handler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-handler@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/UISwitch-handler@2x.png"; sourceTree = "<group>"; };
+		17710E3E17F46479008A8E11 /* UISwitch-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-background@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/UISwitch-background@2x.png"; sourceTree = "<group>"; };
+		17710E3F17F46479008A8E11 /* UISwitch-planes-one-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-one-active@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/UISwitch-planes-one-active@2x.png"; sourceTree = "<group>"; };
+		17710E4017F46479008A8E11 /* UISwitch-planes-one@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-one@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/UISwitch-planes-one@2x.png"; sourceTree = "<group>"; };
+		17710E4117F46479008A8E11 /* UISwitch-planes-two-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-two-active@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/UISwitch-planes-two-active@2x.png"; sourceTree = "<group>"; };
+		17710E4217F46479008A8E11 /* UISwitch-planes-two@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UISwitch-planes-two@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/UISwitch-planes-two@2x.png"; sourceTree = "<group>"; };
+		17710E4317F46479008A8E11 /* clickavia_iphone5_results_screen@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = "clickavia_iphone5_results_screen@2x.psd"; path = "../../../../work/dapi/clickavia/specs/assets/clickavia_iphone5_results_screen@2x.psd"; sourceTree = "<group>"; };
+		17710E4417F46479008A8E11 /* check-icon-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-icon-green@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/check-icon-green@2x.png"; sourceTree = "<group>"; };
+		17710E4517F46479008A8E11 /* clock-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-icon@2x.png"; path = "../../../../work/dapi/clickavia/specs/assets/clock-icon@2x.png"; sourceTree = "<group>"; };
+		17710E4617F46479008A8E11 /* specials-card-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-card-red.png"; path = "../../../../work/dapi/clickavia/specs/assets/specials-card-red.png"; sourceTree = "<group>"; };
+		17710E4717F46479008A8E11 /* specials-country-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "specials-country-selected.png"; path = "../../../../work/dapi/clickavia/specs/assets/specials-country-selected.png"; sourceTree = "<group>"; };
 		6616230017EB395300B6A19C /* CAContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAContract.h; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.h"; sourceTree = SOURCE_ROOT; };
 		6616230117EB395300B6A19C /* CAContract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAContract.m; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.m"; sourceTree = SOURCE_ROOT; };
 		6616230217EB395300B6A19C /* CAContract.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAContract.xib; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.xib"; sourceTree = SOURCE_ROOT; };
@@ -463,6 +559,54 @@
 		7C16A2EA17A648B20055FF8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17710E1817F46479008A8E11 /* specials-card-red@2x.png */,
+				17710E1917F46479008A8E11 /* specials-country-selected@2x.png */,
+				17710E1A17F46479008A8E11 /* bar-green-cold@2x.png */,
+				17710E1B17F46479008A8E11 /* bar-green-warm@2x.png */,
+				17710E1C17F46479008A8E11 /* background-gray-textured@2x.png */,
+				17710E1D17F46479008A8E11 /* columns-icon@2x.png */,
+				17710E1E17F46479008A8E11 /* toolbar-button-active@2x.png */,
+				17710E1F17F46479008A8E11 /* toolbar-button@2x.png */,
+				17710E2017F46479008A8E11 /* toolbar-arrow-right@2x.png */,
+				17710E2117F46479008A8E11 /* toolbar-back-icon@2x.png */,
+				17710E2217F46479008A8E11 /* toolbar-background@2x.png */,
+				17710E2317F46479008A8E11 /* btn-primary-for-light@2x.png */,
+				17710E2417F46479008A8E11 /* passengers-icon-baby@2x.png */,
+				17710E2517F46479008A8E11 /* passengers-icon-kid@2x.png */,
+				17710E2617F46479008A8E11 /* passengers-icon-man@2x.png */,
+				17710E2717F46479008A8E11 /* results-columns-green-cold-background@2x.png */,
+				17710E2817F46479008A8E11 /* results-column-selected@2x.png */,
+				17710E2917F46479008A8E11 /* results-column@2x.png */,
+				17710E2A17F46479008A8E11 /* results-columns-green-background@2x.png */,
+				17710E2B17F46479008A8E11 /* calendar-background@2x.png */,
+				17710E2C17F46479008A8E11 /* calendar-tabs-icon-reset@2x.png */,
+				17710E2D17F46479008A8E11 /* calendar-tabs-plane-icon-back@2x.png */,
+				17710E2E17F46479008A8E11 /* calendar-tabs-plane-icon-forward@2x.png */,
+				17710E2F17F46479008A8E11 /* calendar-tabs-background@2x.png */,
+				17710E3017F46479008A8E11 /* bnt-primary-large-for-dark@2x.png */,
+				17710E3117F46479008A8E11 /* btn-primary-large@2x.png */,
+				17710E3217F46479008A8E11 /* calendar-return-date-bg@2x.png */,
+				17710E3317F46479008A8E11 /* calendar-departure-date-bg@2x.png */,
+				17710E3417F46479008A8E11 /* calendar-interval-bg@2x.png */,
+				17710E3517F46479008A8E11 /* calendar-today@2x.png */,
+				17710E3617F46479008A8E11 /* months-slider-selection@2x.png */,
+				17710E3717F46479008A8E11 /* months-silder-bar@2x.png */,
+				17710E3817F46479008A8E11 /* CAFieldComplete-icon-reset@2x.png */,
+				17710E3917F46479008A8E11 /* PassengersButton-baby-icon@2x.png */,
+				17710E3A17F46479008A8E11 /* PassengersButton-kid-icon@2x.png */,
+				17710E3B17F46479008A8E11 /* PassengersButton-man-icon@2x.png */,
+				17710E3C17F46479008A8E11 /* CASearchFormControls-button@2x.png */,
+				17710E3D17F46479008A8E11 /* UISwitch-handler@2x.png */,
+				17710E3E17F46479008A8E11 /* UISwitch-background@2x.png */,
+				17710E3F17F46479008A8E11 /* UISwitch-planes-one-active@2x.png */,
+				17710E4017F46479008A8E11 /* UISwitch-planes-one@2x.png */,
+				17710E4117F46479008A8E11 /* UISwitch-planes-two-active@2x.png */,
+				17710E4217F46479008A8E11 /* UISwitch-planes-two@2x.png */,
+				17710E4317F46479008A8E11 /* clickavia_iphone5_results_screen@2x.psd */,
+				17710E4417F46479008A8E11 /* check-icon-green@2x.png */,
+				17710E4517F46479008A8E11 /* clock-icon@2x.png */,
+				17710E4617F46479008A8E11 /* specials-card-red.png */,
+				17710E4717F46479008A8E11 /* specials-country-selected.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -635,59 +779,107 @@
 			files = (
 				7C16A2BA17A648290055FF8F /* InfoPlist.strings in Resources */,
 				7C16A2C217A648290055FF8F /* Default.png in Resources */,
+				17710E6F17F46479008A8E11 /* UISwitch-planes-one-active@2x.png in Resources */,
 				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
+				17710E7117F46479008A8E11 /* UISwitch-planes-two-active@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
 				668CB99317F2063400A26506 /* CAFlightDataView.xib in Resources */,
+				17710E4B17F46479008A8E11 /* bar-green-warm@2x.png in Resources */,
 				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
+				17710E6D17F46479008A8E11 /* UISwitch-handler@2x.png in Resources */,
+				17710E5217F46479008A8E11 /* toolbar-background@2x.png in Resources */,
+				17710E6517F46479008A8E11 /* calendar-today@2x.png in Resources */,
+				17710E7317F46479008A8E11 /* clickavia_iphone5_results_screen@2x.psd in Resources */,
+				17710E7017F46479008A8E11 /* UISwitch-planes-one@2x.png in Resources */,
 				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
+				17710E5917F46479008A8E11 /* results-column@2x.png in Resources */,
 				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
 				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
+				17710E5717F46479008A8E11 /* results-columns-green-cold-background@2x.png in Resources */,
+				17710E5517F46479008A8E11 /* passengers-icon-kid@2x.png in Resources */,
 				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
 				668CB98C17F2033600A26506 /* _bar-green-warm@2x.png in Resources */,
+				17710E6E17F46479008A8E11 /* UISwitch-background@2x.png in Resources */,
+				17710E6217F46479008A8E11 /* calendar-return-date-bg@2x.png in Resources */,
+				17710E7217F46479008A8E11 /* UISwitch-planes-two@2x.png in Resources */,
 				666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */,
+				17710E6317F46479008A8E11 /* calendar-departure-date-bg@2x.png in Resources */,
 				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
+				17710E7417F46479008A8E11 /* check-icon-green@2x.png in Resources */,
 				668CB98D17F2033600A26506 /* Contract.html in Resources */,
 				662972DE17E2F40900D9324B /* CAOffersCell.xib in Resources */,
 				6616230417EB395300B6A19C /* CAContract.xib in Resources */,
+				17710E5C17F46479008A8E11 /* calendar-tabs-icon-reset@2x.png in Resources */,
 				6616231117EB397000B6A19C /* btn-primary-for-light@2x.png in Resources */,
 				6616231217EB397000B6A19C /* check-icon-green@2x.png in Resources */,
+				17710E6017F46479008A8E11 /* bnt-primary-large-for-dark@2x.png in Resources */,
 				6616231317EB397000B6A19C /* clock-icon@2x.png in Resources */,
 				6616231417EB397000B6A19C /* passengers-icon-baby@2x.png in Resources */,
 				6616231517EB397000B6A19C /* passengers-icon-kid@2x.png in Resources */,
+				17710E6617F46479008A8E11 /* months-slider-selection@2x.png in Resources */,
 				6616231617EB397000B6A19C /* passengers-icon-man@2x.png in Resources */,
 				6616231717EB397000B6A19C /* toolbar-arrow-right@2x.png in Resources */,
 				6616231817EB397000B6A19C /* toolbar-back-icon@2x.png in Resources */,
+				17710E4817F46479008A8E11 /* specials-card-red@2x.png in Resources */,
 				6616231917EB397000B6A19C /* toolbar-background@2x.png in Resources */,
 				6616231A17EB397000B6A19C /* toolbar-button-selected@2x.png in Resources */,
+				17710E7517F46479008A8E11 /* clock-icon@2x.png in Resources */,
+				17710E5617F46479008A8E11 /* passengers-icon-man@2x.png in Resources */,
 				6616231B17EB397000B6A19C /* toolbar-button@2x.png in Resources */,
 				6616237B17EB3BB200B6A19C /* local.png in Resources */,
 				6616237C17EB3BB200B6A19C /* local@2x.png in Resources */,
 				6616237D17EB3BB200B6A19C /* what.png in Resources */,
+				17710E4C17F46479008A8E11 /* background-gray-textured@2x.png in Resources */,
 				6616237E17EB3BB200B6A19C /* what@2x.png in Resources */,
+				17710E5317F46479008A8E11 /* btn-primary-for-light@2x.png in Resources */,
+				17710E5117F46479008A8E11 /* toolbar-back-icon@2x.png in Resources */,
 				6616238A17EB3BDF00B6A19C /* calendar-background@2x.png in Resources */,
+				17710E6717F46479008A8E11 /* months-silder-bar@2x.png in Resources */,
+				17710E5B17F46479008A8E11 /* calendar-background@2x.png in Resources */,
+				17710E4E17F46479008A8E11 /* toolbar-button-active@2x.png in Resources */,
 				6616238B17EB3BDF00B6A19C /* calendar-departure-date-bg@2x.png in Resources */,
 				6616238C17EB3BDF00B6A19C /* calendar-interval-bg@2x.png in Resources */,
+				17710E6C17F46479008A8E11 /* CASearchFormControls-button@2x.png in Resources */,
 				6616238D17EB3BDF00B6A19C /* calendar-return-date-bg@2x.png in Resources */,
 				6616238E17EB3BDF00B6A19C /* calendar-tabs-background@2x.png in Resources */,
 				6616238F17EB3BDF00B6A19C /* calendar-tabs-icon-reset@2x.png in Resources */,
 				6616239017EB3BDF00B6A19C /* calendar-tabs-plane-icon-back@2x.png in Resources */,
+				17710E5A17F46479008A8E11 /* results-columns-green-background@2x.png in Resources */,
+				17710E6B17F46479008A8E11 /* PassengersButton-man-icon@2x.png in Resources */,
 				6616239117EB3BDF00B6A19C /* calendar-tabs-plane-icon-forward@2x.png in Resources */,
+				17710E5017F46479008A8E11 /* toolbar-arrow-right@2x.png in Resources */,
+				17710E6417F46479008A8E11 /* calendar-interval-bg@2x.png in Resources */,
+				17710E5E17F46479008A8E11 /* calendar-tabs-plane-icon-forward@2x.png in Resources */,
+				17710E6917F46479008A8E11 /* PassengersButton-baby-icon@2x.png in Resources */,
 				6616239217EB3BDF00B6A19C /* calendar-today@2x.png in Resources */,
 				6616239317EB3BDF00B6A19C /* months-silder-bar@2x.png in Resources */,
 				6616239417EB3BDF00B6A19C /* months-slider-selection@2x.png in Resources */,
+				17710E6817F46479008A8E11 /* CAFieldComplete-icon-reset@2x.png in Resources */,
+				17710E4F17F46479008A8E11 /* toolbar-button@2x.png in Resources */,
 				6616239F17EB3D0F00B6A19C /* background-gray-textured.png in Resources */,
 				661623A017EB3D0F00B6A19C /* background-gray-textured@2x.png in Resources */,
 				661623A117EB3D0F00B6A19C /* bar-green-cold.png in Resources */,
+				17710E5D17F46479008A8E11 /* calendar-tabs-plane-icon-back@2x.png in Resources */,
+				17710E7717F46479008A8E11 /* specials-country-selected.png in Resources */,
 				661623A217EB3D0F00B6A19C /* bar-green-cold@2x.png in Resources */,
 				661623A317EB3D0F00B6A19C /* bar-green-warm.png in Resources */,
 				661623A417EB3D0F00B6A19C /* bar-green-warm@2x.png in Resources */,
+				17710E6A17F46479008A8E11 /* PassengersButton-kid-icon@2x.png in Resources */,
+				17710E4D17F46479008A8E11 /* columns-icon@2x.png in Resources */,
+				17710E7617F46479008A8E11 /* specials-card-red.png in Resources */,
 				661623A517EB3D0F00B6A19C /* specials-card-red.png in Resources */,
+				17710E4917F46479008A8E11 /* specials-country-selected@2x.png in Resources */,
 				661623A617EB3D0F00B6A19C /* specials-card-red@2x.png in Resources */,
+				17710E4A17F46479008A8E11 /* bar-green-cold@2x.png in Resources */,
 				661623A717EB3D0F00B6A19C /* specials-country-selected.png in Resources */,
 				661623A817EB3D0F00B6A19C /* specials-country-selected@2x.png in Resources */,
 				661E40BF17F1D88000DE8B0D /* Gemfile in Resources */,
+				17710E5F17F46479008A8E11 /* calendar-tabs-background@2x.png in Resources */,
+				17710E6117F46479008A8E11 /* btn-primary-large@2x.png in Resources */,
+				17710E5417F46479008A8E11 /* passengers-icon-baby@2x.png in Resources */,
 				661E40C017F1D88000DE8B0D /* Podfile in Resources */,
 				661E40C117F1D88000DE8B0D /* Podfile.lock in Resources */,
+				17710E5817F46479008A8E11 /* results-column-selected@2x.png in Resources */,
 				661E40C217F1D88000DE8B0D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,3 +8,6 @@ pod 'BMChat', :podspec => 'https://raw.github.com/BrandyMint/BMChat/master/BMCha
 pod 'CAFieldComplete', :podspec => 'https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec'
 
 pod 'AKTabBarController'
+
+# TODO remove reveal when release
+pod 'Reveal-iOS-SDK'
