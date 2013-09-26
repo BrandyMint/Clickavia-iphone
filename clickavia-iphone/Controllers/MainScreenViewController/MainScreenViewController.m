@@ -30,7 +30,14 @@
     self.navigationController.navigationBarHidden = YES;
     
     _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
-
+    //_departureCompleteView.backgroundColor = [UIColor orangeColor];
+    
+    
+    ///autocomplete
+    
+    //_departureCompleteView.frame = CGRectMake(1, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
+    //_returnCompleteView.frame = CGRectMake(_departureCompleteView.frame.origin.x + _departureCompleteView.frame.size.width + 9, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
+    
     cm = [CitiesManager new];
     cm.delay = 500;
     fm = [FlightsManager new];
@@ -53,6 +60,9 @@
     //_returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
     //[_returnCompleteView setIsDeparture:NO];
     _searchForm.delegate = self;
+    //_returnCompleteView.offsetTopForAutocomplete = 60;
+    //_returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
+    //[_returnCompleteView setIsDeparture:NO];
     
     currentSearchConditions = [[SearchConditions alloc] init];
     currentSearchConditions.isBothWays = NO;
