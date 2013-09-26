@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F23C4882-5D47-4365-92F4-5876D26DD359</string>
+	<string>EA308E48-48A2-4757-BC19-68A2C7391EC3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>clickavia-iphone</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D6F32C8F-E6A2-4455-A48C-9DCBC5C88A9A</key>
+		<key>50EB0136-75B2-4FBE-82D6-93CF3E63B35B</key>
 		<string>https://github.com/BrandyMint/Clickavia-iphone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>clickavia-iphone.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D6F32C8F-E6A2-4455-A48C-9DCBC5C88A9A</key>
+		<key>50EB0136-75B2-4FBE-82D6-93CF3E63B35B</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D6F32C8F-E6A2-4455-A48C-9DCBC5C88A9A</string>
+	<string>50EB0136-75B2-4FBE-82D6-93CF3E63B35B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D6F32C8F-E6A2-4455-A48C-9DCBC5C88A9A</string>
+			<string>50EB0136-75B2-4FBE-82D6-93CF3E63B35B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Clickavia-iphone</string>
 		</dict>
