@@ -12,7 +12,7 @@ PODS:
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
     - RestKit (= 0.20.0)
-  - CASpecialOffers:
+  - CASpecialOffers (0.0.1):
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
     - MBProgressHUD
@@ -70,7 +70,7 @@ SPEC CHECKSUMS:
   CAColumnsControl: 3fa1489e6e2eaa06ba67556ea4bfc4f20fad7aa4
   CAFieldComplete: d33b1a8dc32b1f582e3ce2ae08f185b887d4912a
   CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
-  CASpecialOffers: e71214f144919a3889f16bd723d0f791fa5de86a
+  CASpecialOffers: 66325d780e10e8c33875d87e8a1dbf1ab2cc4849
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
@@ -79,4 +79,4 @@ SPEC CHECKSUMS:
   RestKit: 580771664a14eaaa40bf53cf83584f12fc141930
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.25.0
