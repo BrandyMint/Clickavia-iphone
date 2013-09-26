@@ -30,14 +30,7 @@
     self.navigationController.navigationBarHidden = YES;
     
     _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
-    //_departureCompleteView.backgroundColor = [UIColor orangeColor];
-    
-    
-    ///autocomplete
-    
-    //_departureCompleteView.frame = CGRectMake(1, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
-    //_returnCompleteView.frame = CGRectMake(_departureCompleteView.frame.origin.x + _departureCompleteView.frame.size.width + 9, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
-    
+
     cm = [CitiesManager new];
     cm.delay = 500;
     fm = [FlightsManager new];
@@ -46,6 +39,7 @@
     
     _searchForm.viewForSpawnSubviews = self.view;
     _searchForm.citiesManager = cm;
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     //_departureCompleteView.offsetTopForAutocomplete = 60;
@@ -62,6 +56,9 @@
     //_returnCompleteView.offsetTopForAutocomplete = 60;
     //_returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
     //[_returnCompleteView setIsDeparture:NO];
+=======
+    _searchForm.delegate = self;
+>>>>>>> searchform connected
     
     currentSearchConditions = [[SearchConditions alloc] init];
     currentSearchConditions.isBothWays = NO;
@@ -70,8 +67,6 @@
     currentSearchConditions.direction_departure = nil;
     currentSearchConditions.direction_return = nil;
     
-    [self setupTextForFlightTypeButton];
-    [self setupSwitchBoth];
     [_calendarView setDelegate:self];
 }
 
@@ -94,47 +89,61 @@
     return nil;
 }
 
-#pragma mark CAFieldCompleteViewDelegate
-- (void)fieldCompleteView:(CAFieldCompleteView*) fieldCompleteView selectedDestination:(Destination*) destination
+#pragma mark CASearchFormViewDelegate
+- (void) searchFormView:(CASearchFormView *)searchFormView didSelectClassOfFlight:(flightType)typeOfFlight
 {
-    [self setupDestinationFrom:fieldCompleteView withValue:destination];
+    currentSearchConditions.typeOfFlight = typeOfFlight;
     [self reloadDates];
 }
 
-- (void)fieldCompleteView:(CAFieldCompleteView*) fieldCompleteView textChanged:(NSString*) text
+- (void) searchFormView:(CASearchFormView *)CASearchFormView didSelectPassengersCount:(CAFlightPassengersCount *)passengersCount
 {
-    if(fieldCompleteView == _departureCompleteView)
-    {
-        [cm getDestinationsForDeparture:text completeBlock:^(NSArray *array)
-         {
-             [_departureCompleteView setAutocompleteData:array];
-         }];
-    }
-    if(fieldCompleteView == _returnCompleteView)
-    {
-        [cm getDestinationsForReturn:text forDepartureDestination:currentSearchConditions.direction_departure completeBlock:^(NSArray *array)
-         {
-             [_returnCompleteView setAutocompleteData:array];
-         }];
-    }
+    //without infants
+    currentSearchConditions.countOfTickets = [[NSNumber alloc ]initWithInteger:(passengersCount.adultsCount + passengersCount.childrenCount)];
+    [self reloadDates];
 }
 
--(void)fieldCompleteViewBeginEditing:(CAFieldCompleteView *)fieldCompleteView
+- (void) searchFormView:(CASearchFormView*)searchFormView didSelectBothWays:(BOOL)isBothWays
 {
-    if(fieldCompleteView == _departureCompleteView)
+    if(isBothWays)
     {
-        [cm getDestinationsForDeparture:_departureCompleteView.text completeBlock:^(NSArray *array)
-         {
-             [_departureCompleteView setAutocompleteData:array];
-         }];
+        NSLog(@"both way");
+        
+        if(_calendarView.flyReturnDate!=nil)
+        {
+            NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+            dayComponent.day = 7;
+            
+            [_calendarView selectDate:[[NSCalendar currentCalendar] dateByAddingComponents:dayComponent toDate:_calendarView.flyReturnDate options:0]];
+            returnDate = _calendarView.flyReturnDate;
+        }
     }
-    if(fieldCompleteView == _returnCompleteView)
+    else
     {
-        [cm getDestinationsForReturn:_returnCompleteView.text forDepartureDestination:currentSearchConditions.direction_departure completeBlock:^(NSArray *array)
-         {
-             [_returnCompleteView setAutocompleteData:array];
-         }];
+        NSLog(@"one way");
+        
+        if(_calendarView.flyReturnDate!=nil)
+        {
+            [_calendarView selectDate:_calendarView.flyReturnDate];
+            returnDate = nil;
+        }
     }
+    
+    currentSearchConditions.isBothWays = isBothWays;
+    
+    [self reloadDates];
+}
+
+- (void) searchFormView:(CASearchFormView *)searchFormView selectedDepartureDestination:(Destination *)destination
+{
+    currentSearchConditions.direction_departure = destination;
+    [self reloadDates];
+}
+
+-(void) searchFormView:(CASearchFormView *)searchFormView selectedArrivalDestination:(Destination *)destination
+{
+    currentSearchConditions.direction_return = destination;
+    [self reloadDates];
 }
 
 #pragma mark CACalendarViewDelegate
@@ -147,15 +156,22 @@
         {
             departureDate = date;
         }
+        
+        if(_calendarView.flyReturnDate==nil)
+        {
+            [_searchForm setBothWaySwitch:NO withAnimation:YES];
+        }
     }
     if(_calendarView.flyReturnDate!=nil)
     {
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
             returnDate = date;
+            [_searchForm setBothWaySwitch:YES withAnimation:YES];
         }
     }
 }
+
 - (void) calendarView:(CACalendarView *)calendarView didSelectMonth:(NSDate *)date
 {
     
@@ -176,78 +192,16 @@
               }];
              
          }];
-        
     }
     else
     {
         [_calendarView resetSelections];
-        
     }
 }
 -(void)updateCalendarDates
 {
     [_calendarView selectFlyToDaysByDateArray:departureDates];
     [_calendarView selectFlyReturnDaysByDateArray:returnDates];
-}
--(void)setupDestinationFrom:(CAFieldCompleteView*) fieldCompleteView withValue:(Destination*) destination
-{
-    if(fieldCompleteView==_departureCompleteView)
-    {
-        currentSearchConditions.direction_departure = destination;
-    }
-    else
-    {
-        currentSearchConditions.direction_return = destination;
-    }
-    [self reloadDates];
-}
-- (void)setupSwitchBoth
-{
-    [_switchBoth setOn:currentSearchConditions.isBothWays];
-    if(currentSearchConditions.isBothWays)
-    {
-        _switchDescription.text = @"Both";
-    }
-    else
-    {
-        _switchDescription.text = @"1 way";
-    }
-}
-- (IBAction)changeFlightType:(id)sender
-{
-    currentSearchConditions.typeOfFlight = currentSearchConditions.typeOfFlight==econom?business:econom;
-    [self setupTextForFlightTypeButton];
-    [self reloadDates];
-}
-- (void)setupTextForFlightTypeButton
-{
-    NSString *title;
-    if(currentSearchConditions.typeOfFlight==econom)
-    {
-        title = @"Эконом";
-    }
-    else
-    {
-        title = @"Бизнес";
-    }
-    
-    [_flightClassButton setTitle: title forState: UIControlStateNormal];
-    [_flightClassButton setTitle: title forState: UIControlStateHighlighted];
-    [_flightClassButton setTitle: title forState: UIControlStateSelected];
-    [self reloadDates];
-}
-- (IBAction)changeIsBothWays:(id)sender
-{
-    currentSearchConditions.isBothWays = _switchBoth.isOn;
-    if(currentSearchConditions.isBothWays)
-    {
-        _switchDescription.text = @"Both";
-    }
-    else
-    {
-        _switchDescription.text = @"1 way";
-    }
-    [self reloadDates];
 }
 
 - (SearchConditions*)getSearchConditions
