@@ -248,8 +248,8 @@
         columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, viewOneWay.frame.size.height, mainFrame.size.width, viewOneWay.frame.size.height) title:@"обратно" flight_kind:FLIGHT_BACK withTarget:nil];
         columnArrivialControlView.delegate = (id)self;
         tableOffers.bounds = mainFrame;
-        tableOffers.frame = CGRectMake(mainFrame.origin.x,
-                                       mainFrame.origin.y,
+        tableOffers.frame = CGRectMake(0,
+                                       0,
                                        mainFrame.size.width,
                                        mainFrame.size.height);
         [tableOffers setContentOffset:CGPointMake(0, 0) animated:NO];
@@ -260,7 +260,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Данные для поиска пусты" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
-    
 }
 - (void)loadOffers
 {
@@ -550,6 +549,7 @@
     [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
     [cell addSubview:button];
 
+    cell.backgroundColor = [UIColor clearColor];
 }
 - (void)showOrCloseWays
 {
@@ -647,6 +647,9 @@
 
 }
 
-
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 @end

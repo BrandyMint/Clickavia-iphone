@@ -448,7 +448,7 @@
 			name = Objects;
 			sourceTree = "<group>";
 		};
-		66F4C7E217EB0FDB0004DB88 /* Contrtact */ = {
+		66F4C7E217EB0FDB0004DB88 /* Contract */ = {
 			isa = PBXGroup;
 			children = (
 				6616230017EB395300B6A19C /* CAContract.h */,
@@ -456,7 +456,7 @@
 				6616230217EB395300B6A19C /* CAContract.xib */,
 				668CB98B17F2033600A26506 /* Contract.html */,
 			);
-			name = Contrtact;
+			name = Contract;
 			sourceTree = "<group>";
 		};
 		7C16A2A117A648290055FF8F = {
@@ -681,7 +681,7 @@
 				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
 				66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */,
 				66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */,
-				66F4C7E217EB0FDB0004DB88 /* Contrtact */,
+				66F4C7E217EB0FDB0004DB88 /* Contract */,
 				668CB98E17F2060A00A26506 /* FlightData */,
 				668CB99417F2064800A26506 /* AssistView */,
 				6616230517EB395F00B6A19C /* Resources */,
