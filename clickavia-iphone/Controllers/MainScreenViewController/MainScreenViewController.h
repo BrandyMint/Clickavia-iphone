@@ -21,7 +21,7 @@
 #import <CAManagers/OfferConditions.h>
 #import "CAAppDelegate.h"
 
-@interface MainScreenViewController : UIViewController <CAFieldCompleteViewDelegate,CACalendarViewDelegate>
+@interface MainScreenViewController : UIViewController <CACalendarViewDelegate, CASearchFormViewDelegate>
 {
     FlightsManager *fm;
     CitiesManager *cm;
@@ -43,7 +43,6 @@
 @property (strong,nonatomic) IBOutlet UILabel *switchDescription;
 - (SearchConditions*) getSearchConditions;
 - (OfferConditions*) getOfferConditions;
-- (IBAction)changeFlightType:(id)sender;
-- (IBAction)changeIsBothWays:(id)sender;
+
 - (IBAction)find:(id)sender;
 @end

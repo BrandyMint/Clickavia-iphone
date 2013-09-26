@@ -12,7 +12,7 @@ PODS:
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
     - RestKit (= 0.20.0)
-  - CASearchForm
+  - CASearchForm (0.0.1)
   - CASearchFormControls (0.0.1)
   - CASpecialOffers (0.0.1):
     - EasyMapping (= 0.4.3)
@@ -78,7 +78,7 @@ SPEC CHECKSUMS:
   CAColumnsControl: 3fa1489e6e2eaa06ba67556ea4bfc4f20fad7aa4
   CAFieldComplete: d33b1a8dc32b1f582e3ce2ae08f185b887d4912a
   CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
-  CASearchForm: b0867bfde62b28b477e870978537ec7c0f9ff8ab
+  CASearchForm: 101f3d262c716adfa09425c008a1d17e2b06f6a6
   CASearchFormControls: 5f2eab7ac174d1260b5280059d96ae6b4e3e9eee
   CASpecialOffers: 66325d780e10e8c33875d87e8a1dbf1ab2cc4849
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
