@@ -10,3 +10,6 @@ pod 'CASearchForm', :podspec=>'https://raw.github.com/BrandyMint/CA-SearchForm/m
 pod 'CASearchFormControls', :podspec=>'https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec'
 
 pod 'AKTabBarController'
+
+# TODO remove reveal when release
+pod 'Reveal-iOS-SDK'
