@@ -200,14 +200,24 @@
 {
     if(tabView == self.tabCities)
     {
-        selectCityOffer = (SpecialOfferCity*)[citiesOffers objectAtIndex:index];
-        NSLog(@"select %@", selectCityOffer.title);
-        [self reloadCountries:selectCityOffer];
+        NSLog(@"citiesOffers count %d", citiesOffers.count);
+#warning fix it! (suddenly zero count of array)
+        if(citiesOffers.count > 0)
+        {
+            selectCityOffer = (SpecialOfferCity*)[citiesOffers objectAtIndex:index];
+            NSLog(@"select %@", selectCityOffer.title);
+            [self reloadCountries:selectCityOffer];
+        }
     }
     else if(tabView == self.tabCountries)
     {
-        selectCountryOffer = (SpecialOfferCountry*)[countriesOffers objectAtIndex:index];
-        [self reloadOffers:selectCityOffer :selectCountryOffer];
+        NSLog(@"countriesOffers count %d", countriesOffers.count);
+#warning fix it! (suddenly zero count of array)
+        if(countriesOffers.count > 0)
+        {
+            selectCountryOffer = (SpecialOfferCountry*)[countriesOffers objectAtIndex:index];
+            [self reloadOffers:selectCityOffer :selectCountryOffer];
+        }
     }
 }
 

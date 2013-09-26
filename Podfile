@@ -6,5 +6,7 @@ pod 'CASpecialOffers', :podspec => 'https://raw.github.com/BrandyMint/CA-special
 pod 'CACalendarView', :podspec => 'https://raw.github.com/BrandyMint/CACalendarView/master/CACalendarView.podspec'
 pod 'BMChat', :podspec => 'https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec'
 pod 'CAFieldComplete', :podspec => 'https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec'
+pod 'CASearchForm', :podspec=>'https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec'
+pod 'CASearchFormControls', :podspec=>'https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec'
 
 pod 'AKTabBarController'
