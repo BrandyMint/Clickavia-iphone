@@ -10,6 +10,7 @@
 #import <CACalendarView/CACalendarView.h>
 #import "CACalendarMockDates.h"
 #import "CAFieldCompleteView.h"
+#import "CASearchFormView.h"
 #import <CAManagers/CitiesManager.h>
 
 #import <UIKit/UIKit.h>
@@ -33,6 +34,8 @@
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* departureCompleteView;
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* returnCompleteView;
 @property (strong,nonatomic) IBOutlet CACalendarView* calendarView;
+
+@property (strong, nonatomic) IBOutlet CASearchFormView *searchForm;
 
 @property (strong,nonatomic) IBOutlet UISwitch *switchBoth;
 @property (strong,nonatomic) IBOutlet UIButton *countButton;

@@ -31,13 +31,13 @@
     self.navigationController.navigationBarHidden = YES;
     
     _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
-    _departureCompleteView.backgroundColor = [UIColor orangeColor];
+    //_departureCompleteView.backgroundColor = [UIColor orangeColor];
     
     
     ///autocomplete
     
-    _departureCompleteView.frame = CGRectMake(1, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
-    _returnCompleteView.frame = CGRectMake(_departureCompleteView.frame.origin.x + _departureCompleteView.frame.size.width + 9, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
+    //_departureCompleteView.frame = CGRectMake(1, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
+    //_returnCompleteView.frame = CGRectMake(_departureCompleteView.frame.origin.x + _departureCompleteView.frame.size.width + 9, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
     
     cm = [CitiesManager new];
     cm.delay = 500;
@@ -45,13 +45,16 @@
     departureDates = [NSArray new];
     returnDates = [NSArray new];
     
-    _departureCompleteView.offsetTopForAutocomplete = 60;
-    _departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
-    [_departureCompleteView setIsDeparture:YES];
+    _searchForm.viewForSpawnSubviews = self.view;
+    _searchForm.citiesManager = cm;
     
-    _returnCompleteView.offsetTopForAutocomplete = 60;
-    _returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
-    [_returnCompleteView setIsDeparture:NO];
+    //_departureCompleteView.offsetTopForAutocomplete = 60;
+    //_departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
+    //[_departureCompleteView setIsDeparture:YES];
+    
+    //_returnCompleteView.offsetTopForAutocomplete = 60;
+    //_returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
+    //[_returnCompleteView setIsDeparture:NO];
     
     currentSearchConditions = [[SearchConditions alloc] init];
     currentSearchConditions.isBothWays = NO;
