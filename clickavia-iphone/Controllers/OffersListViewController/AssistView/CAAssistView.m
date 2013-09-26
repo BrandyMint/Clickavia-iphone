@@ -43,11 +43,11 @@
     UIView* assistView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, requiredHeight + 2*indentsBorder)];
     assistView.backgroundColor = [UIColor orangeColor];
     
-    CGRect frameimageView = assistView.frame;
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:frameimageView];
-    imageView.image = [[UIImage imageNamed:@"_bar-green-warm@2x.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch];
+    CGRect backgroundImageFrame = assistView.frame;
+    UIImageView* backgroundImage = [[UIImageView alloc] initWithFrame:backgroundImageFrame];
+    backgroundImage.image = [[UIImage imageNamed:@"_bar-green-warm@2x.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch];
     
-    [assistView addSubview:imageView];
+    [assistView addSubview:backgroundImage];
     [assistView addSubview:label];
     
     return assistView;

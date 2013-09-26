@@ -14,6 +14,7 @@ PODS:
     - RestKit (= 0.20.0)
   - CASearchForm (0.0.1)
   - CASearchFormControls (0.0.1)
+
   - CASpecialOffers (0.0.1):
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)

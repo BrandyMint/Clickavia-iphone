@@ -69,7 +69,7 @@
 
 -(void)customAppearance
 {
-    UIImage* navBG = [UIImage imageNamed:@"toolbar-background.png"];
+    UIImage* navBG = [[UIImage imageNamed:@"toolbar-background.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch];
     [[UINavigationBar appearance] setBackgroundImage:navBG forBarMetrics:UIBarMetricsDefault];
 }
 

@@ -27,7 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.navigationController.navigationBarHidden = YES;
     
     _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
