@@ -46,11 +46,19 @@
     
     _searchForm.viewForSpawnSubviews = self.view;
     _searchForm.citiesManager = cm;
+<<<<<<< HEAD
     
     //_departureCompleteView.offsetTopForAutocomplete = 60;
     //_departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
     //[_departureCompleteView setIsDeparture:YES];
     
+=======
+    
+    //_departureCompleteView.offsetTopForAutocomplete = 60;
+    //_departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
+    //[_departureCompleteView setIsDeparture:YES];
+    
+>>>>>>> CASearchForm added. temp fix in CASpecOffersViewController.m
     //_returnCompleteView.offsetTopForAutocomplete = 60;
     //_returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
     //[_returnCompleteView setIsDeparture:NO];
