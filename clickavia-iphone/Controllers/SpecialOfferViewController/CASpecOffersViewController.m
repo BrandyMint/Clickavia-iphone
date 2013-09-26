@@ -36,6 +36,8 @@
     NSMutableArray *countries;
     
     NSArray *offersContainer;
+    
+    CGRect mainFrame;
 }
 
 @synthesize offerCell;
@@ -51,6 +53,14 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    mainFrame = self.view.frame;
+    CGRect tableOffersFrame = _tableOffers.frame;
+    tableOffersFrame.size.height = mainFrame.size.height - _tableOffers.frame.origin.y;
+    _tableOffers.frame = tableOffersFrame;
 }
 
 - (void)viewDidLoad
@@ -240,6 +250,11 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 3;
+}
+
 -(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"SpecialOfferCell";
@@ -264,6 +279,8 @@
     NSArray* firstHotSpecialOffer = [self firstHot];
     SpecialOffer *specialOffer = [firstHotSpecialOffer objectAtIndex:indexPath.section];
     [customCell initByOfferModel:specialOffer];
+    
+    cell.backgroundColor = [UIColor clearColor];
 }
 
 -(void) tableView:(UITableView*) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -288,6 +305,11 @@
     [hotOffer addObjectsFromArray:usuallyOffer];
 
     return hotOffer;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 @end
