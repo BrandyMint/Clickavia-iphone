@@ -16,4 +16,6 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableOffers;
 @property (nonatomic,weak) OfferConditions *offerConditions;
 @property (nonatomic,strong) IBOutlet UIView *loadingView;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil isBothWays:(BOOL) isBothWays;
 @end

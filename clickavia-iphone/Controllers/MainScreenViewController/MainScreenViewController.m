@@ -34,8 +34,6 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    
-    _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
 
     cm = [CitiesManager new];
     cm.delay = 500;
@@ -56,6 +54,39 @@
     currentSearchConditions.direction_return = nil;
     
     [_calendarView setDelegate:self];
+  
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        CGRect calendarViewFrame = CGRectZero;
+        calendarViewFrame.origin.x = 0;
+        calendarViewFrame.origin.y = _searchForm.frame.origin.y + _searchForm.frame.size.height;
+        calendarViewFrame.size.width = [[UIScreen mainScreen] bounds].size.width;
+    
+        CGRect findFrame = _find_ou.frame;
+    
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                if (screenSize.height > 480.0f) {
+                        //Do iPhone 5 stuff here.
+                        calendarViewFrame.size.height = 370;
+                        _calendarView = [[CACalendarView alloc] initWithFrame:calendarViewFrame];
+                        [self.view addSubview: _calendarView];
+                    
+        
+                    } else {
+                            //Do iPhone Classic stuff here.
+                            calendarViewFrame.size.height = 280;
+                            _calendarView = [[CACalendarView alloc] initWithFrame:calendarViewFrame];
+                            [self.view addSubview: _calendarView];
+                
+                
+                        }
+            } else {
+                    //Do iPad stuff here.
+                }
+    
+        _calendarView.delegate = self;
+        findFrame.origin.y = _calendarView.frame.origin.y + _calendarView.frame.size.height + 5;
+       _find_ou.frame = findFrame;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +117,9 @@
 
 - (void) searchFormView:(CASearchFormView *)CASearchFormView didSelectPassengersCount:(CAFlightPassengersCount *)passengersCount
 {
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.passengersCount = passengersCount; // проброс количества пассажиров
+
     //without infants
     currentSearchConditions.countOfTickets = [[NSNumber alloc ]initWithInteger:(passengersCount.adultsCount + passengersCount.childrenCount)];
     [self reloadDates];
@@ -223,17 +257,16 @@
     else
     {
         CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        OfferConditions *fc = [[OfferConditions alloc] initWithSearchConditions:currentSearchConditions withDepartureDate:departureDate andReturnDate:returnDate];
+        OfferConditions *fc = [[OfferConditions alloc] initWithSearchConditions:currentSearchConditions withDepartureDate:_calendarView.flyToDate andReturnDate:_calendarView.flyReturnDate];
         appDelegate.offerConditions = fc;
         return fc;
     }
 }
+
 - (IBAction)find:(id)sender
 {
     [self getOfferConditions];
-    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil];
-
-
+    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil isBothWays:currentSearchConditions.isBothWays];
     [self.navigationController pushViewController:caOffersListViewController animated:YES];
 }
     

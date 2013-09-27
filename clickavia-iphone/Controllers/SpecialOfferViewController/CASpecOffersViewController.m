@@ -12,6 +12,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <QuartzCore/QuartzCore.h>
 #import "CAColorSpecOffers.h"
+#import "CAContract.h"
 
 @interface CASpecOffersViewController ()
 
@@ -38,6 +39,7 @@
     NSArray *offersContainer;
     
     CGRect mainFrame;
+    NSArray* firstHotSpecialOffer;
 }
 
 @synthesize offerCell;
@@ -279,14 +281,14 @@
         
 		self.offerCell = nil;
     }
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SpecialOfferCell *customCell = (SpecialOfferCell*)cell;
-    NSArray* firstHotSpecialOffer = [self firstHot];
+    firstHotSpecialOffer = [self firstHot];
     SpecialOffer *specialOffer = [firstHotSpecialOffer objectAtIndex:indexPath.section];
     [customCell initByOfferModel:specialOffer];
     
@@ -295,7 +297,9 @@
 
 -(void) tableView:(UITableView*) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //
+    SpecialOffer *specialOffer = [firstHotSpecialOffer objectAtIndex:indexPath.section];
+    CAContract* caContract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil specialOffer:specialOffer];
+    [self.navigationController pushViewController:caContract animated:YES];
 }
 
 - (NSArray *)firstHot

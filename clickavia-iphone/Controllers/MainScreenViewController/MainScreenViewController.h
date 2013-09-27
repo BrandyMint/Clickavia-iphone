@@ -26,6 +26,7 @@
     FlightsManager *fm;
     CitiesManager *cm;
     SearchConditions *currentSearchConditions;
+    CACalendarView* calendarView;
     NSArray *departureDates;
     NSArray *returnDates;
     NSDate *departureDate;
@@ -33,7 +34,7 @@
 }
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* departureCompleteView;
 @property (strong,nonatomic) IBOutlet CAFieldCompleteView* returnCompleteView;
-@property (strong,nonatomic) IBOutlet CACalendarView* calendarView;
+@property (strong,nonatomic) CACalendarView* calendarView;
 
 @property (strong, nonatomic) IBOutlet CASearchFormView *searchForm;
 

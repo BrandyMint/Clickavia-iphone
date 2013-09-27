@@ -10,9 +10,13 @@
 #import "CAFlightDataView.h"
 #import "Offer.h"
 #import "FlightPassengersCount.h"
+#import "SpecialOffer.h"
 
 @interface CAContract : UIViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)specialOffer;
 
 @end
