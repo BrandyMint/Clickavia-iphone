@@ -65,7 +65,7 @@
 - (void)addMomentaryConfirmation:(UIView*)view
 {
     UIImageView* check = [[UIImageView alloc] initWithFrame:CGRectMake(130, CELL_HEIGHT_NORMAL - 14, 10, 10)];
-    check.image = [UIImage imageNamed:@"check-icon-green@2x.png"];
+    check.image = [UIImage imageNamed:@"check-icon-green.png"];
     [view addSubview:check];
     UILabel *momentaryConfirmationLabel = [[UILabel alloc] initWithFrame:CGRectMake(check.frame.origin.x + check.frame.size.width + 5, CELL_HEIGHT_NORMAL - 17, 0, 0)];
     [self setupMomentaryConfirmationAppearence:momentaryConfirmationLabel];
@@ -75,6 +75,13 @@
 {
     flightDepartureObject = offerObject.flightDeparture;
     flightReturnObject = offerObject.flightReturn;
+    
+    if (flightDepartureObject != nil) {
+        NSLog(@"Departure yes ");
+    }
+    if (flightReturnObject != nil) {
+        NSLog(@"Return yes");
+    }
     
     int heightViewFrame = [self heightViewFrame:offerObject];
     
@@ -122,7 +129,7 @@
     
     
     UIImageView* adultsImage = [[UIImageView alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 10, bottomBorderForFlightsView+10, 10, 26)];
-    adultsImage.image = [UIImage imageNamed:@"passengers-icon-man@2x.png"];
+    adultsImage.image = [UIImage imageNamed:@"passengers-icon-man.png"];
     UILabel* adultsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(adultsImage.frame.origin.x + adultsImage.frame.size.width + 4, bottomBorderForFlightsView+14, 0, 0)];
     adultsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.adults];
     [self setupPassengerCountLabelAppearence:adultsCountLabel];
@@ -130,7 +137,7 @@
     [contenView addSubview:adultsCountLabel];
     
     UIImageView* kidsImage = [[UIImageView alloc] initWithFrame:CGRectMake(adultsCountLabel.frame.origin.x + adultsCountLabel.frame.size.width + 9, bottomBorderForFlightsView+13, 8, 20)];
-    kidsImage.image = [UIImage imageNamed:@"passengers-icon-kid@2x.png"];
+    kidsImage.image = [UIImage imageNamed:@"passengers-icon-kid.png"];
     UILabel* kidsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(kidsImage.frame.origin.x + kidsImage.frame.size.width + 4, bottomBorderForFlightsView+14, 0, 0)];
     kidsCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.kids];
     [self setupPassengerCountLabelAppearence:kidsCountLabel];
@@ -138,7 +145,7 @@
     [contenView addSubview:kidsCountLabel];
     
     UIImageView* babyImage = [[UIImageView alloc] initWithFrame:CGRectMake(kidsCountLabel.frame.origin.x + kidsCountLabel.frame.size.width + 9, bottomBorderForFlightsView+14, 11, 18)];
-    babyImage.image = [UIImage imageNamed:@"passengers-icon-baby@2x.png"];
+    babyImage.image = [UIImage imageNamed:@"passengers-icon-baby.png"];
     UILabel* babyiesCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(babyImage.frame.origin.x + babyImage.frame.size.width + 4, bottomBorderForFlightsView+14, 0, 0)];
     babyiesCountLabel.text = [NSString stringWithFormat:@"%d",offerPassengers.babies];
     [self setupPassengerCountLabelAppearence:babyiesCountLabel];

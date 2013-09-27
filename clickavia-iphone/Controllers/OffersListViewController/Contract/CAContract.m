@@ -24,7 +24,7 @@
     FlightPassengersCount* passengersCount;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -32,6 +32,23 @@
         offerdata = offer;
         passengersCount = [[FlightPassengersCount alloc] init];
         passengersCount = passengers;
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)specialOffer;
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        SpecialOffer *_specialOffer = [[SpecialOffer alloc] init];
+        _specialOffer = specialOffer;
+        
+        UILabel* specialOfferLabel = [[UILabel alloc]  initWithFrame:CGRectMake(0, 600, 100, 20)];
+        specialOfferLabel.text = [NSString stringWithFormat:@"%@ %@", _specialOffer.flightCity, _specialOffer.departureCity];
+        specialOfferLabel.textColor = [UIColor blackColor];
+        [specialOfferLabel sizeToFit];
+        
+        NSLog(@"%@ %@", _specialOffer.flightCity, _specialOffer.departureCity);
     }
     return self;
 }
@@ -86,11 +103,14 @@
 -(void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [self.view removeFromSuperview];
 }
 
 - (IBAction)onConfrmation:(id)sender
 {    
-    CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengers:passengersCount];
-    [self.navigationController pushViewController:flightDataView animated:YES];
+    //CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengers:passengersCount];
+    //[self.navigationController pushViewController:flightDataView animated:YES];
+    
+    NSLog(@"!! special: %d, momentary: %d", offerdata.isSpecial, offerdata.isMomentaryConfirmation);
 }
 @end
