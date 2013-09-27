@@ -90,12 +90,12 @@
     {
         NSLog(@"both way");
         
-        if(_calendarView.flyReturnDate!=nil)
+        if(_calendarView.flyReturnDate==nil && _calendarView.flyToDate != nil)
         {
             NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
             dayComponent.day = 7;
             
-            [_calendarView selectDate:[[NSCalendar currentCalendar] dateByAddingComponents:dayComponent toDate:_calendarView.flyReturnDate options:0]];
+            [_calendarView selectDate:[[NSCalendar currentCalendar] dateByAddingComponents:dayComponent toDate:_calendarView.flyToDate options:0]];
             returnDate = _calendarView.flyReturnDate;
         }
     }
@@ -111,8 +111,6 @@
     }
     
     currentSearchConditions.isBothWays = isBothWays;
-    
-    [self reloadDates];
 }
 
 - (void) searchFormView:(CASearchFormView *)searchFormView selectedDepartureDestination:(Destination *)destination
@@ -138,9 +136,19 @@
             departureDate = date;
         }
         
-        if(_calendarView.flyReturnDate==nil)
+        if(_calendarView.flyReturnDate!=nil)
         {
-            //[_searchForm setBothWaySwitch:NO withAnimation:YES];
+            if(currentSearchConditions.isBothWays == NO)
+            {
+                [_searchForm setBothWaySwitch:YES withAnimation:YES];
+            }
+        }
+        else
+        {
+            if(currentSearchConditions.isBothWays == YES)
+            {
+                [_searchForm setBothWaySwitch:NO withAnimation:YES];
+            }
         }
     }
     if(_calendarView.flyReturnDate!=nil)
@@ -148,7 +156,14 @@
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
             returnDate = date;
-            //[_searchForm setBothWaySwitch:YES withAnimation:YES];
+        }
+    }
+    
+    if(_calendarView.flyToDate==nil)
+    {
+        if(currentSearchConditions.isBothWays == YES)
+        {
+            [_searchForm setBothWaySwitch:NO withAnimation:YES];
         }
     }
 }
