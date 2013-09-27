@@ -40,6 +40,7 @@
     _searchForm.viewForSpawnSubviews = self.view;
     _searchForm.citiesManager = cm;
     _searchForm.delegate = self;
+    [_searchForm setBothWaySwitch:YES withAnimation:NO];
     
     currentSearchConditions = [[SearchConditions alloc] init];
     currentSearchConditions.isBothWays = NO;
