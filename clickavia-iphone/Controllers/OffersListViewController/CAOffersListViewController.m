@@ -138,44 +138,6 @@
     viewOnBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 280)];
     
 }
--(void) viewWillAppear:(BOOL)animated
-{
-    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    _offerConditions = appDelegate.offerConditions;
-    if(_offerConditions!=nil)
-    {
-        topGreenView.hidden = NO;
-        [self loadOffers];
-        [self showNavBar];
-        [self initControls];
-        [self loadDataForColumnDeparture];
-        mainFrame = self.view.frame;
-        
-        viewOneWay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 140)];
-        viewOnBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, 280)];
-        
-        columnDepartureControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, 0, mainFrame.size.width, viewOneWay.frame.size.height) title:@"туда" flight_kind:ONEWAY_FLIGHT withTarget:nil];
-        
-        columnDepartureControlView.delegate = (id)self;
-        
-        
-        columnArrivialControlView = [[CAColumnsControlView alloc] initWithFrame:CGRectMake(0, viewOneWay.frame.size.height, mainFrame.size.width, viewOneWay.frame.size.height) title:@"обратно" flight_kind:FLIGHT_BACK withTarget:nil];
-        columnArrivialControlView.delegate = (id)self;
-        tableOffers.bounds = mainFrame;
-        tableOffers.frame = CGRectMake(0,
-                                       0,
-                                       mainFrame.size.width,
-                                       mainFrame.size.height);
-        [tableOffers setContentOffset:CGPointMake(0, 0) animated:NO];
-    }
-    else
-    {
-        topGreenView.hidden = YES;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Данные для поиска пусты" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-}
-
 -(void)showNavBar
 {
     switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
