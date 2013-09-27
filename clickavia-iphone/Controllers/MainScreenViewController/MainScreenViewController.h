@@ -41,6 +41,8 @@
 @property (strong,nonatomic) IBOutlet UIButton *countButton;
 @property (strong,nonatomic) IBOutlet UIButton *flightClassButton;
 @property (strong,nonatomic) IBOutlet UILabel *switchDescription;
+
+
 - (SearchConditions*) getSearchConditions;
 - (OfferConditions*) getOfferConditions;
 - (IBAction)changeFlightType:(id)sender;

@@ -28,8 +28,9 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
+
     
-    _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
+    _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 300);
     //_departureCompleteView.backgroundColor = [UIColor orangeColor];
     
     cm = [CitiesManager new];

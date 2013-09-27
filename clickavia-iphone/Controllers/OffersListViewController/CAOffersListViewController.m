@@ -89,8 +89,8 @@
     
     tableOffers.scrollEnabled = YES;
     
-    [topGreenView setFrame:CGRectMake(self.view.frame.origin.x,
-                                      self.view.frame.origin.y,
+    [topGreenView setFrame:CGRectMake(0,
+                                      0,
                                       self.view.frame.size.width,
                                       HEIGHT_GREEN_BAR)];
     labelThere.frame = CGRectMake(self.view.frame.size.width/2-60, 16, 0, 0);
