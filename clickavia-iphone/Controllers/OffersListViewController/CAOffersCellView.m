@@ -118,14 +118,14 @@
     [contenView addSubview:departFlightView];
     NSInteger bottomBorderForFlightsView =[self getBottom:departFlightView.frame];;
     
-    //if(flightReturnObject!=nil)
-    //{
+    if(flightReturnObject!=nil)
+    {
         UIView *returnFlightView = [self createFlightSubblock:NO];
         returnFlightView.frame = CGRectMake(contenView.frame.origin.x, [self getBottom:departFlightView.frame], contenView.frame.size.width, departFlightView.frame.size.height);
         [self createLineByBottom: [self getBottom:returnFlightView.frame]];
         [contenView addSubview:returnFlightView];
         bottomBorderForFlightsView = [self getBottom:returnFlightView.frame];
-    //}
+    }
     
     
     UIImageView* adultsImage = [[UIImageView alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 10, bottomBorderForFlightsView+10, 10, 26)];

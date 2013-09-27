@@ -117,6 +117,9 @@
 
 - (void) searchFormView:(CASearchFormView *)CASearchFormView didSelectPassengersCount:(CAFlightPassengersCount *)passengersCount
 {
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.passengersCount = passengersCount; // проброс количества пассажиров
+
     //without infants
     currentSearchConditions.countOfTickets = [[NSNumber alloc ]initWithInteger:(passengersCount.adultsCount + passengersCount.childrenCount)];
     [self reloadDates];
@@ -259,6 +262,7 @@
         return fc;
     }
 }
+
 - (IBAction)find:(id)sender
 {
     [self getOfferConditions];

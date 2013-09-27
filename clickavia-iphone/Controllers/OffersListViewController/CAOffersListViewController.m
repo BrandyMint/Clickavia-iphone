@@ -117,7 +117,7 @@
     labelBackDate.backgroundColor = labelThereDate.backgroundColor = [UIColor clearColor];
     labelBackDate.textColor = labelThereDate.textColor = [UIColor whiteColor];
     labelBackDate.font = labelThereDate.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
-    labelThereDate.text = @"";
+    labelThereDate.text = @"abc";
     [labelThereDate sizeToFit];
     
     labelBack.frame = CGRectMake(self.view.frame.size.width/2+20, 16, 0, 0);
@@ -125,7 +125,7 @@
     [labelBack sizeToFit];
     
     labelBackDate.frame = CGRectMake(labelBack.frame.origin.x + labelBack.frame.size.width +5, 15, 0, 0);
-    labelBackDate.text = @"";
+    labelBackDate.text = @"abc";
     [labelBackDate sizeToFit];
     
     labelBack.alpha = labelBack.alpha = labelBackDate.alpha = 0;
@@ -173,10 +173,14 @@
     if(_offerConditions!=nil&&_offerConditions.departureDate!=nil)
     {
         labelThereDate.text = [self textForDate:_offerConditions.departureDate];
+        CGSize stringBoundingBox = [labelThereDate.text sizeWithFont:labelThereDate.font];
+        labelThereDate.frame = CGRectMake(labelThereDate.frame.origin.x, labelThereDate.frame.origin.y, stringBoundingBox.width, labelThereDate.frame.size.height);
     }
     if(_offerConditions!=nil&&_offerConditions.returnDate!=nil)
     {
         labelBackDate.text = [self textForDate:_offerConditions.returnDate];
+        CGSize stringBoundingBox = [labelBackDate.text sizeWithFont:labelBackDate.font];
+        labelBackDate.frame = CGRectMake(labelBackDate.frame.origin.x, labelBackDate.frame.origin.y, stringBoundingBox.width, labelBackDate.frame.size.height);
     }
 }
 -(NSString*)textForDate:(NSDate*)date
@@ -259,6 +263,7 @@
                                        mainFrame.size.width,
                                        mainFrame.size.height);
         [tableOffers setContentOffset:CGPointMake(0, 0) animated:NO];
+        [self setupDatesText];
     }
     else
     {
@@ -273,6 +278,7 @@
     fdm.offerConditions = _offerConditions;
     [fdm getAvailableOffersWithCompleteBlock:^(NSArray *offers)
      {
+         [self setupDatesText];
          arrayOffers = offers;
          [tableOffers reloadData];
          [self showLoading:NO];
@@ -296,6 +302,7 @@
      {
          [columnArrivialControlView importFlights:flights];
          [self showLoading:NO];
+         
      }];
 }
 -(void)showNavBar
@@ -436,7 +443,8 @@
     }
     if(columnsControlView==columnArrivialControlView)
     {
-        _offerConditions.returnDate = flight.dateAndTimeArrival;
+        //wtf?
+        _offerConditions.returnDate = flight.dateAndTimeDeparture;
         [self loadOffers];
     }
 }
@@ -458,19 +466,28 @@
 {
     return 1;
 }
-
+- (FlightPassengersCount*)mapFrom:(CAFlightPassengersCount*)pasCount
+{
+    FlightPassengersCount *count = [FlightPassengersCount new];
+    count.adults = pasCount.adultsCount;
+    count.kids = pasCount.childrenCount;
+    count.babies = pasCount.infantsCount;
+    return count;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
     Offer* offerObject = [[Offer alloc] init];
     Flight* flightObject = [[Flight alloc] init];
-    FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
+
+
     offerObject = [arrayOffers objectAtIndex:indexPath.section];
     flightObject = [arrayOffers objectAtIndex:indexPath.section];
-    passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
     flightObject = offerObject.flightDeparture;
-
+    
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    FlightPassengersCount* passengersCount = [self mapFrom:appDelegate.passengersCount];
     //поиск ячейки
 	CAOffersCell *cell = (CAOffersCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
