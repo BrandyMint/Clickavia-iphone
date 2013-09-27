@@ -27,7 +27,7 @@
                 </imageView>
                 <view contentMode="scaleToFill" id="15" customClass="CAScrollableTabView">
                     <rect key="frame" x="0.0" y="42" width="320" height="43"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="bar-green-cold.png" id="33">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -41,7 +41,7 @@
                 </view>
                 <view contentMode="scaleToFill" id="4" customClass="CAScrollableTabView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="bar-green-warm.png" id="32">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
