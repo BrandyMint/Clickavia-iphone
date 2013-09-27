@@ -254,7 +254,7 @@
     else
     {
         CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        OfferConditions *fc = [[OfferConditions alloc] initWithSearchConditions:currentSearchConditions withDepartureDate:departureDate andReturnDate:returnDate];
+        OfferConditions *fc = [[OfferConditions alloc] initWithSearchConditions:currentSearchConditions withDepartureDate:_calendarView.flyToDate andReturnDate:_calendarView.flyReturnDate];
         appDelegate.offerConditions = fc;
         return fc;
     }
