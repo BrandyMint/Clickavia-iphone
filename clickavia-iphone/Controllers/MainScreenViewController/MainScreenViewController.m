@@ -34,8 +34,6 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    
-    _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
 
     cm = [CitiesManager new];
     cm.delay = 500;
@@ -56,6 +54,35 @@
     currentSearchConditions.direction_return = nil;
     
     [_calendarView setDelegate:self];
+    
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGRect calendarViewFrame = CGRectZero;
+    calendarViewFrame.origin.x = 0;
+    calendarViewFrame.origin.y = _searchForm.frame.origin.y + _searchForm.frame.size.height;
+    calendarViewFrame.size.width = [[UIScreen mainScreen] bounds].size.width;
+    
+    CGRect findFrame = _find_ou.frame;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if (screenSize.height > 480.0f) {
+            /*Do iPhone 5 stuff here.*/
+            calendarViewFrame.size.height = 370;
+            _calendarView = [[CACalendarView alloc] initWithFrame:calendarViewFrame];
+            [self.view addSubview: _calendarView];
+
+        } else {
+            /*Do iPhone Classic stuff here.*/
+            calendarViewFrame.size.height = 280;
+            _calendarView = [[CACalendarView alloc] initWithFrame:calendarViewFrame];
+            [self.view addSubview: _calendarView];
+            
+
+        }
+    } else {
+        /*Do iPad stuff here.*/
+    }
+    findFrame.origin.y = _calendarView.frame.origin.y + _calendarView.frame.size.height + 5;
+    _find_ou.frame = findFrame;
 }
 
 - (void)didReceiveMemoryWarning

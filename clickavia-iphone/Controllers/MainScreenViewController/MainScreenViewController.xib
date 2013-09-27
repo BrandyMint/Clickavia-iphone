@@ -35,23 +35,6 @@
 				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">1042</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUIView" id="23537621">
-						<reference key="NSNextResponder" ref="823313196"/>
-						<int key="NSvFlags">1042</int>
-						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{0, 108}, {320, 383}}</string>
-						<reference key="NSSuperview" ref="823313196"/>
-						<reference key="NSNextKeyView" ref="564378371"/>
-						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="157310010">
-								<int key="NSID">2</int>
-							</object>
-						</object>
-						<bool key="IBUIAutoresizesSubviews">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-					</object>
 					<object class="IBUIButton" id="564378371">
 						<reference key="NSNextResponder" ref="823313196"/>
 						<int key="NSvFlags">1288</int>
@@ -91,12 +74,14 @@
 						<int key="NSvFlags">1312</int>
 						<string key="NSFrameSize">{320, 100}</string>
 						<reference key="NSSuperview" ref="823313196"/>
-						<reference key="NSNextKeyView" ref="23537621"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
-							<reference key="NSCustomColorSpace" ref="157310010"/>
+							<object class="NSColorSpace" key="NSCustomColorSpace">
+								<int key="NSID">2</int>
+							</object>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -4526,14 +4511,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">calendarView</string>
-						<reference key="source" ref="9001956"/>
-						<reference key="destination" ref="23537621"/>
-					</object>
-					<string key="id">20</string>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">view</string>
 						<reference key="source" ref="9001956"/>
 						<reference key="destination" ref="823313196"/>
@@ -4589,16 +4566,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="id">1</string>
 						<reference key="object" ref="823313196"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="23537621"/>
 							<reference ref="955561024"/>
 							<reference ref="564378371"/>
 						</array>
 						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<string key="id">4</string>
-						<reference key="object" ref="23537621"/>
-						<reference key="parent" ref="823313196"/>
 					</object>
 					<object class="IBObjectRecord">
 						<string key="id">FYT-zi-hNj</string>
@@ -4622,10 +4593,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="1.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="1.showNotes"/>
-				<string key="4.CustomClassName">CACalendarView</string>
-				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<reference key="4.IBUserGuides" ref="0"/>
-				<boolean value="NO" key="4.showNotes"/>
 				<string key="4dv-vf-KHt.CustomClassName">CASearchFormView</string>
 				<string key="4dv-vf-KHt.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="FYT-zi-hNj.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

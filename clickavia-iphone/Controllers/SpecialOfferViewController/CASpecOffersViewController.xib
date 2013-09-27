@@ -27,7 +27,7 @@
                 </imageView>
                 <view contentMode="scaleToFill" id="15" customClass="CAScrollableTabView">
                     <rect key="frame" x="0.0" y="42" width="320" height="43"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="bar-green-cold.png" id="33">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -41,7 +41,7 @@
                 </view>
                 <view contentMode="scaleToFill" id="4" customClass="CAScrollableTabView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="bar-green-warm.png" id="32">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -70,8 +70,8 @@
         </view>
     </objects>
     <resources>
-        <image name="background-gray-textured.png" width="820" height="718"/>
-        <image name="bar-green-cold.png" width="364" height="45"/>
-        <image name="bar-green-warm.png" width="364" height="43"/>
+        <image name="background-gray-textured.png" width="320" height="568"/>
+        <image name="bar-green-cold.png" width="320" height="44"/>
+        <image name="bar-green-warm.png" width="320" height="42"/>
     </resources>
 </document>

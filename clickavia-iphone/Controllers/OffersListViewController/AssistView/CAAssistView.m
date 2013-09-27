@@ -45,7 +45,7 @@
     
     CGRect backgroundImageFrame = assistView.frame;
     UIImageView* backgroundImage = [[UIImageView alloc] initWithFrame:backgroundImageFrame];
-    backgroundImage.image = [[UIImage imageNamed:@"_bar-green-warm@2x.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch];
+    backgroundImage.image = [[UIImage imageNamed:@"bar-green-warm@2x.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch];
     
     [assistView addSubview:backgroundImage];
     [assistView addSubview:label];
