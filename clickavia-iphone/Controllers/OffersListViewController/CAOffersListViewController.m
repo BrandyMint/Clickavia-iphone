@@ -95,8 +95,8 @@
     
     tableOffers.scrollEnabled = YES;
     
-    [topGreenView setFrame:CGRectMake(self.view.frame.origin.x,
-                                      self.view.frame.origin.y,
+    [topGreenView setFrame:CGRectMake(0,
+                                      0,
                                       self.view.frame.size.width,
                                       HEIGHT_GREEN_BAR)];
     labelThere.frame = CGRectMake(self.view.frame.size.width/2-60, 16, 0, 0);
@@ -294,10 +294,19 @@
 }
 -(void)showNavBar
 {
+    UIImage *navBackImage = [UIImage imageNamed:@"toolbar-back-icon.png"];
+    UIButton *navBack = [UIButton buttonWithType:UIButtonTypeCustom];
+    [navBack setImage:navBackImage forState:UIControlStateNormal];
+    navBack.frame = CGRectMake(0, 0, navBackImage.size.width, navBackImage.size.height);
+    [navBack addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *navBackBarItem = [[UIBarButtonItem alloc] initWithCustomView:navBack];
+    
     switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [switchReturnFlight addTarget:self action:@selector(switchToggled) forControlEvents: UIControlEventTouchUpInside];
     UIBarButtonItem *switchBarItem = [[UIBarButtonItem alloc] initWithCustomView:switchReturnFlight];
-    self.navigationItem.leftBarButtonItem = switchBarItem;
+    //self.navigationItem.leftBarButtonItem = switchBarItem;
+    
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:navBackBarItem, switchBarItem, nil];
     
     onDetail = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 50, 35)];
     [onDetail setImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
@@ -536,10 +545,11 @@
     }
     
     NSDecimalNumber *boothPrice = offerObject.bothPrice;
+    NSString* boothPriceBehavior = [self priceBehavior:boothPrice];
     UIButton *button = [[UIButton alloc] initWithFrame: frameButton];
     UIImage * imgNormal = [UIImage imageNamed:@"btn-primary-for-light.png"];
     [button setBackgroundImage:imgNormal forState:UIControlStateNormal];
-    [button setTitle: [NSString stringWithFormat:@"Купить за %@ руб.",[boothPrice stringValue]] forState: UIControlStateNormal];
+    [button setTitle: [NSString stringWithFormat:@"Купить за %@ руб.",boothPriceBehavior] forState: UIControlStateNormal];
     [button setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
     button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     button.titleLabel.layer.shadowOpacity = 0.4f;
@@ -551,6 +561,24 @@
 
     cell.backgroundColor = [UIColor clearColor];
 }
+
+-(NSString*)priceBehavior:(NSDecimalNumber*)priceBehavior
+{
+    NSDecimalNumberHandler *decimalNumberHandler = [NSDecimalNumberHandler
+                                                    decimalNumberHandlerWithRoundingMode:NSRoundUp
+                                                    scale:0
+                                                    raiseOnExactness:NO
+                                                    raiseOnOverflow:NO
+                                                    raiseOnUnderflow:NO
+                                                    raiseOnDivideByZero:YES];
+    NSDecimalNumber *price = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%@",[priceBehavior stringValue]]];
+    NSDecimalNumber *discount = [NSDecimalNumber decimalNumberWithString:@"1"];
+    
+    NSDecimalNumber *total = [price decimalNumberByMultiplyingBy:discount withBehavior:decimalNumberHandler];
+    NSString* behavior = [total stringValue];
+    return behavior;
+}
+
 - (void)showOrCloseWays
 {
     if (isReturn) {
@@ -650,6 +678,11 @@
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+-(void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
