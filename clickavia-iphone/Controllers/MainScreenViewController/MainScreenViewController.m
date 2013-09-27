@@ -140,7 +140,7 @@
         
         if(_calendarView.flyReturnDate==nil)
         {
-            [_searchForm setBothWaySwitch:NO withAnimation:YES];
+            //[_searchForm setBothWaySwitch:NO withAnimation:YES];
         }
     }
     if(_calendarView.flyReturnDate!=nil)
@@ -148,7 +148,7 @@
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
             returnDate = date;
-            [_searchForm setBothWaySwitch:YES withAnimation:YES];
+            //[_searchForm setBothWaySwitch:YES withAnimation:YES];
         }
     }
 }
