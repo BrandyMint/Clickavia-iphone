@@ -262,9 +262,7 @@
 - (IBAction)find:(id)sender
 {
     [self getOfferConditions];
-    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil];
-
-
+    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil isBothWays:currentSearchConditions.isBothWays];
     [self.navigationController pushViewController:caOffersListViewController animated:YES];
 }
     

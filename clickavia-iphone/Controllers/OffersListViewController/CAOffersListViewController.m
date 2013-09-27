@@ -54,8 +54,7 @@
     CGRect mainFrame;
     UIBarButtonItem *onAddGreenBar;
     UIBarButtonItem *onReturn;
-
-    UISwitch *switchReturnFlight;
+    
     UIView *viewOneWay;
     UIView *viewOnBack;
     
@@ -75,11 +74,19 @@
 @synthesize labelBack, labelBackDate, labelThere, labelThereDate;
 @synthesize caoffersData;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil isBothWays:(BOOL) isBothWays;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        isReturn = isBothWays;
+        
+        [self factor];
+        [self setupDatesText];
+        //_offerConditions.searchConditions.isBothWays = switchReturnFlight.isOn;
+        [self loadDataForColumnDeparture];
+        [tableOffers reloadData];
     }
     return self;
 }
@@ -110,7 +117,7 @@
     labelBackDate.backgroundColor = labelThereDate.backgroundColor = [UIColor clearColor];
     labelBackDate.textColor = labelThereDate.textColor = [UIColor whiteColor];
     labelBackDate.font = labelThereDate.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
-    labelThereDate.text = @"21 сентября";
+    labelThereDate.text = @"";
     [labelThereDate sizeToFit];
     
     labelBack.frame = CGRectMake(self.view.frame.size.width/2+20, 16, 0, 0);
@@ -118,7 +125,7 @@
     [labelBack sizeToFit];
     
     labelBackDate.frame = CGRectMake(labelBack.frame.origin.x + labelBack.frame.size.width +5, 15, 0, 0);
-    labelBackDate.text = @"22 сентября";
+    labelBackDate.text = @"";
     [labelBackDate sizeToFit];
     
     labelBack.alpha = labelBack.alpha = labelBackDate.alpha = 0;
@@ -133,7 +140,6 @@
     
     arrayOffers = nil;
     arrayPassangers = nil;
-    [self setupDatesText];
     indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2.0-20, self.view.frame.size.height/2.0-20, 10, 10)];
     indicatorView.color = [UIColor lightGrayColor];
     [_loadingView addSubview:indicatorView];
@@ -170,7 +176,7 @@
     }
     if(_offerConditions!=nil&&_offerConditions.returnDate!=nil)
     {
-        labelThereDate.text = [self textForDate:_offerConditions.returnDate];
+        labelBackDate.text = [self textForDate:_offerConditions.returnDate];
     }
 }
 -(NSString*)textForDate:(NSDate*)date
@@ -300,13 +306,7 @@
     navBack.frame = CGRectMake(0, 0, navBackImage.size.width, navBackImage.size.height);
     [navBack addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *navBackBarItem = [[UIBarButtonItem alloc] initWithCustomView:navBack];
-    
-    switchReturnFlight = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [switchReturnFlight addTarget:self action:@selector(switchToggled) forControlEvents: UIControlEventTouchUpInside];
-    UIBarButtonItem *switchBarItem = [[UIBarButtonItem alloc] initWithCustomView:switchReturnFlight];
-    //self.navigationItem.leftBarButtonItem = switchBarItem;
-    
-    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:navBackBarItem, switchBarItem, nil];
+    self.navigationItem.leftBarButtonItem = navBackBarItem;
     
     onDetail = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 50, 35)];
     [onDetail setImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
@@ -349,10 +349,9 @@
 -(void) detail
 {
     [self factor];
-    NSInteger factor = [self factor];
     if(onDetail.selected) {
         [onDetail setSelected:NO];
-        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
+        [onDetail setImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
 
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
@@ -376,19 +375,11 @@
     [tableOffers reloadData];
 }
 
--(void)switchToggled
-{
-    [self factor];
-    [self setupDatesText];
-    _offerConditions.searchConditions.isBothWays = switchReturnFlight.isOn;
-    [self loadDataForColumnDeparture];
-    [tableOffers reloadData];
-}
-
 -(NSInteger )factor
 {
+    [self setupDatesText];
     if (onDetail.selected) {
-        if ([switchReturnFlight isOn]) {
+        if (isReturn) {
             isReturn = YES;
             labelThere.text = @"туда";
             labelThereDate.text = @"21 сентября";
@@ -683,6 +674,7 @@
 -(void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [self.view removeFromSuperview];
 }
 
 @end
