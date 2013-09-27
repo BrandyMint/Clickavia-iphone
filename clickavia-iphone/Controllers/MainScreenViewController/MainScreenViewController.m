@@ -7,6 +7,7 @@
 //
 
 #import "MainScreenViewController.h"
+#import "CAOffersListViewController.h"
 
 @interface MainScreenViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *topGreenImage;
@@ -22,6 +23,11 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidLoad
@@ -43,7 +49,7 @@
     [_searchForm setBothWaySwitch:YES withAnimation:NO];
     
     currentSearchConditions = [[SearchConditions alloc] init];
-    currentSearchConditions.isBothWays = NO;
+    currentSearchConditions.isBothWays = YES;
     currentSearchConditions.countOfTickets = [[NSNumber alloc] initWithInt:1];
     currentSearchConditions.typeOfFlight = econom;
     currentSearchConditions.direction_departure = nil;
@@ -225,6 +231,10 @@
 - (IBAction)find:(id)sender
 {
     [self getOfferConditions];
+    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil];
+
+
+    [self.navigationController pushViewController:caOffersListViewController animated:YES];
 }
     
 @end

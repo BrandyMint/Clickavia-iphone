@@ -9,7 +9,6 @@
 #import "CAAppDelegate.h"
 
 #import "CASpecOffersViewController.h"
-#import "CAOffersListViewController.h"
 #import "MainScreenViewController.h"
 #import "ChatViewController.h"
 
@@ -25,7 +24,6 @@
 @interface CAAppDelegate()
 
 @property (nonatomic, strong) CASpecOffersViewController *specialOfferViewController;
-@property (nonatomic, strong) CAOffersListViewController *offerListViewController;
 @property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
 
 @property (nonatomic, strong) ChatViewController *chatViewController;
@@ -47,7 +45,6 @@
     [_rootTabBarController setMinimumHeightToDisplayTitle: 40.0];
     
     _specialOfferViewController = [[CASpecOffersViewController alloc] init];
-    _offerListViewController = [[CAOffersListViewController alloc] init];
     _mainScreenViewController = [[MainScreenViewController alloc] init];
     
     UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
@@ -57,7 +54,6 @@
     
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
-                                            [[UINavigationController alloc] initWithRootViewController:_offerListViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_chatViewController],
                                             nil]];
