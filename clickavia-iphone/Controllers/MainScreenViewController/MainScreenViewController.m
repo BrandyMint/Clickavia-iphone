@@ -30,29 +30,31 @@
     self.navigationController.navigationBarHidden = YES;
     
     _calendarView.frame = CGRectMake(0, 100, self.view.frame.size.width, 380);
-    _departureCompleteView.backgroundColor = [UIColor orangeColor];
+    //_departureCompleteView.backgroundColor = [UIColor orangeColor];
+    
+    cm = [CitiesManager new];
+    cm.delay = 500;
+    fm = [FlightsManager new];
+    departureDates = [NSArray new];
+    returnDates = [NSArray new];
+    
+    _searchForm.viewForSpawnSubviews = self.view;
+    _searchForm.citiesManager = cm;
+    
+    currentSearchConditions = [[SearchConditions alloc] init];
+    currentSearchConditions.isBothWays = NO;
+    currentSearchConditions.countOfTickets = [[NSNumber alloc] initWithInt:1];
+    currentSearchConditions.typeOfFlight = econom;
+    currentSearchConditions.direction_departure = nil;
+    currentSearchConditions.direction_return = nil;
+    
+    //[self setupTextForFlightTypeButton];
+    //[self setupSwitchBoth];
     
     [_calendarView setDelegate:self];
     [_calendarView selectFlyToDaysByDateArray:[CACalendarMockDates generateFlyToDates]];
     [_calendarView selectFlyReturnDaysByDateArray:[CACalendarMockDates generateFlyReturnDates:[NSDate date]]];
-    
-    ///autocomplete
-    
-    _departureCompleteView.frame = CGRectMake(1, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
-    _returnCompleteView.frame = CGRectMake(_departureCompleteView.frame.origin.x + _departureCompleteView.frame.size.width + 9, 10, _departureCompleteView.frame.size.width, _departureCompleteView.frame.size.height);
-    
-    _cm = [CitiesManager new];
-    _cm.delay = 500;
-    _departureDestination = [Destination new];
-    _returnDestination = [Destination new];
-    
-    _departureCompleteView.offsetTopForAutocomplete = 60;
-    _departureCompleteView.offsetLeftTriangleForAutocomplete = 40;
-    [_departureCompleteView setIsDeparture:YES];
-    
-    _returnCompleteView.offsetTopForAutocomplete = 60;
-    _returnCompleteView.offsetLeftTriangleForAutocomplete = self.view.frame.size.width-60;
-    [_returnCompleteView setIsDeparture:NO];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,50 +105,40 @@
 #pragma mark CAFieldCompleteViewDelegate
 - (void)fieldCompleteView:(CAFieldCompleteView*) fieldCompleteView selectedDestination:(Destination*) destination
 {
-    if(fieldCompleteView==_departureCompleteView)
-    {
-        _departureDestination = destination;
-        [_cm getDestinationsForReturn:@"" forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
-         {
-             [_returnCompleteView setAutocompleteData:array];
-         }];
-    }
-    else
-    {
-        _returnDestination = destination;
-    }
+    //[self setupDestinationFrom:fieldCompleteView withValue:destination];
+    //[self reloadDates];
 }
 
 - (void)fieldCompleteView:(CAFieldCompleteView*) fieldCompleteView textChanged:(NSString*) text
 {
     if(fieldCompleteView == _departureCompleteView)
     {
-        [_cm getDestinationsForDeparture:text completeBlock:^(NSArray *array)
+        [cm getDestinationsForDeparture:text completeBlock:^(NSArray *array)
          {
              [_departureCompleteView setAutocompleteData:array];
          }];
     }
     if(fieldCompleteView == _returnCompleteView)
     {
-        [_cm getDestinationsForReturn:text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
+        [cm getDestinationsForReturn:text forDepartureDestination:currentSearchConditions.direction_departure completeBlock:^(NSArray *array)
          {
              [_returnCompleteView setAutocompleteData:array];
          }];
     }
 }
+
 -(void)fieldCompleteViewBeginEditing:(CAFieldCompleteView *)fieldCompleteView
 {
     if(fieldCompleteView == _departureCompleteView)
     {
-        
-        [_cm getDestinationsForDeparture:_departureCompleteView.text completeBlock:^(NSArray *array)
+        [cm getDestinationsForDeparture:_departureCompleteView.text completeBlock:^(NSArray *array)
          {
              [_departureCompleteView setAutocompleteData:array];
          }];
     }
     if(fieldCompleteView == _returnCompleteView)
     {
-        [_cm getDestinationsForReturn:_returnCompleteView.text forDepartureDestination:_departureDestination completeBlock:^(NSArray *array)
+        [cm getDestinationsForReturn:_returnCompleteView.text forDepartureDestination:currentSearchConditions.direction_departure completeBlock:^(NSArray *array)
          {
              [_returnCompleteView setAutocompleteData:array];
          }];

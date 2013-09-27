@@ -12,6 +12,8 @@ PODS:
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
     - RestKit (= 0.20.0)
+  - CASearchForm (0.0.1)
+  - CASearchFormControls (0.0.1)
   - CASpecialOffers (0.0.1):
     - EasyMapping (= 0.4.3)
     - LRResty (= 0.11.0)
@@ -46,6 +48,8 @@ DEPENDENCIES:
   - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
   - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec`)
   - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
+  - CASearchForm (from `https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec`)
+  - CASearchFormControls (from `https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec`)
   - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
   - Reveal-iOS-SDK
 
@@ -60,6 +64,10 @@ EXTERNAL SOURCES:
     :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec
   CAManagers:
     :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
+  CASearchForm:
+    :podspec: https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec
+  CASearchFormControls:
+    :podspec: https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec
   CASpecialOffers:
     :podspec: https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec
 
@@ -72,6 +80,8 @@ SPEC CHECKSUMS:
   CAColumnsControl: 3fa1489e6e2eaa06ba67556ea4bfc4f20fad7aa4
   CAFieldComplete: d33b1a8dc32b1f582e3ce2ae08f185b887d4912a
   CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
+  CASearchForm: 101f3d262c716adfa09425c008a1d17e2b06f6a6
+  CASearchFormControls: 5f2eab7ac174d1260b5280059d96ae6b4e3e9eee
   CASpecialOffers: 66325d780e10e8c33875d87e8a1dbf1ab2cc4849
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
