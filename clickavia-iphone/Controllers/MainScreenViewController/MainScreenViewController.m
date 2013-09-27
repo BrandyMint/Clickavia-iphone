@@ -7,6 +7,7 @@
 //
 
 #import "MainScreenViewController.h"
+#import "CAOffersListViewController.h"
 
 @interface MainScreenViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *topGreenImage;
@@ -22,6 +23,11 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidLoad
@@ -43,7 +49,7 @@
     [_searchForm setBothWaySwitch:YES withAnimation:NO];
     
     currentSearchConditions = [[SearchConditions alloc] init];
-    currentSearchConditions.isBothWays = NO;
+    currentSearchConditions.isBothWays = YES;
     currentSearchConditions.countOfTickets = [[NSNumber alloc] initWithInt:1];
     currentSearchConditions.typeOfFlight = econom;
     currentSearchConditions.direction_departure = nil;
@@ -139,6 +145,7 @@
         
         if(_calendarView.flyReturnDate!=nil)
         {
+
             if(currentSearchConditions.isBothWays == NO)
             {
                 [_searchForm setBothWaySwitch:YES withAnimation:YES];
@@ -150,13 +157,13 @@
             {
                 [_searchForm setBothWaySwitch:NO withAnimation:YES];
             }
-        }
     }
     if(_calendarView.flyReturnDate!=nil)
     {
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
             returnDate = date;
+
         }
     }
     
@@ -165,13 +172,15 @@
         if(currentSearchConditions.isBothWays == YES)
         {
             [_searchForm setBothWaySwitch:NO withAnimation:YES];
+
         }
+    }
     }
 }
 
 - (void) calendarView:(CACalendarView *)calendarView didSelectMonth:(NSDate *)date
 {
-    
+    NSLog([date description]);
 }
 
 - (void) reloadDates
@@ -222,5 +231,10 @@
 - (IBAction)find:(id)sender
 {
     [self getOfferConditions];
+    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil];
+
+
+    [self.navigationController pushViewController:caOffersListViewController animated:YES];
 }
+    
 @end
