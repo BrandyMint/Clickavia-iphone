@@ -139,6 +139,7 @@
         
         if(_calendarView.flyReturnDate!=nil)
         {
+
             if(currentSearchConditions.isBothWays == NO)
             {
                 [_searchForm setBothWaySwitch:YES withAnimation:YES];
@@ -150,13 +151,13 @@
             {
                 [_searchForm setBothWaySwitch:NO withAnimation:YES];
             }
-        }
     }
     if(_calendarView.flyReturnDate!=nil)
     {
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
             returnDate = date;
+
         }
     }
     
@@ -165,13 +166,15 @@
         if(currentSearchConditions.isBothWays == YES)
         {
             [_searchForm setBothWaySwitch:NO withAnimation:YES];
+
         }
+    }
     }
 }
 
 - (void) calendarView:(CACalendarView *)calendarView didSelectMonth:(NSDate *)date
 {
-    
+    NSLog([date description]);
 }
 
 - (void) reloadDates
@@ -223,4 +226,5 @@
 {
     [self getOfferConditions];
 }
+    
 @end
