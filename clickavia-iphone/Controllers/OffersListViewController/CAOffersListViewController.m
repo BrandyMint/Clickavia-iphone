@@ -466,12 +466,17 @@
 {
     return nil;
 }
-
+-(void)saveDataInAppDelegate
+{
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.offerConditions = _offerConditions;
+}
 - (void)columnsControlView:(CAColumnsControlView *)columnsControlView didSelectColumnWithObject:(Flight*)flight
 {
     if(columnsControlView==columnDepartureControlView)
     {
         _offerConditions.departureDate = flight.dateAndTimeDeparture;
+        
         if(_offerConditions.searchConditions.isBothWays)
         {
             [self loadDataForColumnsArrival];
@@ -730,8 +735,12 @@
 
 -(void)back
 {
+    
     [self.navigationController popViewControllerAnimated:YES];
     [self.view removeFromSuperview];
 }
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    _offerConditions = nil;
+}
 @end
