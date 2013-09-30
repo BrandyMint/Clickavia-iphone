@@ -106,7 +106,7 @@
                                       0,
                                       self.view.frame.size.width,
                                       HEIGHT_GREEN_BAR)];
-    labelThere.frame = CGRectMake(self.view.frame.size.width/2-60, 16, 0, 0);
+    labelThere.frame = CGRectMake(self.view.frame.size.width/2-140, 16, 0, 0);
     labelBack.backgroundColor = labelThere.backgroundColor = [UIColor clearColor];
     labelBack.textColor = labelThere.textColor = [UIColor whiteColor];
     labelBack.font = labelThere.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
@@ -117,18 +117,20 @@
     labelBackDate.backgroundColor = labelThereDate.backgroundColor = [UIColor clearColor];
     labelBackDate.textColor = labelThereDate.textColor = [UIColor whiteColor];
     labelBackDate.font = labelThereDate.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
-    labelThereDate.text = @"abc";
+    labelThereDate.text = @"";
     [labelThereDate sizeToFit];
     
-    labelBack.frame = CGRectMake(self.view.frame.size.width/2+20, 16, 0, 0);
+    labelBack.frame = CGRectMake(self.view.frame.size.width/2+10, 16, 0, 0);
     labelBack.text = @"обратно";
     [labelBack sizeToFit];
     
     labelBackDate.frame = CGRectMake(labelBack.frame.origin.x + labelBack.frame.size.width +5, 15, 0, 0);
-    labelBackDate.text = @"abc";
+    labelBackDate.text = @"";
     [labelBackDate sizeToFit];
     
-    labelBack.alpha = labelBack.alpha = labelBackDate.alpha = 0;
+    if (!isReturn){
+        labelBack.alpha = labelBack.alpha = labelBackDate.alpha = 0;
+    }
     labelThereDate.layer.shadowOpacity = labelBackDate.layer.shadowOpacity = 0.2f;
     labelThereDate.layer.shadowRadius = labelBackDate.layer.shadowRadius = 0.0f;
     labelThereDate.layer.shadowColor = labelBackDate.layer.shadowColor = [[UIColor blackColor] CGColor];
@@ -170,17 +172,17 @@
 }
 -(void)setupDatesText
 {
-    if(_offerConditions!=nil&&_offerConditions.departureDate!=nil)
+    if(_offerConditions!=nil && _offerConditions.departureDate!=nil)
     {
         labelThereDate.text = [self textForDate:_offerConditions.departureDate];
         CGSize stringBoundingBox = [labelThereDate.text sizeWithFont:labelThereDate.font];
-        labelThereDate.frame = CGRectMake(labelThereDate.frame.origin.x, labelThereDate.frame.origin.y, stringBoundingBox.width, labelThereDate.frame.size.height);
+        labelThereDate.frame = CGRectMake(labelThereDate.frame.origin.x, labelThereDate.frame.origin.y, stringBoundingBox.width, stringBoundingBox.height);
     }
-    if(_offerConditions!=nil&&_offerConditions.returnDate!=nil)
+    if(_offerConditions!=nil && _offerConditions.returnDate!=nil)
     {
         labelBackDate.text = [self textForDate:_offerConditions.returnDate];
         CGSize stringBoundingBox = [labelBackDate.text sizeWithFont:labelBackDate.font];
-        labelBackDate.frame = CGRectMake(labelBackDate.frame.origin.x, labelBackDate.frame.origin.y, stringBoundingBox.width, labelBackDate.frame.size.height);
+        labelBackDate.frame = CGRectMake(labelBackDate.frame.origin.x, labelBackDate.frame.origin.y, stringBoundingBox.width, stringBoundingBox.height);
     }
 }
 -(NSString*)textForDate:(NSDate*)date
@@ -357,14 +359,18 @@
     self.navigationItem.rightBarButtonItem = customBarItem;
     
     UILabel *departureCity = [[UILabel alloc] initWithFrame:CGRectZero];
-    departureCity.text = @"Москва";
+    UILabel *arrivalCity = [[UILabel alloc] initWithFrame:CGRectZero];
+                            
+    [self setupDestinationsLabelsFrom:departureCity andTo:arrivalCity];
+    
+    //departureCity.text = @"";
     [departureCity sizeToFit];
     
     UIImageView* arrow = [[UIImageView alloc] initWithFrame:CGRectMake(departureCity.frame.origin.x + departureCity.frame.size.width + 3, 6, 8, 10)];
     arrow.image = [UIImage imageNamed:@"toolbar-arrow-right.png"];
     
-    UILabel *arrivalCity = [[UILabel alloc] initWithFrame:CGRectMake(arrow.frame.origin.x + arrow.frame.size.width + 3 , 0, 0, 0)];
-    arrivalCity.text = @"Краснодар";
+    [arrivalCity setFrame:CGRectMake(arrow.frame.origin.x + arrow.frame.size.width + 3, departureCity.frame.origin.y, 0, 0)];
+    //arrivalCity.text = @"";
     
     departureCity.backgroundColor = arrivalCity.backgroundColor = [UIColor clearColor];
     departureCity.font = arrivalCity.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
@@ -379,11 +385,12 @@
                                                                         0,
                                                                         arrivalCity.frame.origin.x + arrivalCity.frame.size.width,
                                                                         self.navigationController.navigationBar.frame.size.height/2)];
+    
     [titleBarItemView addSubview:departureCity];
     [titleBarItemView addSubview:arrow];
     [titleBarItemView addSubview:arrivalCity];
     self.navigationItem.titleView = titleBarItemView;
-    [self setupDestinationsLabelsFrom:departureCity andTo:arrivalCity];
+
 }
 
 -(void) detail
