@@ -42,7 +42,6 @@
 						<string key="NSFrame">{{88, 499}, {145, 30}}</string>
 						<reference key="NSSuperview" ref="823313196"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -4530,11 +4529,11 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">find_ou</string>
+						<string key="label">findButton_outlet</string>
 						<reference key="source" ref="9001956"/>
 						<reference key="destination" ref="564378371"/>
 					</object>
-					<string key="id">u5t-8G-ZNP</string>
+					<string key="id">7qZ-TZ-EoU</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -4667,7 +4666,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="countButton">UIButton</string>
 						<string key="departureCompleteView">CAFieldCompleteView</string>
-						<string key="find_ou">UIButton</string>
+						<string key="findButton_outlet">UIButton</string>
 						<string key="flightClassButton">UIButton</string>
 						<string key="returnCompleteView">CAFieldCompleteView</string>
 						<string key="searchForm">CASearchFormView</string>
@@ -4684,8 +4683,8 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 							<string key="name">departureCompleteView</string>
 							<string key="candidateClassName">CAFieldCompleteView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="find_ou">
-							<string key="name">find_ou</string>
+						<object class="IBToOneOutletInfo" key="findButton_outlet">
+							<string key="name">findButton_outlet</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="flightClassButton">
