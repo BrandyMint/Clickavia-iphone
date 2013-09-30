@@ -92,7 +92,6 @@
 		662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 662972D817E2F3AE00D9324B /* CAOffersCell.m */; };
 		662972DE17E2F40900D9324B /* CAOffersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 662972DD17E2F40900D9324B /* CAOffersCell.xib */; };
 		662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 662972E117E31F6700D9324B /* CAOffersCellView.m */; };
-		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
 		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
 		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
@@ -233,8 +232,6 @@
 		662972DD17E2F40900D9324B /* CAOffersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAOffersCell.xib; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCell.xib"; sourceTree = SOURCE_ROOT; };
 		662972E017E31F6700D9324B /* CAOffersCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersCellView.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCellView.h"; sourceTree = SOURCE_ROOT; };
 		662972E117E31F6700D9324B /* CAOffersCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersCellView.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCellView.m"; sourceTree = SOURCE_ROOT; };
-		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
-		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
 		6639C9F717C5E6A100CF772D /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreenViewController.m; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainScreenViewController.xib; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -604,8 +601,6 @@
 		7CC150C117C5D4DE00796B50 /* MainScreenViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */,
-				6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */,
 				6639C9F617C5E6A100CF772D /* MainScreenViewController.h */,
 				6639C9F717C5E6A100CF772D /* MainScreenViewController.m */,
 				6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */,
@@ -892,7 +887,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
-				6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */,
 				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
 				6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */,
 				6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */,
