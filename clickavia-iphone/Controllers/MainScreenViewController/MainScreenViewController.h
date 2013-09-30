@@ -45,6 +45,6 @@
 - (SearchConditions*) getSearchConditions;
 - (OfferConditions*) getOfferConditions;
 
-@property (weak, nonatomic) IBOutlet UIButton *find_ou;
+@property (weak, nonatomic) IBOutlet UIButton *findButton_outlet;
 - (IBAction)find:(id)sender;
 @end

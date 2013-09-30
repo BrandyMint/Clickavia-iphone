@@ -30,6 +30,7 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -62,13 +63,13 @@
         calendarViewFrame.origin.y = _searchForm.frame.origin.y + _searchForm.frame.size.height;
         calendarViewFrame.size.width = [[UIScreen mainScreen] bounds].size.width;
     
-        CGRect findFrame = _find_ou.frame;
+        CGRect findFrame = _findButton_outlet.frame;
         findFrame.size.width = 200.0f;
         findFrame.size.height = 37.0f;
         findFrame.origin.x = 59.0f;
-        _find_ou.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [_find_ou setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
-        _find_ou.titleLabel.textColor = [UIColor whiteColor];
+        _findButton_outlet.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [_findButton_outlet setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
+        _findButton_outlet.titleLabel.textColor = [UIColor whiteColor];
     
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
                 if (screenSize.height > 480.0f) {
@@ -92,9 +93,12 @@
     
         _calendarView.delegate = self;
         findFrame.origin.y = _calendarView.frame.origin.y + _calendarView.frame.size.height + 10;
-       _find_ou.frame = findFrame;
+       _findButton_outlet.frame = findFrame;
+    
+       _findButton_outlet.enabled = NO;
 
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -179,6 +183,9 @@
 {
     if(_calendarView.flyToDate!=nil)
     {
+        
+        _findButton_outlet.enabled = YES;
+        
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
             departureDate = date;
