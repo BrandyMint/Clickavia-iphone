@@ -31,6 +31,18 @@
 }
 
 
+-(void) viewDidAppear:(BOOL)animated {
+    
+    if (calendarView.flyToDate){
+        _findButton_outlet.enabled = YES;
+        NSLog(@"find button enabled %@", calendarView.flyToDate);
+    }
+    else {
+        _findButton_outlet.enabled = NO;
+        NSLog(@"find button disabled");
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
