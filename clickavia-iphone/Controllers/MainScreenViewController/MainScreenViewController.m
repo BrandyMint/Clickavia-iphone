@@ -201,7 +201,7 @@
     }
     if(_calendarView.flyReturnDate!=nil)
     {
-        if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
+        if([CACalendarView compareDate:_calendarView.flyReturnDate and:date]==NSOrderedSame)
         {
             returnDate = date;
 
