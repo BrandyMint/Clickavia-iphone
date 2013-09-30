@@ -31,11 +31,25 @@
 }
 
 
--(void) viewDidAppear:(BOOL)animated {
+-(void) viewDidAppear:(BOOL)animated
+{
     
-    if (calendarView.flyToDate){
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    returnDate = appDelegate.offerConditions.returnDate;
+    departureDate = appDelegate.offerConditions.departureDate;
+    
+    if(departureDate!=nil)
+    {
+        [_calendarView selectDate:departureDate];
+    }
+    if(returnDate!=nil)
+    {
+        [_calendarView selectDate:returnDate];
+    }
+    
+    if (_calendarView.flyToDate){
         _findButton_outlet.enabled = YES;
-        NSLog(@"find button enabled %@", calendarView.flyToDate);
+        NSLog(@"find button enabled %@", _calendarView.flyToDate);
     }
     else {
         _findButton_outlet.enabled = NO;
