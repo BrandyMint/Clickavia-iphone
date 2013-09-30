@@ -79,6 +79,7 @@
         findFrame.size.width = 200.0f;
         findFrame.size.height = 37.0f;
         findFrame.origin.x = 59.0f;
+        _findButton_outlet.enabled = NO;
         _findButton_outlet.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_findButton_outlet setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
         _findButton_outlet.titleLabel.textColor = [UIColor whiteColor];
@@ -106,8 +107,7 @@
         _calendarView.delegate = self;
         findFrame.origin.y = _calendarView.frame.origin.y + _calendarView.frame.size.height + 10;
        _findButton_outlet.frame = findFrame;
-    
-       _findButton_outlet.enabled = NO;
+
 
 }
 
