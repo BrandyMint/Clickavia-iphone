@@ -34,7 +34,8 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-
+    [self.view setBackgroundColor:[UIColor darkGrayColor]];
+    
     cm = [CitiesManager new];
     cm.delay = 500;
     fm = [FlightsManager new];
@@ -62,6 +63,12 @@
         calendarViewFrame.size.width = [[UIScreen mainScreen] bounds].size.width;
     
         CGRect findFrame = _find_ou.frame;
+        findFrame.size.width = 200.0f;
+        findFrame.size.height = 37.0f;
+        findFrame.origin.x = 59.0f;
+        _find_ou.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [_find_ou setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
+        _find_ou.titleLabel.textColor = [UIColor whiteColor];
     
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
                 if (screenSize.height > 480.0f) {
@@ -84,7 +91,7 @@
                 }
     
         _calendarView.delegate = self;
-        findFrame.origin.y = _calendarView.frame.origin.y + _calendarView.frame.size.height + 5;
+        findFrame.origin.y = _calendarView.frame.origin.y + _calendarView.frame.size.height + 10;
        _find_ou.frame = findFrame;
 
 }
