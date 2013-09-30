@@ -34,7 +34,8 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-
+    [self.view setBackgroundColor:[UIColor darkGrayColor]];
+    
     cm = [CitiesManager new];
     cm.delay = 500;
     fm = [FlightsManager new];
