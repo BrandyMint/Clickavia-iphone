@@ -284,6 +284,25 @@
          [self showLoading:NO];
      }];
 }
+- (void)columnsControlViewDataLoaded:(CAColumnsControlView *)columnsControlView
+{
+    if(columnsControlView==columnDepartureControlView)
+    {
+        BOOL result = [columnDepartureControlView selectFlightWithDate:_offerConditions.departureDate];
+        if(!result)
+        {
+            NSLog(@"NO FLIGHT");
+        }
+    }
+    if(columnsControlView==columnArrivialControlView)
+    {
+        BOOL result = [columnArrivialControlView selectFlightWithDate:_offerConditions.returnDate];
+        if(!result)
+        {
+            NSLog(@"NO FLIGHT");
+        }
+    }
+}
 -(void)loadDataForColumnDeparture
 {
     [self showLoading:YES];
@@ -291,6 +310,7 @@
     [fdm getFlightsDepartureByDateWithCompleteBlock:^(NSArray *flights){
         [columnDepartureControlView importFlights:flights];
         [self showLoading:NO];
+        
         //[columnArrivialControlView importFlights:[NSArray new]];
     }];
 }
@@ -301,6 +321,12 @@
     [fdm getFlightsReturnByDateWithCompleteBlock:^(NSArray *flights)
      {
          [columnArrivialControlView importFlights:flights];
+         BOOL result = [columnArrivialControlView selectFlightWithDate:_offerConditions.returnDate];
+         if(!result)
+         {
+             NSLog(@"NO FLIGHT");
+         }
+
          [self showLoading:NO];
          
      }];
@@ -443,7 +469,7 @@
     }
     if(columnsControlView==columnArrivialControlView)
     {
-        //wtf?
+        
         _offerConditions.returnDate = flight.dateAndTimeDeparture;
         [self loadOffers];
     }
