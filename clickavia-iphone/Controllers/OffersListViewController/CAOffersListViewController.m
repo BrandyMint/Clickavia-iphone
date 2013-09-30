@@ -324,15 +324,10 @@
 {
     [self showLoading:YES];
     fdm.offerConditions = _offerConditions;
+    
     [fdm getFlightsReturnByDateWithCompleteBlock:^(NSArray *flights)
      {
          [columnArrivialControlView importFlights:flights];
-         BOOL result = [columnArrivialControlView selectFlightWithDate:_offerConditions.returnDate];
-         if(!result)
-         {
-             NSLog(@"NO FLIGHT");
-         }
-
          [self showLoading:NO];
          
      }];
