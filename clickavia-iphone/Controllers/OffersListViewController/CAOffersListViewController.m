@@ -342,8 +342,11 @@
     self.navigationItem.leftBarButtonItem = navBackBarItem;
     
     onDetail = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 50, 35)];
-    [onDetail setImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
-    [onDetail setImage:[UIImage imageNamed:@"toolbar-button-selected.png"] forState:UIControlStateHighlighted];
+    UIImage *toolbarColumnsIcon = [UIImage imageNamed:@"columns-icon.png"];
+    [onDetail setImage:toolbarColumnsIcon forState:UIControlStateNormal];
+    [onDetail setImage:toolbarColumnsIcon forState:UIControlStateHighlighted];
+    [onDetail setBackgroundImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
+    [onDetail setBackgroundImage:[UIImage imageNamed:@"toolbar-button-active.png"] forState:UIControlStateHighlighted];
     [onDetail setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
     [onDetail addTarget: self action: @selector(detail) forControlEvents: UIControlEventTouchDown];
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:onDetail];
