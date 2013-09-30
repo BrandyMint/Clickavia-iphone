@@ -241,6 +241,10 @@
     if(_offerConditions!=nil)
     {
         topGreenView.hidden = NO;
+        if(_offerConditions.departureDate==nil)
+        {
+            _offerConditions.departureDate = [NSDate date];
+        }
         [self loadOffers];
         [self showNavBar];
         [self initControls];
