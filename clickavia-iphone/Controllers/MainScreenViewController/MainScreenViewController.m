@@ -74,13 +74,16 @@
     _searchForm.delegate = self;
     [_searchForm setBothWaySwitch:YES withAnimation:NO];
     
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.passengersCount = _searchForm.searchParameters.passengerCount; // проброс количества пассажиров
+    
     currentSearchConditions = [[SearchConditions alloc] init];
     currentSearchConditions.isBothWays = YES;
     currentSearchConditions.countOfTickets = [[NSNumber alloc] initWithInt:1];
     currentSearchConditions.typeOfFlight = econom;
     currentSearchConditions.direction_departure = nil;
     currentSearchConditions.direction_return = nil;
-    
+
     [_calendarView setDelegate:self];
   
         CGSize screenSize = [[UIScreen mainScreen] bounds].size;
@@ -122,7 +125,7 @@
         findFrame.origin.y = _calendarView.frame.origin.y + _calendarView.frame.size.height + 10;
        _findButton_outlet.frame = findFrame;
 
-
+    
 }
 
 
