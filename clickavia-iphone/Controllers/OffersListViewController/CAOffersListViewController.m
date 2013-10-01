@@ -350,9 +350,8 @@
     onDetail = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 50, 35)];
     UIImage *toolbarColumnsIcon = [UIImage imageNamed:@"columns-icon.png"];
     [onDetail setImage:toolbarColumnsIcon forState:UIControlStateNormal];
-    [onDetail setImage:toolbarColumnsIcon forState:UIControlStateHighlighted];
     [onDetail setBackgroundImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
-    [onDetail setBackgroundImage:[UIImage imageNamed:@"toolbar-button-active.png"] forState:UIControlStateHighlighted];
+    [onDetail setBackgroundImage:[UIImage imageNamed:@"toolbar-button-active.png"] forState:UIControlStateSelected];
     [onDetail setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
     [onDetail addTarget: self action: @selector(detail) forControlEvents: UIControlEventTouchDown];
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:onDetail];
@@ -398,7 +397,6 @@
     [self factor];
     if(onDetail.selected) {
         [onDetail setSelected:NO];
-        [onDetail setImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
 
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];
@@ -410,7 +408,6 @@
     else
     {
         [onDetail setSelected:YES];
-        [onDetail setImage:[UIImage  imageNamed:@"toolbar-button-selected.png"] forState:UIControlStateSelected];
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3f];

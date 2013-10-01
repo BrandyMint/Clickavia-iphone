@@ -57,17 +57,6 @@
 		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
 		6616230317EB395300B6A19C /* CAContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 6616230117EB395300B6A19C /* CAContract.m */; };
 		6616230417EB395300B6A19C /* CAContract.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6616230217EB395300B6A19C /* CAContract.xib */; };
-		6616231117EB397000B6A19C /* btn-primary-for-light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230617EB397000B6A19C /* btn-primary-for-light@2x.png */; };
-		6616231217EB397000B6A19C /* check-icon-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230717EB397000B6A19C /* check-icon-green@2x.png */; };
-		6616231317EB397000B6A19C /* clock-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230817EB397000B6A19C /* clock-icon@2x.png */; };
-		6616231417EB397000B6A19C /* passengers-icon-baby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230917EB397000B6A19C /* passengers-icon-baby@2x.png */; };
-		6616231517EB397000B6A19C /* passengers-icon-kid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230A17EB397000B6A19C /* passengers-icon-kid@2x.png */; };
-		6616231617EB397000B6A19C /* passengers-icon-man@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230B17EB397000B6A19C /* passengers-icon-man@2x.png */; };
-		6616231717EB397000B6A19C /* toolbar-arrow-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230C17EB397000B6A19C /* toolbar-arrow-right@2x.png */; };
-		6616231817EB397000B6A19C /* toolbar-back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230D17EB397000B6A19C /* toolbar-back-icon@2x.png */; };
-		6616231917EB397000B6A19C /* toolbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230E17EB397000B6A19C /* toolbar-background@2x.png */; };
-		6616231A17EB397000B6A19C /* toolbar-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616230F17EB397000B6A19C /* toolbar-button-selected@2x.png */; };
-		6616231B17EB397000B6A19C /* toolbar-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616231017EB397000B6A19C /* toolbar-button@2x.png */; };
 		6616237B17EB3BB200B6A19C /* local.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616237717EB3BB200B6A19C /* local.png */; };
 		6616237C17EB3BB200B6A19C /* local@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616237817EB3BB200B6A19C /* local@2x.png */; };
 		6616237D17EB3BB200B6A19C /* what.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616237917EB3BB200B6A19C /* what.png */; };
@@ -104,7 +93,6 @@
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
 		666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60E217CCDFA9008220AC /* SpecialOfferCell.m */; };
 		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
-		668CB98C17F2033600A26506 /* _bar-green-warm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */; };
 		668CB98D17F2033600A26506 /* Contract.html in Resources */ = {isa = PBXBuildFile; fileRef = 668CB98B17F2033600A26506 /* Contract.html */; };
 		668CB99217F2063400A26506 /* CAFlightDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99017F2063400A26506 /* CAFlightDataView.m */; };
 		668CB99317F2063400A26506 /* CAFlightDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668CB99117F2063400A26506 /* CAFlightDataView.xib */; };
@@ -193,17 +181,6 @@
 		6616230017EB395300B6A19C /* CAContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAContract.h; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.h"; sourceTree = SOURCE_ROOT; };
 		6616230117EB395300B6A19C /* CAContract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAContract.m; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.m"; sourceTree = SOURCE_ROOT; };
 		6616230217EB395300B6A19C /* CAContract.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAContract.xib; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.xib"; sourceTree = SOURCE_ROOT; };
-		6616230617EB397000B6A19C /* btn-primary-for-light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-primary-for-light@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/btn-primary-for-light@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230717EB397000B6A19C /* check-icon-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-icon-green@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/check-icon-green@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230817EB397000B6A19C /* clock-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-icon@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/clock-icon@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230917EB397000B6A19C /* passengers-icon-baby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-baby@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/passengers-icon-baby@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230A17EB397000B6A19C /* passengers-icon-kid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-kid@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/passengers-icon-kid@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230B17EB397000B6A19C /* passengers-icon-man@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "passengers-icon-man@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/passengers-icon-man@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230C17EB397000B6A19C /* toolbar-arrow-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-arrow-right@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/toolbar-arrow-right@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230D17EB397000B6A19C /* toolbar-back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-back-icon@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/toolbar-back-icon@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230E17EB397000B6A19C /* toolbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-background@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/toolbar-background@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616230F17EB397000B6A19C /* toolbar-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button-selected@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/toolbar-button-selected@2x.png"; sourceTree = SOURCE_ROOT; };
-		6616231017EB397000B6A19C /* toolbar-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolbar-button@2x.png"; path = "clickavia-iphone/Controllers/OffersListViewController/Resources/toolbar-button@2x.png"; sourceTree = SOURCE_ROOT; };
 		6616237717EB3BB200B6A19C /* local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = local.png; path = Pods/BMChat/BMChat/BMChat.bundle/local.png; sourceTree = SOURCE_ROOT; };
 		6616237817EB3BB200B6A19C /* local@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "local@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/local@2x.png"; sourceTree = SOURCE_ROOT; };
 		6616237917EB3BB200B6A19C /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
@@ -255,7 +232,6 @@
 		666C60E117CCDFA9008220AC /* SpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOfferCell.h; sourceTree = "<group>"; };
 		666C60E217CCDFA9008220AC /* SpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOfferCell.m; sourceTree = "<group>"; };
 		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
-		668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "_bar-green-warm@2x.png"; path = "clickavia-iphone/Controllers/_bar-green-warm@2x.png"; sourceTree = SOURCE_ROOT; };
 		668CB98B17F2033600A26506 /* Contract.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Contract.html; path = "clickavia-iphone/Controllers/Contract.html"; sourceTree = SOURCE_ROOT; };
 		668CB98F17F2063400A26506 /* CAFlightDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAFlightDataView.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.h"; sourceTree = SOURCE_ROOT; };
 		668CB99017F2063400A26506 /* CAFlightDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAFlightDataView.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.m"; sourceTree = SOURCE_ROOT; };
@@ -318,25 +294,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6616230517EB395F00B6A19C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				6616230617EB397000B6A19C /* btn-primary-for-light@2x.png */,
-				668CB98A17F2033600A26506 /* _bar-green-warm@2x.png */,
-				6616230717EB397000B6A19C /* check-icon-green@2x.png */,
-				6616230817EB397000B6A19C /* clock-icon@2x.png */,
-				6616230917EB397000B6A19C /* passengers-icon-baby@2x.png */,
-				6616230A17EB397000B6A19C /* passengers-icon-kid@2x.png */,
-				6616230B17EB397000B6A19C /* passengers-icon-man@2x.png */,
-				6616230C17EB397000B6A19C /* toolbar-arrow-right@2x.png */,
-				6616230D17EB397000B6A19C /* toolbar-back-icon@2x.png */,
-				6616230E17EB397000B6A19C /* toolbar-background@2x.png */,
-				6616230F17EB397000B6A19C /* toolbar-button-selected@2x.png */,
-				6616231017EB397000B6A19C /* toolbar-button@2x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		6616231C17EB398200B6A19C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,7 +598,6 @@
 				66F4C7E217EB0FDB0004DB88 /* Contract */,
 				668CB98E17F2060A00A26506 /* FlightData */,
 				668CB99417F2064800A26506 /* AssistView */,
-				6616230517EB395F00B6A19C /* Resources */,
 			);
 			name = OffersListViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -751,7 +707,6 @@
 				17710EB617F466A8008A8E11 /* results-columns-green-cold-background@2x.png in Resources */,
 				17710EB417F466A8008A8E11 /* passengers-icon-kid@2x.png in Resources */,
 				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
-				668CB98C17F2033600A26506 /* _bar-green-warm@2x.png in Resources */,
 				17710ED417F466A8008A8E11 /* specials-card-red.png in Resources */,
 				17710ECD17F466A8008A8E11 /* UISwitch-background@2x.png in Resources */,
 				17710EC117F466A8008A8E11 /* calendar-return-date-bg@2x.png in Resources */,
@@ -763,22 +718,11 @@
 				662972DE17E2F40900D9324B /* CAOffersCell.xib in Resources */,
 				6616230417EB395300B6A19C /* CAContract.xib in Resources */,
 				17710EBB17F466A8008A8E11 /* calendar-tabs-icon-reset@2x.png in Resources */,
-				6616231117EB397000B6A19C /* btn-primary-for-light@2x.png in Resources */,
-				6616231217EB397000B6A19C /* check-icon-green@2x.png in Resources */,
 				17710EBF17F466A8008A8E11 /* bnt-primary-large-for-dark@2x.png in Resources */,
-				6616231317EB397000B6A19C /* clock-icon@2x.png in Resources */,
 				17710ED317F466A8008A8E11 /* clock-icon@2x.png in Resources */,
-				6616231417EB397000B6A19C /* passengers-icon-baby@2x.png in Resources */,
-				6616231517EB397000B6A19C /* passengers-icon-kid@2x.png in Resources */,
 				17710EC517F466A8008A8E11 /* months-slider-selection@2x.png in Resources */,
-				6616231617EB397000B6A19C /* passengers-icon-man@2x.png in Resources */,
-				6616231717EB397000B6A19C /* toolbar-arrow-right@2x.png in Resources */,
-				6616231817EB397000B6A19C /* toolbar-back-icon@2x.png in Resources */,
 				17710EA717F466A8008A8E11 /* specials-card-red@2x.png in Resources */,
-				6616231917EB397000B6A19C /* toolbar-background@2x.png in Resources */,
-				6616231A17EB397000B6A19C /* toolbar-button-selected@2x.png in Resources */,
 				17710EB517F466A8008A8E11 /* passengers-icon-man@2x.png in Resources */,
-				6616231B17EB397000B6A19C /* toolbar-button@2x.png in Resources */,
 				6616237B17EB3BB200B6A19C /* local.png in Resources */,
 				17710ED517F466A8008A8E11 /* specials-country-selected.png in Resources */,
 				6616237C17EB3BB200B6A19C /* local@2x.png in Resources */,
