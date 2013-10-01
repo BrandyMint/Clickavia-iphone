@@ -136,7 +136,7 @@
     labelThereDate.layer.shadowColor = labelBackDate.layer.shadowColor = [[UIColor blackColor] CGColor];
     labelThereDate.layer.shadowOffset = labelBackDate.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
     
-    UITapGestureRecognizer *tapGreenBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(detail)];
+    UITapGestureRecognizer *tapGreenBar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showColumns)];
     [topGreenView addGestureRecognizer:tapGreenBar];
     topGreenView.userInteractionEnabled = YES;
     
@@ -353,7 +353,7 @@
     [onDetail setBackgroundImage:[UIImage imageNamed:@"toolbar-button.png"] forState:UIControlStateNormal];
     [onDetail setBackgroundImage:[UIImage imageNamed:@"toolbar-button-active.png"] forState:UIControlStateSelected];
     [onDetail setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
-    [onDetail addTarget: self action: @selector(detail) forControlEvents: UIControlEventTouchDown];
+    [onDetail addTarget: self action: @selector(showColumns) forControlEvents: UIControlEventTouchDown];
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:onDetail];
     self.navigationItem.rightBarButtonItem = customBarItem;
     
@@ -392,7 +392,7 @@
 
 }
 
--(void) detail
+-(void) showColumns
 {
     [self factor];
     if(onDetail.selected) {
@@ -529,7 +529,11 @@
     flightObject = offerObject.flightDeparture;
     
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    FlightPassengersCount* passengersCount = [self mapFrom:appDelegate.passengersCount];
+    //FlightPassengersCount* passengersCount = [self mapFrom:appDelegate.passengersCount];
+    FlightPassengersCount *passengersCount = [[FlightPassengersCount alloc] init];
+    passengersCount.adults = appDelegate.passengersCount.adultsCount;
+    passengersCount.kids = appDelegate.passengersCount.childrenCount;
+    passengersCount.babies = appDelegate.passengersCount.infantsCount;
     //поиск ячейки
 	CAOffersCell *cell = (CAOffersCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -539,10 +543,6 @@
         
         UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerObject passengers:passengersCount];
         [cell transferView:cardView];
-        
-        //UIView* offerDataCard = [[OfferDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
-        //UIView* detailsPersonal = [[FlightDetails alloc] initByOfferModel:offerdata passangers:passengersCount];
-        //[cell transferView:detailsPersonal];
         
         UIView *v = [[UIView alloc] init];
         v.backgroundColor = [UIColor redColor]; // any color of your choice.
