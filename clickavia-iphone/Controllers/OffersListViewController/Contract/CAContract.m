@@ -108,8 +108,8 @@
 
 - (IBAction)onConfrmation:(id)sender
 {    
-    //CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengers:passengersCount];
-    //[self.navigationController pushViewController:flightDataView animated:YES];
+    CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengers:passengersCount];
+    [self.navigationController pushViewController:flightDataView animated:YES];
     
     NSLog(@"!! special: %d, momentary: %d", offerdata.isSpecial, offerdata.isMomentaryConfirmation);
 }

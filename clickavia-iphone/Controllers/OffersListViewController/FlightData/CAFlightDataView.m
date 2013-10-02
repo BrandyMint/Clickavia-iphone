@@ -11,6 +11,11 @@
 #import "CAOrderDetails.h"
 #import "CAColorSpecOffers.h"
 
+#import "CAPassengersCountButton.h"
+
+#define Y_OFFSET 5
+#define X_OFFSET 5
+
 @interface CAFlightDataView ()
 
 @end
@@ -19,6 +24,7 @@
 {
     Offer* offerdata;
     FlightPassengersCount* passengersCount;
+    CAFlightPassengersCount *flightPAssengersCount;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers
@@ -30,7 +36,14 @@
         passengersCount = [[FlightPassengersCount alloc] init];
         passengersCount = passengers;
         
-        NSLog(@"/*|sss special: %d, momentary: %d", offerdata.isSpecial, offerdata.isMomentaryConfirmation);
+        flightPAssengersCount = [[CAFlightPassengersCount alloc]init];
+        flightPAssengersCount.adultsCount = passengersCount.adults;
+        flightPAssengersCount.childrenCount = passengersCount.kids;
+        flightPAssengersCount.infantsCount = passengersCount.babies;
+        
+        NSLog(@"/*|sss %d %d %d", flightPAssengersCount.adultsCount, flightPAssengersCount.childrenCount, flightPAssengersCount.infantsCount);
+        
+        NSLog(@"/*|sss %d %d %d", passengersCount.adults, passengersCount.kids, passengersCount.babies);
     }
     return self;
 }
@@ -44,11 +57,52 @@
     UIView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5];
     [self.view addSubview:assistView];
     
+    UILabel* passengersLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, assistView.frame.origin.y + assistView.frame.size.height + Y_OFFSET, 0, 0)];
+    passengersLabel.text = @"Пассажиры";
+    passengersLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
+    [passengersLabel sizeToFit];
+    [self.view addSubview:passengersLabel];
+    
+    UIButton* passengerCountButton = [[CAPassengersCountButton alloc] initWithFrame:CGRectMake(passengersLabel.frame.origin.x-X_OFFSET, passengersLabel.frame.origin.y + passengersLabel.frame.size.height + Y_OFFSET, self.view.frame.size.width/3 - X_OFFSET, 25)];
+    [passengerCountButton addTarget:self action:@selector(passengerCountButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+    [passengerCountButton setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view addSubview: passengerCountButton];
+    
+    UIButton* onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
+    [onPaymentMethod addTarget:self action:@selector(classSelectButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+    [onPaymentMethod setTitle:@"MasterCard или Visa" forState:UIControlStateNormal];
+    [onPaymentMethod.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
+    [onPaymentMethod setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [onPaymentMethod setBackgroundColor:[UIColor lightGrayColor]];
+    [onPaymentMethod setBackgroundImage:[UIImage imageNamed:@"CASearchFormControls-button.png"] forState:UIControlStateNormal];
+    [self.view addSubview: onPaymentMethod];
+    
+    UILabel* paymentMethod = [[UILabel alloc] initWithFrame:CGRectMake(onPaymentMethod.frame.origin.x + X_OFFSET, passengersLabel.frame.origin.y, 0, 0)];
+    paymentMethod.text = @"Способ оплаты";
+    paymentMethod.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
+    [paymentMethod sizeToFit];
+    [self.view addSubview:paymentMethod];
+    
     UIView* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
     CGRect orderDetalsFrame = orderDetailsView.frame;
-    orderDetalsFrame.origin.y = assistView.frame.origin.y + assistView.frame.size.height;
+    orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
     orderDetailsView.frame = orderDetalsFrame;
     [self.view addSubview:orderDetailsView];
+
+    flightPAssengersCount = [[CAFlightPassengersCount alloc]init];
+    flightPAssengersCount.adultsCount = 1;
+    flightPAssengersCount.childrenCount = 5;
+    flightPAssengersCount.infantsCount = 3;
+}
+
+- (IBAction) passengerCountButtonPress: (id) sender {
+    NSLog(@"passengers");
+    //[_delegate searchFormControlsViewOpenPassengerCountPicker:self];
+}
+
+- (IBAction) classSelectButtonPress: (id) sender {
+    NSLog(@"payment");
+    //[_delegate searchFormControlsViewOpenClassSelection:self];
 }
 
 - (void)didReceiveMemoryWarning

@@ -18,4 +18,7 @@
 @property (nonatomic,strong) IBOutlet UIView *loadingView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil isBothWays:(BOOL) isBothWays;
+
+-(NSString*)priceBehavior:(NSDecimalNumber*)priceBehavior;
+
 @end

@@ -24,6 +24,7 @@
 #import "CAContract.h"
 #import "CAColorSpecOffers.h"
 #import "CAAppDelegate.h"
+
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
 #define SectionHeaderHeight 170
@@ -732,8 +733,9 @@
     offerdata = [arrayOffers objectAtIndex:indexPath.section];
     FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
     passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
-    
+            NSLog(@"> %d %d %d", passengersCount.adults, passengersCount.kids, passengersCount.babies);
     NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
+
     [self.tableOffers deselectRowAtIndexPath:indexPath animated:NO];
     
     CAContract* caContract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil offer:offerdata passengers:passengersCount];

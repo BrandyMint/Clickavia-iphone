@@ -1,0 +1,1010 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17710EA717F466A8008A8E11 /* specials-card-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7817F466A8008A8E11 /* specials-card-red@2x.png */; };
+		17710EA817F466A8008A8E11 /* specials-country-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7917F466A8008A8E11 /* specials-country-selected@2x.png */; };
+		17710EA917F466A8008A8E11 /* bar-green-cold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7A17F466A8008A8E11 /* bar-green-cold@2x.png */; };
+		17710EAA17F466A8008A8E11 /* bar-green-warm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7B17F466A8008A8E11 /* bar-green-warm@2x.png */; };
+		17710EAB17F466A8008A8E11 /* background-gray-textured@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7C17F466A8008A8E11 /* background-gray-textured@2x.png */; };
+		17710EAC17F466A8008A8E11 /* columns-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7D17F466A8008A8E11 /* columns-icon@2x.png */; };
+		17710EAD17F466A8008A8E11 /* toolbar-button-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7E17F466A8008A8E11 /* toolbar-button-active@2x.png */; };
+		17710EAE17F466A8008A8E11 /* toolbar-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E7F17F466A8008A8E11 /* toolbar-button@2x.png */; };
+		17710EAF17F466A8008A8E11 /* toolbar-arrow-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8017F466A8008A8E11 /* toolbar-arrow-right@2x.png */; };
+		17710EB017F466A8008A8E11 /* toolbar-back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8117F466A8008A8E11 /* toolbar-back-icon@2x.png */; };
+		17710EB117F466A8008A8E11 /* toolbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8217F466A8008A8E11 /* toolbar-background@2x.png */; };
+		17710EB217F466A8008A8E11 /* btn-primary-for-light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8317F466A8008A8E11 /* btn-primary-for-light@2x.png */; };
+		17710EB317F466A8008A8E11 /* passengers-icon-baby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8417F466A8008A8E11 /* passengers-icon-baby@2x.png */; };
+		17710EB417F466A8008A8E11 /* passengers-icon-kid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8517F466A8008A8E11 /* passengers-icon-kid@2x.png */; };
+		17710EB517F466A8008A8E11 /* passengers-icon-man@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8617F466A8008A8E11 /* passengers-icon-man@2x.png */; };
+		17710EB617F466A8008A8E11 /* results-columns-green-cold-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8717F466A8008A8E11 /* results-columns-green-cold-background@2x.png */; };
+		17710EB717F466A8008A8E11 /* results-column-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8817F466A8008A8E11 /* results-column-selected@2x.png */; };
+		17710EB817F466A8008A8E11 /* results-column@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8917F466A8008A8E11 /* results-column@2x.png */; };
+		17710EB917F466A8008A8E11 /* results-columns-green-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8A17F466A8008A8E11 /* results-columns-green-background@2x.png */; };
+		17710EBA17F466A8008A8E11 /* calendar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8B17F466A8008A8E11 /* calendar-background@2x.png */; };
+		17710EBB17F466A8008A8E11 /* calendar-tabs-icon-reset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8C17F466A8008A8E11 /* calendar-tabs-icon-reset@2x.png */; };
+		17710EBC17F466A8008A8E11 /* calendar-tabs-plane-icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8D17F466A8008A8E11 /* calendar-tabs-plane-icon-back@2x.png */; };
+		17710EBD17F466A8008A8E11 /* calendar-tabs-plane-icon-forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8E17F466A8008A8E11 /* calendar-tabs-plane-icon-forward@2x.png */; };
+		17710EBE17F466A8008A8E11 /* calendar-tabs-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E8F17F466A8008A8E11 /* calendar-tabs-background@2x.png */; };
+		17710EBF17F466A8008A8E11 /* bnt-primary-large-for-dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9017F466A8008A8E11 /* bnt-primary-large-for-dark@2x.png */; };
+		17710EC017F466A8008A8E11 /* btn-primary-large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9117F466A8008A8E11 /* btn-primary-large@2x.png */; };
+		17710EC117F466A8008A8E11 /* calendar-return-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9217F466A8008A8E11 /* calendar-return-date-bg@2x.png */; };
+		17710EC217F466A8008A8E11 /* calendar-departure-date-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9317F466A8008A8E11 /* calendar-departure-date-bg@2x.png */; };
+		17710EC317F466A8008A8E11 /* calendar-interval-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9417F466A8008A8E11 /* calendar-interval-bg@2x.png */; };
+		17710EC417F466A8008A8E11 /* calendar-today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9517F466A8008A8E11 /* calendar-today@2x.png */; };
+		17710EC517F466A8008A8E11 /* months-slider-selection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9617F466A8008A8E11 /* months-slider-selection@2x.png */; };
+		17710EC617F466A8008A8E11 /* months-silder-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9717F466A8008A8E11 /* months-silder-bar@2x.png */; };
+		17710EC717F466A8008A8E11 /* CAFieldComplete-icon-reset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9817F466A8008A8E11 /* CAFieldComplete-icon-reset@2x.png */; };
+		17710EC817F466A8008A8E11 /* PassengersButton-baby-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9917F466A8008A8E11 /* PassengersButton-baby-icon@2x.png */; };
+		17710EC917F466A8008A8E11 /* PassengersButton-kid-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9A17F466A8008A8E11 /* PassengersButton-kid-icon@2x.png */; };
+		17710ECA17F466A8008A8E11 /* PassengersButton-man-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9B17F466A8008A8E11 /* PassengersButton-man-icon@2x.png */; };
+		17710ECB17F466A8008A8E11 /* CASearchFormControls-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9C17F466A8008A8E11 /* CASearchFormControls-button@2x.png */; };
+		17710ECC17F466A8008A8E11 /* UISwitch-handler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9D17F466A8008A8E11 /* UISwitch-handler@2x.png */; };
+		17710ECD17F466A8008A8E11 /* UISwitch-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9E17F466A8008A8E11 /* UISwitch-background@2x.png */; };
+		17710ECE17F466A8008A8E11 /* UISwitch-planes-one-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710E9F17F466A8008A8E11 /* UISwitch-planes-one-active@2x.png */; };
+		17710ECF17F466A8008A8E11 /* UISwitch-planes-one@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710EA017F466A8008A8E11 /* UISwitch-planes-one@2x.png */; };
+		17710ED017F466A8008A8E11 /* UISwitch-planes-two-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710EA117F466A8008A8E11 /* UISwitch-planes-two-active@2x.png */; };
+		17710ED117F466A8008A8E11 /* UISwitch-planes-two@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710EA217F466A8008A8E11 /* UISwitch-planes-two@2x.png */; };
+		17710ED217F466A8008A8E11 /* check-icon-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710EA317F466A8008A8E11 /* check-icon-green@2x.png */; };
+		17710ED317F466A8008A8E11 /* clock-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710EA417F466A8008A8E11 /* clock-icon@2x.png */; };
+		17710ED417F466A8008A8E11 /* specials-card-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710EA517F466A8008A8E11 /* specials-card-red.png */; };
+		17710ED517F466A8008A8E11 /* specials-country-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 17710EA617F466A8008A8E11 /* specials-country-selected.png */; };
+		4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E1A6A65D2466D8633684C /* libPods.a */; };
+		6616230317EB395300B6A19C /* CAContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 6616230117EB395300B6A19C /* CAContract.m */; };
+		6616230417EB395300B6A19C /* CAContract.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6616230217EB395300B6A19C /* CAContract.xib */; };
+		6616237B17EB3BB200B6A19C /* local.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616237717EB3BB200B6A19C /* local.png */; };
+		6616237C17EB3BB200B6A19C /* local@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616237817EB3BB200B6A19C /* local@2x.png */; };
+		6616237D17EB3BB200B6A19C /* what.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616237917EB3BB200B6A19C /* what.png */; };
+		6616237E17EB3BB200B6A19C /* what@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616237A17EB3BB200B6A19C /* what@2x.png */; };
+		661E40BF17F1D88000DE8B0D /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BB17F1D88000DE8B0D /* Gemfile */; };
+		661E40C017F1D88000DE8B0D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BC17F1D88000DE8B0D /* Podfile */; };
+		661E40C117F1D88000DE8B0D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BD17F1D88000DE8B0D /* Podfile.lock */; };
+		661E40C217F1D88000DE8B0D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 661E40BE17F1D88000DE8B0D /* README.md */; };
+		66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */; };
+		66245FDD17E82656003A1611 /* CAOrderDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 66245FDB17E82656003A1611 /* CAOrderDetails.m */; };
+		662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 662972D817E2F3AE00D9324B /* CAOffersCell.m */; };
+		662972DE17E2F40900D9324B /* CAOffersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 662972DD17E2F40900D9324B /* CAOffersCell.xib */; };
+		662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 662972E117E31F6700D9324B /* CAOffersCellView.m */; };
+		6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */; };
+		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
+		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
+		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
+		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
+		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
+		6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE2E17E0ED43002A85D0 /* CAOffersData.m */; };
+		6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */; };
+		666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */; };
+		666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */; };
+		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
+		666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60E217CCDFA9008220AC /* SpecialOfferCell.m */; };
+		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
+		668CB98D17F2033600A26506 /* Contract.html in Resources */ = {isa = PBXBuildFile; fileRef = 668CB98B17F2033600A26506 /* Contract.html */; };
+		668CB99217F2063400A26506 /* CAFlightDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99017F2063400A26506 /* CAFlightDataView.m */; };
+		668CB99317F2063400A26506 /* CAFlightDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 668CB99117F2063400A26506 /* CAFlightDataView.xib */; };
+		668CB99717F2066B00A26506 /* CAAssistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CB99617F2066B00A26506 /* CAAssistView.m */; };
+		66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
+		66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */; };
+		7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
+		7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AF17A648290055FF8F /* Foundation.framework */; };
+		7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B117A648290055FF8F /* CoreGraphics.framework */; };
+		7C16A2B417A648290055FF8F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B317A648290055FF8F /* CoreData.framework */; };
+		7C16A2BA17A648290055FF8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2B817A648290055FF8F /* InfoPlist.strings */; };
+		7C16A2BC17A648290055FF8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2BB17A648290055FF8F /* main.m */; };
+		7C16A2C217A648290055FF8F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2C117A648290055FF8F /* Default.png */; };
+		7C16A2C417A648290055FF8F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2C317A648290055FF8F /* Default@2x.png */; };
+		7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2C517A648290055FF8F /* Default-568h@2x.png */; };
+		7C16A2D117A648290055FF8F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2D017A648290055FF8F /* SenTestingKit.framework */; };
+		7C16A2D217A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
+		7C16A2D317A648290055FF8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AF17A648290055FF8F /* Foundation.framework */; };
+		7C16A2D417A648290055FF8F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B317A648290055FF8F /* CoreData.framework */; };
+		7C16A2DC17A648290055FF8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C16A2DA17A648290055FF8F /* InfoPlist.strings */; };
+		7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */; };
+		7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A30E17A67B490055FF8F /* QuartzCore.framework */; };
+		7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */; };
+		7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */; };
+		7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7C16A2D517A648290055FF8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C16A2A217A648290055FF8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C16A2A917A648290055FF8F;
+			remoteInfo = "clickavia-iphone";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17710E7817F466A8008A8E11 /* specials-card-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-card-red@2x.png"; sourceTree = "<group>"; };
+		17710E7917F466A8008A8E11 /* specials-country-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-country-selected@2x.png"; sourceTree = "<group>"; };
+		17710E7A17F466A8008A8E11 /* bar-green-cold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-green-cold@2x.png"; sourceTree = "<group>"; };
+		17710E7B17F466A8008A8E11 /* bar-green-warm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-green-warm@2x.png"; sourceTree = "<group>"; };
+		17710E7C17F466A8008A8E11 /* background-gray-textured@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-gray-textured@2x.png"; sourceTree = "<group>"; };
+		17710E7D17F466A8008A8E11 /* columns-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "columns-icon@2x.png"; sourceTree = "<group>"; };
+		17710E7E17F466A8008A8E11 /* toolbar-button-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-button-active@2x.png"; sourceTree = "<group>"; };
+		17710E7F17F466A8008A8E11 /* toolbar-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-button@2x.png"; sourceTree = "<group>"; };
+		17710E8017F466A8008A8E11 /* toolbar-arrow-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-arrow-right@2x.png"; sourceTree = "<group>"; };
+		17710E8117F466A8008A8E11 /* toolbar-back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-back-icon@2x.png"; sourceTree = "<group>"; };
+		17710E8217F466A8008A8E11 /* toolbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-background@2x.png"; sourceTree = "<group>"; };
+		17710E8317F466A8008A8E11 /* btn-primary-for-light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-primary-for-light@2x.png"; sourceTree = "<group>"; };
+		17710E8417F466A8008A8E11 /* passengers-icon-baby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passengers-icon-baby@2x.png"; sourceTree = "<group>"; };
+		17710E8517F466A8008A8E11 /* passengers-icon-kid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passengers-icon-kid@2x.png"; sourceTree = "<group>"; };
+		17710E8617F466A8008A8E11 /* passengers-icon-man@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passengers-icon-man@2x.png"; sourceTree = "<group>"; };
+		17710E8717F466A8008A8E11 /* results-columns-green-cold-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-columns-green-cold-background@2x.png"; sourceTree = "<group>"; };
+		17710E8817F466A8008A8E11 /* results-column-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-column-selected@2x.png"; sourceTree = "<group>"; };
+		17710E8917F466A8008A8E11 /* results-column@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-column@2x.png"; sourceTree = "<group>"; };
+		17710E8A17F466A8008A8E11 /* results-columns-green-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-columns-green-background@2x.png"; sourceTree = "<group>"; };
+		17710E8B17F466A8008A8E11 /* calendar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-background@2x.png"; sourceTree = "<group>"; };
+		17710E8C17F466A8008A8E11 /* calendar-tabs-icon-reset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-tabs-icon-reset@2x.png"; sourceTree = "<group>"; };
+		17710E8D17F466A8008A8E11 /* calendar-tabs-plane-icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-tabs-plane-icon-back@2x.png"; sourceTree = "<group>"; };
+		17710E8E17F466A8008A8E11 /* calendar-tabs-plane-icon-forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-tabs-plane-icon-forward@2x.png"; sourceTree = "<group>"; };
+		17710E8F17F466A8008A8E11 /* calendar-tabs-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-tabs-background@2x.png"; sourceTree = "<group>"; };
+		17710E9017F466A8008A8E11 /* bnt-primary-large-for-dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bnt-primary-large-for-dark@2x.png"; sourceTree = "<group>"; };
+		17710E9117F466A8008A8E11 /* btn-primary-large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-primary-large@2x.png"; sourceTree = "<group>"; };
+		17710E9217F466A8008A8E11 /* calendar-return-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-return-date-bg@2x.png"; sourceTree = "<group>"; };
+		17710E9317F466A8008A8E11 /* calendar-departure-date-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-departure-date-bg@2x.png"; sourceTree = "<group>"; };
+		17710E9417F466A8008A8E11 /* calendar-interval-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-interval-bg@2x.png"; sourceTree = "<group>"; };
+		17710E9517F466A8008A8E11 /* calendar-today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-today@2x.png"; sourceTree = "<group>"; };
+		17710E9617F466A8008A8E11 /* months-slider-selection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "months-slider-selection@2x.png"; sourceTree = "<group>"; };
+		17710E9717F466A8008A8E11 /* months-silder-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "months-silder-bar@2x.png"; sourceTree = "<group>"; };
+		17710E9817F466A8008A8E11 /* CAFieldComplete-icon-reset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CAFieldComplete-icon-reset@2x.png"; sourceTree = "<group>"; };
+		17710E9917F466A8008A8E11 /* PassengersButton-baby-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PassengersButton-baby-icon@2x.png"; sourceTree = "<group>"; };
+		17710E9A17F466A8008A8E11 /* PassengersButton-kid-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PassengersButton-kid-icon@2x.png"; sourceTree = "<group>"; };
+		17710E9B17F466A8008A8E11 /* PassengersButton-man-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PassengersButton-man-icon@2x.png"; sourceTree = "<group>"; };
+		17710E9C17F466A8008A8E11 /* CASearchFormControls-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CASearchFormControls-button@2x.png"; sourceTree = "<group>"; };
+		17710E9D17F466A8008A8E11 /* UISwitch-handler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UISwitch-handler@2x.png"; sourceTree = "<group>"; };
+		17710E9E17F466A8008A8E11 /* UISwitch-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UISwitch-background@2x.png"; sourceTree = "<group>"; };
+		17710E9F17F466A8008A8E11 /* UISwitch-planes-one-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UISwitch-planes-one-active@2x.png"; sourceTree = "<group>"; };
+		17710EA017F466A8008A8E11 /* UISwitch-planes-one@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UISwitch-planes-one@2x.png"; sourceTree = "<group>"; };
+		17710EA117F466A8008A8E11 /* UISwitch-planes-two-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UISwitch-planes-two-active@2x.png"; sourceTree = "<group>"; };
+		17710EA217F466A8008A8E11 /* UISwitch-planes-two@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UISwitch-planes-two@2x.png"; sourceTree = "<group>"; };
+		17710EA317F466A8008A8E11 /* check-icon-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-icon-green@2x.png"; sourceTree = "<group>"; };
+		17710EA417F466A8008A8E11 /* clock-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-icon@2x.png"; sourceTree = "<group>"; };
+		17710EA517F466A8008A8E11 /* specials-card-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-card-red.png"; sourceTree = "<group>"; };
+		17710EA617F466A8008A8E11 /* specials-country-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "specials-country-selected.png"; sourceTree = "<group>"; };
+		6616230017EB395300B6A19C /* CAContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAContract.h; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.h"; sourceTree = SOURCE_ROOT; };
+		6616230117EB395300B6A19C /* CAContract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAContract.m; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.m"; sourceTree = SOURCE_ROOT; };
+		6616230217EB395300B6A19C /* CAContract.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAContract.xib; path = "clickavia-iphone/Controllers/OffersListViewController/Contract/CAContract.xib"; sourceTree = SOURCE_ROOT; };
+		6616237717EB3BB200B6A19C /* local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = local.png; path = Pods/BMChat/BMChat/BMChat.bundle/local.png; sourceTree = SOURCE_ROOT; };
+		6616237817EB3BB200B6A19C /* local@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "local@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/local@2x.png"; sourceTree = SOURCE_ROOT; };
+		6616237917EB3BB200B6A19C /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
+		6616237A17EB3BB200B6A19C /* what@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "what@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/what@2x.png"; sourceTree = SOURCE_ROOT; };
+		661E40BB17F1D88000DE8B0D /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		661E40BC17F1D88000DE8B0D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		661E40BD17F1D88000DE8B0D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		661E40BE17F1D88000DE8B0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderDetailsPersonal.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetailsPersonal.h"; sourceTree = SOURCE_ROOT; };
+		66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOrderDetailsPersonal.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetailsPersonal.m"; sourceTree = SOURCE_ROOT; };
+		66245FDA17E82656003A1611 /* CAOrderDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderDetails.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetails.h"; sourceTree = SOURCE_ROOT; };
+		66245FDB17E82656003A1611 /* CAOrderDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOrderDetails.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetails.m"; sourceTree = SOURCE_ROOT; };
+		662972D717E2F3AE00D9324B /* CAOffersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersCell.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCell.h"; sourceTree = SOURCE_ROOT; };
+		662972D817E2F3AE00D9324B /* CAOffersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersCell.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCell.m"; sourceTree = SOURCE_ROOT; };
+		662972DD17E2F40900D9324B /* CAOffersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAOffersCell.xib; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCell.xib"; sourceTree = SOURCE_ROOT; };
+		662972E017E31F6700D9324B /* CAOffersCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersCellView.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCellView.h"; sourceTree = SOURCE_ROOT; };
+		662972E117E31F6700D9324B /* CAOffersCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersCellView.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersCellView.m"; sourceTree = SOURCE_ROOT; };
+		6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACalendarMockDates.h; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.h"; sourceTree = SOURCE_ROOT; };
+		6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACalendarMockDates.m; path = "clickavia-iphone/Controllers/MainScreenViewController/CACalendarMockDates.m"; sourceTree = SOURCE_ROOT; };
+		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
+		6639C9F717C5E6A100CF772D /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreenViewController.m; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.m"; sourceTree = SOURCE_ROOT; };
+		6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainScreenViewController.xib; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
+		6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersListViewController.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.h"; sourceTree = SOURCE_ROOT; };
+		6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersListViewController.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.m"; sourceTree = SOURCE_ROOT; };
+		6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAOffersListViewController.xib; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersListViewController.xib"; sourceTree = SOURCE_ROOT; };
+		6639CA0917C5E6D600CF772D /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAppDelegate.h; path = "clickavia-iphone/Application/CAAppDelegate.h"; sourceTree = SOURCE_ROOT; };
+		6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = "clickavia-iphone/Application/CAAppDelegate.m"; sourceTree = SOURCE_ROOT; };
+		6639CA0E17C5FE5600CF772D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.h"; sourceTree = SOURCE_ROOT; };
+		6639CA0F17C5FE5600CF772D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.m"; sourceTree = SOURCE_ROOT; };
+		6644BE2D17E0ED43002A85D0 /* CAOffersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersData.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.h"; sourceTree = SOURCE_ROOT; };
+		6644BE2E17E0ED43002A85D0 /* CAOffersData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersData.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.m"; sourceTree = SOURCE_ROOT; };
+		6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightPassengersCount.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.h"; sourceTree = SOURCE_ROOT; };
+		6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightPassengersCount.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.m"; sourceTree = SOURCE_ROOT; };
+		666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColorSpecOffers.h; sourceTree = "<group>"; };
+		666C60DB17CCDFA9008220AC /* CASpecOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecOffersViewController.h; sourceTree = "<group>"; };
+		666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecOffersViewController.m; sourceTree = "<group>"; };
+		666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CASpecOffersViewController.xib; sourceTree = "<group>"; };
+		666C60DE17CCDFA9008220AC /* drawArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawArrowView.h; sourceTree = "<group>"; };
+		666C60DF17CCDFA9008220AC /* drawArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drawArrowView.m; sourceTree = "<group>"; };
+		666C60E117CCDFA9008220AC /* SpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOfferCell.h; sourceTree = "<group>"; };
+		666C60E217CCDFA9008220AC /* SpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOfferCell.m; sourceTree = "<group>"; };
+		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
+		668CB98B17F2033600A26506 /* Contract.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Contract.html; path = "clickavia-iphone/Controllers/Contract.html"; sourceTree = SOURCE_ROOT; };
+		668CB98F17F2063400A26506 /* CAFlightDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAFlightDataView.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.h"; sourceTree = SOURCE_ROOT; };
+		668CB99017F2063400A26506 /* CAFlightDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAFlightDataView.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.m"; sourceTree = SOURCE_ROOT; };
+		668CB99117F2063400A26506 /* CAFlightDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAFlightDataView.xib; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CAFlightDataView.xib"; sourceTree = SOURCE_ROOT; };
+		668CB99517F2066B00A26506 /* CAAssistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAssistView.h; path = "clickavia-iphone/Controllers/OffersListViewController/AssistView/CAAssistView.h"; sourceTree = SOURCE_ROOT; };
+		668CB99617F2066B00A26506 /* CAAssistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAssistView.m; path = "clickavia-iphone/Controllers/OffersListViewController/AssistView/CAAssistView.m"; sourceTree = SOURCE_ROOT; };
+		66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
+		66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
+		7C16A2AA17A648290055FF8F /* clickavia-iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "clickavia-iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C16A2AD17A648290055FF8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7C16A2AF17A648290055FF8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7C16A2B117A648290055FF8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7C16A2B317A648290055FF8F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7C16A2B717A648290055FF8F /* clickavia-iphone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "clickavia-iphone-Info.plist"; sourceTree = "<group>"; };
+		7C16A2B917A648290055FF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7C16A2BB17A648290055FF8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7C16A2BD17A648290055FF8F /* clickavia-iphone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "clickavia-iphone-Prefix.pch"; sourceTree = "<group>"; };
+		7C16A2C117A648290055FF8F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		7C16A2C317A648290055FF8F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		7C16A2C517A648290055FF8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7C16A2CF17A648290055FF8F /* clickavia-iphoneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clickavia-iphoneTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C16A2D017A648290055FF8F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7C16A2D917A648290055FF8F /* clickavia-iphoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "clickavia-iphoneTests-Info.plist"; sourceTree = "<group>"; };
+		7C16A2DB17A648290055FF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7C16A2DD17A648290055FF8F /* clickavia_iphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clickavia_iphoneTests.h; sourceTree = "<group>"; };
+		7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = clickavia_iphoneTests.m; sourceTree = "<group>"; };
+		7C16A30E17A67B490055FF8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatTableCellView.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatTableCellView.xib; sourceTree = SOURCE_ROOT; };
+		7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BMChatViewController.xib; path = Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController.xib; sourceTree = SOURCE_ROOT; };
+		7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "BMChatViewController~iPad.xib"; path = "Pods/BMChat/BMChat/BMChat.bundle/BMChatViewController~iPad.xib"; sourceTree = SOURCE_ROOT; };
+		BA2E1A6A65D2466D8633684C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F76D61C419488D984C2542 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C16A2A717A648290055FF8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C16A30F17A67B490055FF8F /* QuartzCore.framework in Frameworks */,
+				7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */,
+				7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */,
+				7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */,
+				7C16A2B417A648290055FF8F /* CoreData.framework in Frameworks */,
+				4EFF6411187D4914AD49B6AB /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C16A2CB17A648290055FF8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C16A2D117A648290055FF8F /* SenTestingKit.framework in Frameworks */,
+				7C16A2D217A648290055FF8F /* UIKit.framework in Frameworks */,
+				7C16A2D317A648290055FF8F /* Foundation.framework in Frameworks */,
+				7C16A2D417A648290055FF8F /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6616233317EB39CD00B6A19C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C2670AA17CB1FAE002EE876 /* BMChatTableCellView.xib */,
+				7C2670AB17CB1FAE002EE876 /* BMChatViewController.xib */,
+				7C2670AC17CB1FAE002EE876 /* BMChatViewController~iPad.xib */,
+				6616237717EB3BB200B6A19C /* local.png */,
+				6616237817EB3BB200B6A19C /* local@2x.png */,
+				6616237917EB3BB200B6A19C /* what.png */,
+				6616237A17EB3BB200B6A19C /* what@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		662972DF17E2F56500D9324B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */,
+				6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		668CB98E17F2060A00A26506 /* FlightData */ = {
+			isa = PBXGroup;
+			children = (
+				668CB98F17F2063400A26506 /* CAFlightDataView.h */,
+				668CB99017F2063400A26506 /* CAFlightDataView.m */,
+				668CB99117F2063400A26506 /* CAFlightDataView.xib */,
+				66245FDA17E82656003A1611 /* CAOrderDetails.h */,
+				66245FDB17E82656003A1611 /* CAOrderDetails.m */,
+			);
+			name = FlightData;
+			sourceTree = "<group>";
+		};
+		668CB99417F2064800A26506 /* AssistView */ = {
+			isa = PBXGroup;
+			children = (
+				668CB99517F2066B00A26506 /* CAAssistView.h */,
+				668CB99617F2066B00A26506 /* CAAssistView.m */,
+			);
+			name = AssistView;
+			sourceTree = "<group>";
+		};
+		66EB074817E62505003469E4 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				6644BE2D17E0ED43002A85D0 /* CAOffersData.h */,
+				6644BE2E17E0ED43002A85D0 /* CAOffersData.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		66F4C7E217EB0FDB0004DB88 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				6616230017EB395300B6A19C /* CAContract.h */,
+				6616230117EB395300B6A19C /* CAContract.m */,
+				6616230217EB395300B6A19C /* CAContract.xib */,
+				668CB98B17F2033600A26506 /* Contract.html */,
+			);
+			name = Contract;
+			sourceTree = "<group>";
+		};
+		7C16A2A117A648290055FF8F = {
+			isa = PBXGroup;
+			children = (
+				661E40BB17F1D88000DE8B0D /* Gemfile */,
+				661E40BC17F1D88000DE8B0D /* Podfile */,
+				661E40BD17F1D88000DE8B0D /* Podfile.lock */,
+				661E40BE17F1D88000DE8B0D /* README.md */,
+				7C16A2B517A648290055FF8F /* clickavia-iphone */,
+				7C16A2D717A648290055FF8F /* clickavia-iphoneTests */,
+				7C16A2AC17A648290055FF8F /* Frameworks */,
+				7C16A2AB17A648290055FF8F /* Products */,
+				C5F76D61C419488D984C2542 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		7C16A2AB17A648290055FF8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2AA17A648290055FF8F /* clickavia-iphone.app */,
+				7C16A2CF17A648290055FF8F /* clickavia-iphoneTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C16A2AC17A648290055FF8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A30E17A67B490055FF8F /* QuartzCore.framework */,
+				7C16A2AD17A648290055FF8F /* UIKit.framework */,
+				7C16A2AF17A648290055FF8F /* Foundation.framework */,
+				7C16A2B117A648290055FF8F /* CoreGraphics.framework */,
+				7C16A2B317A648290055FF8F /* CoreData.framework */,
+				7C16A2D017A648290055FF8F /* SenTestingKit.framework */,
+				BA2E1A6A65D2466D8633684C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C16A2B517A648290055FF8F /* clickavia-iphone */ = {
+			isa = PBXGroup;
+			children = (
+				7CE49F2517C4A9D700F3EA0C /* Application */,
+				7C16A2E917A648B20055FF8F /* Controllers */,
+				7C16A2EA17A648B20055FF8F /* Resources */,
+				7C16A2EB17A648B20055FF8F /* Views */,
+				7C16A2EF17A64A3B0055FF8F /* Model */,
+				7C16A2B617A648290055FF8F /* Supporting Files */,
+			);
+			path = "clickavia-iphone";
+			sourceTree = "<group>";
+		};
+		7C16A2B617A648290055FF8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2B717A648290055FF8F /* clickavia-iphone-Info.plist */,
+				7C16A2B817A648290055FF8F /* InfoPlist.strings */,
+				7C16A2BB17A648290055FF8F /* main.m */,
+				7C16A2BD17A648290055FF8F /* clickavia-iphone-Prefix.pch */,
+				7C16A2C117A648290055FF8F /* Default.png */,
+				7C16A2C317A648290055FF8F /* Default@2x.png */,
+				7C16A2C517A648290055FF8F /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C16A2D717A648290055FF8F /* clickavia-iphoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2DD17A648290055FF8F /* clickavia_iphoneTests.h */,
+				7C16A2DE17A648290055FF8F /* clickavia_iphoneTests.m */,
+				7C16A2D817A648290055FF8F /* Supporting Files */,
+			);
+			path = "clickavia-iphoneTests";
+			sourceTree = "<group>";
+		};
+		7C16A2D817A648290055FF8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C16A2D917A648290055FF8F /* clickavia-iphoneTests-Info.plist */,
+				7C16A2DA17A648290055FF8F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C16A2E917A648B20055FF8F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7CC150CA17C5DD9300796B50 /* ChatViewController */,
+				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
+				7CC7D33217A78B3400940C94 /* OffersListViewController */,
+				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7C16A2EA17A648B20055FF8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17710E7817F466A8008A8E11 /* specials-card-red@2x.png */,
+				17710E7917F466A8008A8E11 /* specials-country-selected@2x.png */,
+				17710E7A17F466A8008A8E11 /* bar-green-cold@2x.png */,
+				17710E7B17F466A8008A8E11 /* bar-green-warm@2x.png */,
+				17710E7C17F466A8008A8E11 /* background-gray-textured@2x.png */,
+				17710E7D17F466A8008A8E11 /* columns-icon@2x.png */,
+				17710E7E17F466A8008A8E11 /* toolbar-button-active@2x.png */,
+				17710E7F17F466A8008A8E11 /* toolbar-button@2x.png */,
+				17710E8017F466A8008A8E11 /* toolbar-arrow-right@2x.png */,
+				17710E8117F466A8008A8E11 /* toolbar-back-icon@2x.png */,
+				17710E8217F466A8008A8E11 /* toolbar-background@2x.png */,
+				17710E8317F466A8008A8E11 /* btn-primary-for-light@2x.png */,
+				17710E8417F466A8008A8E11 /* passengers-icon-baby@2x.png */,
+				17710E8517F466A8008A8E11 /* passengers-icon-kid@2x.png */,
+				17710E8617F466A8008A8E11 /* passengers-icon-man@2x.png */,
+				17710E8717F466A8008A8E11 /* results-columns-green-cold-background@2x.png */,
+				17710E8817F466A8008A8E11 /* results-column-selected@2x.png */,
+				17710E8917F466A8008A8E11 /* results-column@2x.png */,
+				17710E8A17F466A8008A8E11 /* results-columns-green-background@2x.png */,
+				17710E8B17F466A8008A8E11 /* calendar-background@2x.png */,
+				17710E8C17F466A8008A8E11 /* calendar-tabs-icon-reset@2x.png */,
+				17710E8D17F466A8008A8E11 /* calendar-tabs-plane-icon-back@2x.png */,
+				17710E8E17F466A8008A8E11 /* calendar-tabs-plane-icon-forward@2x.png */,
+				17710E8F17F466A8008A8E11 /* calendar-tabs-background@2x.png */,
+				17710E9017F466A8008A8E11 /* bnt-primary-large-for-dark@2x.png */,
+				17710E9117F466A8008A8E11 /* btn-primary-large@2x.png */,
+				17710E9217F466A8008A8E11 /* calendar-return-date-bg@2x.png */,
+				17710E9317F466A8008A8E11 /* calendar-departure-date-bg@2x.png */,
+				17710E9417F466A8008A8E11 /* calendar-interval-bg@2x.png */,
+				17710E9517F466A8008A8E11 /* calendar-today@2x.png */,
+				17710E9617F466A8008A8E11 /* months-slider-selection@2x.png */,
+				17710E9717F466A8008A8E11 /* months-silder-bar@2x.png */,
+				17710E9817F466A8008A8E11 /* CAFieldComplete-icon-reset@2x.png */,
+				17710E9917F466A8008A8E11 /* PassengersButton-baby-icon@2x.png */,
+				17710E9A17F466A8008A8E11 /* PassengersButton-kid-icon@2x.png */,
+				17710E9B17F466A8008A8E11 /* PassengersButton-man-icon@2x.png */,
+				17710E9C17F466A8008A8E11 /* CASearchFormControls-button@2x.png */,
+				17710E9D17F466A8008A8E11 /* UISwitch-handler@2x.png */,
+				17710E9E17F466A8008A8E11 /* UISwitch-background@2x.png */,
+				17710E9F17F466A8008A8E11 /* UISwitch-planes-one-active@2x.png */,
+				17710EA017F466A8008A8E11 /* UISwitch-planes-one@2x.png */,
+				17710EA117F466A8008A8E11 /* UISwitch-planes-two-active@2x.png */,
+				17710EA217F466A8008A8E11 /* UISwitch-planes-two@2x.png */,
+				17710EA317F466A8008A8E11 /* check-icon-green@2x.png */,
+				17710EA417F466A8008A8E11 /* clock-icon@2x.png */,
+				17710EA517F466A8008A8E11 /* specials-card-red.png */,
+				17710EA617F466A8008A8E11 /* specials-country-selected.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C16A2EB17A648B20055FF8F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7C16A2EF17A64A3B0055FF8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C16A31117A67BD50055FF8F /* SpecialOfferViewController */ = {
+			isa = PBXGroup;
+			children = (
+				666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */,
+				666C60DB17CCDFA9008220AC /* CASpecOffersViewController.h */,
+				666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */,
+				666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */,
+				666C60DE17CCDFA9008220AC /* drawArrowView.h */,
+				666C60DF17CCDFA9008220AC /* drawArrowView.m */,
+				666C60E117CCDFA9008220AC /* SpecialOfferCell.h */,
+				666C60E217CCDFA9008220AC /* SpecialOfferCell.m */,
+				666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */,
+			);
+			path = SpecialOfferViewController;
+			sourceTree = "<group>";
+		};
+		7CC150C117C5D4DE00796B50 /* MainScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6639C9F417C5E6A100CF772D /* CACalendarMockDates.h */,
+				6639C9F517C5E6A100CF772D /* CACalendarMockDates.m */,
+				6639C9F617C5E6A100CF772D /* MainScreenViewController.h */,
+				6639C9F717C5E6A100CF772D /* MainScreenViewController.m */,
+				6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */,
+			);
+			name = MainScreenViewController;
+			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
+			sourceTree = "<group>";
+		};
+		7CC150CA17C5DD9300796B50 /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6639CA0E17C5FE5600CF772D /* ChatViewController.h */,
+				6639CA0F17C5FE5600CF772D /* ChatViewController.m */,
+				6616233317EB39CD00B6A19C /* Resources */,
+			);
+			name = ChatViewController;
+			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/ChatViewController";
+			sourceTree = "<group>";
+		};
+		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				66EB074817E62505003469E4 /* Objects */,
+				662972DF17E2F56500D9324B /* Model */,
+				66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */,
+				66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */,
+				662972E017E31F6700D9324B /* CAOffersCellView.h */,
+				662972E117E31F6700D9324B /* CAOffersCellView.m */,
+				662972D717E2F3AE00D9324B /* CAOffersCell.h */,
+				662972D817E2F3AE00D9324B /* CAOffersCell.m */,
+				662972DD17E2F40900D9324B /* CAOffersCell.xib */,
+				6639C9FE17C5E6AE00CF772D /* CAOffersListViewController.h */,
+				6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */,
+				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
+				66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */,
+				66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */,
+				66F4C7E217EB0FDB0004DB88 /* Contract */,
+				668CB98E17F2060A00A26506 /* FlightData */,
+				668CB99417F2064800A26506 /* AssistView */,
+			);
+			name = OffersListViewController;
+			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
+			sourceTree = "<group>";
+		};
+		7CE49F2517C4A9D700F3EA0C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6639CA0917C5E6D600CF772D /* CAAppDelegate.h */,
+				6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */,
+			);
+			name = Application;
+			path = "../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Application";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C16A2A917A648290055FF8F /* clickavia-iphone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C16A2E217A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphone" */;
+			buildPhases = (
+				50613A499998436B9548DF0D /* Check Pods Manifest.lock */,
+				7C16A2A617A648290055FF8F /* Sources */,
+				7C16A2A717A648290055FF8F /* Frameworks */,
+				7C16A2A817A648290055FF8F /* Resources */,
+				565F7F45350348D6AC37A86B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "clickavia-iphone";
+			productName = "clickavia-iphone";
+			productReference = 7C16A2AA17A648290055FF8F /* clickavia-iphone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7C16A2CE17A648290055FF8F /* clickavia-iphoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C16A2E517A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphoneTests" */;
+			buildPhases = (
+				7C16A2CA17A648290055FF8F /* Sources */,
+				7C16A2CB17A648290055FF8F /* Frameworks */,
+				7C16A2CC17A648290055FF8F /* Resources */,
+				7C16A2CD17A648290055FF8F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C16A2D617A648290055FF8F /* PBXTargetDependency */,
+			);
+			name = "clickavia-iphoneTests";
+			productName = "clickavia-iphoneTests";
+			productReference = 7C16A2CF17A648290055FF8F /* clickavia-iphoneTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C16A2A217A648290055FF8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CA;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = brandymint;
+				TargetAttributes = {
+					7C16A2A917A648290055FF8F = {
+						DevelopmentTeam = QZE35L7B2K;
+					};
+				};
+			};
+			buildConfigurationList = 7C16A2A517A648290055FF8F /* Build configuration list for PBXProject "clickavia-iphone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7C16A2A117A648290055FF8F;
+			productRefGroup = 7C16A2AB17A648290055FF8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C16A2A917A648290055FF8F /* clickavia-iphone */,
+				7C16A2CE17A648290055FF8F /* clickavia-iphoneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C16A2A817A648290055FF8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C16A2BA17A648290055FF8F /* InfoPlist.strings in Resources */,
+				7C16A2C217A648290055FF8F /* Default.png in Resources */,
+				17710ECE17F466A8008A8E11 /* UISwitch-planes-one-active@2x.png in Resources */,
+				7C16A2C417A648290055FF8F /* Default@2x.png in Resources */,
+				17710ED017F466A8008A8E11 /* UISwitch-planes-two-active@2x.png in Resources */,
+				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
+				668CB99317F2063400A26506 /* CAFlightDataView.xib in Resources */,
+				17710EAA17F466A8008A8E11 /* bar-green-warm@2x.png in Resources */,
+				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
+				17710ECC17F466A8008A8E11 /* UISwitch-handler@2x.png in Resources */,
+				17710EB117F466A8008A8E11 /* toolbar-background@2x.png in Resources */,
+				17710EC417F466A8008A8E11 /* calendar-today@2x.png in Resources */,
+				17710ECF17F466A8008A8E11 /* UISwitch-planes-one@2x.png in Resources */,
+				6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */,
+				17710EB817F466A8008A8E11 /* results-column@2x.png in Resources */,
+				7C2670B117CB1FAE002EE876 /* BMChatTableCellView.xib in Resources */,
+				7C2670B217CB1FAE002EE876 /* BMChatViewController.xib in Resources */,
+				17710EB617F466A8008A8E11 /* results-columns-green-cold-background@2x.png in Resources */,
+				17710EB417F466A8008A8E11 /* passengers-icon-kid@2x.png in Resources */,
+				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
+				17710ED417F466A8008A8E11 /* specials-card-red.png in Resources */,
+				17710ECD17F466A8008A8E11 /* UISwitch-background@2x.png in Resources */,
+				17710EC117F466A8008A8E11 /* calendar-return-date-bg@2x.png in Resources */,
+				17710ED117F466A8008A8E11 /* UISwitch-planes-two@2x.png in Resources */,
+				666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */,
+				17710EC217F466A8008A8E11 /* calendar-departure-date-bg@2x.png in Resources */,
+				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
+				668CB98D17F2033600A26506 /* Contract.html in Resources */,
+				662972DE17E2F40900D9324B /* CAOffersCell.xib in Resources */,
+				6616230417EB395300B6A19C /* CAContract.xib in Resources */,
+				17710EBB17F466A8008A8E11 /* calendar-tabs-icon-reset@2x.png in Resources */,
+				17710EBF17F466A8008A8E11 /* bnt-primary-large-for-dark@2x.png in Resources */,
+				17710ED317F466A8008A8E11 /* clock-icon@2x.png in Resources */,
+				17710EC517F466A8008A8E11 /* months-slider-selection@2x.png in Resources */,
+				17710EA717F466A8008A8E11 /* specials-card-red@2x.png in Resources */,
+				17710EB517F466A8008A8E11 /* passengers-icon-man@2x.png in Resources */,
+				6616237B17EB3BB200B6A19C /* local.png in Resources */,
+				17710ED517F466A8008A8E11 /* specials-country-selected.png in Resources */,
+				6616237C17EB3BB200B6A19C /* local@2x.png in Resources */,
+				6616237D17EB3BB200B6A19C /* what.png in Resources */,
+				17710EAB17F466A8008A8E11 /* background-gray-textured@2x.png in Resources */,
+				17710ED217F466A8008A8E11 /* check-icon-green@2x.png in Resources */,
+				6616237E17EB3BB200B6A19C /* what@2x.png in Resources */,
+				17710EB217F466A8008A8E11 /* btn-primary-for-light@2x.png in Resources */,
+				17710EB017F466A8008A8E11 /* toolbar-back-icon@2x.png in Resources */,
+				17710EC617F466A8008A8E11 /* months-silder-bar@2x.png in Resources */,
+				17710EBA17F466A8008A8E11 /* calendar-background@2x.png in Resources */,
+				17710EAD17F466A8008A8E11 /* toolbar-button-active@2x.png in Resources */,
+				17710ECB17F466A8008A8E11 /* CASearchFormControls-button@2x.png in Resources */,
+				17710EB917F466A8008A8E11 /* results-columns-green-background@2x.png in Resources */,
+				17710ECA17F466A8008A8E11 /* PassengersButton-man-icon@2x.png in Resources */,
+				17710EAF17F466A8008A8E11 /* toolbar-arrow-right@2x.png in Resources */,
+				17710EC317F466A8008A8E11 /* calendar-interval-bg@2x.png in Resources */,
+				17710EBD17F466A8008A8E11 /* calendar-tabs-plane-icon-forward@2x.png in Resources */,
+				17710EC817F466A8008A8E11 /* PassengersButton-baby-icon@2x.png in Resources */,
+				17710EC717F466A8008A8E11 /* CAFieldComplete-icon-reset@2x.png in Resources */,
+				17710EAE17F466A8008A8E11 /* toolbar-button@2x.png in Resources */,
+				17710EBC17F466A8008A8E11 /* calendar-tabs-plane-icon-back@2x.png in Resources */,
+				17710EC917F466A8008A8E11 /* PassengersButton-kid-icon@2x.png in Resources */,
+				17710EAC17F466A8008A8E11 /* columns-icon@2x.png in Resources */,
+				17710EA817F466A8008A8E11 /* specials-country-selected@2x.png in Resources */,
+				17710EA917F466A8008A8E11 /* bar-green-cold@2x.png in Resources */,
+				661E40BF17F1D88000DE8B0D /* Gemfile in Resources */,
+				17710EBE17F466A8008A8E11 /* calendar-tabs-background@2x.png in Resources */,
+				17710EC017F466A8008A8E11 /* btn-primary-large@2x.png in Resources */,
+				17710EB317F466A8008A8E11 /* passengers-icon-baby@2x.png in Resources */,
+				661E40C017F1D88000DE8B0D /* Podfile in Resources */,
+				661E40C117F1D88000DE8B0D /* Podfile.lock in Resources */,
+				17710EB717F466A8008A8E11 /* results-column-selected@2x.png in Resources */,
+				661E40C217F1D88000DE8B0D /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C16A2CC17A648290055FF8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C16A2DC17A648290055FF8F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50613A499998436B9548DF0D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		565F7F45350348D6AC37A86B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		7C16A2CD17A648290055FF8F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C16A2A617A648290055FF8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C16A2BC17A648290055FF8F /* main.m in Sources */,
+				6639C9F917C5E6A100CF772D /* CACalendarMockDates.m in Sources */,
+				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
+				6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */,
+				6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */,
+				666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */,
+				666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */,
+				666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */,
+				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
+				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
+				668CB99717F2066B00A26506 /* CAAssistView.m in Sources */,
+				6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */,
+				6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */,
+				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
+				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
+				668CB99217F2063400A26506 /* CAFlightDataView.m in Sources */,
+				66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */,
+				66245FDD17E82656003A1611 /* CAOrderDetails.m in Sources */,
+				6616230317EB395300B6A19C /* CAContract.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C16A2CA17A648290055FF8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C16A2DF17A648290055FF8F /* clickavia_iphoneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7C16A2D617A648290055FF8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7C16A2A917A648290055FF8F /* clickavia-iphone */;
+			targetProxy = 7C16A2D517A648290055FF8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7C16A2B817A648290055FF8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C16A2B917A648290055FF8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7C16A2DA17A648290055FF8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C16A2DB17A648290055FF8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C16A2E017A648290055FF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7C16A2E117A648290055FF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C16A2E317A648290055FF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
+				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7C16A2E417A648290055FF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
+				INFOPLIST_FILE = "clickavia-iphone/clickavia-iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7C16A2E617A648290055FF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/clickavia-iphone.app/clickavia-iphone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
+				INFOPLIST_FILE = "clickavia-iphoneTests/clickavia-iphoneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7C16A2E717A648290055FF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/clickavia-iphone.app/clickavia-iphone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
+				INFOPLIST_FILE = "clickavia-iphoneTests/clickavia-iphoneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C16A2A517A648290055FF8F /* Build configuration list for PBXProject "clickavia-iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C16A2E017A648290055FF8F /* Debug */,
+				7C16A2E117A648290055FF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C16A2E217A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C16A2E317A648290055FF8F /* Debug */,
+				7C16A2E417A648290055FF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C16A2E517A648290055FF8F /* Build configuration list for PBXNativeTarget "clickavia-iphoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C16A2E617A648290055FF8F /* Debug */,
+				7C16A2E717A648290055FF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C16A2A217A648290055FF8F /* Project object */;
+}
