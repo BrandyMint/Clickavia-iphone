@@ -210,14 +210,20 @@
 
 - (void) calendarView:(CACalendarView*)calendarView didSelectDate:(NSDate*)date
 {
-    if(_calendarView.flyToDate!=nil)
+    if(_calendarView.flyToDate==nil)
     {
-        
+        if (departureDate){
+        [_calendarView selectDate:departureDate];
+        }
+    }
+    else
+    {
         _findButton_outlet.enabled = YES;
         
         if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
         {
             departureDate = date;
+            [self reloadDatesReturn];
         }
         
         if(_calendarView.flyReturnDate!=nil)
@@ -262,25 +268,42 @@
 
 - (void) reloadDates
 {
+    
     if(currentSearchConditions.direction_departure!=nil&&currentSearchConditions.direction_return!=nil)
     {
-        [_calendarView resetSelections];
-        [fm getAvailableDepartureDates:currentSearchConditions departureDate:[NSDate date] completeBlock:^(NSArray *dates)
-         {
-             departureDates = dates;
-             [fm getAvailableReturnDates:currentSearchConditions withDepartureDate:[NSDate date] completeBlock:^(NSArray *array)
-              {
-                  returnDates = array;
-                  [self updateCalendarDates];
-              }];
-             
-         }];
+        [self reloadDatesDeparture];
+        [self reloadDatesReturn];
     }
     else
     {
         [_calendarView resetSelections];
     }
+
 }
+
+
+- (void) reloadDatesDeparture
+{
+    [_calendarView resetSelections];
+    [fm getAvailableDepartureDates:currentSearchConditions departureDate:[NSDate date] completeBlock:^(NSArray *dates)
+     {
+         departureDates = dates;
+         NSLog(@"departureDates: %@", departureDates);
+         [self updateCalendarDates];
+     }];
+}
+
+- (void) reloadDatesReturn
+{
+    [fm getAvailableReturnDates:currentSearchConditions withDepartureDate:departureDate completeBlock:^(NSArray *array)
+     {
+         returnDates = array;
+         NSLog(@"returnDates: %@", returnDates);
+         [self updateCalendarDates];
+     }];
+}
+
+
 -(void)updateCalendarDates
 {
     [_calendarView selectFlyToDaysByDateArray:departureDates];
