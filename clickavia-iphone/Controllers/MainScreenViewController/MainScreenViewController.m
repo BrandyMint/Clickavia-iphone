@@ -152,7 +152,12 @@
 - (void) searchFormView:(CASearchFormView *)searchFormView didSelectClassOfFlight:(flightType)typeOfFlight
 {
     currentSearchConditions.typeOfFlight = typeOfFlight;
-    [self reloadDates];
+    returnDates = nil;
+    departureDates = nil;
+    departureDate = nil;
+    returnDate = nil;
+    [_calendarView resetSelections];
+    [self reloadDatesDeparture];
 }
 
 - (void) searchFormView:(CASearchFormView *)CASearchFormView didSelectPassengersCount:(CAFlightPassengersCount *)passengersCount
@@ -162,22 +167,27 @@
 
     //without infants
     currentSearchConditions.countOfTickets = [[NSNumber alloc ]initWithInteger:(passengersCount.adultsCount + passengersCount.childrenCount)];
-    [self reloadDates];
 }
 
 - (void) searchFormView:(CASearchFormView*)searchFormView didSelectBothWays:(BOOL)isBothWays
 {
     if(isBothWays)
     {
-        NSLog(@"both way");
-        
-        if(_calendarView.flyReturnDate==nil && _calendarView.flyToDate != nil)
+                NSLog(@"both way");
+        if(returnDate==nil && departureDate != nil)
         {
             NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
             dayComponent.day = 7;
-            
-            [_calendarView selectDate:[[NSCalendar currentCalendar] dateByAddingComponents:dayComponent toDate:_calendarView.flyToDate options:0]];
-            returnDate = _calendarView.flyReturnDate;
+            NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:dayComponent toDate:departureDate options:0];
+//            [_calendarView selectDate:date];
+            returnDate = date;
+        }
+        else
+        {
+            /*if(_calendarView.flyReturnDate!=nil)
+            {
+                returnDate = _calendarView.flyReturnDate;
+            }*/
         }
     }
     else
@@ -197,61 +207,125 @@
 - (void) searchFormView:(CASearchFormView *)searchFormView selectedDepartureDestination:(Destination *)destination
 {
     currentSearchConditions.direction_departure = destination;
-    [self reloadDates];
+    if(currentSearchConditions.direction_departure!=nil&&currentSearchConditions.direction_return!=nil)
+    {
+        //если все направления выбраны - грузим даты туда
+        //и не забудем сбросить условия поиска
+        returnDates = nil;
+        departureDates = nil;
+        departureDate = nil;
+        returnDate = nil;
+        [self reloadDatesDeparture];
+    }
+    else
+    {
+        //скорее всего какой-то пункт назначения был сброшен
+        returnDates = nil;
+        departureDates = nil;
+        departureDate = nil;
+        returnDate = nil;
+        [self updateCalendarDates];
+    }
+    
 }
 
 -(void) searchFormView:(CASearchFormView *)searchFormView selectedArrivalDestination:(Destination *)destination
 {
     currentSearchConditions.direction_return = destination;
-    [self reloadDates];
+    if(currentSearchConditions.direction_departure!=nil&&currentSearchConditions.direction_return!=nil)
+    {
+        //если все направления выбраны - грузим даты туда
+        returnDates = nil;
+        departureDates = nil;
+        departureDate = nil;
+        returnDate = nil;
+        [self reloadDatesDeparture];
+    }
+    else
+    {
+        //скорее всего какой-то пункт назначения был сброшен
+        returnDates = nil;
+        departureDates = nil;
+        departureDate = nil;
+        returnDate = nil;
+        [_calendarView resetSelections];
+        [self updateCalendarDates];
+    }
 }
 
 #pragma mark CACalendarViewDelegate
 
+- (void) whatHappeningWithDates:(NSDate*)date
+{
+
+}
 - (void) calendarView:(CACalendarView*)calendarView didSelectDate:(NSDate*)date
 {
-    if(_calendarView.flyToDate!=nil)
+    NSLog(@"%@",date);
+    
+    if(departureDate==nil)
     {
-        
-        _findButton_outlet.enabled = YES;
-        
-        if([CACalendarView compareDate:_calendarView.flyToDate and:date]==NSOrderedSame)
+        //была выбрана дата туда
+        departureDate = _calendarView.flyToDate;
+        if(departureDate==nil)
         {
-            departureDate = date;
-        }
-        
-        if(_calendarView.flyReturnDate!=nil)
-        {
-
-            if(currentSearchConditions.isBothWays == NO)
-            {
-                [_searchForm setBothWaySwitch:YES withAnimation:YES];
-            }
+            //но все-таки ее сбросили
+            [_calendarView resetSelections];
+            [self reloadDatesDeparture];
+            return;
         }
         else
         {
-            if(currentSearchConditions.isBothWays == YES)
-            {
-                [_searchForm setBothWaySwitch:NO withAnimation:YES];
-            }
-    }
-    if(_calendarView.flyReturnDate!=nil)
-    {
-        if([CACalendarView compareDate:_calendarView.flyReturnDate and:date]==NSOrderedSame)
-        {
-            returnDate = date;
-
+            //дату туда выбрали
+            [_calendarView resetSelections];
+            [self reloadDatesReturn];
+            [_searchForm setBothWaySwitch:YES withAnimation:YES];
+            return;
         }
     }
-    
-    if(_calendarView.flyToDate==nil)
+    else
     {
-        if(currentSearchConditions.isBothWays == YES)
+        if(_calendarView.flyToDate==nil)
         {
+            //была сброшена туда 100%
+            departureDate = nil;
+            returnDate = nil;
+            [_calendarView resetSelections];
+            [self reloadDatesDeparture];
             [_searchForm setBothWaySwitch:NO withAnimation:YES];
-
+            return;
+        }
+        else
+        {
+            if([CACalendarView compareDate:date and:_calendarView.flyToDate]==NSOrderedSame)
+            {
+                departureDate = _calendarView.flyToDate;
+                [_calendarView resetSelections];
+                [self reloadDatesReturn];
+                return;
+                //была изменена дата туда
+            }
         }
     }
+    if(returnDate==nil)
+    {
+        //была выбрана дата оттуда
+        returnDate = _calendarView.flyReturnDate;
+        [_searchForm setBothWaySwitch:YES withAnimation:YES];
+    }
+    else
+    {
+        if(_calendarView.flyReturnDate==nil)
+        {
+            //дата оттуда была сброшена
+            returnDate = nil;
+            [_searchForm setBothWaySwitch:NO withAnimation:YES];
+        }
+        else
+        {
+            //дата оттуда была изменена
+            returnDate = _calendarView.flyReturnDate;
+        }
     }
 }
 
@@ -259,33 +333,62 @@
 {
     NSLog([date description]);
 }
-
-- (void) reloadDates
+- (void) reloadDatesDeparture
 {
-    if(currentSearchConditions.direction_departure!=nil&&currentSearchConditions.direction_return!=nil)
+//    [_calendarView resetSelections];
+    [fm getAvailableDepartureDates:currentSearchConditions departureDate:nil completeBlock:^(NSArray *dates)
+     {
+         departureDates = dates;
+         NSLog(@"departureDates: %@", departureDates);
+         [self updateCalendarDates];
+     }];
+}
+
+- (void) reloadDatesReturn
+{
+//    [_calendarView resetSelections];
+    [fm getAvailableReturnDates:currentSearchConditions withDepartureDate:departureDate completeBlock:^(NSArray *array)
+     {
+         returnDates = array;
+         NSLog(@"returnDates: %@", returnDates);
+         [self updateCalendarDates];
+     }];
+}
+
+
+-(void)updateCalendarDates
+{
+
+    [_calendarView selectFlyToDaysByDateArray:departureDates];
+    [_calendarView selectFlyReturnDaysByDateArray:returnDates];
+    if(departureDate!=nil)
     {
-        [_calendarView resetSelections];
-        [fm getAvailableDepartureDates:currentSearchConditions departureDate:[NSDate date] completeBlock:^(NSArray *dates)
+         if(![CACalendarView compareDate:_calendarView.flyToDate and:departureDate])
          {
-             departureDates = dates;
-             [fm getAvailableReturnDates:currentSearchConditions withDepartureDate:[NSDate date] completeBlock:^(NSArray *array)
-              {
-                  returnDates = array;
-                  [self updateCalendarDates];
-              }];
-             
-         }];
+             [_calendarView selectDate:departureDate];
+         }
+
+    }
+    if(returnDate!=nil)
+    {
+        if(![CACalendarView compareDate:_calendarView.flyReturnDate and:returnDate])
+        {
+            [_calendarView selectDate:returnDate];
+            currentSearchConditions.isBothWays = YES;
+        }
+    }
+    
+    if(_calendarView.flyToDate!=nil)
+    {
+        _findButton_outlet.enabled = YES;
     }
     else
     {
-        [_calendarView resetSelections];
+        _findButton_outlet.enabled = NO;
     }
 }
--(void)updateCalendarDates
-{
-    [_calendarView selectFlyToDaysByDateArray:departureDates];
-    [_calendarView selectFlyReturnDaysByDateArray:returnDates];
-}
+
+
 
 - (SearchConditions*)getSearchConditions
 {
