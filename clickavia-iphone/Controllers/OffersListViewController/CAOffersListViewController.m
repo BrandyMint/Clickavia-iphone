@@ -323,8 +323,11 @@
 -(void)loadDataForColumnsArrival
 {
     [self showLoading:YES];
+    if(_offerConditions.returnDate==nil)
+    {
+        _offerConditions.returnDate = _offerConditions.departureDate;
+    }
     fdm.offerConditions = _offerConditions;
-    
     [fdm getFlightsReturnByDateWithCompleteBlock:^(NSArray *flights)
      {
          [columnArrivialControlView importFlights:flights];
