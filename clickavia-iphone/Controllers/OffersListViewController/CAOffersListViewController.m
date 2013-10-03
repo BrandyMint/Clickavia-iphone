@@ -539,7 +539,7 @@
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CAOffersCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
         
-        UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerObject passengers:passengersCount];
+        UIView* cardView = [[CAOffersCellView alloc] initByOfferModel:offerObject passengers:passengersCount isBothWays:isReturn];
         [cell transferView:cardView];
         
         UIView *v = [[UIView alloc] init];
@@ -679,10 +679,19 @@
 {
     Offer* offerObject = [[Offer alloc] init];
     offerObject = [arrayOffers objectAtIndex:indexPath.section];
-    if(offerObject.isSpecial)
-        return CELL_HEIGHT_SPECIAL;
-    else
-        return CELL_HEIGHT_NORMAL;
+    
+    if (isReturn) {
+        if(offerObject.isSpecial)
+            return CELL_HEIGHT_SPECIAL;
+        else
+            return CELL_HEIGHT_NORMAL;
+    }
+    else {
+        if(offerObject.isSpecial)
+            return CELL_HEIGHT_SPECIAL*2/3;
+        else
+            return CELL_HEIGHT_NORMAL*2/3;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

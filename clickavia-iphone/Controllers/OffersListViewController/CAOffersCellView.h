@@ -29,6 +29,6 @@
 @property (nonatomic, retain) FlightPassengersCount* offerPassengers;
 @property (nonatomic, retain) CAOffersListViewController* caOffersListViewController;
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers isBothWays:(BOOL) isBothWays;
 
 @end
