@@ -12,7 +12,7 @@
 #import "CAOffersData.h"
 #import "Offer.h"
 #import "Flight.h"
-#import "FlightPassengersCount.h"
+#import "CAFlightPassengersCount.h"
 #import "OfferConditions.h"
 #import "SearchConditions.h"
 #import "Destination.h"
@@ -27,11 +27,11 @@
 
 @property (nonatomic, retain) Offer* offerObject;
 @property (nonatomic, retain) Flight* flightObject;
-@property (nonatomic, retain) FlightPassengersCount* offerPassengers;
+@property (nonatomic, retain) CAFlightPassengersCount* offerPassengers;
 @property (nonatomic, retain) OfferConditions* offerConditionsObject;
 @property (nonatomic, retain) SearchConditions* searchConditionsObject;
 @property (nonatomic, retain) Destination* destinationObject;
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers;
 
 @end

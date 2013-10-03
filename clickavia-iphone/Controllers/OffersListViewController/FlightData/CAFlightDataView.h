@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Offer.h"
 #import "FlightPassengersCount.h"
+#import "CAFlightPassengersCount.h"
 
-//#import "CASearchFormControlsView.h"
+#import "CASearchFormPickerView.h"
 
-@interface CAFlightDataView : UIViewController
+@interface CAFlightDataView : UIViewController <CASearchFormPickerViewDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
 
