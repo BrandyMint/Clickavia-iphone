@@ -48,8 +48,6 @@
 
 @implementation CAOffersListViewController
 {
-    NSMutableArray *offerArray;
-    
     BOOL isReturn;
     CGRect mainFrame;
     UIBarButtonItem *onAddGreenBar;
@@ -285,7 +283,12 @@
     [fdm getAvailableOffersWithCompleteBlock:^(NSArray *offers)
      {
          [self setupDatesText];
-         arrayOffers = offers;
+         
+         //Сортируем массив arrayOffers по возрастанию
+         NSSortDescriptor* sd = [[NSSortDescriptor alloc] initWithKey:@"bothPrice" ascending:YES];
+         NSArray *sortedOffersArray = [offers sortedArrayUsingDescriptors:[NSArray arrayWithObject:sd]];
+         
+         arrayOffers = sortedOffersArray;
          [tableOffers reloadData];
          [self showLoading:NO];
      }];
