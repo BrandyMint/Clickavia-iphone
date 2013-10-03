@@ -604,7 +604,7 @@
     button.titleLabel.layer.shadowRadius = 0.0f;
     button.titleLabel.shadowColor = [UIColor blackColor];
     button.titleLabel.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    [button addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell addSubview:button];
 
     cell.backgroundColor = [UIColor clearColor];
@@ -710,21 +710,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self transitionToContract:indexPath];
+}
+
+-(void)buttonClicked:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableOffers];
+    NSIndexPath *indexPath = [self.tableOffers indexPathForRowAtPoint:buttonPosition];
+    if (indexPath != nil)
+    {
+       [self transitionToContract:indexPath];
+    }
+}
+
+-(void)transitionToContract:(NSIndexPath*)indexPath
+{
     Offer* offerdata = [[Offer alloc] init];
     offerdata = [arrayOffers objectAtIndex:indexPath.section];
     FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
     passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
     
     NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-
+    [self.tableOffers deselectRowAtIndexPath:indexPath animated:NO];
+    
     CAContract* caContract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil offer:offerdata passengers:passengersCount];
     [self.navigationController pushViewController:caContract animated:YES];
-}
-
--(void)buttonClicked
-{
-
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
