@@ -21,12 +21,20 @@
     Flight* flightReturnObject;
 }
 
-- (NSInteger)heightViewFrame:(Offer*)offerObject
+- (NSInteger)heightViewFrame:(Offer*)offerObject isBothWays:(BOOL) isBothWays
 {
-    if (offerObject.isSpecial)
-        return CELL_HEIGHT_SPECIAL;
-    else
-        return CELL_HEIGHT_NORMAL;
+    if (isBothWays) {
+        if(offerObject.isSpecial)
+            return CELL_HEIGHT_SPECIAL;
+        else
+            return CELL_HEIGHT_NORMAL;
+    }
+    else {
+        if(offerObject.isSpecial)
+            return CELL_HEIGHT_SPECIAL*2/3;
+        else
+            return CELL_HEIGHT_NORMAL*2/3;
+    }
 }
 
 -(void)setupCardViewAppearence:(UIView*)cardView
@@ -71,7 +79,7 @@
     [self setupMomentaryConfirmationAppearence:momentaryConfirmationLabel];
     [view addSubview:momentaryConfirmationLabel];
 }
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers isBothWays:(BOOL) isBothWays;
 {
     flightDepartureObject = offerObject.flightDeparture;
     flightReturnObject = offerObject.flightReturn;
@@ -83,8 +91,7 @@
         NSLog(@"Return yes");
     }
     
-    int heightViewFrame = [self heightViewFrame:offerObject];
-    
+    int heightViewFrame = [self heightViewFrame:offerObject isBothWays:isBothWays];
     UIView* cardView = [[UIView alloc] initWithFrame:CGRectMake(CELL_MARGIN_LEFT, 0, [[UIScreen mainScreen] bounds].size.width-2*CELL_MARGIN_LEFT, heightViewFrame)];
     [self setupCardViewAppearence:cardView];
     
@@ -94,11 +101,11 @@
         UILabel *specialTitle = [[UILabel alloc] initWithFrame:CGRectMake(6, 1, 0, 0)];
         [self setupSpecialTitleAppearence:specialTitle];
         [cardView addSubview:specialTitle];
-        contenViewFrame = CGRectMake(0, CELL_SPECIAL_PADDING, cardView.frame.size.width, CELL_HEIGHT_NORMAL);
+        contenViewFrame = CGRectMake(0, CELL_SPECIAL_PADDING, cardView.frame.size.width, heightViewFrame - (CELL_HEIGHT_SPECIAL - CELL_HEIGHT_NORMAL));
     }
     else
     {
-        contenViewFrame = CGRectMake(0, cardView.frame.origin.y, cardView.frame.size.width, CELL_HEIGHT_NORMAL);
+        contenViewFrame = CGRectMake(0, cardView.frame.origin.y, cardView.frame.size.width, heightViewFrame);
     }
     contenView = [[UIView alloc] initWithFrame:contenViewFrame];
     contenView.backgroundColor = [UIColor whiteColor];
@@ -112,7 +119,7 @@
     }
     
     UIView *departFlightView = [self createFlightSubblock:YES];
-    departFlightView.frame = CGRectMake(contenView.frame.origin.x, 0, contenView.frame.size.width, 50);
+    departFlightView.frame = CGRectMake(contenView.frame.origin.x, 0, contenView.frame.size.width, 45);
     [self createLineByBottom: [self getBottom:departFlightView.frame]];
     
     [contenView addSubview:departFlightView];
@@ -126,7 +133,6 @@
         [contenView addSubview:returnFlightView];
         bottomBorderForFlightsView = [self getBottom:returnFlightView.frame];
     }
-    
     
     UIImageView* adultsImage = [[UIImageView alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 10, bottomBorderForFlightsView+10, 10, 26)];
     adultsImage.image = [UIImage imageNamed:@"passengers-icon-man.png"];
