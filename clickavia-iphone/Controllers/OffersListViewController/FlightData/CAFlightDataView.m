@@ -12,10 +12,11 @@
 #import "CAColorSpecOffers.h"
 
 #import "CAPassengersCountButton.h"
-#import "CAPassengersCountButton.h"
 
 #define Y_OFFSET 5
 #define X_OFFSET 5
+#define HEIGHT_FOR_ROW_AT_INDEXPATH 45
+#define WIDTH_TABLE_BORDER 10
 
 @interface CAFlightDataView ()
 
@@ -29,9 +30,13 @@
     
     CASearchFormPickerView *passengerCountPicker;
     CAPassengersCountButton *passengerCountButton;
+    CATooltipSelect *classSelector;
     
-    BOOL isShowPassengersCountPicker;
-    BOOL isShowClassSelectorPopover;
+    CGSize countPickerViewSize;
+    CGSize classSelectorViewSize;
+    
+    NSArray* paymentOptions;
+    UIButton* onPaymentMethod;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(CAFlightPassengersCount*)passengers
@@ -53,6 +58,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self showNavBar];
+    paymentOptions = @[@"Евросеть или связной", @"MasterCard или Visa", @"Наличными в офисе"];
     
     UIView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5];
     [self.view addSubview:assistView];
@@ -71,12 +77,11 @@
     [passengerCountButton setImageForChildren:[UIImage imageNamed:@"passengers-icon-kid.png"]];
     [passengerCountButton setImageForInfants:[UIImage imageNamed:@"passengers-icon-baby.png"]];
     
-    UIButton* onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
+    onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
     [onPaymentMethod addTarget:self action:@selector(classSelectButtonPress:) forControlEvents:UIControlEventTouchUpInside];
-    [onPaymentMethod setTitle:@"MasterCard или Visa" forState:UIControlStateNormal];
+    [onPaymentMethod setTitle:[paymentOptions objectAtIndex:0] forState:UIControlStateNormal];
     [onPaymentMethod.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
-    [onPaymentMethod setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [onPaymentMethod setBackgroundColor:[UIColor lightGrayColor]];
+    [onPaymentMethod setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [onPaymentMethod setBackgroundImage:[UIImage imageNamed:@"CASearchFormControls-button.png"] forState:UIControlStateNormal];
     [self.view addSubview: onPaymentMethod];
     
@@ -92,39 +97,48 @@
     orderDetailsView.frame = orderDetalsFrame;
     [self.view addSubview:orderDetailsView];
     
-    
     ////
-    NSLog(@"%@",NSStringFromCGRect(self.view.frame));
+    
+    
+    countPickerViewSize.height = 220;
+    countPickerViewSize.width = self.view.frame.size.width;
+    
+    classSelectorViewSize.height = 110;
+    classSelectorViewSize.width = self.view.frame.size.width;
+    
     passengerCountPicker = [[CASearchFormPickerView alloc]initWithFrame:CGRectMake(0, 270, 320, 200)];
     passengerCountPicker.delegate = self;
+    
+    classSelector = [[CATooltipSelect alloc] initWithFrame:CGRectMake(0,
+                                                                         onPaymentMethod.frame.origin.y + onPaymentMethod.frame.size.height,
+                                                                         classSelectorViewSize.width,
+                                                                         HEIGHT_FOR_ROW_AT_INDEXPATH*paymentOptions.count+2*WIDTH_TABLE_BORDER) widthTableBorder:WIDTH_TABLE_BORDER];
+    [classSelector heightForRowAtIndexPath:HEIGHT_FOR_ROW_AT_INDEXPATH];
+    [classSelector setFrameForTrianglePlace:CGRectMake(self.view.frame.size.width*2/3,0,50,30)];
+    classSelector.delegate = self;
+    [classSelector setCheckClassSelectorImage:[UIImage imageNamed:@"check-icon-green.png"]];
 }
 
 - (IBAction) passengerCountButtonPress: (id) sender {
     NSLog(@"passengers");
-    //[_delegate searchFormControlsViewOpenPassengerCountPicker:self];
-
     [self.view addSubview: passengerCountPicker];
 }
 
 - (IBAction) classSelectButtonPress: (id) sender {
     NSLog(@"payment");
-    //[_delegate searchFormControlsViewOpenClassSelection:self];
-    [passengerCountPicker removeFromSuperview];
-}
-
-- (void) showPassengersCountPicker
-{
-    isShowPassengersCountPicker = YES;
-    
-    passengerCountPicker.frame = CGRectMake(0, 320, 320, 200);
-    [self.view addSubview: passengerCountPicker];
-    [self.view setUserInteractionEnabled:NO];
+    [classSelector valuesTableRows:paymentOptions];
+    [self.view addSubview:classSelector];
 }
 
 - (void) hidePassengersCountPicker
 {
     [passengerCountPicker removeFromSuperview];
-    isShowPassengersCountPicker = NO;
+    [self.view setUserInteractionEnabled:YES];
+}
+
+- (void) hideClassSelectorPopover
+{
+    [classSelector removeFromSuperview];
     [self.view setUserInteractionEnabled:YES];
 }
 
@@ -139,6 +153,15 @@
 - (void) searchFormPickerViewDidCancelButtonPress:(CASearchFormPickerView*)searchFormPickerView
 {
     [self hidePassengersCountPicker];
+}
+
+#pragma mark CAPaymentTableViewDelegate
+
+- (void) paymentTableView:(CATooltipSelect*)paymentTableView currentPayment:(NSString*)currentPayment
+{
+    [self hideClassSelectorPopover];
+    [onPaymentMethod setTitle:currentPayment forState:UIControlStateNormal];
+    NSLog(@"Выбран: %@", currentPayment);
 }
 
 - (void)didReceiveMemoryWarning

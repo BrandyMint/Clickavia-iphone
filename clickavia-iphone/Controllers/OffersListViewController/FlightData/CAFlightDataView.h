@@ -12,8 +12,10 @@
 #import "CAFlightPassengersCount.h"
 
 #import "CASearchFormPickerView.h"
+#import "CATooltipSelect.h"
 
-@interface CAFlightDataView : UIViewController <CASearchFormPickerViewDelegate>
+
+@interface CAFlightDataView : UIViewController <CASearchFormPickerViewDelegate, CAPaymentTableViewDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers;
 
