@@ -23,7 +23,7 @@ PODS:
     - NSData+Base64 (~> 1.0)
   - MBProgressHUD (0.8)
   - NSData+Base64 (1.0.0)
-  - PSTCollectionView (1.1.0)
+  - PSTCollectionView (1.2.0)
   - RestKit (0.20.0):
     - RestKit/Core
   - RestKit/Core (0.20.0):
@@ -87,7 +87,7 @@ SPEC CHECKSUMS:
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
-  PSTCollectionView: af42b0fb111200a1b87a04aee96181725977f19b
+  PSTCollectionView: fb2ad2790c6efa306b2caf10315b2c1464d1f5c6
   RestKit: 580771664a14eaaa40bf53cf83584f12fc141930
   Reveal-iOS-SDK: 7396a20e743807b1e6f1caae664e1a9dc0cc442c
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581

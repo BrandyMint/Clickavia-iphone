@@ -71,18 +71,15 @@
     
     passengerCountButton = [[CAPassengersCountButton alloc] initWithFrame:CGRectMake(passengersLabel.frame.origin.x-X_OFFSET, passengersLabel.frame.origin.y + passengersLabel.frame.size.height + Y_OFFSET, self.view.frame.size.width/3 - X_OFFSET, 25)];
     [passengerCountButton addTarget:self action:@selector(passengerCountButtonPress:) forControlEvents:UIControlEventTouchUpInside];
-    [passengerCountButton setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview: passengerCountButton];
-    [passengerCountButton setImageForAdults:[UIImage imageNamed:@"passengers-icon-man.png"]];
-    [passengerCountButton setImageForChildren:[UIImage imageNamed:@"passengers-icon-kid.png"]];
-    [passengerCountButton setImageForInfants:[UIImage imageNamed:@"passengers-icon-baby.png"]];
+    [passengerCountButton setTypeButton:gray];
     
     onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
     [onPaymentMethod addTarget:self action:@selector(classSelectButtonPress:) forControlEvents:UIControlEventTouchUpInside];
     [onPaymentMethod setTitle:[paymentOptions objectAtIndex:0] forState:UIControlStateNormal];
     [onPaymentMethod.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
     [onPaymentMethod setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [onPaymentMethod setBackgroundImage:[UIImage imageNamed:@"CASearchFormControls-button.png"] forState:UIControlStateNormal];
+    [onPaymentMethod setBackgroundImage:[[UIImage imageNamed:@"CASearchFormControls-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch] forState:UIControlStateNormal];
     [self.view addSubview: onPaymentMethod];
     
     UILabel* paymentMethod = [[UILabel alloc] initWithFrame:CGRectMake(onPaymentMethod.frame.origin.x + X_OFFSET, passengersLabel.frame.origin.y, 0, 0)];
