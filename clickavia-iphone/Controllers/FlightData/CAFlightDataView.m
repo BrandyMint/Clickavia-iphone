@@ -74,7 +74,7 @@
     passengersLabel.text = @"Пассажиры";
     passengersLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
     [passengersLabel sizeToFit];
-    [self.view addSubview:passengersLabel];
+    //[self.view addSubview:passengersLabel];
     
     CGRect passengerCountButtonFrame = CGRectMake(passengersLabel.frame.origin.x-X_OFFSET, passengersLabel.frame.origin.y + passengersLabel.frame.size.height + Y_OFFSET, self.view.frame.size.width/3 - X_OFFSET, 25);
     passengerCountButton = [[CAPassengersCountButton alloc] initWithFrame:passengerCountButtonFrame];
@@ -83,13 +83,8 @@
     //[self.view addSubview: passengerCountButton];
     [passengerCountButton setTypeButton:gray];
     
-    UILabel* test = [[UILabel alloc] initWithFrame:passengerCountButtonFrame];
-    test.text = @"кнопка выбора пас-ов";
-    test.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
-    [test sizeToFit];
-    [self.view addSubview:test];
-    
-    onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
+    //(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)
+    onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width - 2*X_OFFSET, 25)];
     [onPaymentMethod addTarget:self action:@selector(classSelectButtonPress) forControlEvents:UIControlEventTouchUpInside];
     [onPaymentMethod setTitle:[paymentOptions objectAtIndex:0] forState:UIControlStateNormal];
     [onPaymentMethod.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
