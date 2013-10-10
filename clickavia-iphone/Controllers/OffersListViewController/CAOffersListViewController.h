@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OfferConditions.h"
+#import "CAFlightPassengersCount.h"
 
 #define ONEWAY_FLIGHT @"departure"
 #define FLIGHT_BACK @"return"
@@ -18,7 +19,7 @@
 @property (nonatomic,weak) OfferConditions *offerConditions;
 @property (nonatomic,strong) IBOutlet UIView *loadingView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil isBothWays:(BOOL) isBothWays;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil passengerCount:(CAFlightPassengersCount*)passengerCount isBothWays:(BOOL) isBothWays;
 
 -(NSString*)priceBehavior:(NSDecimalNumber*)priceBehavior;
 

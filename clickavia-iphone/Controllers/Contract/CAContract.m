@@ -24,14 +24,14 @@
     CAFlightPassengersCount* passengersCount;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(CAFlightPassengersCount*)passengers
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengerCount:(CAFlightPassengersCount*)passengerCount
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         offerdata = [[Offer alloc] init];
         offerdata = offer;
         passengersCount = [[CAFlightPassengersCount alloc] init];
-        passengersCount = passengers;
+        passengersCount = passengerCount;
     }
     return self;
 }
@@ -47,8 +47,6 @@
         specialOfferLabel.text = [NSString stringWithFormat:@"%@ %@", _specialOffer.flightCity, _specialOffer.departureCity];
         specialOfferLabel.textColor = [UIColor blackColor];
         [specialOfferLabel sizeToFit];
-        
-        NSLog(@"%@ %@", _specialOffer.flightCity, _specialOffer.departureCity);
     }
     return self;
 }
@@ -107,10 +105,8 @@
 }
 
 - (IBAction)onConfrmation:(id)sender
-{    
-    CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengers:passengersCount];
+{
+    CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengerCount:passengersCount];
     [self.navigationController pushViewController:flightDataView animated:YES];
-    
-    NSLog(@"!! special: %d, momentary: %d", offerdata.isSpecial, offerdata.isMomentaryConfirmation);
 }
 @end

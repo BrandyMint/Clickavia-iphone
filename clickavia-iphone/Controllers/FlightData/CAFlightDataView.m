@@ -10,8 +10,9 @@
 #import "CAAssistView.h"
 #import "CAOrderDetails.h"
 #import "CAColorSpecOffers.h"
-
+#import "SearchConditions.h"
 #import "CAPassengersCountButton.h"
+#import "CAAppDelegate.h"
 
 #define Y_OFFSET 5
 #define X_OFFSET 5
@@ -26,7 +27,7 @@
 {
     Offer* offerdata;
 
-    CAFlightPassengersCount *flightPAssengersCount;
+    CAFlightPassengersCount* passengersCount;
     
     CASearchFormPickerView *passengerCountPicker;
     CAPassengersCountButton *passengerCountButton;
@@ -35,20 +36,26 @@
     CGSize countPickerViewSize;
     CGSize classSelectorViewSize;
     
+    BOOL isShowPassengersCountPicker;
+    BOOL isShowClassSelectorPopover;
+    
     NSArray* paymentOptions;
     UIButton* onPaymentMethod;
+    
+    SearchConditions *currentSearchConditions;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(CAFlightPassengersCount*)passengers
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengerCount:(CAFlightPassengersCount*)passengerCount
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         offerdata = [[Offer alloc] init];
         offerdata = offer;
-        flightPAssengersCount = [[CAFlightPassengersCount alloc] init];
-        flightPAssengersCount = passengers;
-        
-        NSLog(@"CAFlightPassengersCount %d %d %d", flightPAssengersCount.adultsCount, flightPAssengersCount.childrenCount, flightPAssengersCount.infantsCount);
+        passengersCount = passengerCount;
+        currentSearchConditions = [[SearchConditions alloc]init];
+        isShowPassengersCountPicker = NO;
+        isShowClassSelectorPopover = NO;
+        NSLog(@"DATA> %d %d %d", passengersCount.adultsCount, passengersCount.childrenCount, passengersCount.infantsCount);
     }
     return self;
 }
@@ -69,13 +76,21 @@
     [passengersLabel sizeToFit];
     [self.view addSubview:passengersLabel];
     
-    passengerCountButton = [[CAPassengersCountButton alloc] initWithFrame:CGRectMake(passengersLabel.frame.origin.x-X_OFFSET, passengersLabel.frame.origin.y + passengersLabel.frame.size.height + Y_OFFSET, self.view.frame.size.width/3 - X_OFFSET, 25)];
-    [passengerCountButton addTarget:self action:@selector(passengerCountButtonPress:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: passengerCountButton];
+    CGRect passengerCountButtonFrame = CGRectMake(passengersLabel.frame.origin.x-X_OFFSET, passengersLabel.frame.origin.y + passengersLabel.frame.size.height + Y_OFFSET, self.view.frame.size.width/3 - X_OFFSET, 25);
+    passengerCountButton = [[CAPassengersCountButton alloc] initWithFrame:passengerCountButtonFrame];
+    [passengerCountButton setPassengersCount:passengersCount];
+    [passengerCountButton addTarget:self action:@selector(passengerCountButtonPress) forControlEvents:UIControlEventTouchUpInside];
+    //[self.view addSubview: passengerCountButton];
     [passengerCountButton setTypeButton:gray];
     
+    UILabel* test = [[UILabel alloc] initWithFrame:passengerCountButtonFrame];
+    test.text = @"кнопка выбора пас-ов";
+    test.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+    [test sizeToFit];
+    [self.view addSubview:test];
+    
     onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
-    [onPaymentMethod addTarget:self action:@selector(classSelectButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+    [onPaymentMethod addTarget:self action:@selector(classSelectButtonPress) forControlEvents:UIControlEventTouchUpInside];
     [onPaymentMethod setTitle:[paymentOptions objectAtIndex:0] forState:UIControlStateNormal];
     [onPaymentMethod.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
     [onPaymentMethod setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -88,7 +103,7 @@
     [paymentMethod sizeToFit];
     [self.view addSubview:paymentMethod];
     
-    UIView* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:flightPAssengersCount];
+    UIView* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
     CGRect orderDetalsFrame = orderDetailsView.frame;
     orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
     orderDetailsView.frame = orderDetalsFrame;
@@ -96,14 +111,13 @@
     
     ////
     
-    
     countPickerViewSize.height = 220;
     countPickerViewSize.width = self.view.frame.size.width;
     
     classSelectorViewSize.height = 110;
     classSelectorViewSize.width = self.view.frame.size.width;
     
-    passengerCountPicker = [[CASearchFormPickerView alloc]initWithFrame:CGRectMake(0, 270, 320, 200)];
+    passengerCountPicker = [[CASearchFormPickerView alloc]initWithFrame:CGRectMake(0, 0, countPickerViewSize.width, countPickerViewSize.height)];
     passengerCountPicker.delegate = self;
     
     classSelector = [[CATooltipSelect alloc] initWithFrame:CGRectMake(0,
@@ -116,35 +130,51 @@
     [classSelector setCheckClassSelectorImage:[UIImage imageNamed:@"check-icon-green.png"]];
 }
 
-- (IBAction) passengerCountButtonPress: (id) sender {
-    NSLog(@"passengers");
+- (IBAction) passengerCountButtonPress {
+    if (isShowClassSelectorPopover)
+        [self hideClassSelectorPopover];
+
+    isShowPassengersCountPicker = YES;
+    [passengerCountPicker setPassengersCountValues:passengersCount];
+    passengerCountPicker.frame = CGRectMake(0,
+                                            self.view.frame.size.height - countPickerViewSize.height,
+                                            self.view.frame.size.width,
+                                            countPickerViewSize.height);
+    
     [self.view addSubview: passengerCountPicker];
 }
 
-- (IBAction) classSelectButtonPress: (id) sender {
-    NSLog(@"payment");
+- (IBAction) classSelectButtonPress {
+    if (isShowPassengersCountPicker)
+        [self hidePassengersCountPicker];
+    
+    isShowClassSelectorPopover = YES;
     [classSelector valuesTableRows:paymentOptions];
     [self.view addSubview:classSelector];
 }
 
 - (void) hidePassengersCountPicker
 {
+    isShowPassengersCountPicker = NO;
     [passengerCountPicker removeFromSuperview];
-    [self.view setUserInteractionEnabled:YES];
 }
 
 - (void) hideClassSelectorPopover
 {
+    isShowClassSelectorPopover = NO;
     [classSelector removeFromSuperview];
-    [self.view setUserInteractionEnabled:YES];
 }
 
 #pragma mark PickerViewDelegate
 
-- (void) searchFormPickerView:(CASearchFormPickerView*)searchFormPickerView didSelectPassengersCount:(CAFlightPassengersCount*)passengersCount
+- (void) searchFormPickerView:(CASearchFormPickerView*)searchFormPickerView didSelectPassengersCount:(CAFlightPassengersCount*)flightpassengersCount
 {
     [self hidePassengersCountPicker];
-    [passengerCountButton setPassengersCount:passengersCount];
+    [passengerCountButton setPassengersCount:flightpassengersCount];
+    passengersCount = flightpassengersCount;
+    
+    //without infants
+    currentSearchConditions.countOfTickets = [[NSNumber alloc ]initWithInteger:(passengersCount.adultsCount + passengersCount.childrenCount)];
 }
 
 - (void) searchFormPickerViewDidCancelButtonPress:(CASearchFormPickerView*)searchFormPickerView
@@ -200,7 +230,7 @@
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
     offerdata = nil;
-    flightPAssengersCount = nil;
+    passengersCount = nil;
 }
 
 @end
