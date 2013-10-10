@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "CAOffersListViewController.h"
-#import "CAOffersData.h"
 #import "Offer.h"
 #import "Flight.h"
-#import "FlightPassengersCount.h"
+#import "CAFlightPassengersCount.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define COLOR_BACKGROUND_CARD_VIEW colorWithRed:236.0f/255.0f green:128.0f/255.0f blue:128.0f/255.0f alpha:1.0f
@@ -26,9 +25,9 @@
 
 @property (nonatomic, retain) Offer* offerObject;
 @property (nonatomic, retain) Flight* flightObject;
-@property (nonatomic, retain) FlightPassengersCount* offerPassengers;
+@property (nonatomic, retain) CAFlightPassengersCount* offerPassengers;
 @property (nonatomic, retain) CAOffersListViewController* caOffersListViewController;
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers isBothWays:(BOOL) isBothWays;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers isBothWays:(BOOL) isBothWays;
 
 @end

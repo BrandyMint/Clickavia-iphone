@@ -21,16 +21,16 @@
 @implementation CAContract
 {
     Offer* offerdata;
-    FlightPassengersCount* passengersCount;
+    CAFlightPassengersCount* passengersCount;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(CAFlightPassengersCount*)passengers
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         offerdata = [[Offer alloc] init];
         offerdata = offer;
-        passengersCount = [[FlightPassengersCount alloc] init];
+        passengersCount = [[CAFlightPassengersCount alloc] init];
         passengersCount = passengers;
     }
     return self;

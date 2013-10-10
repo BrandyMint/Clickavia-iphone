@@ -76,8 +76,6 @@
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
 		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
 		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
-		6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE2E17E0ED43002A85D0 /* CAOffersData.m */; };
-		6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */; };
 		6649527917FEAB140095C761 /* CATooltipSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6649527817FEAB140095C761 /* CATooltipSelect.m */; };
 		666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */; };
 		666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */; };
@@ -200,10 +198,6 @@
 		6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = "clickavia-iphone/Application/CAAppDelegate.m"; sourceTree = SOURCE_ROOT; };
 		6639CA0E17C5FE5600CF772D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.h"; sourceTree = SOURCE_ROOT; };
 		6639CA0F17C5FE5600CF772D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.m"; sourceTree = SOURCE_ROOT; };
-		6644BE2D17E0ED43002A85D0 /* CAOffersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOffersData.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.h"; sourceTree = SOURCE_ROOT; };
-		6644BE2E17E0ED43002A85D0 /* CAOffersData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOffersData.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOffersData.m"; sourceTree = SOURCE_ROOT; };
-		6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightPassengersCount.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.h"; sourceTree = SOURCE_ROOT; };
-		6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightPassengersCount.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightPassengersCount.m"; sourceTree = SOURCE_ROOT; };
 		6649527717FEAB140095C761 /* CATooltipSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATooltipSelect.h; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CATooltipSelect.h"; sourceTree = SOURCE_ROOT; };
 		6649527817FEAB140095C761 /* CATooltipSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATooltipSelect.m; path = "clickavia-iphone/Controllers/OffersListViewController/FlightData/CATooltipSelect.m"; sourceTree = SOURCE_ROOT; };
 		666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColorSpecOffers.h; sourceTree = "<group>"; };
@@ -291,15 +285,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		662972DF17E2F56500D9324B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6644BE3317E0EEEF002A85D0 /* FlightPassengersCount.h */,
-				6644BE3417E0EEEF002A85D0 /* FlightPassengersCount.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		668CB98E17F2060A00A26506 /* FlightData */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,15 +306,6 @@
 				668CB99617F2066B00A26506 /* CAAssistView.m */,
 			);
 			name = AssistView;
-			sourceTree = "<group>";
-		};
-		66EB074817E62505003469E4 /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				6644BE2D17E0ED43002A85D0 /* CAOffersData.h */,
-				6644BE2E17E0ED43002A85D0 /* CAOffersData.m */,
-			);
-			name = Objects;
 			sourceTree = "<group>";
 		};
 		66F4C7E217EB0FDB0004DB88 /* Contract */ = {
@@ -548,8 +524,6 @@
 		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				66EB074817E62505003469E4 /* Objects */,
-				662972DF17E2F56500D9324B /* Model */,
 				66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */,
 				66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */,
 				662972E017E31F6700D9324B /* CAOffersCellView.h */,
@@ -797,8 +771,6 @@
 				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
 				668CB99717F2066B00A26506 /* CAAssistView.m in Sources */,
-				6644BE2F17E0ED43002A85D0 /* CAOffersData.m in Sources */,
-				6644BE3517E0EEEF002A85D0 /* FlightPassengersCount.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
 				6649527917FEAB140095C761 /* CATooltipSelect.m in Sources */,

@@ -1,11 +1,5 @@
 #Clickavia-iphone
 
-####В основном проекте находится модель объекта пассажиров: FlightPassengersCount
-		
-		@property NSUInteger adults;
-		@property NSUInteger kids;
-		@property NSUInteger babies;
-
 ###представление CAOrderDetails хранится в:
 		
 		CAOrderDetails.h
@@ -20,10 +14,10 @@
 		
 ###Описание методов:
 
-		- (UIView*) initByOfferModel:(Offer*)offers passangers:(FlightPassengersCount*)passangers;
+		- (UIView*) initByOfferModel:(Offer*)offers passangers:(CAFlightPassengersCount*)passangers;
 
 
-Передаем 2 объекта Offer и FlightPassengersCount на выходе получаем готовый View. 
+Передаем 2 объекта Offer и CAFlightPassengersCount на выходе получаем готовый View. 
 
 
 ### подсказки к экранам [CA-AssistView]:

@@ -9,7 +9,6 @@
 #import "CAOffersCellView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CAOffersListViewController.h"
-#import "CAOffersData.h"
 #import "Offer.h"
 #import "Flight.h"
 #import "CAFlightPassengersCount.h"

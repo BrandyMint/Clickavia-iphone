@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CAOffersData.h"
+#import "OfferConditions.h"
+
 #define ONEWAY_FLIGHT @"departure"
 #define FLIGHT_BACK @"return"
 

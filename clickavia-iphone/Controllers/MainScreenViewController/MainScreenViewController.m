@@ -74,6 +74,9 @@
     _searchForm.delegate = self;
     [_searchForm setBothWaySwitch:YES withAnimation:NO];
     
+    //указываем тип кнопки (green or gray)
+    [_searchForm setTypeButton:green];
+    
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.passengersCount = _searchForm.searchParameters.passengerCount; // проброс количества пассажиров
     

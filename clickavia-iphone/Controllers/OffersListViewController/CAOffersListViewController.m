@@ -14,7 +14,7 @@
 #import "CAOfferGreenBar.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Offer.h"
-#import "FlightPassengersCount.h"
+#import "CAFlightPassengersCount.h"
 
 #import "CAOffersCell.h"
 #import "CAOffersCellView.h"
@@ -36,7 +36,6 @@
 #define COLOR_AVAILABLE_FLIGHTS colorWithRed:193.0f/255.0f green:193.0f/255.0f blue:193.0f/255.0f alpha:1
 
 @interface CAOffersListViewController ()
-@property (nonatomic, retain) CAOffersData* caoffersData;
 @property (retain, nonatomic) IBOutlet CAOfferGreenBar *topGreenView;
 @property (weak, nonatomic) IBOutlet UILabel *labelThere;
 @property (weak, nonatomic) IBOutlet UILabel *labelThereDate;
@@ -71,7 +70,6 @@
 @synthesize tableOffers;
 @synthesize topGreenView;
 @synthesize labelBack, labelBackDate, labelThere, labelThereDate;
-@synthesize caoffersData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil isBothWays:(BOOL) isBothWays;
 {
@@ -510,14 +508,7 @@
 {
     return 1;
 }
-- (FlightPassengersCount*)mapFrom:(CAFlightPassengersCount*)pasCount
-{
-    FlightPassengersCount *count = [FlightPassengersCount new];
-    count.adults = pasCount.adultsCount;
-    count.kids = pasCount.childrenCount;
-    count.babies = pasCount.infantsCount;
-    return count;
-}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -531,11 +522,11 @@
     flightObject = offerObject.flightDeparture;
     
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    //FlightPassengersCount* passengersCount = [self mapFrom:appDelegate.passengersCount];
-    FlightPassengersCount *passengersCount = [[FlightPassengersCount alloc] init];
-    passengersCount.adults = appDelegate.passengersCount.adultsCount;
-    passengersCount.kids = appDelegate.passengersCount.childrenCount;
-    passengersCount.babies = appDelegate.passengersCount.infantsCount;
+
+    CAFlightPassengersCount *passengersCount = [[CAFlightPassengersCount alloc] init];
+    passengersCount.adultsCount = appDelegate.passengersCount.adultsCount;
+    passengersCount.childrenCount = appDelegate.passengersCount.childrenCount;
+    passengersCount.infantsCount = appDelegate.passengersCount.infantsCount;
     //поиск ячейки
 	CAOffersCell *cell = (CAOffersCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -731,9 +722,9 @@
 {
     Offer* offerdata = [[Offer alloc] init];
     offerdata = [arrayOffers objectAtIndex:indexPath.section];
-    FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
+    CAFlightPassengersCount* passengersCount = [[CAFlightPassengersCount alloc] init];
     passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
-            NSLog(@"> %d %d %d", passengersCount.adults, passengersCount.kids, passengersCount.babies);
+            NSLog(@"> %d %d %d", passengersCount.adultsCount, passengersCount.childrenCount, passengersCount.infantsCount);
     NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
 
     [self.tableOffers deselectRowAtIndexPath:indexPath animated:NO];
