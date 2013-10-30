@@ -90,6 +90,7 @@
 		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
 		66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
 		66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */; };
+		66FECBA518210C0C00ED705D /* CAPassportTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FECBA418210C0C00ED705D /* CAPassportTextField.m */; };
 		7C16A2AE17A648290055FF8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AD17A648290055FF8F /* UIKit.framework */; };
 		7C16A2B017A648290055FF8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2AF17A648290055FF8F /* Foundation.framework */; };
 		7C16A2B217A648290055FF8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16A2B117A648290055FF8F /* CoreGraphics.framework */; };
@@ -222,6 +223,8 @@
 		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
 		66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
 		66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
+		66FECBA318210C0C00ED705D /* CAPassportTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPassportTextField.h; path = "clickavia-iphone/Controllers/BuyerInfo/CAPassportTextField.h"; sourceTree = SOURCE_ROOT; };
+		66FECBA418210C0C00ED705D /* CAPassportTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAPassportTextField.m; path = "clickavia-iphone/Controllers/BuyerInfo/CAPassportTextField.m"; sourceTree = SOURCE_ROOT; };
 		7C16A2AA17A648290055FF8F /* clickavia-iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "clickavia-iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C16A2AD17A648290055FF8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7C16A2AF17A648290055FF8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -296,6 +299,8 @@
 				6650772D181F92FF00890DB1 /* CABuyerInfo.h */,
 				6650772E181F92FF00890DB1 /* CABuyerInfo.m */,
 				6650772F181F92FF00890DB1 /* CABuyerInfo.xib */,
+				66FECBA318210C0C00ED705D /* CAPassportTextField.h */,
+				66FECBA418210C0C00ED705D /* CAPassportTextField.m */,
 			);
 			name = "Buyer info";
 			sourceTree = "<group>";
@@ -781,6 +786,7 @@
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
 				66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */,
 				66397DB01806BFCF0016EE69 /* CAOrderDetails.m in Sources */,
+				66FECBA518210C0C00ED705D /* CAPassportTextField.m in Sources */,
 				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
 				6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */,
 				6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */,

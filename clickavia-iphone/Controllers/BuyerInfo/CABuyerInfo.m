@@ -8,11 +8,17 @@
 
 #import "CABuyerInfo.h"
 #import "CAColorSpecOffers.h"
+#import "CAPassportTextField.h"
+#import "WTReTextField.h"
 
 @interface CABuyerInfo ()
 {
     NSMutableArray *buyerArray;
 }
+@property (strong, nonatomic) WTReTextField *surname;
+@property (strong, nonatomic) WTReTextField *name;
+@property (strong, nonatomic) WTReTextField *dateBirthday;
+@property (strong, nonatomic) WTReTextField *validityField;
 @end
 
 @implementation CABuyerInfo
@@ -32,7 +38,7 @@
     // Do any additional setup after loading the view from its nib.
     [self showNavBar];
     
-    buyerArray = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
+    buyerArray = [NSMutableArray arrayWithObjects:@"1", @"2", nil];
 }
 
 -(void)showNavBar
@@ -111,40 +117,6 @@
     }
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    switch (textField.tag) {
-        case 0:
-            if ([textField.text length] > 100) {
-                return NO;
-            }
-            break;
-        case 1:
-            if ([textField.text length] > 100) {
-                return NO;
-            }
-            break;
-        case 2:
-            if ([textField.text length] > 9) {
-                return NO;
-            }
-            break;
-        case 3:
-            if ([textField.text length] > 7) {
-                return NO;
-            }
-            break;
-        case 4:
-            if ([textField.text length] > 7) {
-                return NO;
-            }
-            break;
-        default:
-            break;
-    }
-    return YES;
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [theTextField resignFirstResponder];
     return YES;
@@ -183,6 +155,8 @@
         UILabel *numberBuyer = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 0, 0)];
         //numberBuyer.text = [NSString stringWithFormat:@"%d",indexPath.section+1];
         numberBuyer.text = [buyerArray objectAtIndex:indexPath.section];
+        NSLog(@"%d",indexPath.section);
+    
         [numberBuyer sizeToFit];
         numberBuyer.backgroundColor = [UIColor clearColor];
         [cell addSubview:numberBuyer];
@@ -211,33 +185,35 @@
         delete.backgroundColor = [UIColor clearColor];
         [cell addSubview:delete];
         
-        UITextField* surname = [[UITextField alloc] initWithFrame:CGRectMake(10, numberBuyer.frame.origin.y + 23, 300, 30)];
-        surname.borderStyle = UITextBorderStyleRoundedRect;
-        surname.font = [UIFont systemFontOfSize:15];
-        surname.placeholder = @"ФАМИЛИЯ";
-        surname.autocorrectionType = UITextAutocorrectionTypeNo;
-        surname.keyboardType = UIKeyboardTypeDefault;
-        surname.returnKeyType = UIReturnKeyDone;
-        surname.clearButtonMode = UITextFieldViewModeWhileEditing;
-        surname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        surname.tag = 0;
-        surname.delegate = self;
-        [cell addSubview:surname];
+        _surname = [[WTReTextField alloc] initWithFrame:CGRectMake(10, numberBuyer.frame.origin.y + 23, 300, 30)];
+        _surname.borderStyle = UITextBorderStyleRoundedRect;
+        _surname.font = [UIFont systemFontOfSize:15];
+        _surname.placeholder = @"ФАМИЛИЯ";
+        _surname.autocorrectionType = UITextAutocorrectionTypeNo;
+        _surname.keyboardType = UIKeyboardTypeDefault;
+        _surname.returnKeyType = UIReturnKeyDone;
+        _surname.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _surname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _surname.tag = 0;
+        _surname.delegate = self;
+        _surname.pattern = @"^[a-zA-Z а-яА-Я]{3,}$";
+        [cell addSubview:_surname];
         
-        UITextField* name = [[UITextField alloc] initWithFrame:CGRectMake(10, surname.frame.origin.y + surname.frame.size.height + 2, 300, 30)];
-        name.borderStyle = UITextBorderStyleRoundedRect;
-        name.font = [UIFont systemFontOfSize:15];
-        name.placeholder = @"ИМЯ";
-        name.autocorrectionType = UITextAutocorrectionTypeNo;
-        name.keyboardType = UIKeyboardTypeDefault;
-        name.returnKeyType = UIReturnKeyDone;
-        name.clearButtonMode = UITextFieldViewModeWhileEditing;
-        name.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        name.tag = 1;
-        name.delegate = self;
-        [cell addSubview:name];
+        _name = [[WTReTextField alloc] initWithFrame:CGRectMake(10, _surname.frame.origin.y + _surname.frame.size.height + 2, 300, 30)];
+        _name.borderStyle = UITextBorderStyleRoundedRect;
+        _name.font = [UIFont systemFontOfSize:15];
+        _name.placeholder = @"ИМЯ";
+        _name.autocorrectionType = UITextAutocorrectionTypeNo;
+        _name.keyboardType = UIKeyboardTypeDefault;
+        _name.returnKeyType = UIReturnKeyDone;
+        _name.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _name.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _name.tag = 1;
+        _name.delegate = self;
+        _name.pattern = @"^[a-zA-Z а-яА-Я]{3,}$";
+        [cell addSubview:_name];
         
-        UILabel *asking = [[UILabel alloc] initWithFrame:CGRectMake(name.frame.origin.x, name.frame.origin.y + name.frame.size.height, 0, 0)];
+        UILabel *asking = [[UILabel alloc] initWithFrame:CGRectMake(_name.frame.origin.x, _name.frame.origin.y + _name.frame.size.height, 0, 0)];
         asking.text = @"  MR   MRS  CHD   INF";
         [asking sizeToFit];
         asking.backgroundColor = [UIColor clearColor];
@@ -249,7 +225,7 @@
         [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-kid.png"] forSegmentAtIndex:1];
         [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-kid.png"] forSegmentAtIndex:2];
         [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-baby.png"] forSegmentAtIndex:3];
-        segmentedControl.frame = CGRectMake(surname.frame.origin.x, name.frame.origin.y + name.frame.size.height + 20, 180, 30);
+        segmentedControl.frame = CGRectMake(_surname.frame.origin.x, _name.frame.origin.y + _name.frame.size.height + 20, 180, 30);
         segmentedControl.segmentedControlStyle = UISegmentedControlStyleBezeled;
         [segmentedControl addTarget:self action:@selector(pickOne:) forControlEvents:UIControlEventValueChanged];
         [cell addSubview:segmentedControl];
@@ -259,18 +235,8 @@
         [passport sizeToFit];
         passport.backgroundColor = [UIColor clearColor];
         [cell addSubview:passport];
-        
-        UITextField* passportField = [[UITextField alloc] initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
-        passportField.borderStyle = UITextBorderStyleRoundedRect;
-        passportField.font = [UIFont systemFontOfSize:15];
-        passportField.placeholder = @"9708 777888";
-        passportField.autocorrectionType = UITextAutocorrectionTypeNo;
-        passportField.keyboardType = UIKeyboardTypeDefault;
-        passportField.returnKeyType = UIReturnKeyDone;
-        passportField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        passportField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        passportField.tag = 2;
-        passportField.delegate = self;
+
+        CAPassportTextField* passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
         [cell addSubview:passportField];
         
         UILabel * dateBirth = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x + segmentedControl.frame.size.width + 5, asking.frame.origin.y, 0, 0)];
@@ -279,18 +245,19 @@
         dateBirth.backgroundColor = [UIColor clearColor];
         [cell addSubview:dateBirth];
         
-        UITextField* dateBirthField = [[UITextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, segmentedControl.frame.origin.y, 120, 30)];
-        dateBirthField.borderStyle = UITextBorderStyleRoundedRect;
-        dateBirthField.font = [UIFont systemFontOfSize:15];
-        dateBirthField.placeholder = @"10.10.1900";
-        dateBirthField.autocorrectionType = UITextAutocorrectionTypeNo;
-        dateBirthField.keyboardType = UIKeyboardTypeDefault;
-        dateBirthField.returnKeyType = UIReturnKeyDone;
-        dateBirthField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        dateBirthField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        dateBirthField.tag = 3;
-        dateBirthField.delegate = self;
-        [cell addSubview:dateBirthField];
+        _dateBirthday = [[WTReTextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, segmentedControl.frame.origin.y, 120, 30)];
+        _dateBirthday.borderStyle = UITextBorderStyleRoundedRect;
+        _dateBirthday.font = [UIFont systemFontOfSize:15];
+        _dateBirthday.placeholder = @"10.10.1900";
+        _dateBirthday.autocorrectionType = UITextAutocorrectionTypeNo;
+        _dateBirthday.keyboardType = UIKeyboardTypeDefault;
+        _dateBirthday.returnKeyType = UIReturnKeyDone;
+        _dateBirthday.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _dateBirthday.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _dateBirthday.tag = 3;
+        _dateBirthday.delegate = self;
+        _dateBirthday.pattern = @"^(3[0-1]|[1-2][0-9]|(?:0)[1-9])(?:\\.)(1[0-2]|(?:0)[1-9])(?:\\.)[1-9][0-9]{3}$";
+        [cell addSubview:_dateBirthday];
         
         UILabel * validity = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x + segmentedControl.frame.size.width + 5, passport.frame.origin.y, 0, 0)];
         validity.text = @"Срок действия";
@@ -298,18 +265,19 @@
         validity.backgroundColor = [UIColor clearColor];
         [cell addSubview:validity];
         
-        UITextField* validityField = [[UITextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, passportField.frame.origin.y, dateBirthField.frame.size.width, 30)];
-        validityField.borderStyle = UITextBorderStyleRoundedRect;
-        validityField.font = [UIFont systemFontOfSize:15];
-        validityField.placeholder = @"10.10.1900";
-        validityField.autocorrectionType = UITextAutocorrectionTypeNo;
-        validityField.keyboardType = UIKeyboardTypeDefault;
-        validityField.returnKeyType = UIReturnKeyDone;
-        validityField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        validityField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        validityField.tag = 4;
-        validityField.delegate = self;
-        [cell addSubview:validityField];
+        _validityField = [[WTReTextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, _dateBirthday.frame.size.width, 30)];
+        _validityField.borderStyle = UITextBorderStyleRoundedRect;
+        _validityField.font = [UIFont systemFontOfSize:15];
+        _validityField.placeholder = @"10.10.1900";
+        _validityField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _validityField.keyboardType = UIKeyboardTypeDefault;
+        _validityField.returnKeyType = UIReturnKeyDone;
+        _validityField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _validityField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _validityField.tag = 4;
+        _validityField.delegate = self;
+        _validityField.pattern = @"^(3[0-1]|[1-2][0-9]|(?:0)[1-9])(?:\\.)(1[0-2]|(?:0)[1-9])(?:\\.)[1-9][0-9]{3}$";
+        [cell addSubview:_validityField];
         
         cell.backgroundColor = [UIColor grayColor];
 	}
@@ -338,8 +306,8 @@
 
 - (void)addTappedOnCell:(id)sender
 {
-    UITableViewCell *newCell = [[UITableViewCell alloc] init];
-    [buyerArray addObject:newCell];
+    NSString* str = @"new";
+    [buyerArray addObject:str];
     [_tableView reloadData];
 }
 

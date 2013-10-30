@@ -8,7 +8,7 @@ pod 'BMChat', :podspec => 'https://raw.github.com/BrandyMint/BMChat/master/BMCha
 pod 'CAFieldComplete', :podspec => 'https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec'
 pod 'CASearchForm', :podspec=>'https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec'
 pod 'CASearchFormControls', :podspec=>'https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec'
-
+pod 'WTReTextField', :podspec=>'https://raw.github.com/bespalown/WTReTextField/master/WTReTextField.podspec'
 pod 'AKTabBarController'
 
 # TODO remove reveal when release
