@@ -101,10 +101,10 @@
      UIView *departFlightView = [self createFlightSubblock:YES];
      departFlightView.frame = CGRectMake(contenView.frame.origin.x, numberZakaza.frame.origin.y + numberZakaza.frame.size.height + 5, 100, 90);
      [self createLineByBottom:departFlightView.frame.origin.y + departFlightView.frame.size.height];
-     
+    
      UIView *returnFlightView = [self createFlightSubblock:NO];
      returnFlightView.frame = CGRectMake(departFlightView.frame.origin.x+departFlightView.frame.size.width, departFlightView.frame.origin.y, departFlightView.frame.size.width, departFlightView.frame.size.height);
-     
+    
      [contenView addSubview:departFlightView];
      [contenView addSubview:returnFlightView];
     

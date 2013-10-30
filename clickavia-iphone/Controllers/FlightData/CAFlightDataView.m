@@ -12,6 +12,7 @@
 #import "CAColorSpecOffers.h"
 #import "SearchConditions.h"
 #import "CAPassengersCountButton.h"
+#import "CABuyerInfo.h"
 #import "CAAppDelegate.h"
 
 #define Y_OFFSET 5
@@ -20,6 +21,8 @@
 #define WIDTH_TABLE_BORDER 10
 
 @interface CAFlightDataView ()
+- (IBAction)onNext:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *next_ou;
 
 @end
 
@@ -123,6 +126,12 @@
     [classSelector setFrameForTrianglePlace:CGRectMake(self.view.frame.size.width*2/3,0,50,30)];
     classSelector.delegate = self;
     [classSelector setCheckClassSelectorImage:[UIImage imageNamed:@"check-icon-green.png"]];
+    
+    //resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch
+    UIImage* buttonImage = [[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 6, 6, 6) resizingMode:UIImageResizingModeStretch];
+    _next_ou.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [_next_ou setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    _next_ou.titleLabel.textColor = [UIColor whiteColor];
 }
 
 - (IBAction) passengerCountButtonPress {
@@ -228,4 +237,8 @@
     passengersCount = nil;
 }
 
+- (IBAction)onNext:(id)sender {
+    CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil];
+    [self.navigationController pushViewController:buyerInfo animated:YES];
+}
 @end

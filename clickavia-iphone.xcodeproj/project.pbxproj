@@ -81,6 +81,8 @@
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
 		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
 		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
+		66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6650772E181F92FF00890DB1 /* CABuyerInfo.m */; };
+		66507731181F92FF00890DB1 /* CABuyerInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6650772F181F92FF00890DB1 /* CABuyerInfo.xib */; };
 		666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */; };
 		666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */; };
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
@@ -206,6 +208,9 @@
 		6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = "clickavia-iphone/Application/CAAppDelegate.m"; sourceTree = SOURCE_ROOT; };
 		6639CA0E17C5FE5600CF772D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.h"; sourceTree = SOURCE_ROOT; };
 		6639CA0F17C5FE5600CF772D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.m"; sourceTree = SOURCE_ROOT; };
+		6650772D181F92FF00890DB1 /* CABuyerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABuyerInfo.h; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.h"; sourceTree = SOURCE_ROOT; };
+		6650772E181F92FF00890DB1 /* CABuyerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABuyerInfo.m; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.m"; sourceTree = SOURCE_ROOT; };
+		6650772F181F92FF00890DB1 /* CABuyerInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CABuyerInfo.xib; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.xib"; sourceTree = SOURCE_ROOT; };
 		666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColorSpecOffers.h; sourceTree = "<group>"; };
 		666C60DB17CCDFA9008220AC /* CASpecOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecOffersViewController.h; sourceTree = "<group>"; };
 		666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecOffersViewController.m; sourceTree = "<group>"; };
@@ -285,6 +290,16 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		6650772C181F928300890DB1 /* Buyer info */ = {
+			isa = PBXGroup;
+			children = (
+				6650772D181F92FF00890DB1 /* CABuyerInfo.h */,
+				6650772E181F92FF00890DB1 /* CABuyerInfo.m */,
+				6650772F181F92FF00890DB1 /* CABuyerInfo.xib */,
+			);
+			name = "Buyer info";
+			sourceTree = "<group>";
+		};
 		668CB98E17F2060A00A26506 /* FlightData */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +310,8 @@
 				66397DAB1806BFCF0016EE69 /* CAOrderDetails.m */,
 				66397DAC1806BFCF0016EE69 /* CATooltipSelect.h */,
 				66397DAD1806BFCF0016EE69 /* CATooltipSelect.m */,
+				66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */,
+				66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */,
 			);
 			name = FlightData;
 			sourceTree = "<group>";
@@ -524,8 +541,6 @@
 		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */,
-				66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */,
 				662972E017E31F6700D9324B /* CAOffersCellView.h */,
 				662972E117E31F6700D9324B /* CAOffersCellView.m */,
 				662972D717E2F3AE00D9324B /* CAOffersCell.h */,
@@ -538,6 +553,7 @@
 				66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */,
 				66F4C7E217EB0FDB0004DB88 /* Contract */,
 				668CB98E17F2060A00A26506 /* FlightData */,
+				6650772C181F928300890DB1 /* Buyer info */,
 				668CB99417F2064800A26506 /* AssistView */,
 			);
 			name = OffersListViewController;
@@ -635,6 +651,7 @@
 				17710ED017F466A8008A8E11 /* UISwitch-planes-two-active@2x.png in Resources */,
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
 				17710EAA17F466A8008A8E11 /* bar-green-warm@2x.png in Resources */,
+				66507731181F92FF00890DB1 /* CABuyerInfo.xib in Resources */,
 				66397DA61806BF7B0016EE69 /* Contract.html in Resources */,
 				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
 				17710ECC17F466A8008A8E11 /* UISwitch-handler@2x.png in Resources */,
@@ -762,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
+				66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */,
 				66397DB01806BFCF0016EE69 /* CAOrderDetails.m in Sources */,
 				6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */,
 				6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */,
