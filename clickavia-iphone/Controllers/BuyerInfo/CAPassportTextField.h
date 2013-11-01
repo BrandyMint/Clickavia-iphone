@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "WTReTextField.h"
 
-@interface CAPassportTextField : UIView <UITextFieldDelegate>
+@protocol CAPassportTextFieldDelegate
+-(void)passportSeries:(NSString*)passportSeries;
+-(void)passportNumber:(NSString*)passportNumber;
+@end
 
+@interface CAPassportTextField : UIView <UITextFieldDelegate>
+{
+    id <CAPassportTextFieldDelegate> delegate;
+}
+
+@property (nonatomic, assign)id <CAPassportTextFieldDelegate> delegate;
 @property (strong, nonatomic) WTReTextField *passportSeries;
 @property (strong, nonatomic) WTReTextField *passportNumber;
 

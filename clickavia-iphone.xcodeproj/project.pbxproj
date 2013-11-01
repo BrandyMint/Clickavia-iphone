@@ -623,7 +623,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CA;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = brandymint;
 			};
 			buildConfigurationList = 7C16A2A517A648290055FF8F /* Build configuration list for PBXProject "clickavia-iphone" */;
@@ -903,7 +903,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";
@@ -920,7 +919,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5F76D61C419488D984C2542 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "clickavia-iphone/clickavia-iphone-Prefix.pch";

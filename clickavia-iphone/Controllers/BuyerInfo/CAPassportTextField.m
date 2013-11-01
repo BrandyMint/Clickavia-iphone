@@ -93,4 +93,18 @@
     return YES;
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    switch (textField.tag) {
+        case 1:
+            [_delegate passportSeries:textField.text];
+            break;
+        case 2:
+            [_delegate passportNumber:textField.text];
+            break;
+        default:
+            break;
+    }
+}
+
 @end

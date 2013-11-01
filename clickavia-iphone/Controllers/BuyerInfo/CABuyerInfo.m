@@ -8,17 +8,22 @@
 
 #import "CABuyerInfo.h"
 #import "CAColorSpecOffers.h"
-#import "CAPassportTextField.h"
 #import "WTReTextField.h"
+#import "PersonInfo.h"
 
 @interface CABuyerInfo ()
 {
     NSMutableArray *buyerArray;
+    NSString* passportSer;
+    NSString* passportNum;
 }
 @property (strong, nonatomic) WTReTextField *surname;
 @property (strong, nonatomic) WTReTextField *name;
 @property (strong, nonatomic) WTReTextField *dateBirthday;
-@property (strong, nonatomic) WTReTextField *validityField;
+@property (strong, nonatomic) WTReTextField *validDay;
+@property (nonatomic, retain) PersonInfo *personInfo;
+
+@property (nonatomic, retain) PersonInfo *personInfoCard;
 @end
 
 @implementation CABuyerInfo
@@ -38,7 +43,16 @@
     // Do any additional setup after loading the view from its nib.
     [self showNavBar];
     
-    buyerArray = [NSMutableArray arrayWithObjects:@"1", @"2", nil];
+    PersonInfo* myCard = [PersonInfo new];
+    myCard.lastName = nil;
+    myCard.name = nil;
+    myCard.personType = male;
+    myCard.birthDate = nil;
+    myCard.validDate = nil;
+    myCard.passportSeries = nil;
+    myCard.passportNumber = nil;
+    
+    buyerArray = [NSMutableArray arrayWithObjects:myCard, nil];
 }
 
 -(void)showNavBar
@@ -95,28 +109,6 @@
     return 3;
 }
 
-
--(void) pickOne:(id)sender{
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
-    //label.text = [segmentedControl titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]];
-    switch ([segmentedControl selectedSegmentIndex]) {
-        case 0:
-            NSLog(@"1 пассажир");
-            break;
-        case 1:
-            NSLog(@"2 пассажир");
-            break;
-        case 2:
-            NSLog(@"3 пассажир");
-            break;
-        case 3:
-            NSLog(@"4 пассажир");
-            break;
-        default:
-            break;
-    }
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [theTextField resignFirstResponder];
     return YES;
@@ -154,7 +146,7 @@
                                       reuseIdentifier:CellIdentifier];
         UILabel *numberBuyer = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 0, 0)];
         //numberBuyer.text = [NSString stringWithFormat:@"%d",indexPath.section+1];
-        numberBuyer.text = [buyerArray objectAtIndex:indexPath.section];
+        numberBuyer.text = [NSString stringWithFormat:@"%d",indexPath.section+1];
         NSLog(@"%d",indexPath.section);
     
         [numberBuyer sizeToFit];
@@ -194,7 +186,7 @@
         _surname.returnKeyType = UIReturnKeyDone;
         _surname.clearButtonMode = UITextFieldViewModeWhileEditing;
         _surname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _surname.tag = 0;
+        _surname.tag = indexPath.section;
         _surname.delegate = self;
         _surname.pattern = @"^[a-zA-Z а-яА-Я]{3,}$";
         [cell addSubview:_surname];
@@ -208,7 +200,7 @@
         _name.returnKeyType = UIReturnKeyDone;
         _name.clearButtonMode = UITextFieldViewModeWhileEditing;
         _name.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _name.tag = 1;
+        _name.tag = indexPath.section;
         _name.delegate = self;
         _name.pattern = @"^[a-zA-Z а-яА-Я]{3,}$";
         [cell addSubview:_name];
@@ -227,7 +219,8 @@
         [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-baby.png"] forSegmentAtIndex:3];
         segmentedControl.frame = CGRectMake(_surname.frame.origin.x, _name.frame.origin.y + _name.frame.size.height + 20, 180, 30);
         segmentedControl.segmentedControlStyle = UISegmentedControlStyleBezeled;
-        [segmentedControl addTarget:self action:@selector(pickOne:) forControlEvents:UIControlEventValueChanged];
+        [segmentedControl addTarget:self action:@selector(segmentedControl:) forControlEvents:UIControlEventValueChanged];
+        segmentedControl.tag = indexPath.section;
         [cell addSubview:segmentedControl];
         
         UILabel *passport = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x, segmentedControl.frame.origin.y + segmentedControl.frame.size.height, 0, 0)];
@@ -236,8 +229,10 @@
         passport.backgroundColor = [UIColor clearColor];
         [cell addSubview:passport];
 
-        CAPassportTextField* passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
-        [cell addSubview:passportField];
+        _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
+        _passportField.tag = indexPath.section;
+        _passportField.delegate = self;
+        [cell addSubview:_passportField];
         
         UILabel * dateBirth = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x + segmentedControl.frame.size.width + 5, asking.frame.origin.y, 0, 0)];
         dateBirth.text = @"Дата рождения";
@@ -254,7 +249,7 @@
         _dateBirthday.returnKeyType = UIReturnKeyDone;
         _dateBirthday.clearButtonMode = UITextFieldViewModeWhileEditing;
         _dateBirthday.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _dateBirthday.tag = 3;
+        _dateBirthday.tag = indexPath.section;
         _dateBirthday.delegate = self;
         _dateBirthday.pattern = @"^(3[0-1]|[1-2][0-9]|(?:0)[1-9])(?:\\.)(1[0-2]|(?:0)[1-9])(?:\\.)[1-9][0-9]{3}$";
         [cell addSubview:_dateBirthday];
@@ -265,19 +260,19 @@
         validity.backgroundColor = [UIColor clearColor];
         [cell addSubview:validity];
         
-        _validityField = [[WTReTextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, _dateBirthday.frame.size.width, 30)];
-        _validityField.borderStyle = UITextBorderStyleRoundedRect;
-        _validityField.font = [UIFont systemFontOfSize:15];
-        _validityField.placeholder = @"10.10.1900";
-        _validityField.autocorrectionType = UITextAutocorrectionTypeNo;
-        _validityField.keyboardType = UIKeyboardTypeDefault;
-        _validityField.returnKeyType = UIReturnKeyDone;
-        _validityField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _validityField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _validityField.tag = 4;
-        _validityField.delegate = self;
-        _validityField.pattern = @"^(3[0-1]|[1-2][0-9]|(?:0)[1-9])(?:\\.)(1[0-2]|(?:0)[1-9])(?:\\.)[1-9][0-9]{3}$";
-        [cell addSubview:_validityField];
+        _validDay = [[WTReTextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, _dateBirthday.frame.size.width, 30)];
+        _validDay.borderStyle = UITextBorderStyleRoundedRect;
+        _validDay.font = [UIFont systemFontOfSize:15];
+        _validDay.placeholder = @"10.10.1900";
+        _validDay.autocorrectionType = UITextAutocorrectionTypeNo;
+        _validDay.keyboardType = UIKeyboardTypeDefault;
+        _validDay.returnKeyType = UIReturnKeyDone;
+        _validDay.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _validDay.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _validDay.tag = indexPath.section;
+        _validDay.delegate = self;
+        _validDay.pattern = @"^(3[0-1]|[1-2][0-9]|(?:0)[1-9])(?:\\.)(1[0-2]|(?:0)[1-9])(?:\\.)[1-9][0-9]{3}$";
+        [cell addSubview:_validDay];
         
         cell.backgroundColor = [UIColor grayColor];
 	}
@@ -306,9 +301,85 @@
 
 - (void)addTappedOnCell:(id)sender
 {
-    NSString* str = @"new";
-    [buyerArray addObject:str];
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard.lastName = nil;
+    personInfoCard.name = nil;
+    personInfoCard.personType = male;
+    personInfoCard.birthDate = nil;
+    personInfoCard.validDate = nil;
+    personInfoCard.passportSeries = nil;
+    personInfoCard.passportNumber = nil;
+    [buyerArray addObject:personInfoCard];
     [_tableView reloadData];
+}
+
+-(void) segmentedControl:(id)sender{
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    
+    [_surname resignFirstResponder];
+    [_name resignFirstResponder];
+    [_dateBirthday resignFirstResponder];
+    [_validDay resignFirstResponder];
+    
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:segmentedControl.tag];
+    personInfoCard.personType = segmentedControl.selectedSegmentIndex;
+    [self fullCard:segmentedControl.tag];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:textField.tag];
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"dd.MM.yyyy"];
+    
+    if (textField == _surname) {
+        personInfoCard.lastName = textField.text;
+        NSLog(@"surname %@",textField.text);
+    }
+    if (textField == _name) {
+        personInfoCard.name = textField.text;
+        NSLog(@"name %@",textField.text);
+    }
+    if (textField == _dateBirthday) {
+        personInfoCard.birthDate = [df dateFromString:textField.text];
+        NSLog(@"birthday %@",textField.text);
+    }
+    if (textField == _validDay) {
+        personInfoCard.validDate = [df dateFromString:textField.text];
+        NSLog(@"validDay %@",textField.text);
+    }
+    [self fullCard:textField.tag];
+}
+
+-(void)passportSeries:(NSString*)passportSeries
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:_passportField.tag];
+    personInfoCard.passportSeries = passportSeries;
+    [self fullCard:_passportField.tag];
+}
+
+-(void)passportNumber:(NSString*)passportNumber
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:_passportField.tag];
+    personInfoCard.passportNumber = passportNumber;
+    [self fullCard:_passportField.tag];
+}
+
+-(BOOL) fullCard:(NSInteger)index
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:index];
+    
+    if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
+        NSLog(@"%d карточка готова: %@ %@ - %@ %@",index+1, personInfoCard.lastName, personInfoCard.name, personInfoCard.birthDate, personInfoCard.validDate);
+        return YES;
+    }
+    return NO;
 }
 
 @end
