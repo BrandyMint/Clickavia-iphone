@@ -11,6 +11,8 @@
 #import "WTReTextField.h"
 #import "PersonInfo.h"
 
+#define HEIGHT_CELL 200
+
 @interface CABuyerInfo ()
 {
     NSMutableArray *buyerArray;
@@ -53,6 +55,9 @@
     myCard.passportNumber = nil;
     
     buyerArray = [NSMutableArray arrayWithObjects:myCard, nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 -(void)showNavBar
@@ -87,7 +92,6 @@
 	self.navigationItem.rightBarButtonItem = addCell;
 }
 
-
 -(void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -114,10 +118,6 @@
     return YES;
 }
 
-- (void)editing {
-    //[self.tableView setEditing:!self.tableView.editing animated:YES];
-}
-
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -131,7 +131,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    return HEIGHT_CELL;
 }
 
 // Customize the appearance of table view cells.
@@ -284,6 +284,35 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+}
+
+-(void)willShowKeyboard:(NSNotification*)notification
+{
+    CGRect keyboardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.4];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - keyboardFrame.size.height + 35);
+    [UIView commitAnimations];
+    
+    //[_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+-(void)willHideKeyboard:(NSNotification*)notification
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.2];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+    
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 - (void)deleteTappedOnCell:(id)sender {
