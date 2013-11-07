@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CAPassportTextField.h"
+#import "CABuyerInfoCell.h"
+#import "CABuyerPickerView.h"
+#import "PersonInfo.h"
 
-@interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CAPassportTextFieldDelegate>
+@interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate>
+{
+    NSMutableArray* testArray;
+}
+
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) NSMutableArray* testArray;
 @property (nonatomic, strong) CAPassportTextField* passportField;
-
 
 @end

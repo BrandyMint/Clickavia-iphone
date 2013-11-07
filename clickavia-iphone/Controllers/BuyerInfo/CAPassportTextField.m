@@ -10,47 +10,49 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation CAPassportTextField
+@synthesize delegate;
+@synthesize passportNumber, passportSeries;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame tag:(NSUInteger)tag;
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         
-        _passportSeries = [[WTReTextField alloc] initWithFrame:CGRectMake(0, 0, 70, 30)];
-        _passportSeries.borderStyle = UITextBorderStyleNone;
-        _passportSeries.font = [UIFont systemFontOfSize:15];
-        _passportSeries.placeholder = @"9708";
-        _passportSeries.autocorrectionType = UITextAutocorrectionTypeNo;
-        _passportSeries.keyboardType = UIKeyboardTypeDefault;
-        _passportSeries.returnKeyType = UIReturnKeyDone;
-        _passportSeries.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _passportSeries.textAlignment = UITextAlignmentRight;
-        _passportSeries.backgroundColor = [UIColor whiteColor];
-        _passportSeries.delegate = self;
-        _passportSeries.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _passportSeries.tag = 1;
-        _passportSeries.pattern = @"^[0-9]{1,}$";
-        [self addSubview:_passportSeries];
+        passportSeries = [[WTReTextField alloc] initWithFrame:CGRectMake(0, 0, 70, 30)];
+        passportSeries.borderStyle = UITextBorderStyleNone;
+        passportSeries.font = [UIFont systemFontOfSize:15];
+        passportSeries.placeholder = @"9708";
+        passportSeries.autocorrectionType = UITextAutocorrectionTypeNo;
+        passportSeries.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        passportSeries.returnKeyType = UIReturnKeyDone;
+        passportSeries.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        passportSeries.textAlignment = UITextAlignmentRight;
+        passportSeries.backgroundColor = [UIColor whiteColor];
+        passportSeries.delegate = self;
+        passportSeries.clearButtonMode = UITextFieldViewModeWhileEditing;
+        serialTag =  passportSeries.tag = tag;
+        passportSeries.pattern = @"^[0-9]{1,}$";
+        [self addSubview:passportSeries];
         
-        UIView* line = [[UIView alloc]initWithFrame:CGRectMake(_passportSeries.frame.origin.x+_passportSeries.frame.size.width, _passportSeries.frame.origin.y, 1, _passportSeries.frame.size.height)];
+        UIView* line = [[UIView alloc]initWithFrame:CGRectMake(passportSeries.frame.origin.x+passportSeries.frame.size.width, passportSeries.frame.origin.y, 1, passportSeries.frame.size.height)];
         line.backgroundColor = [UIColor blackColor];
         [self addSubview:line];
         
-        _passportNumber = [[WTReTextField alloc] initWithFrame:CGRectMake(line.frame.origin.x+line.frame.size.width, 0, self.frame.size.width - _passportSeries.frame.size.width - line.frame.size.width, 30)];
-        _passportNumber.borderStyle = UITextBorderStyleNone;
-        _passportNumber.font = [UIFont systemFontOfSize:15];
-        _passportNumber.placeholder = @"777888";
-        _passportNumber.autocorrectionType = UITextAutocorrectionTypeNo;
-        _passportNumber.keyboardType = UIKeyboardTypeDefault;
-        _passportNumber.returnKeyType = UIReturnKeyDone;
-        _passportNumber.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _passportNumber.backgroundColor = [UIColor whiteColor];
-        _passportNumber.delegate = self;
-        _passportNumber.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _passportNumber.tag = 2;
-        _passportNumber.pattern = @"^[0-9]{1,}$";
-        [self addSubview:_passportNumber];
+        passportNumber = [[WTReTextField alloc] initWithFrame:CGRectMake(line.frame.origin.x+line.frame.size.width, 0, self.frame.size.width - passportSeries.frame.size.width - line.frame.size.width, 30)];
+        passportNumber.borderStyle = UITextBorderStyleNone;
+        passportNumber.font = [UIFont systemFontOfSize:15];
+        passportNumber.placeholder = @"777888";
+        passportNumber.autocorrectionType = UITextAutocorrectionTypeNo;
+        passportNumber.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        passportNumber.returnKeyType = UIReturnKeyDone;
+        passportNumber.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        passportNumber.backgroundColor = [UIColor whiteColor];
+        passportNumber.delegate = self;
+        passportNumber.clearButtonMode = UITextFieldViewModeWhileEditing;
+        numberTag = passportNumber.tag = tag*10;
+        passportNumber.pattern = @"^[0-9]{1,}$";
+        [self addSubview:passportNumber];
         
         [self.layer setCornerRadius:6];
         self.layer.shadowColor = [[UIColor redColor] CGColor];
@@ -59,7 +61,6 @@
         self.layer.shadowOpacity = 0.7;
         [self setClipsToBounds:YES];
         self.backgroundColor = [UIColor orangeColor];
-
     }
     return self;
 }
@@ -68,43 +69,36 @@
 {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     
-    switch (textField.tag) {
-        case 1:
-            if (newLength > 4) {
-                [textField resignFirstResponder];
-                [_passportNumber becomeFirstResponder];
-                return NO;
-            }
-            else
-                return YES;
-            break;
-        case 2:
-            if (newLength > 6) {
-                //[textField resignFirstResponder];
-
-                return NO;
-            }
-            else
-                return YES;
-            break;
-        default:
-            break;
+    if (textField == passportSeries) {
+        if (newLength > 4) {
+            [textField resignFirstResponder];
+            [passportNumber becomeFirstResponder];
+            return NO;
+        }
+        else
+            return YES;
+    }
+    else {
+        if (newLength > 6) {
+            return NO;
+        }
+        else
+            return YES;
     }
     return YES;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    switch (textField.tag) {
-        case 1:
-            [_delegate passportSeries:textField.text];
-            break;
-        case 2:
-            [_delegate passportNumber:textField.text];
-            break;
-        default:
-            break;
-    }
+    if (textField == passportSeries)
+        [delegate passportSeries:textField];
+    else
+        [delegate passportNumber:textField];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

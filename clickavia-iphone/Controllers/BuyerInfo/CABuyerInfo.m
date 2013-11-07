@@ -8,17 +8,30 @@
 
 #import "CABuyerInfo.h"
 #import "CAColorSpecOffers.h"
-#import "WTReTextField.h"
-#import "PersonInfo.h"
 
 #define HEIGHT_CELL 200
+#define KEYBOARD_ANIMATION_DURATION 0.3
+#define MINIMUM_SCROLL_FRACTION 0.2
+#define MAXIMUM_SCROLL_FRACTION 1.0
+#define PORTRAIT_KEYBOARD_HEIGHT 216
+#define LANDSCAPE_KEYBOARD_HEIGHT 162
 
 @interface CABuyerInfo ()
 {
     NSMutableArray *buyerArray;
     NSString* passportSer;
     NSString* passportNum;
+    CGFloat  animatedDistance;
+    NSInteger tagForCell;
+    CABuyerPickerView* pickerView;
+    BOOL isPickerViewVisible;
+    
+    NSString* myString;
 }
+
+@property (nonatomic, retain) NSMutableArray* mut;
+@property (nonatomic, retain) UIButton* birthdayButton;
+@property (nonatomic, retain) UIButton* validDayButton;
 @property (strong, nonatomic) WTReTextField *surname;
 @property (strong, nonatomic) WTReTextField *name;
 @property (strong, nonatomic) WTReTextField *dateBirthday;
@@ -29,6 +42,8 @@
 @end
 
 @implementation CABuyerInfo
+@synthesize validDayButton, birthdayButton;
+@synthesize testArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +59,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self showNavBar];
+    isPickerViewVisible = NO;
     
     PersonInfo* myCard = [PersonInfo new];
     myCard.lastName = nil;
@@ -54,10 +70,22 @@
     myCard.passportSeries = nil;
     myCard.passportNumber = nil;
     
-    buyerArray = [NSMutableArray arrayWithObjects:myCard, nil];
+    buyerArray = [NSMutableArray new];
+    [buyerArray addObject:myCard];
     
+
+    
+    myString = @"I am!";
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    pickerView = [[CABuyerPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 220, 320, 220)];
+    pickerView.delegate = self;
 }
 
 -(void)showNavBar
@@ -138,181 +166,70 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    CABuyerInfoCell *cell = (CABuyerInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        //если ячейка не найдена - создаем новую
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
-        UILabel *numberBuyer = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 0, 0)];
-        //numberBuyer.text = [NSString stringWithFormat:@"%d",indexPath.section+1];
-        numberBuyer.text = [NSString stringWithFormat:@"%d",indexPath.section+1];
-        NSLog(@"%d",indexPath.section);
-    
-        [numberBuyer sizeToFit];
-        numberBuyer.backgroundColor = [UIColor clearColor];
-        [cell addSubview:numberBuyer];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CABuyerInfoCell"owner:self options:nil];
+        cell = [nib objectAtIndex:0];
         
-        UIButton *onInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        [onInfo addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
-        [onInfo setTitle:@"Delete" forState:UIControlStateNormal];
-        onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 20, numberBuyer.frame.size.height);
-        [cell addSubview:onInfo];
+        birthdayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        birthdayButton.frame = CGRectMake(200, 110, 120, 30);
+        [birthdayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
+        [birthdayButton addTarget:self action:@selector(birthday:) forControlEvents:UIControlEventTouchUpInside];
+        birthdayButton.tag = 1;
+        [cell addSubview:birthdayButton];
         
-        UILabel *alreadyHave = [[UILabel alloc] initWithFrame:CGRectMake(onInfo.frame.origin.x + onInfo.frame.size.width + 5, numberBuyer.frame.origin.y, 0, 0)];
-        alreadyHave.text = @"Уже заполняли?";
-        [alreadyHave sizeToFit];
-        alreadyHave.backgroundColor = [UIColor clearColor];
-        [cell addSubview:alreadyHave];
+        validDayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        validDayButton.frame = CGRectMake(200, 160, birthdayButton.frame.size.width, 30);
+        [validDayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
+        [validDayButton addTarget:self action:@selector(validDay:) forControlEvents:UIControlEventTouchUpInside];
+        validDayButton.tag = 2;
+        [cell addSubview:validDayButton];
         
-        UIButton *onDeleteCell = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [onDeleteCell addTarget:self action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
-        [onDeleteCell setTitle:@"Delete" forState:UIControlStateNormal];
-        onDeleteCell.frame = CGRectMake(alreadyHave.frame.origin.x + alreadyHave.frame.size.width + 15, alreadyHave.frame.origin.y, 20, alreadyHave.frame.size.height);
-        [cell addSubview:onDeleteCell];
-        
-        UILabel* delete = [[UILabel alloc] initWithFrame:CGRectMake(onDeleteCell.frame.origin.x + onDeleteCell.frame.size.width + 5, numberBuyer.frame.origin.y, 0, 0)];
-        delete.text = @"Удалить";
-        [delete sizeToFit];
-        delete.backgroundColor = [UIColor clearColor];
-        [cell addSubview:delete];
-        
-        _surname = [[WTReTextField alloc] initWithFrame:CGRectMake(10, numberBuyer.frame.origin.y + 23, 300, 30)];
-        _surname.borderStyle = UITextBorderStyleRoundedRect;
-        _surname.font = [UIFont systemFontOfSize:15];
-        _surname.placeholder = @"ФАМИЛИЯ";
-        _surname.autocorrectionType = UITextAutocorrectionTypeNo;
-        _surname.keyboardType = UIKeyboardTypeDefault;
-        _surname.returnKeyType = UIReturnKeyDone;
-        _surname.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _surname.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _surname.tag = indexPath.section;
-        _surname.delegate = self;
-        _surname.pattern = @"^[a-zA-Z а-яА-Я]{3,}$";
-        [cell addSubview:_surname];
-        
-        _name = [[WTReTextField alloc] initWithFrame:CGRectMake(10, _surname.frame.origin.y + _surname.frame.size.height + 2, 300, 30)];
-        _name.borderStyle = UITextBorderStyleRoundedRect;
-        _name.font = [UIFont systemFontOfSize:15];
-        _name.placeholder = @"ИМЯ";
-        _name.autocorrectionType = UITextAutocorrectionTypeNo;
-        _name.keyboardType = UIKeyboardTypeDefault;
-        _name.returnKeyType = UIReturnKeyDone;
-        _name.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _name.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _name.tag = indexPath.section;
-        _name.delegate = self;
-        _name.pattern = @"^[a-zA-Z а-яА-Я]{3,}$";
-        [cell addSubview:_name];
-        
-        UILabel *asking = [[UILabel alloc] initWithFrame:CGRectMake(_name.frame.origin.x, _name.frame.origin.y + _name.frame.size.height, 0, 0)];
-        asking.text = @"  MR   MRS  CHD   INF";
-        [asking sizeToFit];
-        asking.backgroundColor = [UIColor clearColor];
-        [cell addSubview:asking];
-        
-        NSArray *itemArray = [NSArray arrayWithObjects: @"One", @"Two", @"Three", @"Four", nil];
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-        [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-man.png"] forSegmentAtIndex:0];
-        [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-kid.png"] forSegmentAtIndex:1];
-        [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-kid.png"] forSegmentAtIndex:2];
-        [segmentedControl setImage:[UIImage imageNamed:@"passengers-icon-baby.png"] forSegmentAtIndex:3];
-        segmentedControl.frame = CGRectMake(_surname.frame.origin.x, _name.frame.origin.y + _name.frame.size.height + 20, 180, 30);
-        segmentedControl.segmentedControlStyle = UISegmentedControlStyleBezeled;
-        [segmentedControl addTarget:self action:@selector(segmentedControl:) forControlEvents:UIControlEventValueChanged];
-        segmentedControl.tag = indexPath.section;
-        [cell addSubview:segmentedControl];
-        
-        UILabel *passport = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x, segmentedControl.frame.origin.y + segmentedControl.frame.size.height, 0, 0)];
-        passport.text = @"Серия и № паспорта";
-        [passport sizeToFit];
-        passport.backgroundColor = [UIColor clearColor];
-        [cell addSubview:passport];
-
-        _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
-        _passportField.tag = indexPath.section;
-        _passportField.delegate = self;
-        [cell addSubview:_passportField];
-        
-        UILabel * dateBirth = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x + segmentedControl.frame.size.width + 5, asking.frame.origin.y, 0, 0)];
-        dateBirth.text = @"Дата рождения";
-        [dateBirth sizeToFit];
-        dateBirth.backgroundColor = [UIColor clearColor];
-        [cell addSubview:dateBirth];
-        
-        _dateBirthday = [[WTReTextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, segmentedControl.frame.origin.y, 120, 30)];
-        _dateBirthday.borderStyle = UITextBorderStyleRoundedRect;
-        _dateBirthday.font = [UIFont systemFontOfSize:15];
-        _dateBirthday.placeholder = @"10.10.1900";
-        _dateBirthday.autocorrectionType = UITextAutocorrectionTypeNo;
-        _dateBirthday.keyboardType = UIKeyboardTypeDefault;
-        _dateBirthday.returnKeyType = UIReturnKeyDone;
-        _dateBirthday.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _dateBirthday.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _dateBirthday.tag = indexPath.section;
-        _dateBirthday.delegate = self;
-        _dateBirthday.pattern = @"^(3[0-1]|[1-2][0-9]|(?:0)[1-9])(?:\\.)(1[0-2]|(?:0)[1-9])(?:\\.)[1-9][0-9]{3}$";
-        [cell addSubview:_dateBirthday];
-        
-        UILabel * validity = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x + segmentedControl.frame.size.width + 5, passport.frame.origin.y, 0, 0)];
-        validity.text = @"Срок действия";
-        [validity sizeToFit];
-        validity.backgroundColor = [UIColor clearColor];
-        [cell addSubview:validity];
-        
-        _validDay = [[WTReTextField alloc] initWithFrame:CGRectMake(dateBirth.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, _dateBirthday.frame.size.width, 30)];
-        _validDay.borderStyle = UITextBorderStyleRoundedRect;
-        _validDay.font = [UIFont systemFontOfSize:15];
-        _validDay.placeholder = @"10.10.1900";
-        _validDay.autocorrectionType = UITextAutocorrectionTypeNo;
-        _validDay.keyboardType = UIKeyboardTypeDefault;
-        _validDay.returnKeyType = UIReturnKeyDone;
-        _validDay.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _validDay.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _validDay.tag = indexPath.section;
-        _validDay.delegate = self;
-        _validDay.pattern = @"^(3[0-1]|[1-2][0-9]|(?:0)[1-9])(?:\\.)(1[0-2]|(?:0)[1-9])(?:\\.)[1-9][0-9]{3}$";
-        [cell addSubview:_validDay];
-        
-        cell.backgroundColor = [UIColor grayColor];
-	}
-    
+        cell.delegate = self;
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
+}
+
+-(void)willShowKeyboard:(NSNotification*)aNotification
+{
+    if (isPickerViewVisible) {
+        isPickerViewVisible = NO;
+        [pickerView removeFromSuperview];
+    }
+}
+
+-(void)birthday:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:_tableView];
+    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:buttonPosition];
+    [pickerView indexCell:indexPath.section typeButton:birthday sender:sender];
+    [self.view addSubview:pickerView];
+    isPickerViewVisible = YES;
+    [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+}
+
+-(void)validDay:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:_tableView];
+    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:buttonPosition];
+    [pickerView indexCell:indexPath.section typeButton:validDay sender:sender];
+    [self.view addSubview:pickerView];
+    isPickerViewVisible = YES;
+    [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //
+    CABuyerInfoCell *customCell = (CABuyerInfoCell*)cell;
+    [customCell initByIndex:indexPath.section];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-}
-
--(void)willShowKeyboard:(NSNotification*)notification
-{
-    CGRect keyboardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.4];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - keyboardFrame.size.height + 35);
-    [UIView commitAnimations];
-    
-    //[_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
-
--(void)willHideKeyboard:(NSNotification*)notification
-{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.2];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height);
-    [UIView commitAnimations];
-    
-    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 - (void)deleteTappedOnCell:(id)sender {
@@ -325,6 +242,7 @@
         [_tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];
         [_tableView endUpdates];
         [_tableView reloadData];
+        NSLog(@"delete %d %@", buyerArray.count, buyerArray);
     }
 }
 
@@ -340,75 +258,151 @@
     personInfoCard.passportNumber = nil;
     [buyerArray addObject:personInfoCard];
     [_tableView reloadData];
+    NSLog(@"add %d %@", buyerArray.count, buyerArray);
 }
 
--(void) segmentedControl:(id)sender{
-    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35);
+    [UIView commitAnimations];
     
-    [_surname resignFirstResponder];
-    [_name resignFirstResponder];
-    [_dateBirthday resignFirstResponder];
-    [_validDay resignFirstResponder];
+    CGRect textFieldRect = [_tableView.window convertRect:textField.bounds fromView:textField];
+    CGFloat midline = _tableView.frame.origin.y + 0.5*_tableView.frame.size.height;
     
-    PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:segmentedControl.tag];
-    personInfoCard.personType = segmentedControl.selectedSegmentIndex;
-    [self fullCard:segmentedControl.tag];
+    if (tagForCell != textField.tag) {
+        tagForCell = textField.tag;
+        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:textField.tag] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void) cancelButtonPress
+{
+    NSLog(@"cancelButtonPress");
+    [pickerView removeFromSuperview];
+    isPickerViewVisible = NO;
+    NSLog(@"%@",myString);
+}
+
+- (void) acceptButtonPress
+{
+    NSLog(@"acceptlButtonPress");
+    [pickerView removeFromSuperview];
+    isPickerViewVisible = NO;
+}
+
+- (void) dateFromPicker:(NSDate*)date
+{
+    
+}
+#pragma mark CABuyerInfoCellDelegate
+
+-(void)tableViewCell:(UITableViewCell* )tableViewCell textDidEndEditing:(NSString *)text fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
 {
     PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:textField.tag];
+    personInfoCard = [buyerArray objectAtIndex:indexCell];
     
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"dd.MM.yyyy"];
+    switch (fieldId) {
+        case lastname:
+            personInfoCard.lastName = text;
+            break;
+        case name:
+            personInfoCard.name = text;
+            break;
+        case passportSeries:
+            personInfoCard.passportSeries = text;
+            break;
+        case passportNumber:
+            personInfoCard.passportNumber = text;
+            break;
+        default:
+            break;
+    }
+    [self fullCard:indexCell];
+}
+
+-(void)tableViewCell:(UITableViewCell* )tableViewCell segmentedControlId:(idField)segmentedControlId indexCell:(NSInteger)indexCell
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:indexCell];
+    personInfoCard.personType = segmentedControlId;
+    [self fullCard:indexCell];
+}
+
+- (void) datePickerDidSelectedDate:(NSDate*)selectedDate fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:indexCell];
     
-    if (textField == _surname) {
-        personInfoCard.lastName = textField.text;
-        NSLog(@"surname %@",textField.text);
+     NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
+     [date_format setDateFormat: @"dd.MM.yyyy"];
+     NSString * date_string = [date_format stringFromDate: selectedDate];
+     
+    
+    if (fieldId == birthday)
+    {
+        personInfoCard.birthDate = selectedDate;
+        [sender setTitle:date_string forState:UIControlStateNormal];
     }
-    if (textField == _name) {
-        personInfoCard.name = textField.text;
-        NSLog(@"name %@",textField.text);
+    else
+    {
+        personInfoCard.validDate = selectedDate;
+        [sender setTitle:date_string forState:UIControlStateNormal];
     }
-    if (textField == _dateBirthday) {
-        personInfoCard.birthDate = [df dateFromString:textField.text];
-        NSLog(@"birthday %@",textField.text);
-    }
-    if (textField == _validDay) {
-        personInfoCard.validDate = [df dateFromString:textField.text];
-        NSLog(@"validDay %@",textField.text);
-    }
-    [self fullCard:textField.tag];
+    [self fullCard:indexCell];
 }
 
--(void)passportSeries:(NSString*)passportSeries
+-(void) fullCard:(NSInteger)indexCell
 {
     PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:_passportField.tag];
-    personInfoCard.passportSeries = passportSeries;
-    [self fullCard:_passportField.tag];
-}
-
--(void)passportNumber:(NSString*)passportNumber
-{
-    PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:_passportField.tag];
-    personInfoCard.passportNumber = passportNumber;
-    [self fullCard:_passportField.tag];
-}
-
--(BOOL) fullCard:(NSInteger)index
-{
-    PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:index];
+    personInfoCard = [buyerArray objectAtIndex:indexCell];
     
     if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
-        NSLog(@"%d карточка готова: %@ %@ - %@ %@",index+1, personInfoCard.lastName, personInfoCard.name, personInfoCard.birthDate, personInfoCard.validDate);
-        return YES;
+        
+        NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
+        [date_format setDateFormat: @"dd.MM.yyyy"];
+        NSString * birthDate = [date_format stringFromDate: personInfoCard.birthDate];
+        NSString * validDate = [date_format stringFromDate: personInfoCard.validDate];
+        NSString * personType = [NSString new];
+        
+        switch (personInfoCard.personType) {
+            case male:
+                personType = @"male";
+                break;
+            case female:
+                personType = @"female";
+                break;
+            case children:
+                personType = @"children";
+                break;
+            case infant:
+                personType = @"infant";
+                break;
+            default:
+                break;
+        }
+        
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%d карточка заполнна",indexCell+1]
+                                                        message:[NSString stringWithFormat:@"Имя: %@\n Фамилия: %@\n Серия паспорта: %@\n Номер паспорта: %@\n Дата рождения: %@\n Срок действия: %@\n Тип пассажира: %@",personInfoCard.lastName, personInfoCard.name, personInfoCard.passportSeries, personInfoCard.passportNumber, birthDate, validDate, personType]
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
-    return NO;
 }
 
 @end
