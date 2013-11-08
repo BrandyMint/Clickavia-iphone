@@ -13,7 +13,7 @@
 @synthesize delegate;
 @synthesize passportNumber, passportSeries;
 
-- (id)initWithFrame:(CGRect)frame tag:(NSUInteger)tag;
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -31,7 +31,6 @@
         passportSeries.backgroundColor = [UIColor whiteColor];
         passportSeries.delegate = self;
         passportSeries.clearButtonMode = UITextFieldViewModeWhileEditing;
-        serialTag =  passportSeries.tag = tag;
         passportSeries.pattern = @"^[0-9]{1,}$";
         [self addSubview:passportSeries];
         
@@ -50,7 +49,6 @@
         passportNumber.backgroundColor = [UIColor whiteColor];
         passportNumber.delegate = self;
         passportNumber.clearButtonMode = UITextFieldViewModeWhileEditing;
-        numberTag = passportNumber.tag = tag*10;
         passportNumber.pattern = @"^[0-9]{1,}$";
         [self addSubview:passportNumber];
         
@@ -88,8 +86,14 @@
     return YES;
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [delegate activeTextFieldPassport:textField];
+}
+
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    [delegate activeTextFieldPassport:nil];
     if (textField == passportSeries)
         [delegate passportSeries:textField];
     else

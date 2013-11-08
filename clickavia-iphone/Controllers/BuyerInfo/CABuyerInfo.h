@@ -12,10 +12,6 @@
 #import "PersonInfo.h"
 
 @interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate>
-{
-    NSMutableArray* testArray;
-}
-
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray* testArray;

@@ -118,7 +118,7 @@
     passport.backgroundColor = [UIColor clearColor];
     [self addSubview:passport];
     
-    CAPassportTextField* _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30) tag:0];
+    CAPassportTextField* _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
     //_passportField.tag = indexPath.section;
     _passportField.delegate = self;
     [self addSubview:_passportField];
@@ -155,8 +155,14 @@
     [_delegate tableViewCell:self segmentedControlId:segmentedControl.selectedSegmentIndex indexCell:indexCell];
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [_delegate activeTextField:textField indexCell:indexCell];
+}
+
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    [_delegate activeTextField:nil indexCell:indexCell];
     if (textField == surnameTextField) {
         [_delegate tableViewCell:self textDidEndEditing:textField.text fieldId:lastname indexCell:indexCell sender:nil];
     }
@@ -165,6 +171,10 @@
     }
 }
 
+-(void)activeTextFieldPassport:(UITextField*)activeTextFieldPassport
+{
+    [_delegate activeTextField:activeTextFieldPassport indexCell:indexCell];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

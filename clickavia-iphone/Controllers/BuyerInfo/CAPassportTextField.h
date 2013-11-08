@@ -13,18 +13,19 @@
 @protocol CAPassportTextFieldDelegate
 -(void)passportSeries:(UITextField *)passportSeries;
 -(void)passportNumber:(UITextField *)passportNumber;
+-(void)activeTextFieldPassport:(UITextField*)activeTextFieldPassport;
 @end
 
 
 @interface CAPassportTextField : UIView <UITextFieldDelegate>
 {
     id <CAPassportTextFieldDelegate> delegate;
-    NSInteger serialTag;
-    NSInteger numberTag;
 }
 
 @property (nonatomic, retain) id <CAPassportTextFieldDelegate> delegate;
 @property (strong, nonatomic) WTReTextField *passportSeries;
 @property (strong, nonatomic) WTReTextField *passportNumber;
-- (id)initWithFrame:(CGRect)frame tag:(NSUInteger)tag;
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+
 @end

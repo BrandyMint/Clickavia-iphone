@@ -24,12 +24,13 @@ typedef enum
 @protocol CABuyerInfoCellDelegate
 -(void)tableViewCell:(UITableViewCell* )tableViewCell textDidEndEditing:(NSString *)text fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
 -(void)tableViewCell:(UITableViewCell* )tableViewCell segmentedControlId:(idField)segmentedControlId indexCell:(NSInteger)indexCell;
-
+-(void)activeTextField:(UITextField*)activeTextField indexCell:(NSInteger)indexCell;
 @end
 
 @interface CABuyerInfoCell : UITableViewCell <UITextFieldDelegate, CAPassportTextFieldDelegate>
 {
     NSInteger indexCell;
+    UITextField* activeField;
 }
 
 @property (assign) id <CABuyerInfoCellDelegate> delegate;
@@ -38,5 +39,5 @@ typedef enum
 
 - (void) initByIndex:(NSInteger)index;
 - (void) dateFromPicker:(NSDate*)date;
--(void)didSelectDatePicker:(NSDate *)date typeField:(idField)typeField indexCell:(NSInteger)indexCell sender:(id)sender;
+- (void) didSelectDatePicker:(NSDate *)date typeField:(idField)typeField indexCell:(NSInteger)indexCell sender:(id)sender;
 @end

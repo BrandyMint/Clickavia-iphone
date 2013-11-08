@@ -8,6 +8,7 @@
 
 #import "CABuyerInfo.h"
 #import "CAColorSpecOffers.h"
+#import "CAPassportTextField.h"
 
 #define HEIGHT_CELL 200
 #define KEYBOARD_ANIMATION_DURATION 0.3
@@ -25,25 +26,20 @@
     NSInteger tagForCell;
     CABuyerPickerView* pickerView;
     BOOL isPickerViewVisible;
-    
-    NSString* myString;
+    CGRect activeFrame;
 }
 
-@property (nonatomic, retain) NSMutableArray* mut;
 @property (nonatomic, retain) UIButton* birthdayButton;
 @property (nonatomic, retain) UIButton* validDayButton;
 @property (strong, nonatomic) WTReTextField *surname;
 @property (strong, nonatomic) WTReTextField *name;
 @property (strong, nonatomic) WTReTextField *dateBirthday;
 @property (strong, nonatomic) WTReTextField *validDay;
-@property (nonatomic, retain) PersonInfo *personInfo;
-
 @property (nonatomic, retain) PersonInfo *personInfoCard;
 @end
 
 @implementation CABuyerInfo
 @synthesize validDayButton, birthdayButton;
-@synthesize testArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -72,13 +68,10 @@
     
     buyerArray = [NSMutableArray new];
     [buyerArray addObject:myCard];
-    
 
-    
-    myString = @"I am!";
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 
@@ -141,11 +134,6 @@
     return 3;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    [theTextField resignFirstResponder];
-    return YES;
-}
-
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -193,12 +181,45 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CABuyerInfoCell *customCell = (CABuyerInfoCell*)cell;
+    [customCell initByIndex:indexPath.section];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
 -(void)willShowKeyboard:(NSNotification*)aNotification
 {
     if (isPickerViewVisible) {
         isPickerViewVisible = NO;
         [pickerView removeFromSuperview];
     }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35);
+    [UIView commitAnimations];
+    
+    
+}
+
+-(void)willHideKeyboard:(NSNotification*)aNotification
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    [theTextField resignFirstResponder];
+    return YES;
 }
 
 -(void)birthday:(id)sender
@@ -209,6 +230,8 @@
     [self.view addSubview:pickerView];
     isPickerViewVisible = YES;
     [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    
+    [_tableView endEditing:YES];
 }
 
 -(void)validDay:(id)sender
@@ -219,17 +242,8 @@
     [self.view addSubview:pickerView];
     isPickerViewVisible = YES;
     [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CABuyerInfoCell *customCell = (CABuyerInfoCell*)cell;
-    [customCell initByIndex:indexPath.section];
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
     
+    [_tableView endEditing:YES];
 }
 
 - (void)deleteTappedOnCell:(id)sender {
@@ -239,11 +253,15 @@
     if (buyerArray.count > 1) {
         [buyerArray removeObjectAtIndex:indexPath.section];
         [_tableView beginUpdates];
-        [_tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];
+        [_tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationTop];
         [_tableView endUpdates];
-        [_tableView reloadData];
-        NSLog(@"delete %d %@", buyerArray.count, buyerArray);
+        [self performSelector:@selector(reloadTableView) withObject:self afterDelay:0.5 ];
     }
+}
+
+-(void)reloadTableView
+{
+        [_tableView reloadData];
 }
 
 - (void)addTappedOnCell:(id)sender
@@ -258,44 +276,15 @@
     personInfoCard.passportNumber = nil;
     [buyerArray addObject:personInfoCard];
     [_tableView reloadData];
-    NSLog(@"add %d %@", buyerArray.count, buyerArray);
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35);
-    [UIView commitAnimations];
-    
-    CGRect textFieldRect = [_tableView.window convertRect:textField.bounds fromView:textField];
-    CGFloat midline = _tableView.frame.origin.y + 0.5*_tableView.frame.size.height;
-    
-    if (tagForCell != textField.tag) {
-        tagForCell = textField.tag;
-        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:textField.tag] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    }
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    CGRect viewFrame = self.view.frame;
-    viewFrame.origin.y += animatedDistance;
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height);
-    [UIView commitAnimations];
-}
+#pragma mark CABuyerPickerViewDelegate
 
 - (void) cancelButtonPress
 {
     NSLog(@"cancelButtonPress");
     [pickerView removeFromSuperview];
     isPickerViewVisible = NO;
-    NSLog(@"%@",myString);
 }
 
 - (void) acceptButtonPress
@@ -305,11 +294,35 @@
     isPickerViewVisible = NO;
 }
 
-- (void) dateFromPicker:(NSDate*)date
+- (void) datePickerDidSelectedDate:(NSDate*)selectedDate fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
 {
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:indexCell];
     
+    NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
+    [date_format setDateFormat: @"dd.MM.yyyy"];
+    NSString * date_string = [date_format stringFromDate: selectedDate];
+    
+    
+    if (fieldId == birthday)
+    {
+        personInfoCard.birthDate = selectedDate;
+        [sender setTitle:date_string forState:UIControlStateNormal];
+    }
+    else
+    {
+        personInfoCard.validDate = selectedDate;
+        [sender setTitle:date_string forState:UIControlStateNormal];
+    }
+    [self fullCard:indexCell];
 }
+
 #pragma mark CABuyerInfoCellDelegate
+
+-(void)activeTextField:(UITextField*)activeTextField indexCell:(NSInteger)indexCell
+{
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:indexCell] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
 
 -(void)tableViewCell:(UITableViewCell* )tableViewCell textDidEndEditing:(NSString *)text fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
 {
@@ -340,29 +353,6 @@
     PersonInfo*  personInfoCard = [PersonInfo new];
     personInfoCard = [buyerArray objectAtIndex:indexCell];
     personInfoCard.personType = segmentedControlId;
-    [self fullCard:indexCell];
-}
-
-- (void) datePickerDidSelectedDate:(NSDate*)selectedDate fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
-{
-    PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:indexCell];
-    
-     NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
-     [date_format setDateFormat: @"dd.MM.yyyy"];
-     NSString * date_string = [date_format stringFromDate: selectedDate];
-     
-    
-    if (fieldId == birthday)
-    {
-        personInfoCard.birthDate = selectedDate;
-        [sender setTitle:date_string forState:UIControlStateNormal];
-    }
-    else
-    {
-        personInfoCard.validDate = selectedDate;
-        [sender setTitle:date_string forState:UIControlStateNormal];
-    }
     [self fullCard:indexCell];
 }
 
