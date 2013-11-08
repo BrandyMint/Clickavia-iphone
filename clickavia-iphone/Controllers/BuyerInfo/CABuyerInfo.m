@@ -261,7 +261,7 @@
 
 -(void)reloadTableView
 {
-        [_tableView reloadData];
+    [_tableView reloadData];
 }
 
 - (void)addTappedOnCell:(id)sender
@@ -276,6 +276,7 @@
     personInfoCard.passportNumber = nil;
     [buyerArray addObject:personInfoCard];
     [_tableView reloadData];
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:buyerArray.count-1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 #pragma mark CABuyerPickerViewDelegate
@@ -392,7 +393,18 @@
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
         [alert show];
+
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"UsersPassports"];
+        
+        [self performSelector:@selector(readPassportsUsers) withObject:nil afterDelay:5];
     }
+}
+
+-(void)readPassportsUsers
+{
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersPassports"];
+    NSArray *notes = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
 }
 
 @end
