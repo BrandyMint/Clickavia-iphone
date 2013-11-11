@@ -55,6 +55,7 @@
     [alreadyHave sizeToFit];
     alreadyHave.backgroundColor = [UIColor clearColor];
     //[self addSubview:alreadyHave];
+#warning Включить кнопку "Уже заполняли"
     
     UIButton *deleteCell = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [deleteCell addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
@@ -118,6 +119,7 @@
     passport.backgroundColor = [UIColor clearColor];
     [self addSubview:passport];
     
+    //2 TextField с разделенной чертой
     CAPassportTextField* _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
     //_passportField.tag = indexPath.section;
     _passportField.delegate = self;
@@ -135,16 +137,6 @@
     validity.backgroundColor = [UIColor clearColor];
     [self addSubview:validity];
     
-}
-
--(void)passportSeries:(UITextField *)textField;
-{
-    [_delegate tableViewCell:self textDidEndEditing:textField.text fieldId:passportSeries indexCell:indexCell sender:nil];
-}
-
--(void)passportNumber:(UITextField*)textField
-{
-    [_delegate tableViewCell:self textDidEndEditing:textField.text fieldId:passportNumber indexCell:indexCell sender:nil];
 }
 
 -(void)segmentedControl:(id)sender;
@@ -171,9 +163,21 @@
     }
 }
 
+#pragma mark CAPassportTextFieldDelegate
+
 -(void)activeTextFieldPassport:(UITextField*)activeTextFieldPassport
 {
     [_delegate activeTextField:activeTextFieldPassport indexCell:indexCell];
+}
+
+-(void)passportSeries:(UITextField *)textField;
+{
+    [_delegate tableViewCell:self textDidEndEditing:textField.text fieldId:passportSeries indexCell:indexCell sender:nil];
+}
+
+-(void)passportNumber:(UITextField*)textField
+{
+    [_delegate tableViewCell:self textDidEndEditing:textField.text fieldId:passportNumber indexCell:indexCell sender:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
