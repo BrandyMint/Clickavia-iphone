@@ -8,76 +8,30 @@
 
 #import "CAOrderDetailsPersonal.h"
 
-
+#define MARGIN_VIEW 5
 #define LABEL_AIRPORT_WIDTH 80
 #define LABEL_COLUMN_DEPARTURE 100
 
 @implementation CAOrderDetailsPersonal
 {
-    Flight* flightDepartureObject;
-    Flight* flightReturnObject;
-    OfferConditions* offerConditions;
-    SearchConditions* searchConditions;
-    Destination* destinationDeparture;
-    Destination* destinationReturn;
-    
     UIView* contenView;
+    SpecialOffer* specialOffer;
 }
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(SpecialOffer*)specialOfferData passengers:(CAFlightPassengersCount*)offerPassengersData;
 {
-    flightDepartureObject = [[Flight alloc] init];
-    flightReturnObject = [[Flight alloc] init];
-    offerConditions = [[OfferConditions alloc] init];
-    searchConditions = [[SearchConditions alloc] init];
-    destinationDeparture = [[Destination alloc] init];
-    destinationReturn = [[Destination alloc] init];
-    
-    flightDepartureObject = offerObject.flightDeparture;
-    flightReturnObject = offerObject.flightReturn;
-    offerConditions = offerObject.offerConditions;
-    searchConditions = offerConditions.searchConditions;
-    destinationDeparture = searchConditions.direction_departure;
-    destinationReturn = searchConditions.direction_return;
-    
+    specialOffer = [SpecialOffer new];
+    specialOffer = specialOfferData;
     
     contenView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
     contenView.backgroundColor = [UIColor whiteColor];
     [contenView.layer setCornerRadius:6];
     
-    UILabel *numberZakaza = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 0, 0)];
-    numberZakaza.backgroundColor = [UIColor clearColor];
-    numberZakaza.textColor = [UIColor COLOR_PASSANGER_COUNT];
-    numberZakaza.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    numberZakaza.text = @"Заказ №109537";
-    [contenView addSubview:numberZakaza];
-    [numberZakaza sizeToFit];
-
-    UILabel *statusZakaza = [[UILabel alloc] initWithFrame:CGRectMake(numberZakaza.frame.origin.x + numberZakaza.frame.size.width + 10, numberZakaza.frame.origin.y, 0, 0)];
-    statusZakaza.backgroundColor = [UIColor clearColor];
-    statusZakaza.textColor = [UIColor greenColor];
-    statusZakaza.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    statusZakaza.text = @"оплачен";
-    [contenView addSubview:statusZakaza];
-    [statusZakaza sizeToFit];
+    [self createLineByBottom: 0];
     
-    UIImageView* arrow = [[UIImageView alloc] initWithFrame:CGRectMake(contenView.frame.size.width - 25, numberZakaza.frame.origin.y, 8, 10)];
-    arrow.image = [UIImage imageNamed:@"toolbar-arrow-right@2x.png"];
-    [contenView addSubview:arrow];
-
-    UILabel *detailsLabel = [[UILabel alloc] initWithFrame:CGRectMake(arrow.frame.origin.x - 70, numberZakaza.frame.origin.y, 0, 0)];
-    detailsLabel.backgroundColor = [UIColor clearColor];
-    detailsLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
-    detailsLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    detailsLabel.text = @"подробно";
-    [contenView addSubview:detailsLabel];
-    [detailsLabel sizeToFit];
-    
-    [self createLineByBottom: numberZakaza.frame.origin.y + numberZakaza.frame.size.height + 5];
-
-    UIView* passangersBlockView = [self flightPassengersBlockView:offerPassengers];
-    passangersBlockView.frame = CGRectMake(contenView.frame.size.width - passangersBlockView.frame.size.width - 20,
-                                           numberZakaza.frame.origin.y + numberZakaza.frame.size.height + 10,
+    UIView* passangersBlockView = [self flightPassengersBlockView:offerPassengersData];
+    passangersBlockView.frame = CGRectMake(contenView.frame.size.width - passangersBlockView.frame.size.width - MARGIN_VIEW,
+                                           10,
                                            passangersBlockView.frame.size.width,
                                            passangersBlockView.frame.size.height);
     [contenView addSubview:passangersBlockView];
@@ -90,32 +44,28 @@
     [costLabel sizeToFit];
     [contenView addSubview:costLabel];
     
-    UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(passangersBlockView.frame.origin.x, costLabel.frame.origin.y + costLabel.frame.size.height, 0, 0)];
-    price.backgroundColor = [UIColor clearColor];
-    price.textColor = [UIColor blackColor];
-    price.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20];
-    price.text = [NSString stringWithFormat:@"%@ р.",offerObject.bothPrice];
-    [contenView addSubview:price];
-    [price sizeToFit];
+    UILabel *pricelabel = [[UILabel alloc] initWithFrame:CGRectMake(passangersBlockView.frame.origin.x, costLabel.frame.origin.y + costLabel.frame.size.height, 0, 0)];
+    pricelabel.backgroundColor = [UIColor clearColor];
+    pricelabel.textColor = [UIColor blackColor];
+    pricelabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20];
+    pricelabel.text = [[NSString alloc] initWithFormat:@"%.0f р.", specialOfferData.price.floatValue];
+    [contenView addSubview:pricelabel];
+    [pricelabel sizeToFit];
     
-     UIView *departFlightView = [self createFlightSubblock:YES];
-     departFlightView.frame = CGRectMake(contenView.frame.origin.x, numberZakaza.frame.origin.y + numberZakaza.frame.size.height + 5, 100, 90);
-     [self createLineByBottom:departFlightView.frame.origin.y + departFlightView.frame.size.height];
+    UIView *departFlightView = [self createFlightSubblock:YES];
+    departFlightView.frame = CGRectMake(contenView.frame.origin.x, MARGIN_VIEW, contenView.frame.size.width/3*2, 90);
+    [self createLineByBottom:departFlightView.frame.origin.y + departFlightView.frame.size.height];
+    [contenView addSubview:departFlightView];
     
-     UIView *returnFlightView = [self createFlightSubblock:NO];
-     returnFlightView.frame = CGRectMake(departFlightView.frame.origin.x+departFlightView.frame.size.width, departFlightView.frame.origin.y, departFlightView.frame.size.width, departFlightView.frame.size.height);
-    
-     [contenView addSubview:departFlightView];
-     [contenView addSubview:returnFlightView];
-    
-    UILabel *contactManagerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, departFlightView.frame.origin.y + departFlightView.frame.size.height + 10, 0, 0)];
-    contactManagerLabel.backgroundColor = [UIColor clearColor];
-    contactManagerLabel.textColor = [UIColor blackColor];
-    contactManagerLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    contactManagerLabel.text = @"Связаться с менеджером";
-    [contenView addSubview:contactManagerLabel];
-    [contactManagerLabel sizeToFit];
-
+    if (specialOffer.isReturn) {
+        CGRect departFlightFrame = departFlightView.frame;
+        departFlightFrame.size.width = contenView.frame.size.width/3;
+        departFlightView.frame = departFlightFrame;
+        
+        UIView *returnFlightView = [self createFlightSubblock:NO];
+        returnFlightView.frame = CGRectMake(departFlightView.frame.origin.x+departFlightView.frame.size.width, departFlightView.frame.origin.y,departFlightView.frame.size.width, departFlightView.frame.size.height);
+        [contenView addSubview:returnFlightView];
+    }
     
     return contenView;
 }
@@ -168,6 +118,9 @@
 {
     UIView *subBlockView = [[UIView alloc] init];
     
+    NSArray* dates = specialOffer.dates;
+    NSArray* flightIds = specialOffer.flightIds;
+    
     UILabel *flightlabel = [[UILabel alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 10, 5, 0, 0)];
     flightlabel.backgroundColor = [UIColor clearColor];
     flightlabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
@@ -176,20 +129,23 @@
     [flightlabel sizeToFit];
     [subBlockView addSubview:flightlabel];
     
-    UILabel *airportCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(flightlabel.frame.origin.x, flightlabel.frame.origin.y + flightlabel.frame.size.height + 5, 0, 0)];
+    UILabel *airportCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(flightlabel.frame.origin.x,
+                                                                          flightlabel.frame.origin.y + flightlabel.frame.size.height + 5,
+                                                                          contenView.frame.size.width/3,
+                                                                          14)];
     airportCodeLabel.backgroundColor = [UIColor clearColor];
     airportCodeLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     airportCodeLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [subBlockView addSubview:airportCodeLabel];
-    airportCodeLabel.text = (isDest)?[NSString stringWithFormat:@"%@ > %@",destinationDeparture.code, destinationReturn.code]:[NSString stringWithFormat:@"%@ > %@",destinationReturn.code, destinationDeparture.code];
-    [airportCodeLabel sizeToFit];
+    airportCodeLabel.text = (isDest)?[NSString stringWithFormat:@"%@ > %@",specialOffer.flightCity, specialOffer.departureCity]:[NSString stringWithFormat:@"%@ > %@",specialOffer.flightCity, specialOffer.departureCity];
+    //[airportCodeLabel sizeToFit];
     
     UILabel *dateFlightLabel = [[UILabel alloc] initWithFrame:CGRectMake(flightlabel.frame.origin.x, airportCodeLabel.frame.origin.y + airportCodeLabel.frame.size.height, 0, 0)];
     dateFlightLabel.backgroundColor = [UIColor clearColor];
     dateFlightLabel.textColor = [UIColor COLOR_LABEL_TIME];
     dateFlightLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
     [subBlockView addSubview:dateFlightLabel];
-    dateFlightLabel.text = (isDest)?[self dateToHHmm:flightDepartureObject.dateAndTimeDeparture]:[self dateToHHmm:flightReturnObject.dateAndTimeDeparture];
+    dateFlightLabel.text = (isDest)?[self dateToHHmm:[dates objectAtIndex:0]]:[self dateToHHmm:[dates objectAtIndex:1]];
     [dateFlightLabel sizeToFit];
     
     UILabel *airportID = [[UILabel alloc] initWithFrame:CGRectMake(dateFlightLabel.frame.origin.x, dateFlightLabel.frame.origin.y + dateFlightLabel.frame.size.height, 0, 0)];
@@ -197,9 +153,9 @@
     airportID.textColor = [UIColor COLOR_LABEL_TIME];
     airportID.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
     [subBlockView addSubview:airportID];
-    airportID.text = (isDest)?flightDepartureObject.ID:flightReturnObject.ID;
+    airportID.text = (isDest)?[[flightIds objectAtIndex:0] stringValue]:[[flightIds objectAtIndex:1] stringValue];
     [airportID sizeToFit];
-
+    
     return subBlockView;
 }
 

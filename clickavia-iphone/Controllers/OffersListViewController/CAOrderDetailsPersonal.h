@@ -8,13 +8,8 @@
 
 #import "CAOffersCellView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "CAOffersListViewController.h"
-#import "Offer.h"
-#import "Flight.h"
+#import "SpecialOffer.h"
 #import "CAFlightPassengersCount.h"
-#import "OfferConditions.h"
-#import "SearchConditions.h"
-#import "Destination.h"
 
 #define COLOR_BACKGROUND_CARD_VIEW colorWithRed:236.0f/255.0f green:128.0f/255.0f blue:128.0f/255.0f alpha:1.0f
 #define COLOR_BACKGROUND_CARD_VIEW_SHADOW colorWithRed:71.0f/255.0f green:71.0f/255.0f blue:71.0f/255.0f alpha:1.0f
@@ -24,13 +19,9 @@
 
 @interface CAOrderDetailsPersonal : UIView
 
-@property (nonatomic, retain) Offer* offerObject;
-@property (nonatomic, retain) Flight* flightObject;
+@property (nonatomic, retain) SpecialOffer* specialOffer;
 @property (nonatomic, retain) CAFlightPassengersCount* offerPassengers;
-@property (nonatomic, retain) OfferConditions* offerConditionsObject;
-@property (nonatomic, retain) SearchConditions* searchConditionsObject;
-@property (nonatomic, retain) Destination* destinationObject;
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(SpecialOffer*)specialOfferData passengers:(CAFlightPassengersCount*)offerPassengersData;
 
 @end
