@@ -14,16 +14,14 @@
 #import "CAOfferGreenBar.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Offer.h"
-#import "FlightPassengersCount.h"
-
 #import "CAOffersCell.h"
 #import "CAOffersCellView.h"
-
 #import "CAOrderDetails.h"
 #import "CAOrderDetailsPersonal.h"
 #import "CAContract.h"
 #import "CAColorSpecOffers.h"
 #import "CAAppDelegate.h"
+
 #define HEIGHT_GREEN_BAR 50
 #define MARGIN_NUMBER_FLIGHT 5
 #define SectionHeaderHeight 170
@@ -35,7 +33,6 @@
 #define COLOR_AVAILABLE_FLIGHTS colorWithRed:193.0f/255.0f green:193.0f/255.0f blue:193.0f/255.0f alpha:1
 
 @interface CAOffersListViewController ()
-@property (nonatomic, retain) CAOffersData* caoffersData;
 @property (retain, nonatomic) IBOutlet CAOfferGreenBar *topGreenView;
 @property (weak, nonatomic) IBOutlet UILabel *labelThere;
 @property (weak, nonatomic) IBOutlet UILabel *labelThereDate;
@@ -52,31 +49,31 @@
     CGRect mainFrame;
     UIBarButtonItem *onAddGreenBar;
     UIBarButtonItem *onReturn;
+    UIButton *onDetail;
     
     UIView *viewOneWay;
     UIView *viewOnBack;
     
-    UIButton *onDetail;
-    
     NSArray* arrayOffers;
-    NSArray* arrayPassangers;
     
     UIView *headerTableView;
     FlightDescriptionManager *fdm;
     
     UIActivityIndicatorView *indicatorView;
+    CAFlightPassengersCount *passengersCount;
 }
 @synthesize columnDepartureControlView, columnArrivialControlView;
 @synthesize tableOffers;
 @synthesize topGreenView;
 @synthesize labelBack, labelBackDate, labelThere, labelThereDate;
-@synthesize caoffersData;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil isBothWays:(BOOL) isBothWays;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil passengerCount:(CAFlightPassengersCount*)flightpassengerCount isBothWays:(BOOL) isBothWays;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        passengersCount = [[CAFlightPassengersCount alloc] init];
+        passengersCount = flightpassengerCount;
         
         isReturn = isBothWays;
         
@@ -139,7 +136,6 @@
     topGreenView.userInteractionEnabled = YES;
     
     arrayOffers = nil;
-    arrayPassangers = nil;
     indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2.0-20, self.view.frame.size.height/2.0-20, 10, 10)];
     indicatorView.color = [UIColor lightGrayColor];
     [_loadingView addSubview:indicatorView];
@@ -284,7 +280,7 @@
      {
          [self setupDatesText];
          
-         //Сортируем массив arrayOffers по возрастанию
+         //Сортируем массив arrayOffers по возрастанию цены
          NSSortDescriptor* sd = [[NSSortDescriptor alloc] initWithKey:@"bothPrice" ascending:YES];
          NSArray *sortedOffersArray = [offers sortedArrayUsingDescriptors:[NSArray arrayWithObject:sd]];
          
@@ -509,32 +505,18 @@
 {
     return 1;
 }
-- (FlightPassengersCount*)mapFrom:(CAFlightPassengersCount*)pasCount
-{
-    FlightPassengersCount *count = [FlightPassengersCount new];
-    count.adults = pasCount.adultsCount;
-    count.kids = pasCount.childrenCount;
-    count.babies = pasCount.infantsCount;
-    return count;
-}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
     Offer* offerObject = [[Offer alloc] init];
     Flight* flightObject = [[Flight alloc] init];
-
-
+    
     offerObject = [arrayOffers objectAtIndex:indexPath.section];
     flightObject = [arrayOffers objectAtIndex:indexPath.section];
     flightObject = offerObject.flightDeparture;
     
-    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    //FlightPassengersCount* passengersCount = [self mapFrom:appDelegate.passengersCount];
-    FlightPassengersCount *passengersCount = [[FlightPassengersCount alloc] init];
-    passengersCount.adults = appDelegate.passengersCount.adultsCount;
-    passengersCount.kids = appDelegate.passengersCount.childrenCount;
-    passengersCount.babies = appDelegate.passengersCount.infantsCount;
     //поиск ячейки
 	CAOffersCell *cell = (CAOffersCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -730,13 +712,8 @@
 {
     Offer* offerdata = [[Offer alloc] init];
     offerdata = [arrayOffers objectAtIndex:indexPath.section];
-    FlightPassengersCount* passengersCount = [[FlightPassengersCount alloc] init];
-    passengersCount = [arrayPassangers objectAtIndex:indexPath.section];
-    
-    NSLog(@"нажал на %d ячейку, special: %d, momentary: %d", indexPath.section, offerdata.isSpecial, offerdata.isMomentaryConfirmation);
     [self.tableOffers deselectRowAtIndexPath:indexPath animated:NO];
-    
-    CAContract* caContract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil offer:offerdata passengers:passengersCount];
+    CAContract* caContract = [[CAContract alloc] initWithNibName:@"CAContract" bundle:nil offer:offerdata passengerCount:passengersCount];
     [self.navigationController pushViewController:caContract animated:YES];
 }
 

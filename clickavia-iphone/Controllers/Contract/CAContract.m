@@ -1,36 +1,52 @@
 //
-//  CAFlightDataView.m
+//  CAContract.m
 //  clickavia-iphone
 //
-//  Created by bespalown on 9/23/13.
+//  Created by Viktor Bespalov on 9/19/13.
 //  Copyright (c) 2013 brandymint. All rights reserved.
 //
 
-#import "CAFlightDataView.h"
-#import "CAAssistView.h"
-#import "CAOrderDetails.h"
+#import "CAContract.h"
+#import <QuartzCore/QuartzCore.h>
 #import "CAColorSpecOffers.h"
 
-@interface CAFlightDataView ()
+@interface CAContract ()
+@property (weak, nonatomic) IBOutlet UITextView *contractTextView;
+@property (weak, nonatomic) IBOutlet UIButton *onConfirmation;
+- (IBAction)onConfrmation:(id)sender;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
-@implementation CAFlightDataView
+@implementation CAContract
 {
     Offer* offerdata;
-    FlightPassengersCount* passengersCount;
+    CAFlightPassengersCount* passengersCount;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengers:(FlightPassengersCount*)passengers
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengerCount:(CAFlightPassengersCount*)passengerCount
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         offerdata = [[Offer alloc] init];
         offerdata = offer;
-        passengersCount = [[FlightPassengersCount alloc] init];
-        passengersCount = passengers;
+        passengersCount = [[CAFlightPassengersCount alloc] init];
+        passengersCount = passengerCount;
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)specialOffer;
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        SpecialOffer *_specialOffer = [[SpecialOffer alloc] init];
+        _specialOffer = specialOffer;
         
-        NSLog(@"/*|sss special: %d, momentary: %d", offerdata.isSpecial, offerdata.isMomentaryConfirmation);
+        UILabel* specialOfferLabel = [[UILabel alloc]  initWithFrame:CGRectMake(0, 600, 100, 20)];
+        specialOfferLabel.text = [NSString stringWithFormat:@"%@ %@", _specialOffer.flightCity, _specialOffer.departureCity];
+        specialOfferLabel.textColor = [UIColor blackColor];
+        [specialOfferLabel sizeToFit];
     }
     return self;
 }
@@ -38,17 +54,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib
     [self showNavBar];
+
     
-    UIView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5];
-    [self.view addSubview:assistView];
-    
-    UIView* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
-    CGRect orderDetalsFrame = orderDetailsView.frame;
-    orderDetalsFrame.origin.y = assistView.frame.origin.y + assistView.frame.size.height;
-    orderDetailsView.frame = orderDetalsFrame;
-    [self.view addSubview:orderDetailsView];
+    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Contract" ofType:@"html"];
+    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
+    [_webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +83,7 @@
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     titleLabel.textColor = [UIColor COLOR_TITLE_TEXT];
-    titleLabel.text = @"Данные перелета";
+    titleLabel.text = @"Договор";
     titleLabel.layer.shadowOpacity = 0.4f;
     titleLabel.layer.shadowRadius = 0.0f;
     titleLabel.layer.shadowColor = [[UIColor COLOR_TITLE_TEXT_SHADOW] CGColor];
@@ -88,8 +100,13 @@
 
 -(void)back
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    offerdata = passengersCount = nil;
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.view removeFromSuperview];
 }
 
+- (IBAction)onConfrmation:(id)sender
+{
+    CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengerCount:passengersCount];
+    [self.navigationController pushViewController:flightDataView animated:YES];
+}
 @end

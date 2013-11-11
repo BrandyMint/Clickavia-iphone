@@ -23,7 +23,7 @@ PODS:
     - NSData+Base64 (~> 1.0)
   - MBProgressHUD (0.8)
   - NSData+Base64 (1.0.0)
-  - PSTCollectionView (1.1.0)
+  - PSTCollectionView (1.2.0)
   - RestKit (0.20.0):
     - RestKit/Core
   - RestKit/Core (0.20.0):
@@ -38,58 +38,63 @@ PODS:
     - SOCKit
   - RestKit/ObjectMapping (0.20.0)
   - RestKit/Support (0.20.0)
-  - Reveal-iOS-SDK (0.9.1)
+  - Reveal-iOS-SDK (1.0.1)
   - SOCKit (1.1)
+  - WTReTextField (0.0.1)
 
 DEPENDENCIES:
   - AKTabBarController
-  - BMChat (from `https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec`)
-  - CACalendarView (from `https://raw.github.com/BrandyMint/CA-CalendarView/master/CACalendarView.podspec`)
-  - CAColumnsControl (from `https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec`)
-  - CAFieldComplete (from `https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec`)
-  - CAManagers (from `https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec`)
-  - CASearchForm (from `https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec`)
-  - CASearchFormControls (from `https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec`)
-  - CASpecialOffers (from `https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec`)
+  - BMChat (from `git@gitlab.brandymint.ru:brandymint-ios/bmchat.git`)
+  - CACalendarView (from `git@gitlab.brandymint.ru:brandymint-ios/ca-calendarview.git`)
+  - CAColumnsControl (from `git@gitlab.brandymint.ru:brandymint-ios/ca-columnscontrol.git`)
+  - CAFieldComplete (from `git@gitlab.brandymint.ru:brandymint-ios/ca-fieldcomplete.git`)
+  - CAManagers (from `git@gitlab.brandymint.ru:brandymint-ios/ca-managers-lib.git`)
+  - CASearchForm (from `git@gitlab.brandymint.ru:brandymint-ios/ca-searchform.git`)
+  - CASearchFormControls (from `git@gitlab.brandymint.ru:brandymint-ios/ca-searchformcontrols.git`)
+  - CASpecialOffers (from `git@gitlab.brandymint.ru:brandymint-ios/ca-special-offers.git`)
   - Reveal-iOS-SDK
+  - WTReTextField (from `https://raw.github.com/bespalown/WTReTextField/master/WTReTextField.podspec`)
 
 EXTERNAL SOURCES:
   BMChat:
-    :podspec: https://raw.github.com/BrandyMint/BMChat/master/BMChat.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/bmchat.git
   CACalendarView:
-    :podspec: https://raw.github.com/BrandyMint/CA-CalendarView/master/CACalendarView.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/ca-calendarview.git
   CAColumnsControl:
-    :podspec: https://raw.github.com/BrandyMint/CA-ColumnsControl/master/CAColumnsControl.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/ca-columnscontrol.git
   CAFieldComplete:
-    :podspec: https://raw.github.com/BrandyMint/CA-FieldComplete/master/CAFieldComplete.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/ca-fieldcomplete.git
   CAManagers:
-    :podspec: https://raw.github.com/BrandyMint/CA-managers-lib/master/CAManagers.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/ca-managers-lib.git
   CASearchForm:
-    :podspec: https://raw.github.com/BrandyMint/CA-SearchForm/master/CASearchForm.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/ca-searchform.git
   CASearchFormControls:
-    :podspec: https://raw.github.com/BrandyMint/CA-SearchFormControls/master/CASearchFormControls.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/ca-searchformcontrols.git
   CASpecialOffers:
-    :podspec: https://raw.github.com/BrandyMint/CA-special-offers/master/CASpecialOffers.podspec
+    :git: git@gitlab.brandymint.ru:brandymint-ios/ca-special-offers.git
+  WTReTextField:
+    :podspec: https://raw.github.com/bespalown/WTReTextField/master/WTReTextField.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   AKTabBarController: 34443d5d028700dea1d00a6f275e8ef17fc947c2
   Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
-  BMChat: b4312ff0cb28975eb379307864c8b7aba20928dd
+  BMChat: 528be2c0e2ecb6d7665d5fe566a2f13c68ff0252
   CACalendarView: 7c5432edf7c4f0e77be1966e385ae1c59601fda2
-  CAColumnsControl: 3fa1489e6e2eaa06ba67556ea4bfc4f20fad7aa4
-  CAFieldComplete: d33b1a8dc32b1f582e3ce2ae08f185b887d4912a
-  CAManagers: 1881b06742cccb58a5e95ed7247678a59be5e57f
+  CAColumnsControl: 3dff1fec8229cf7d0da800f8400856089dce90d2
+  CAFieldComplete: d527f2a92844dabc86eba84c80390d11b3edbc71
+  CAManagers: c82eb85ab4b0fc51e215b5b35042bfba215cac79
   CASearchForm: 101f3d262c716adfa09425c008a1d17e2b06f6a6
-  CASearchFormControls: 5f2eab7ac174d1260b5280059d96ae6b4e3e9eee
+  CASearchFormControls: 6a3e90b1e72af54e4e043c3a19150aca7345b945
   CASpecialOffers: 82913ab88d9e340e64d240c7901a276c53a0ae68
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
-  PSTCollectionView: af42b0fb111200a1b87a04aee96181725977f19b
+  NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
+  PSTCollectionView: fb2ad2790c6efa306b2caf10315b2c1464d1f5c6
   RestKit: 580771664a14eaaa40bf53cf83584f12fc141930
-  Reveal-iOS-SDK: 7396a20e743807b1e6f1caae664e1a9dc0cc442c
+  Reveal-iOS-SDK: 26eddb779b9aee5b12cde405d01194e827169c02
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
+  WTReTextField: 6484bb57879e042a2d90ea70d7bd7a00e04e8927
 
-COCOAPODS: 0.25.0
+COCOAPODS: 0.27.1

@@ -74,6 +74,9 @@
     _searchForm.delegate = self;
     [_searchForm setBothWaySwitch:YES withAnimation:NO];
     
+    //указываем тип кнопки (green or gray)
+    [_searchForm setTypeButton:green];
+    
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.passengersCount = _searchForm.searchParameters.passengerCount; // проброс количества пассажиров
     
@@ -388,8 +391,6 @@
     }
 }
 
-
-
 - (SearchConditions*)getSearchConditions
 {
     if(currentSearchConditions.direction_departure==nil||currentSearchConditions.direction_return==nil)
@@ -411,8 +412,14 @@
 
 - (IBAction)find:(id)sender
 {
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    CAFlightPassengersCount *passengersCount = [[CAFlightPassengersCount alloc] init];
+    passengersCount.adultsCount = appDelegate.passengersCount.adultsCount;
+    passengersCount.childrenCount = appDelegate.passengersCount.childrenCount;
+    passengersCount.infantsCount = appDelegate.passengersCount.infantsCount;
+
     [self getOfferConditions];
-    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil isBothWays:currentSearchConditions.isBothWays];
+    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] initWithNibName:@"CAOffersListViewController" bundle:Nil passengerCount:passengersCount isBothWays:currentSearchConditions.isBothWays];
     [self.navigationController pushViewController:caOffersListViewController animated:YES];
 }
     

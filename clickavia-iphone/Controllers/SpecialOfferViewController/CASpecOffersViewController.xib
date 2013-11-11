@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CASpecOffersViewController">
@@ -70,8 +70,8 @@
         </view>
     </objects>
     <resources>
-        <image name="background-gray-textured.png" width="820" height="718"/>
-        <image name="bar-green-cold.png" width="364" height="45"/>
-        <image name="bar-green-warm.png" width="364" height="43"/>
+        <image name="background-gray-textured.png" width="320" height="568"/>
+        <image name="bar-green-cold.png" width="320" height="44"/>
+        <image name="bar-green-warm.png" width="320" height="42"/>
     </resources>
 </document>

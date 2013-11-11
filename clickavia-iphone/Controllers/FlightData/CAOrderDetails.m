@@ -1,4 +1,4 @@
-//
+      //
 //  OfferCellDetails.m
 //  clickavia-iphone
 //
@@ -7,7 +7,9 @@
 //
 
 #import "CAOrderDetails.h"
+#import "CAOffersListViewController.h"
 
+#define MARGIN_VIEW 5
 #define LABEL_AIRPORT_TYPE_WIDTH 80
 #define LABEL_COLUMN_DEPARTURE 100
 #define LABEL_AIRPORT 120
@@ -24,7 +26,7 @@
     UIView* contenView;
 }
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(FlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers;
 {
     flightDepartureObject = [[Flight alloc] init];
     flightReturnObject = [[Flight alloc] init];
@@ -40,7 +42,7 @@
     destinationDeparture = searchConditions.direction_departure;
     destinationReturn = searchConditions.direction_return;
     
-    contenView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
+    contenView = [[UIView alloc] initWithFrame:CGRectMake(MARGIN_VIEW, 0, [[UIScreen mainScreen] bounds].size.width - 2*MARGIN_VIEW, 160)];
     contenView.backgroundColor = [UIColor whiteColor];
     [contenView.layer setCornerRadius:6];
     
@@ -60,20 +62,30 @@
                                            140,
                                            passangersBlockView.frame.size.width,
                                            passangersBlockView.frame.size.height);
-    [contenView addSubview:passangersBlockView];
+    //[contenView addSubview:passangersBlockView];
     
-    UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(contenView.frame.size.width/2, returnFlightView.frame.origin.y + returnFlightView.frame.size.height + 10, 0, 0)];
+    CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] init];
+    NSString* roundingBehaviorPrice = [NSString stringWithFormat:@"%@ р.",[caOffersListViewController priceBehavior:offerObject.bothPrice]];
+    UIFont* priceFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    
+    UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(contenView.frame.size.width/2 - [self widthForText:roundingBehaviorPrice font:priceFont]/2, returnFlightView.frame.origin.y + returnFlightView.frame.size.height + 10, 0, 0)];
     price.backgroundColor = [UIColor clearColor];
     price.textColor = [UIColor COLOR_PASSANGER_COUNT];
-    price.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    price.text = [NSString stringWithFormat:@"%@ р.",offerObject.bothPrice];
+    price.font = priceFont;
+    
+    price.text = roundingBehaviorPrice;
     [contenView addSubview:price];
     [price sizeToFit];
+    
+    contenView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    contenView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+    contenView.layer.shadowRadius = 2;
+    contenView.layer.shadowOpacity = 0.2;
 
     return contenView;
 }
 
--(UIView*) flightPassengersBlockView:(FlightPassengersCount*)passangers;
+-(UIView*) flightPassengersBlockView:(CAFlightPassengersCount*)passangers;
 {
     UIView* blockView = [[UIView alloc] init];
     
@@ -83,7 +95,7 @@
     adultsCountLabel.backgroundColor = [UIColor clearColor];
     adultsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     adultsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    adultsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.adults];
+    adultsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.adultsCount];
     [adultsCountLabel sizeToFit];
     
     [blockView addSubview:adultsImage];
@@ -95,7 +107,7 @@
     kidsCountLabel.backgroundColor = [UIColor clearColor];
     kidsCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     kidsCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    kidsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.kids];
+    kidsCountLabel.text = [NSString stringWithFormat:@"%d",passangers.childrenCount];
     [kidsCountLabel sizeToFit];
     
     [blockView addSubview:kidsImage];
@@ -107,7 +119,7 @@
     babyiesCountLabel.backgroundColor = [UIColor clearColor];
     babyiesCountLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     babyiesCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",passangers.babies];
+    babyiesCountLabel.text = [NSString stringWithFormat:@"%d",passangers.infantsCount];
     [babyiesCountLabel sizeToFit];
     
     [blockView addSubview:babyImage];
@@ -121,20 +133,20 @@
 {
     UIView *subBlockView = [[UIView alloc] init];
     
-    UILabel *airlineTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 12, 5, 0, 0)];
+    UILabel *airlineTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(contenView.frame.origin.x + 12, 5, LABEL_COLUMN_DEPARTURE, 14)];
     airlineTitleLabel.backgroundColor = [UIColor clearColor];
     airlineTitleLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     airlineTitleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [subBlockView addSubview:airlineTitleLabel];
     airlineTitleLabel.text = (isDest)?flightDepartureObject.airportArrival:flightReturnObject.airportDeparture;
-    [airlineTitleLabel sizeToFit];
+    //[airlineTitleLabel sizeToFit];
     
-    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(airlineTitleLabel.frame.origin.x + airlineTitleLabel.frame.size.width + 10, airlineTitleLabel.frame.origin.y + 1, LABEL_AIRPORT_TYPE_WIDTH, 14)];
+    UILabel *airlineCodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(airlineTitleLabel.frame.origin.x + airlineTitleLabel.frame.size.width, airlineTitleLabel.frame.origin.y + 1, LABEL_AIRPORT_TYPE_WIDTH, 14)];
     airlineCodeLabel.backgroundColor = [UIColor clearColor];
     airlineCodeLabel.textColor = [UIColor COLOR_PASSANGER_COUNT];
     airlineCodeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13];
     [subBlockView addSubview:airlineCodeLabel];
-    airlineCodeLabel.text = (isDest)?flightDepartureObject.ID:flightReturnObject.ID;
+    airlineCodeLabel.text = (isDest)?flightDepartureObject.airlineCode:flightReturnObject.airlineCode;
     
     UILabel *dateFlight = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-10, airlineTitleLabel.frame.origin.y, 0, 0)];
     dateFlight.backgroundColor = [UIColor clearColor];
@@ -208,7 +220,7 @@
 
 -(void) createLineByBottom:(NSInteger)yBottom
 {
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(contenView.frame.origin.x, yBottom, contenView.frame.size.width, 1)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yBottom, contenView.frame.size.width, 1)];
     line.backgroundColor = [UIColor COLOR_PASSANGER_COUNT];
     [contenView addSubview:line];
 }
@@ -225,6 +237,12 @@
     [date_format setDateFormat: @"HH:mm"];
     NSString * date_string = [date_format stringFromDate: today];
     return date_string;
+}
+
+- (CGFloat)widthForText:(NSString *)sampleText font:(UIFont*)font;
+{
+    CGSize textSize = [sampleText sizeWithFont:font];
+    return textSize.width;
 }
 
 @end
