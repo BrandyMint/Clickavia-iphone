@@ -22,11 +22,8 @@
     NSMutableArray *buyerArray;
     NSString* passportSer;
     NSString* passportNum;
-    CGFloat  animatedDistance;
-    NSInteger tagForCell;
     CABuyerPickerView* pickerView;
     BOOL isPickerViewVisible;
-    CGRect activeFrame;
 }
 
 @property (nonatomic, retain) UIButton* birthdayButton;
@@ -150,7 +147,6 @@
     return HEIGHT_CELL;
 }
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -204,8 +200,6 @@
     [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
     _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35);
     [UIView commitAnimations];
-    
-    
 }
 
 -(void)willHideKeyboard:(NSNotification*)aNotification
@@ -393,7 +387,8 @@
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
         [alert show];
-
+        
+        //Массив с заполненными карточками кодируется в NSData
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"UsersPassports"];
         
@@ -403,6 +398,7 @@
 
 -(void)readPassportsUsers
 {
+    //Массив в формате NSData раскодируется в обычный массив с моделями PersonInfo
     NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersPassports"];
     NSArray *notes = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
 }
