@@ -9,6 +9,7 @@
 #import "CAFlightDataView.h"
 #import "CAAssistView.h"
 #import "CAOrderDetails.h"
+#import "CAOrderDetailsPersonal.h"
 #import "CAColorSpecOffers.h"
 #import "SearchConditions.h"
 #import "CAPassengersCountButton.h"
@@ -29,9 +30,9 @@
 @implementation CAFlightDataView
 {
     Offer* offerdata;
-
+    SpecialOffer* specialOffer;
     CAFlightPassengersCount* passengersCount;
-    
+    SearchConditions *currentSearchConditions;
     CASearchFormPickerView *passengerCountPicker;
     CAPassengersCountButton *passengerCountButton;
     CATooltipSelect *classSelector;
@@ -41,24 +42,34 @@
     
     BOOL isShowPassengersCountPicker;
     BOOL isShowClassSelectorPopover;
+    BOOL isSpecialOffer;
     
     NSArray* paymentOptions;
     UIButton* onPaymentMethod;
-    
-    SearchConditions *currentSearchConditions;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengerCount:(CAFlightPassengersCount*)passengerCount
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        isSpecialOffer = NO;
         offerdata = [[Offer alloc] init];
         offerdata = offer;
         passengersCount = passengerCount;
         currentSearchConditions = [[SearchConditions alloc]init];
         isShowPassengersCountPicker = NO;
         isShowClassSelectorPopover = NO;
-        NSLog(@"DATA> %d %d %d", passengersCount.adultsCount, passengersCount.childrenCount, passengersCount.infantsCount);
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)_specialOffer
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        isSpecialOffer = YES;
+        specialOffer = [SpecialOffer new];
+        specialOffer = _specialOffer;
     }
     return self;
 }
@@ -68,6 +79,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self showNavBar];
+    
     paymentOptions = @[@"Евросеть или связной", @"MasterCard или Visa", @"Наличными в офисе"];
     
     UIView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5];
@@ -101,13 +113,10 @@
     [paymentMethod sizeToFit];
     [self.view addSubview:paymentMethod];
     
-    UIView* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
-    CGRect orderDetalsFrame = orderDetailsView.frame;
-    orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
-    orderDetailsView.frame = orderDetalsFrame;
-    [self.view addSubview:orderDetailsView];
-    
-    ////
+    if (isSpecialOffer)
+        [self loadSpecialOffer];
+    else
+        [self loadOffer];
     
     countPickerViewSize.height = 220;
     countPickerViewSize.width = self.view.frame.size.width;
@@ -126,12 +135,32 @@
     [classSelector setFrameForTrianglePlace:CGRectMake(self.view.frame.size.width*2/3,0,50,30)];
     classSelector.delegate = self;
     [classSelector setCheckClassSelectorImage:[UIImage imageNamed:@"check-icon-green.png"]];
-    
-    //resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch
+
     UIImage* buttonImage = [[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 6, 6, 6) resizingMode:UIImageResizingModeStretch];
     _next_ou.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_next_ou setBackgroundImage:buttonImage forState:UIControlStateNormal];
     _next_ou.titleLabel.textColor = [UIColor whiteColor];
+}
+
+-(void)loadOffer
+{
+    CAOrderDetails* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
+    CGRect orderDetalsFrame = orderDetailsView.frame;
+    orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
+    orderDetailsView.frame = orderDetalsFrame;
+    [self.view addSubview:orderDetailsView];
+}
+
+-(void)loadSpecialOffer
+{
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    passengersCount = appDelegate.passengersCount;
+    
+    CAOrderDetailsPersonal* orderDetailsPersonalView = [[CAOrderDetailsPersonal alloc] initByOfferModel:specialOffer passengers:passengersCount];
+    CGRect orderDetalsFrame = orderDetailsPersonalView.frame;
+    orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
+    orderDetailsPersonalView.frame = orderDetalsFrame;
+    [self.view addSubview:orderDetailsPersonalView];
 }
 
 - (IBAction) passengerCountButtonPress {
@@ -192,7 +221,6 @@
 {
     [self hideClassSelectorPopover];
     [onPaymentMethod setTitle:currentPayment forState:UIControlStateNormal];
-    NSLog(@"Выбран: %@", currentPayment);
 }
 
 - (void)didReceiveMemoryWarning

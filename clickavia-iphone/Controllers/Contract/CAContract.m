@@ -11,6 +11,7 @@
 #import "CAColorSpecOffers.h"
 
 @interface CAContract ()
+
 @property (weak, nonatomic) IBOutlet UITextView *contractTextView;
 @property (weak, nonatomic) IBOutlet UIButton *onConfirmation;
 - (IBAction)onConfrmation:(id)sender;
@@ -22,12 +23,15 @@
 {
     Offer* offerdata;
     CAFlightPassengersCount* passengersCount;
+    SpecialOffer *specialOffer;
+    BOOL isSpecialOffer;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengerCount:(CAFlightPassengersCount*)passengerCount
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        isSpecialOffer = NO;
         offerdata = [[Offer alloc] init];
         offerdata = offer;
         passengersCount = [[CAFlightPassengersCount alloc] init];
@@ -36,17 +40,13 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)specialOffer;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)_specialOffer;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        SpecialOffer *_specialOffer = [[SpecialOffer alloc] init];
-        _specialOffer = specialOffer;
-        
-        UILabel* specialOfferLabel = [[UILabel alloc]  initWithFrame:CGRectMake(0, 600, 100, 20)];
-        specialOfferLabel.text = [NSString stringWithFormat:@"%@ %@", _specialOffer.flightCity, _specialOffer.departureCity];
-        specialOfferLabel.textColor = [UIColor blackColor];
-        [specialOfferLabel sizeToFit];
+        isSpecialOffer = YES;
+        specialOffer = [[SpecialOffer alloc] init];
+        specialOffer = _specialOffer;
     }
     return self;
 }
@@ -106,7 +106,14 @@
 
 - (IBAction)onConfrmation:(id)sender
 {
-    CAFlightDataView *flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengerCount:passengersCount];
+    CAFlightDataView *flightDataView;
+    
+    if (isSpecialOffer) {
+        flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil specialOffer:specialOffer];
+    }
+    else
+        flightDataView = [[CAFlightDataView alloc] initWithNibName:@"CAFlightDataView" bundle:nil offer:offerdata passengerCount:passengersCount];
+    
     [self.navigationController pushViewController:flightDataView animated:YES];
 }
 @end
