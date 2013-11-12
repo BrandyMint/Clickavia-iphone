@@ -8,11 +8,12 @@
 
 #import "CAAuthorization.h"
 #import "CAColorSpecOffers.h"
+#import "LoginForm.h"
+#import "AuthManager.h"
 #import "User.h"
 #import "CountryCodes.h"
-#import "LoginForm.h"
 #import "RegistrationForm.h"
-#import "AFNetworking.h"
+#import "UserManager.h"
 
 #define BUTTON_WIDTH 20
 #define BUTTON_HEIGHT 40
@@ -24,8 +25,19 @@
     UIView* autorizationView;
     UIView* registrationView;
     UISegmentedControl* segmentedControl;
+    BOOL isEnter;
     UIButton* enter;
+    
+    UITextField* emailAutorization;
+    UITextField* passwordAutorization;
+    
+    UITextField* nameRegistration;
+    UITextField* emailRegistration;
+    UITextField* countryCodeRegistration;
+    UITextField* phoneNumberRegistration;
+    UITextField* passwordRegistration;
 }
+
 @end
 
 @implementation CAAuthorization
@@ -103,6 +115,7 @@
     segmentedControl.frame = CGRectMake(10, 10, mainView.frame.size.width - 20, 30);
     segmentedControl.segmentedControlStyle = UISegmentedControlStyleBezeled;
     segmentedControl.selectedSegmentIndex = 0;
+    isEnter = YES;
     [segmentedControl addTarget:self action:@selector(segmentedControl:) forControlEvents:UIControlEventValueChanged];
     [mainView addSubview:segmentedControl];
     
@@ -111,11 +124,11 @@
                                                                 segmentedControl.frame.size.width, 120)];
     [mainView addSubview:autorizationView];
     
-    UITextField* emailAutorization = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, autorizationView.frame.size.width, 30)];
+    emailAutorization = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, autorizationView.frame.size.width, 30)];
     emailAutorization.borderStyle = UITextBorderStyleRoundedRect;
     emailAutorization.font = [UIFont systemFontOfSize:15];
     emailAutorization.placeholder = @"АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ";
-    emailAutorization.autocorrectionType = UITextAutocorrectionTypeYes;
+    emailAutorization.autocorrectionType = UITextAutocorrectionTypeNo;
     emailAutorization.keyboardType = UIKeyboardTypeEmailAddress;
     emailAutorization.returnKeyType = UIReturnKeyDone;
     emailAutorization.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -125,9 +138,9 @@
     emailAutorization.clearButtonMode = UITextFieldViewModeWhileEditing;
     [autorizationView addSubview:emailAutorization];
 
-    UITextField* passwordAutorization = [[UITextField alloc] initWithFrame:CGRectMake(0,
-                                                                                      emailAutorization.frame.origin.y + emailAutorization.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
-                                                                                      emailAutorization.frame.size.width, 30)];
+    passwordAutorization = [[UITextField alloc] initWithFrame:CGRectMake(0,
+                                                                        emailAutorization.frame.origin.y + emailAutorization.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
+                                                                        emailAutorization.frame.size.width, 30)];
     passwordAutorization.borderStyle = UITextBorderStyleRoundedRect;
     passwordAutorization.font = [UIFont systemFontOfSize:15];
     passwordAutorization.secureTextEntry = YES;
@@ -152,7 +165,7 @@
                                                                 segmentedControl.frame.origin.y + segmentedControl.frame.size.height + 20,
                                                                 segmentedControl.frame.size.width, 200)];
     
-    UITextField* nameRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, registrationView.frame.size.width, 30)];
+    nameRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, registrationView.frame.size.width, 30)];
     nameRegistration.borderStyle = UITextBorderStyleRoundedRect;
     nameRegistration.font = [UIFont systemFontOfSize:15];
     nameRegistration.placeholder = @"ИМЯ ПОЛЬЗОВАТЕЛЯ";
@@ -166,13 +179,13 @@
     nameRegistration.clearButtonMode = UITextFieldViewModeWhileEditing;
     [registrationView addSubview:nameRegistration];
     
-    UITextField* emailRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0,
-                                                                                   nameRegistration.frame.origin.y + nameRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
-                                                                                   registrationView.frame.size.width, 30)];
+    emailRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0,
+                                                                    nameRegistration.frame.origin.y + nameRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
+                                                                    registrationView.frame.size.width, 30)];
     emailRegistration.borderStyle = UITextBorderStyleRoundedRect;
     emailRegistration.font = [UIFont systemFontOfSize:15];
     emailRegistration.placeholder = @"АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ";
-    emailRegistration.autocorrectionType = UITextAutocorrectionTypeYes;
+    emailRegistration.autocorrectionType = UITextAutocorrectionTypeNo;
     emailRegistration.keyboardType = UIKeyboardTypeEmailAddress;
     emailRegistration.returnKeyType = UIReturnKeyDone;
     emailRegistration.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -182,9 +195,28 @@
     emailRegistration.clearButtonMode = UITextFieldViewModeWhileEditing;
     [registrationView addSubview:emailRegistration];
     
-    UITextField* phoneNumberRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0,
-                                                                                         emailRegistration.frame.origin.y + emailRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
-                                                                                         registrationView.frame.size.width, 30)];
+    countryCodeRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0,
+                                                                            emailRegistration.frame.origin.y + emailRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
+                                                                            95, 30)];
+    countryCodeRegistration.borderStyle = UITextBorderStyleRoundedRect;
+    countryCodeRegistration.font = [UIFont systemFontOfSize:15];
+    countryCodeRegistration.placeholder = @"КОД";
+
+    countryCodeRegistration.autocorrectionType = UITextAutocorrectionTypeYes;
+    countryCodeRegistration.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    countryCodeRegistration.returnKeyType = UIReturnKeyDone;
+    countryCodeRegistration.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    countryCodeRegistration.textAlignment = UITextAlignmentLeft;
+    countryCodeRegistration.backgroundColor = [UIColor whiteColor];
+    countryCodeRegistration.delegate = self;
+    countryCodeRegistration.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [registrationView addSubview:countryCodeRegistration];
+
+    
+    phoneNumberRegistration = [[UITextField alloc] initWithFrame:CGRectMake(countryCodeRegistration.frame.origin.x + countryCodeRegistration.frame.size.width + 5,
+                                                                            emailRegistration.frame.origin.y + emailRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
+                                                                            registrationView.frame.size.width - (countryCodeRegistration.frame.origin.x + countryCodeRegistration.frame.size.width + 5),
+                                                                            30)];
     phoneNumberRegistration.borderStyle = UITextBorderStyleRoundedRect;
     phoneNumberRegistration.font = [UIFont systemFontOfSize:15];
     phoneNumberRegistration.placeholder = @"НОМЕР ТЕЛЕФОНА";
@@ -197,32 +229,15 @@
     phoneNumberRegistration.delegate = self;
     phoneNumberRegistration.clearButtonMode = UITextFieldViewModeWhileEditing;
     [registrationView addSubview:phoneNumberRegistration];
-    
-    UITextField* countryCodeRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0,
-                                                                                         phoneNumberRegistration.frame.origin.y + phoneNumberRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
-                                                                                         registrationView.frame.size.width, 30)];
-    countryCodeRegistration.borderStyle = UITextBorderStyleRoundedRect;
-    countryCodeRegistration.font = [UIFont systemFontOfSize:15];
-    countryCodeRegistration.placeholder = @"id СТРАНЫ";
-    countryCodeRegistration.autocorrectionType = UITextAutocorrectionTypeYes;
-    countryCodeRegistration.keyboardType = UIKeyboardTypeEmailAddress;
-    countryCodeRegistration.returnKeyType = UIReturnKeyDone;
-    countryCodeRegistration.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    countryCodeRegistration.textAlignment = UITextAlignmentLeft;
-    countryCodeRegistration.backgroundColor = [UIColor whiteColor];
-    countryCodeRegistration.delegate = self;
-    countryCodeRegistration.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [registrationView addSubview:countryCodeRegistration];
 
-    UITextField* passwordRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0,
-                                                                                      countryCodeRegistration.frame.origin.y + countryCodeRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
-                                                                                      registrationView.frame.size.width, 30)];
+    passwordRegistration = [[UITextField alloc] initWithFrame:CGRectMake(0,
+                                                                        phoneNumberRegistration.frame.origin.y + phoneNumberRegistration.frame.size.height + MARGIN_BETWEEN_TEXTFIELDS,
+                                                                        nameRegistration.frame.size.width, 30)];
     passwordRegistration.borderStyle = UITextBorderStyleRoundedRect;
     passwordRegistration.placeholder = @"ПАРОЛЬ";
     passwordRegistration.secureTextEntry = YES;
     passwordRegistration.autocorrectionType = UITextAutocorrectionTypeNo;
     passwordRegistration.font = [UIFont systemFontOfSize:15];
-    passwordRegistration.autocorrectionType = UITextAutocorrectionTypeNo;
     passwordRegistration.keyboardType = UIKeyboardTypeEmailAddress;
     passwordRegistration.returnKeyType = UIReturnKeyDone;
     passwordRegistration.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -251,17 +266,18 @@
     
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
+            isEnter = YES;
             mainViewFrame.size.height = 250;
             [registrationView removeFromSuperview];
             [mainView addSubview:autorizationView];
             [enter setTitle:@"Войти" forState:UIControlStateNormal];
             break;
         case 1:
+            isEnter = NO;
             mainViewFrame.size.height = 320;
             [autorizationView removeFromSuperview];
             [mainView addSubview:registrationView];
             [enter setTitle:@"Регистрация" forState:UIControlStateNormal];
-            
             break;
         default:
             break;
@@ -273,24 +289,59 @@
 
 -(void)onButton
 {
-    NSURL *url = [NSURL URLWithString:@"http://avia.icfdev.ru"];
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc]initWithBaseURL:url];
-    //[httpClient setParameterEncoding:AFJSONParameterEncoding];
-    //[httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"Ans", @"name",
-                            @"29",  @"age", nil];
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                            path:@"api/mobile/v1/auth.json"
-                                                      parameters:params];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"DATA: %@", [JSON valueForKeyPath:@"data"]);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Request Failure Because %@",[error userInfo]);
-    }];
-    
-    [operation start];
+    if (isEnter) {
+        [self autorization];
+    }
+    else
+        [self registration];
 }
+
+-(void)autorization
+{
+    LoginForm* loginForm = [LoginForm new];
+    loginForm.email = emailAutorization.text;
+    loginForm.password = passwordAutorization.text;
+    
+    AuthManager* authManager = [AuthManager new];
+    [authManager getUser:loginForm completeBlock:^(User* user)
+     {
+         loginForm.accessToken = user.authKey;
+         NSString* autorization = [NSString stringWithFormat:@"Имя: %@\n email: %@\n Номер телефона: %@\n token: %@",user.name, user.email, user.phoneNumber, user.authKey];
+         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Авторизиция прошла успешно" message:autorization delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+         [alert show];
+         [[NSUserDefaults standardUserDefaults] setObject:loginForm.accessToken forKey:@"accessToken"];
+     }
+               failBlock:^(NSException* exception)
+     {
+         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Проверьте ваш пароль или email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+         [alert show];
+     }
+     ];
+}
+
+-(void)registration
+{
+    RegistrationForm *regForm = [[RegistrationForm alloc] init];
+    regForm.name = nameRegistration.text;
+    regForm.email = emailRegistration.text;
+    regForm.phoneNumber = phoneNumberRegistration.text;
+    regForm.countryCode = countryCodeRegistration.text;
+    regForm.password = passwordRegistration.text;
+    
+    UserManager* userManager = [UserManager new];
+    [userManager registrateUser:regForm completeBlock:^(User* user)
+    {
+        NSString *message = [[NSString alloc] initWithFormat:@"Имя: %@,\n email: %@,\n Номер телефона: %@",user.name,user.email,user.phoneNumber];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Регистрация прошла успешно" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+                      failBlock:^(NSException* exception)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:exception.reason delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+    ];
+}
+
 
 @end
