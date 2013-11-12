@@ -7,6 +7,7 @@
 //
 
 #import "CAAuthorization.h"
+#import "CAAutorizedController.h"
 #import "CAColorSpecOffers.h"
 #import "LoginForm.h"
 #import "AuthManager.h"
@@ -15,7 +16,7 @@
 #import "RegistrationForm.h"
 #import "UserManager.h"
 
-#define BUTTON_WIDTH 20
+#define BUTTON_WIDTH 220
 #define BUTTON_HEIGHT 40
 #define MARGIN_BETWEEN_TEXTFIELDS 10
 
@@ -246,13 +247,19 @@
     passwordRegistration.delegate = self;
     passwordRegistration.clearButtonMode = UITextFieldViewModeWhileEditing;
     [registrationView addSubview:passwordRegistration];
-    
-    enter = [[UIButton alloc] initWithFrame:CGRectMake(BUTTON_WIDTH, mainView.frame.size.height - 10 - BUTTON_HEIGHT, mainView.frame.size.width - 2*BUTTON_WIDTH, BUTTON_HEIGHT)];
+
+    enter = [[UIButton alloc] initWithFrame:CGRectMake(mainView.frame.size.width/2 - BUTTON_WIDTH/2,
+                                                       mainView.frame.size.height - 10 - BUTTON_HEIGHT,
+                                                       BUTTON_WIDTH,
+                                                       BUTTON_HEIGHT)];
     enter.titleLabel.textAlignment = NSTextAlignmentCenter;
     [enter setTitle:@"Войти" forState:UIControlStateNormal];
     [enter setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
     [enter addTarget:self action:@selector(onButton) forControlEvents:UIControlEventTouchUpInside];
     [mainView addSubview:enter];
+    
+    emailAutorization.text = @"bespalown@gmail.co";
+    passwordAutorization.text = @"123";
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -274,7 +281,7 @@
             break;
         case 1:
             isEnter = NO;
-            mainViewFrame.size.height = 320;
+            mainViewFrame.size.height = 280;
             [autorizationView removeFromSuperview];
             [mainView addSubview:registrationView];
             [enter setTitle:@"Регистрация" forState:UIControlStateNormal];
@@ -284,7 +291,10 @@
     }
     
     mainView.frame = mainViewFrame;
-    enter.frame = CGRectMake(BUTTON_WIDTH, mainView.frame.size.height - 10 - BUTTON_HEIGHT, mainView.frame.size.width - 2*BUTTON_WIDTH, BUTTON_HEIGHT);
+    enter.frame = CGRectMake(mainView.frame.size.width/2 - BUTTON_WIDTH/2,
+                             mainView.frame.size.height - 10 - BUTTON_HEIGHT,
+                             BUTTON_WIDTH,
+                             BUTTON_HEIGHT);
 }
 
 -(void)onButton
@@ -310,6 +320,9 @@
          UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Авторизиция прошла успешно" message:autorization delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
          [alert show];
          [[NSUserDefaults standardUserDefaults] setObject:loginForm.accessToken forKey:@"accessToken"];
+         
+         CAAutorizedController* autorizedController = [[CAAutorizedController alloc] initWithNibName:@"CAAutorizedController" bundle:nil user:user];
+         [self.navigationController pushViewController:autorizedController animated:YES];
      }
                failBlock:^(NSException* exception)
      {

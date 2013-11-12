@@ -93,6 +93,8 @@
 		669069841830F6A400EE32EE /* CAAuthorization.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669069821830F6A400EE32EE /* CAAuthorization.xib */; };
 		66A5390A182A298800B0C782 /* CABuyerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A53909182A298800B0C782 /* CABuyerInfoCell.m */; };
 		66A5390C182A299D00B0C782 /* CABuyerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A5390B182A299D00B0C782 /* CABuyerInfoCell.xib */; };
+		66A67F5618322DE900A50318 /* CAAutorizedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A67F5418322DE900A50318 /* CAAutorizedController.m */; };
+		66A67F5718322DE900A50318 /* CAAutorizedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A67F5518322DE900A50318 /* CAAutorizedController.xib */; };
 		66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
 		66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */; };
 		66FECBA518210C0C00ED705D /* CAPassportTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FECBA418210C0C00ED705D /* CAPassportTextField.m */; };
@@ -234,6 +236,9 @@
 		66A53908182A298800B0C782 /* CABuyerInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABuyerInfoCell.h; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfoCell.h"; sourceTree = SOURCE_ROOT; };
 		66A53909182A298800B0C782 /* CABuyerInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABuyerInfoCell.m; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfoCell.m"; sourceTree = SOURCE_ROOT; };
 		66A5390B182A299D00B0C782 /* CABuyerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CABuyerInfoCell.xib; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfoCell.xib"; sourceTree = SOURCE_ROOT; };
+		66A67F5318322DE900A50318 /* CAAutorizedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAutorizedController.h; path = Autorized/CAAutorizedController.h; sourceTree = "<group>"; };
+		66A67F5418322DE900A50318 /* CAAutorizedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAutorizedController.m; path = Autorized/CAAutorizedController.m; sourceTree = "<group>"; };
+		66A67F5518322DE900A50318 /* CAAutorizedController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAAutorizedController.xib; path = Autorized/CAAutorizedController.xib; sourceTree = "<group>"; };
 		66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
 		66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
 		66FECBA318210C0C00ED705D /* CAPassportTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPassportTextField.h; path = "clickavia-iphone/Controllers/BuyerInfo/CAPassportTextField.h"; sourceTree = SOURCE_ROOT; };
@@ -360,6 +365,16 @@
 			name = AuthorizationController;
 			sourceTree = "<group>";
 		};
+		66A67F5218322DB600A50318 /* AutorizedController */ = {
+			isa = PBXGroup;
+			children = (
+				66A67F5318322DE900A50318 /* CAAutorizedController.h */,
+				66A67F5418322DE900A50318 /* CAAutorizedController.m */,
+				66A67F5518322DE900A50318 /* CAAutorizedController.xib */,
+			);
+			name = AutorizedController;
+			sourceTree = "<group>";
+		};
 		66F4C7E217EB0FDB0004DB88 /* ContractController */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				6690697F1830F66600EE32EE /* AuthorizationController */,
+				66A67F5218322DB600A50318 /* AutorizedController */,
 				66F4C7E217EB0FDB0004DB88 /* ContractController */,
 				668CB98E17F2060A00A26506 /* FlightDataController */,
 				6650772C181F928300890DB1 /* BuyerInfoController */,
@@ -703,6 +719,7 @@
 				17710EB617F466A8008A8E11 /* results-columns-green-cold-background@2x.png in Resources */,
 				17710EB417F466A8008A8E11 /* passengers-icon-kid@2x.png in Resources */,
 				66397DA51806BF7B0016EE69 /* CAContract.xib in Resources */,
+				66A67F5718322DE900A50318 /* CAAutorizedController.xib in Resources */,
 				7C2670B317CB1FAE002EE876 /* BMChatViewController~iPad.xib in Resources */,
 				66397DAF1806BFCF0016EE69 /* CAFlightDataView.xib in Resources */,
 				17710ED417F466A8008A8E11 /* specials-card-red.png in Resources */,
@@ -833,6 +850,7 @@
 				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
 				66397DAE1806BFCF0016EE69 /* CAFlightDataView.m in Sources */,
 				66397DA41806BF7B0016EE69 /* CAContract.m in Sources */,
+				66A67F5618322DE900A50318 /* CAAutorizedController.m in Sources */,
 				66397D9F1806BF3C0016EE69 /* CAAssistView.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
