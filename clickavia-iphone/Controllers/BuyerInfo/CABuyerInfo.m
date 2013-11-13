@@ -9,6 +9,9 @@
 #import "CABuyerInfo.h"
 #import "CAColorSpecOffers.h"
 #import "CAPassportTextField.h"
+#import "LoginForm.h"
+#import "AuthManager.h"
+#import "CATooltipSelect.h"
 
 #define HEIGHT_CELL 200
 #define KEYBOARD_ANIMATION_DURATION 0.3
@@ -20,10 +23,14 @@
 @interface CABuyerInfo ()
 {
     NSMutableArray *buyerArray;
+    NSMutableArray *passportsAutorisedUsers;
     NSString* passportSer;
     NSString* passportNum;
     CABuyerPickerView* pickerView;
+    CATooltipSelect* tooltipSelect;
     BOOL isPickerViewVisible;
+    BOOL isTooltipSelectVisible;
+    CGPoint buttonPosition;
 }
 
 @property (nonatomic, retain) UIButton* birthdayButton;
@@ -53,6 +60,7 @@
     // Do any additional setup after loading the view from its nib.
     [self showNavBar];
     isPickerViewVisible = NO;
+    isTooltipSelectVisible = NO;
     
     PersonInfo* myCard = [PersonInfo new];
     myCard.lastName = nil;
@@ -66,7 +74,6 @@
     buyerArray = [NSMutableArray new];
     [buyerArray addObject:myCard];
 
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -76,6 +83,31 @@
 {
     pickerView = [[CABuyerPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 220, 320, 220)];
     pickerView.delegate = self;
+    [self readPassportsUsers];
+    
+    tooltipSelect = [[CATooltipSelect alloc] initWithFrame:CGRectMake(0,
+                                                                      10,
+                                                                      320,
+                                                                      40*passportsAutorisedUsers.count+2*10) widthTableBorder:10];
+    [tooltipSelect heightForRowAtIndexPath:40];
+    [tooltipSelect setFrameForTrianglePlace:CGRectMake(self.view.frame.size.width*2/3,0,50,30)];
+    tooltipSelect.delegate = self;
+    [tooltipSelect setCheckClassSelectorImage:[UIImage imageNamed:@"check-icon-green.png"]];
+    
+    NSMutableArray* namesUsers = [[NSMutableArray alloc] initWithCapacity:6];
+    
+    for (int i = 0; i < passportsAutorisedUsers.count; i++) {
+        PersonInfo*  personInfoCard = [PersonInfo new];
+        personInfoCard = [passportsAutorisedUsers objectAtIndex:i];
+        
+        NSMutableString* fi = [NSMutableString new];
+        [fi appendString:[NSString stringWithFormat:@"%@ ",personInfoCard.lastName]];
+        [fi appendString:personInfoCard.name];
+        
+        [namesUsers addObject:fi];
+    }
+
+    [tooltipSelect valuesTableRows:namesUsers];
 }
 
 -(void)showNavBar
@@ -131,7 +163,6 @@
     return 3;
 }
 
-// Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [buyerArray count];
@@ -240,6 +271,7 @@
     [_tableView endEditing:YES];
 }
 
+#pragma mark Actions from cell
 - (void)deleteTappedOnCell:(id)sender {
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:_tableView];
     NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:buttonPosition];
@@ -250,6 +282,55 @@
         [_tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationTop];
         [_tableView endUpdates];
         [self performSelector:@selector(reloadTableView) withObject:self afterDelay:0.5 ];
+    }
+}
+
+- (void)alreadyHave:(id)sender
+{
+    buttonPosition = [sender convertPoint:CGPointZero toView:_tableView];
+    NSIndexPath *indexPathButton = [_tableView indexPathForRowAtPoint:buttonPosition];
+    
+    NSString* accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+    if (accessToken == nil) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Авторизуйтесь"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"OK", nil];
+        alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+        [alertView show];
+    }
+    else
+    {
+        //вызываем tooltip со списком ранее заполненных пассажиров
+        [self addToolTipFromView];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        LoginForm* loginForm = [LoginForm new];
+        loginForm.email = [alertView textFieldAtIndex:0].text;
+        loginForm.password = [alertView textFieldAtIndex:1].text;
+        
+        AuthManager* authManager = [AuthManager new];
+        [authManager getUser:loginForm completeBlock:^(User* user)
+         {
+             loginForm.accessToken = user.authKey;
+             NSString* autorization = [NSString stringWithFormat:@"Имя: %@\n email: %@\n Номер телефона: %@\n token: %@",user.name, user.email, user.phoneNumber, user.authKey];
+             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Авторизиция прошла успешно" message:autorization delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+             [alert show];
+             [[NSUserDefaults standardUserDefaults] setObject:loginForm.accessToken forKey:@"accessToken"];
+             [self addToolTipFromView];
+         }
+                   failBlock:^(NSException* exception)
+         {
+             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Проверьте ваш пароль или email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+             [alert show];
+         }
+         ];
     }
 }
 
@@ -391,8 +472,6 @@
         //Массив с заполненными карточками кодируется в NSData
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"UsersPassports"];
-        
-        [self performSelector:@selector(readPassportsUsers) withObject:nil afterDelay:5];
     }
 }
 
@@ -400,7 +479,29 @@
 {
     //Массив в формате NSData раскодируется в обычный массив с моделями PersonInfo
     NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersPassports"];
-    NSArray *notes = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
+    passportsAutorisedUsers = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
+}
+
+#pragma mark CAPaymentTableViewDelegate
+
+- (void) didSelectRowAtIndexPath:(NSIndexPath *)indexPath currentPayment:(NSString*)currentPayment;
+{
+    NSLog(@"выбран %d %@", indexPath.row ,currentPayment);
+    [self removeToolTipFromView];
+}
+
+-(void)addToolTipFromView
+{
+    isTooltipSelectVisible = YES;
+    [self.view addSubview:tooltipSelect];
+}
+
+-(void)removeToolTipFromView
+{
+    if (isTooltipSelectVisible) {
+        [tooltipSelect removeFromSuperview];
+        isTooltipSelectVisible = NO;
+    }
 }
 
 @end

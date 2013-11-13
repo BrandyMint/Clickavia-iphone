@@ -14,7 +14,7 @@
 
 @class CATooltipSelect;
 @protocol CAPaymentTableViewDelegate
-- (void) paymentTableView:(CATooltipSelect*)paymentTableView currentPayment:(NSString*)currentPayment;
+- (void) didSelectRowAtIndexPath:(NSIndexPath *)indexPath currentPayment:(NSString*)currentPayment;
 @end
 
 @interface CATooltipSelect : UIView<UITableViewDataSource, UITableViewDelegate>

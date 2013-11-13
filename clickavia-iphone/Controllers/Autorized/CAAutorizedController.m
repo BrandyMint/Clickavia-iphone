@@ -53,6 +53,7 @@
 
 -(void) replaceUser:(id)sender
 {
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"accessToken"];
     [self.navigationController popViewControllerAnimated:YES];
     [self.view removeFromSuperview];
 }
@@ -166,6 +167,10 @@
                                                             self.view.frame.size.width,
                                                             60)];
         userView.backgroundColor = [UIColor lightGrayColor];
+        
+        UIImageView* backgroundImage = [[UIImageView alloc] initWithFrame:userView.frame];
+        backgroundImage.image = [[UIImage imageNamed:@"_bar-green-warm.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5) resizingMode:UIImageResizingModeStretch];
+        [userView addSubview:backgroundImage];
         
         UILabel* userLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 0, 0)];
         userLabel.text = @"Пользователь";

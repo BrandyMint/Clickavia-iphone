@@ -45,17 +45,16 @@
     [self addSubview:numberBuyer];
     
     UIButton *onInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [onInfo addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
+    [onInfo addTarget:nil action:@selector(alreadyHave:) forControlEvents:UIControlEventTouchUpInside];
     [onInfo setTitle:@"Delete" forState:UIControlStateNormal];
     onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 20, numberBuyer.frame.size.height);
-    //[self addSubview:onInfo];
+    [self addSubview:onInfo];
     
     UILabel* alreadyHave = [[UILabel alloc] initWithFrame:CGRectMake(onInfo.frame.origin.x + onInfo.frame.size.width + 5, numberBuyer.frame.origin.y, 0, 0)];
     alreadyHave.text = @"Уже заполняли?";
     [alreadyHave sizeToFit];
     alreadyHave.backgroundColor = [UIColor clearColor];
-    //[self addSubview:alreadyHave];
-#warning Включить кнопку "Уже заполняли"
+    [self addSubview:alreadyHave];
     
     UIButton *deleteCell = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [deleteCell addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];

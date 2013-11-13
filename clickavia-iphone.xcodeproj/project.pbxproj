@@ -187,7 +187,7 @@
 		6616237917EB3BB200B6A19C /* what.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = what.png; path = Pods/BMChat/BMChat/BMChat.bundle/what.png; sourceTree = SOURCE_ROOT; };
 		6616237A17EB3BB200B6A19C /* what@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "what@2x.png"; path = "Pods/BMChat/BMChat/BMChat.bundle/what@2x.png"; sourceTree = SOURCE_ROOT; };
 		661E40BB17F1D88000DE8B0D /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
-		661E40BC17F1D88000DE8B0D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		661E40BC17F1D88000DE8B0D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		661E40BD17F1D88000DE8B0D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		661E40BE17F1D88000DE8B0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderDetailsPersonal.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOrderDetailsPersonal.h"; sourceTree = SOURCE_ROOT; };

@@ -112,7 +112,7 @@
         [(CASearchFormClassCell *)[classTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]] setChecked:NO];
     }
     [(CASearchFormClassCell *)[classTable cellForRowAtIndexPath:indexPath] setChecked:YES];
-    [_delegate paymentTableView:self currentPayment:[arrayOfStrings objectAtIndex:indexPath.row]];
+    [_delegate didSelectRowAtIndexPath:indexPath currentPayment:[arrayOfStrings objectAtIndex:indexPath.row]];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
