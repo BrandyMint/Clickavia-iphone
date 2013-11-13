@@ -76,4 +76,9 @@
         isBirthday = NO;
 }
 
+-(void)setDate:(NSDate *)date
+{
+    [datepicker setDate:date];
+}
+
 @end

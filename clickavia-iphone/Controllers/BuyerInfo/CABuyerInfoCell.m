@@ -120,7 +120,7 @@
     [self addSubview:passport];
     
     //2 TextField с разделенной чертой
-    CAPassportTextField* _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
+    CAPassportTextField* _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30) initPasportSerial:Nil initPassportNumber:Nil];
     //_passportField.tag = indexPath.section;
     _passportField.delegate = self;
     [self addSubview:_passportField];

@@ -26,6 +26,7 @@
 @property (strong, nonatomic) WTReTextField *passportSeries;
 @property (strong, nonatomic) WTReTextField *passportNumber;
 
+- (id)initWithFrame:(CGRect)frame initPasportSerial:(NSString*)initPasportSerial initPassportNumber:(NSString* )initPassportNumber;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end

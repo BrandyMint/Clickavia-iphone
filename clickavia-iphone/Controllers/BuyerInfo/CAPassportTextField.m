@@ -13,7 +13,7 @@
 @synthesize delegate;
 @synthesize passportNumber, passportSeries;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame initPasportSerial:(NSString*)initPasportSerial initPassportNumber:(NSString* )initPassportNumber;
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -23,6 +23,7 @@
         passportSeries.borderStyle = UITextBorderStyleNone;
         passportSeries.font = [UIFont systemFontOfSize:15];
         passportSeries.placeholder = @"9708";
+        passportSeries.text = initPasportSerial;
         passportSeries.autocorrectionType = UITextAutocorrectionTypeNo;
         passportSeries.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
         passportSeries.returnKeyType = UIReturnKeyDone;
@@ -42,6 +43,7 @@
         passportNumber.borderStyle = UITextBorderStyleNone;
         passportNumber.font = [UIFont systemFontOfSize:15];
         passportNumber.placeholder = @"777888";
+        passportNumber.text = initPassportNumber;
         passportNumber.autocorrectionType = UITextAutocorrectionTypeNo;
         passportNumber.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
         passportNumber.returnKeyType = UIReturnKeyDone;

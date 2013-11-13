@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "CAReplacePassportCard.h"
 
-@interface CAAutorizedController : UIViewController
+@interface CAAutorizedController : UIViewController <CAPassportTextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User* )user;
 

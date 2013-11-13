@@ -84,6 +84,10 @@
 		66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6650772E181F92FF00890DB1 /* CABuyerInfo.m */; };
 		66507731181F92FF00890DB1 /* CABuyerInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6650772F181F92FF00890DB1 /* CABuyerInfo.xib */; };
 		6652210D182A75BA00756DF5 /* CABuyerPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6652210C182A75BA00756DF5 /* CABuyerPickerView.m */; };
+		665EF9D91833507500AFAAE2 /* CAReplacePassportCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EF9D71833507500AFAAE2 /* CAReplacePassportCard.m */; };
+		665EF9DA1833507500AFAAE2 /* CAReplacePassportCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665EF9D81833507500AFAAE2 /* CAReplacePassportCard.xib */; };
+		665EF9DD183371F700AFAAE2 /* CAAutorizedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EF9DC183371F700AFAAE2 /* CAAutorizedCell.m */; };
+		665EF9DF1833721600AFAAE2 /* CAAutorizedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665EF9DE1833721600AFAAE2 /* CAAutorizedCell.xib */; };
 		666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */; };
 		666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60DD17CCDFA9008220AC /* CASpecOffersViewController.xib */; };
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
@@ -221,6 +225,12 @@
 		6650772F181F92FF00890DB1 /* CABuyerInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CABuyerInfo.xib; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.xib"; sourceTree = SOURCE_ROOT; };
 		6652210B182A75BA00756DF5 /* CABuyerPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABuyerPickerView.h; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerPickerView.h"; sourceTree = SOURCE_ROOT; };
 		6652210C182A75BA00756DF5 /* CABuyerPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABuyerPickerView.m; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerPickerView.m"; sourceTree = SOURCE_ROOT; };
+		665EF9D61833507500AFAAE2 /* CAReplacePassportCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAReplacePassportCard.h; path = ReplacePassportCard/CAReplacePassportCard.h; sourceTree = "<group>"; };
+		665EF9D71833507500AFAAE2 /* CAReplacePassportCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAReplacePassportCard.m; path = ReplacePassportCard/CAReplacePassportCard.m; sourceTree = "<group>"; };
+		665EF9D81833507500AFAAE2 /* CAReplacePassportCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAReplacePassportCard.xib; path = ReplacePassportCard/CAReplacePassportCard.xib; sourceTree = "<group>"; };
+		665EF9DB183371F700AFAAE2 /* CAAutorizedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAutorizedCell.h; path = Autorized/CAAutorizedCell.h; sourceTree = "<group>"; };
+		665EF9DC183371F700AFAAE2 /* CAAutorizedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAutorizedCell.m; path = Autorized/CAAutorizedCell.m; sourceTree = "<group>"; };
+		665EF9DE1833721600AFAAE2 /* CAAutorizedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAAutorizedCell.xib; path = Autorized/CAAutorizedCell.xib; sourceTree = "<group>"; };
 		666C60DA17CCDFA9008220AC /* CAColorSpecOffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAColorSpecOffers.h; sourceTree = "<group>"; };
 		666C60DB17CCDFA9008220AC /* CASpecOffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CASpecOffersViewController.h; sourceTree = "<group>"; };
 		666C60DC17CCDFA9008220AC /* CASpecOffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CASpecOffersViewController.m; sourceTree = "<group>"; };
@@ -329,6 +339,16 @@
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
 			sourceTree = "<group>";
 		};
+		665EF9D018334FD900AFAAE2 /* ReplacePassportCard */ = {
+			isa = PBXGroup;
+			children = (
+				665EF9D61833507500AFAAE2 /* CAReplacePassportCard.h */,
+				665EF9D71833507500AFAAE2 /* CAReplacePassportCard.m */,
+				665EF9D81833507500AFAAE2 /* CAReplacePassportCard.xib */,
+			);
+			name = ReplacePassportCard;
+			sourceTree = "<group>";
+		};
 		668CB98E17F2060A00A26506 /* FlightDataController */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +391,9 @@
 				66A67F5318322DE900A50318 /* CAAutorizedController.h */,
 				66A67F5418322DE900A50318 /* CAAutorizedController.m */,
 				66A67F5518322DE900A50318 /* CAAutorizedController.xib */,
+				665EF9DB183371F700AFAAE2 /* CAAutorizedCell.h */,
+				665EF9DC183371F700AFAAE2 /* CAAutorizedCell.m */,
+				665EF9DE1833721600AFAAE2 /* CAAutorizedCell.xib */,
 			);
 			name = AutorizedController;
 			sourceTree = "<group>";
@@ -476,6 +499,7 @@
 			children = (
 				6690697F1830F66600EE32EE /* AuthorizationController */,
 				66A67F5218322DB600A50318 /* AutorizedController */,
+				665EF9D018334FD900AFAAE2 /* ReplacePassportCard */,
 				66F4C7E217EB0FDB0004DB88 /* ContractController */,
 				668CB98E17F2060A00A26506 /* FlightDataController */,
 				6650772C181F928300890DB1 /* BuyerInfoController */,
@@ -749,6 +773,7 @@
 				17710EBA17F466A8008A8E11 /* calendar-background@2x.png in Resources */,
 				17710EAD17F466A8008A8E11 /* toolbar-button-active@2x.png in Resources */,
 				17710ECB17F466A8008A8E11 /* CASearchFormControls-button@2x.png in Resources */,
+				665EF9DA1833507500AFAAE2 /* CAReplacePassportCard.xib in Resources */,
 				17710EB917F466A8008A8E11 /* results-columns-green-background@2x.png in Resources */,
 				17710ECA17F466A8008A8E11 /* PassengersButton-man-icon@2x.png in Resources */,
 				17710EAF17F466A8008A8E11 /* toolbar-arrow-right@2x.png in Resources */,
@@ -763,6 +788,7 @@
 				17710EA817F466A8008A8E11 /* specials-country-selected@2x.png in Resources */,
 				17710EA917F466A8008A8E11 /* bar-green-cold@2x.png in Resources */,
 				661E40BF17F1D88000DE8B0D /* Gemfile in Resources */,
+				665EF9DF1833721600AFAAE2 /* CAAutorizedCell.xib in Resources */,
 				17710EBE17F466A8008A8E11 /* calendar-tabs-background@2x.png in Resources */,
 				17710EC017F466A8008A8E11 /* btn-primary-large@2x.png in Resources */,
 				66A5390C182A299D00B0C782 /* CABuyerInfoCell.xib in Resources */,
@@ -836,6 +862,7 @@
 			files = (
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
 				669069831830F6A400EE32EE /* CAAuthorization.m in Sources */,
+				665EF9DD183371F700AFAAE2 /* CAAutorizedCell.m in Sources */,
 				66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */,
 				66397DB01806BFCF0016EE69 /* CAOrderDetails.m in Sources */,
 				66A5390A182A298800B0C782 /* CABuyerInfoCell.m in Sources */,
@@ -850,6 +877,7 @@
 				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
 				66397DAE1806BFCF0016EE69 /* CAFlightDataView.m in Sources */,
 				66397DA41806BF7B0016EE69 /* CAContract.m in Sources */,
+				665EF9D91833507500AFAAE2 /* CAReplacePassportCard.m in Sources */,
 				66A67F5618322DE900A50318 /* CAAutorizedController.m in Sources */,
 				66397D9F1806BF3C0016EE69 /* CAAssistView.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,

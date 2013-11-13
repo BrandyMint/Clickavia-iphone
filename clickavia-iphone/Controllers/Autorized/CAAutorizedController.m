@@ -8,207 +8,47 @@
 
 #import "CAAutorizedController.h"
 #import "CAColorSpecOffers.h"
-#import "PersonInfo.h"
+#import "CAAutorizedCell.h"
 
-#define MARGIN_LEFT 10
-#define MARGIN_BETWEEN_LABELS 5
+
 #define BUTTON_HEIGHT 30
 #define BUTTON_WIDTH 80
 #define HEIGHT_CELL_PASSENGER 130
+#define BUTTON_PAYMENT_W 250
+#define BUTTON_PAYMENT_H 40
 
 @interface CAAutorizedController ()
 {
-    UIView* userView;
+    NSMutableArray *usersPassportsArray;
+    User* user;
 }
 @end
 
 @implementation CAAutorizedController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User* )user
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User* )_user
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self.navigationItem setHidesBackButton:YES];
-        float heightPassengersCards = 0;
-        
+        user = _user;
         NSData *usersPassportsData = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersPassports"];
-        NSArray *usersPassportsArray = [NSKeyedUnarchiver unarchiveObjectWithData:usersPassportsData];
-        
-        UIScrollView* scrollview=[[UIScrollView alloc]initWithFrame:CGRectMake(0,0,320,480)];
-        scrollview.showsVerticalScrollIndicator=YES;
-        scrollview.scrollEnabled=YES;
-        scrollview.userInteractionEnabled=YES;
-        [self.view addSubview:scrollview];
-        
-        for (int i= 0; i<usersPassportsArray.count; i++) {
-            heightPassengersCards = (HEIGHT_CELL_PASSENGER+10)*i;
-            
-            PersonInfo* personInfo = [PersonInfo new];
-            personInfo = [usersPassportsArray objectAtIndex:i];
-            
-            UIView* passengerView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                                             10 + heightPassengersCards,
-                                                                             scrollview.frame.size.width,
-                                                                             HEIGHT_CELL_PASSENGER)];
-            passengerView.backgroundColor = [UIColor lightGrayColor];
-            [scrollview addSubview:passengerView];
-            
-            UIButton *change = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-            change.frame = CGRectMake(passengerView.frame.size.width - BUTTON_WIDTH - 10,
-                                      MARGIN_BETWEEN_LABELS,
-                                      BUTTON_WIDTH,
-                                      BUTTON_HEIGHT);
-            //[change addTarget:nil action:@selector(replaceUser:) forControlEvents:UIControlEventTouchUpInside];
-            [change setTitle:@"Изменить" forState:UIControlStateNormal];
-            [change setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [passengerView addSubview: change];
-            
-            UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN_BETWEEN_LABELS, passengerView.frame.size.width, 17)];
-            title.text = @"Пассажиры";
-            title.font = [UIFont systemFontOfSize:14];
-            title.textAlignment = NSTextAlignmentCenter;
-            //[title sizeToFit];
-            title.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:title];
-
-
-            NSString* personType = @"";
-            switch (personInfo.personType) {
-                case male:
-                    personType = @"MR.";
-                    break;
-                case female:
-                    personType = @"MRS.";
-                    break;
-                case children:
-                    personType = @"CHD.";
-                    break;
-                case infant:
-                    personType = @"INF.";
-                    break;
-                default:
-                    break;
-            }
-            
-            NSDateFormatter* datefrmatter = [NSDateFormatter new];
-            [datefrmatter setDateFormat:@"dd.MM.yyyy"];
-            
-            NSMutableString* fio = [[NSMutableString alloc] init];
-            [fio appendString:[NSString stringWithFormat:@"%@ ",personType]];
-            [fio appendString:[NSString stringWithFormat:@"%@ ",personInfo.lastName]];
-            [fio appendString:personInfo.name];
-            
-            UILabel* person = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT, change.frame.origin.y + change.frame.size.height, 0, 0)];
-            person.text = fio;
-            person.font = [UIFont systemFontOfSize:14];
-            [person sizeToFit];
-            person.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:person];
-            
-            UILabel* birthday = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT,
-                                                                          person.frame.origin.y + [person.text sizeWithFont:person.font].height + MARGIN_BETWEEN_LABELS,
-                                                                          0, 0)];
-            birthday.text = @"Дата рождения";
-            birthday.font = [UIFont systemFontOfSize:14];
-            [birthday sizeToFit];
-            birthday.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:birthday];
-            
-            UILabel* birthdayInfo = [[UILabel alloc] initWithFrame:CGRectMake(birthday.frame.origin.x + [birthday.text sizeWithFont:birthday.font].width + 5,
-                                                                              birthday.frame.origin.y,
-                                                                              0, 0)];
-            birthdayInfo.text = [datefrmatter stringFromDate:personInfo.birthDate];
-            birthdayInfo.font = [UIFont systemFontOfSize:14];
-            [birthdayInfo sizeToFit];
-            birthdayInfo.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:birthdayInfo];
-            
-            UILabel* passport = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT,
-                                                                          birthday.frame.origin.y + [birthday.text sizeWithFont:birthday.font].height + MARGIN_BETWEEN_LABELS,
-                                                                          0, 0)];
-            passport.text = @"Паспорт";
-            passport.font = [UIFont systemFontOfSize:14];
-            [passport sizeToFit];
-            passport.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:passport];
-            
-            NSMutableString* passportFull = [NSMutableString new];
-            [passportFull appendString:[NSString stringWithFormat:@"%@ ",personInfo.passportSeries]];
-            [passportFull appendString:personInfo.passportNumber];
-            UILabel* passportInfo = [[UILabel alloc] initWithFrame:CGRectMake(passport.frame.origin.x + [passport.text sizeWithFont:passport.font].width + 5,
-                                                                          passport.frame.origin.y,
-                                                                          0, 0)];
-            passportInfo.text = passportFull;
-            passportInfo.font = [UIFont systemFontOfSize:14];
-            [passportInfo sizeToFit];
-            passportInfo.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:passportInfo];
-            
-            UILabel* validDay = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT,
-                                                                          passport.frame.origin.y + [passport.text sizeWithFont:passport.font].height + MARGIN_BETWEEN_LABELS,
-                                                                          0, 0)];
-            validDay.text = @"Срок действия";
-            validDay.font = [UIFont systemFontOfSize:14];
-            [validDay sizeToFit];
-            validDay.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:validDay];
-            
-            UILabel* validDayInfo = [[UILabel alloc] initWithFrame:CGRectMake(validDay.frame.origin.x + [validDay.text sizeWithFont:validDay.font].width + 5,
-                                                                              validDay.frame.origin.y,
-                                                                              0, 0)];
-            validDayInfo.text = [datefrmatter stringFromDate:personInfo.validDate];
-            validDayInfo.font = [UIFont systemFontOfSize:14];
-            [validDayInfo sizeToFit];
-            validDayInfo.backgroundColor = [UIColor  clearColor];
-            [passengerView addSubview:validDayInfo];
-
-        }
-        
-        UILabel* userLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT, MARGIN_BETWEEN_LABELS, 0, 0)];
-        userLabel.text = @"Пользователь";
-        userLabel.font = [UIFont systemFontOfSize:14];
-        [userLabel sizeToFit];
-        userLabel.backgroundColor = [UIColor clearColor];
-        
-        UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(userLabel.frame.origin.x,
-                                                                      userLabel.frame.origin.y + [userLabel.text sizeWithFont:userLabel.font].height + MARGIN_BETWEEN_LABELS,
-                                                                      0,
-                                                                      0)];
-        userName.text = user.name;
-        userName.font = [UIFont systemFontOfSize:14];
-        [userName sizeToFit];
-        userName.backgroundColor = [UIColor clearColor];
-        
-        userView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                            heightPassengersCards + 20 + HEIGHT_CELL_PASSENGER,
-                                                            self.view.frame.size.width,
-                                                            userName.frame.origin.y + [userName.text sizeWithFont:userName.font].height + MARGIN_BETWEEN_LABELS)];
-        userView.backgroundColor = [UIColor lightGrayColor];
-        [scrollview addSubview:userView];
-        
-        UIButton *replaceUser = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        replaceUser.frame = CGRectMake(userView.frame.size.width - BUTTON_WIDTH - 10, userView.frame.size.height/2 - BUTTON_HEIGHT/2, BUTTON_WIDTH, BUTTON_HEIGHT);
-        [replaceUser addTarget:self action:@selector(replaceUser:) forControlEvents:UIControlEventTouchUpInside];
-        [replaceUser setTitle:@"Сменить" forState:UIControlStateNormal];
-        [replaceUser setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [userView addSubview: replaceUser];
-        
-        [userView addSubview:userLabel];
-        [userView addSubview:userName];
-        
-        UIButton* toPayment = [[UIButton alloc] initWithFrame:CGRectMake(scrollview.frame.size.width/2 - 250/2,
-                                                                         userView.frame.origin.y + userView.frame.size.height + 20,
-                                                                         250,
-                                                                         40)];
-        toPayment.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [toPayment setTitle:@"Перейти к оплате" forState:UIControlStateNormal];
-        [toPayment setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
-        [toPayment addTarget:nil action:@selector(onButton) forControlEvents:UIControlEventTouchUpInside];
-        [scrollview addSubview:toPayment];
-        
-        scrollview.contentSize = CGSizeMake(320,heightPassengersCards + userView.frame.size.height + HEIGHT_CELL_PASSENGER + 40 + 100);
+        usersPassportsArray = [NSKeyedUnarchiver unarchiveObjectWithData:usersPassportsData];
     }
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    UIButton* toPayment = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_PAYMENT_W/2,
+                                                                     self.view.frame.size.height - 2* BUTTON_PAYMENT_H,
+                                                                     BUTTON_PAYMENT_W,
+                                                                     BUTTON_PAYMENT_H)];
+    toPayment.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [toPayment setTitle:@"Перейти к оплате" forState:UIControlStateNormal];
+    [toPayment setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
+    [toPayment addTarget:self action:@selector(onPayment:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:toPayment];
 }
 
 -(void) replaceUser:(id)sender
@@ -249,6 +89,118 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark CAReplacePassportCardDelegate
+- (void) modified:(PersonInfo*)modified index:(NSInteger)index
+{
+    [usersPassportsArray replaceObjectAtIndex:index withObject:modified];
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:usersPassportsArray];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"UsersPassports"];
+    
+    [_tableView reloadData];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PersonInfo* personinfo = [PersonInfo new];
+    personinfo = [usersPassportsArray objectAtIndex:indexPath.row];
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    CAAutorizedCell *cell = (CAAutorizedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CAAutorizedCell"owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        [cell initCell:personinfo];
+        
+        UIButton *change = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+        change.frame = CGRectMake(cell.frame.size.width - BUTTON_WIDTH - 10, 10, BUTTON_WIDTH, BUTTON_HEIGHT);
+        [change addTarget:nil action:@selector(replacePassportCard:) forControlEvents:UIControlEventTouchUpInside];
+        [change setTitle:@"Изменить" forState:UIControlStateNormal];
+        [change setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        change.tag = indexPath.row;
+        [cell addSubview: change];
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+    }
+}
+
+-(void) replacePassportCard:(id)sender
+{
+    PersonInfo* personInfo = [PersonInfo new];
+    personInfo = [usersPassportsArray objectAtIndex:[sender tag]];
+    
+    CAReplacePassportCard* replacePassportCard = [[CAReplacePassportCard alloc] initWithNibName:@"CAReplacePassportCard" bundle:nil personInfoCard:personInfo index:[sender tag]];
+    replacePassportCard.delegate = self;
+    [self.navigationController pushViewController:replacePassportCard animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [usersPassportsArray count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        UIView* userView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                            0,
+                                                            self.view.frame.size.width,
+                                                            60)];
+        userView.backgroundColor = [UIColor lightGrayColor];
+        
+        UILabel* userLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 0, 0)];
+        userLabel.text = @"Пользователь";
+        userLabel.font = [UIFont systemFontOfSize:14];
+        [userLabel sizeToFit];
+        userLabel.backgroundColor = [UIColor clearColor];
+        
+        UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(userLabel.frame.origin.x,
+                                                                      userLabel.frame.origin.y + [userLabel.text sizeWithFont:userLabel.font].height + 10, 0,0)];
+        userName.text = user.name;
+        userName.font = [UIFont systemFontOfSize:14];
+        [userName sizeToFit];
+        userName.backgroundColor = [UIColor clearColor];
+        
+        UIButton *replaceUser = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+        replaceUser.frame = CGRectMake(userView.frame.size.width - BUTTON_WIDTH - 10, userView.frame.size.height/2 - BUTTON_HEIGHT/2, BUTTON_WIDTH, BUTTON_HEIGHT);
+        [replaceUser addTarget:self action:@selector(replaceUser:) forControlEvents:UIControlEventTouchUpInside];
+        [replaceUser setTitle:@"Сменить" forState:UIControlStateNormal];
+        [replaceUser setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [userView addSubview: replaceUser];
+        
+        [userView addSubview:userLabel];
+        [userView addSubview:userName];
+        return userView;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 60;
+}
+
+-(void)onPayment:(id)sender
+{
+
 }
 
 @end
