@@ -10,6 +10,7 @@ pod 'CASearchForm', 		:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-search
 pod 'CASearchFormControls',	:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-searchformcontrols.git'
 pod 'WTReTextField',        :podspec => 'https://raw.github.com/bespalown/WTReTextField/master/WTReTextField.podspec'
 pod 'AKTabBarController'
+pod 'FPPopover', '~> 1.3'
 
 # TODO remove reveal when release
 pod 'Reveal-iOS-SDK'

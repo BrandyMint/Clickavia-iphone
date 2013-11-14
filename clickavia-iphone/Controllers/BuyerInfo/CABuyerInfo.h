@@ -10,11 +10,12 @@
 #import "CABuyerInfoCell.h"
 #import "CABuyerPickerView.h"
 #import "PersonInfo.h"
+#import "FPPopoverController.h"
+#import "CAPopoverList.h"
 
-@interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate>
+@interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate, FPPopoverControllerDelegate, CAPopoverListDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) NSMutableArray* testArray;
 @property (nonatomic, strong) CAPassportTextField* passportField;
 
 @end

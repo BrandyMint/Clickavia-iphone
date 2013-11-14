@@ -11,7 +11,7 @@
 
 @implementation CAPassportTextField
 @synthesize delegate;
-@synthesize passportNumber, passportSeries;
+@synthesize passportSeries, passportNumber;
 
 - (id)initWithFrame:(CGRect)frame initPasportSerial:(NSString*)initPasportSerial initPassportNumber:(NSString* )initPassportNumber;
 {

@@ -25,19 +25,29 @@ typedef enum
 -(void)tableViewCell:(UITableViewCell* )tableViewCell textDidEndEditing:(NSString *)text fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
 -(void)tableViewCell:(UITableViewCell* )tableViewCell segmentedControlId:(idField)segmentedControlId indexCell:(NSInteger)indexCell;
 -(void)activeTextField:(UITextField*)activeTextField indexCell:(NSInteger)indexCell;
+-(void)validDay:(id)sender;
+-(void)birthday:(id)sender;
 @end
 
 @interface CABuyerInfoCell : UITableViewCell <UITextFieldDelegate, CAPassportTextFieldDelegate>
 {
     NSInteger indexCell;
     UITextField* activeField;
+    
+    WTReTextField* nameTextField;
+    WTReTextField* surnameTextField;
+    UISegmentedControl *segmentedControl;
 }
 
 @property (assign) id <CABuyerInfoCellDelegate> delegate;
 @property (nonatomic, retain) WTReTextField* nameTextField;
 @property (nonatomic, retain) WTReTextField* surnameTextField;
+@property (nonatomic, retain) UISegmentedControl *segmentedControl;
 
 - (void) initByIndex:(NSInteger)index;
-- (void) dateFromPicker:(NSDate*)date;
 - (void) didSelectDatePicker:(NSDate *)date typeField:(idField)typeField indexCell:(NSInteger)indexCell sender:(id)sender;
+- (void) setPassportSerial:(NSString *)passportSerial;
+- (void) setPassportNumber:(NSString *)passportNumber;
+- (void) setTitleButtonBirthday:(NSString *)title;
+- (void) setTitleButtonValidday:(NSString *)title;
 @end

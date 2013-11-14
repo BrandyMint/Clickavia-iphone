@@ -12,10 +12,12 @@
 
 @implementation CABuyerInfoCell
 {
-    UISegmentedControl *segmentedControl;
+    CAPassportTextField* passportField;
+    UIButton* validDayButton;
+    UIButton* birthdayButton;
 }
-@synthesize nameTextField, surnameTextField;
 
+@synthesize nameTextField, surnameTextField, segmentedControl;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -45,6 +47,7 @@
     [self addSubview:numberBuyer];
     
     UIButton *onInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    onInfo.tag = index;
     [onInfo addTarget:nil action:@selector(alreadyHave:) forControlEvents:UIControlEventTouchUpInside];
     [onInfo setTitle:@"Delete" forState:UIControlStateNormal];
     onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 20, numberBuyer.frame.size.height);
@@ -119,10 +122,9 @@
     [self addSubview:passport];
     
     //2 TextField с разделенной чертой
-    CAPassportTextField* _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30) initPasportSerial:Nil initPassportNumber:Nil];
-    //_passportField.tag = indexPath.section;
-    _passportField.delegate = self;
-    [self addSubview:_passportField];
+    passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30) initPasportSerial:nil initPassportNumber:nil];
+    passportField.delegate = self;
+    [self addSubview:passportField];
     
     UILabel * dateBirth = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x + segmentedControl.frame.size.width + 5, asking.frame.origin.y, 0, 0)];
     dateBirth.text = @"Дата рождения";
@@ -136,6 +138,19 @@
     validity.backgroundColor = [UIColor clearColor];
     [self addSubview:validity];
     
+    validDayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    validDayButton.frame = CGRectMake(200, 160, 120, 30);
+    [validDayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
+    [validDayButton addTarget:self action:@selector(validDay:) forControlEvents:UIControlEventTouchUpInside];
+    validDayButton.tag = 2;
+    [self addSubview:validDayButton];
+    
+    birthdayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    birthdayButton.frame = CGRectMake(200, 110, 120, 30);
+    [birthdayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
+    [birthdayButton addTarget:self action:@selector(birthday:) forControlEvents:UIControlEventTouchUpInside];
+    birthdayButton.tag = 1;
+    [self addSubview:birthdayButton];
 }
 
 -(void)segmentedControl:(id)sender;
@@ -182,6 +197,36 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)validDay:(id)sender
+{
+    [_delegate validDay:sender];
+}
+
+-(void)birthday:(id)sender
+{
+    [_delegate birthday:sender];
+}
+
+- (void)setPassportSerial:(NSString *)passportSerial
+{
+    passportField.passportSeries.text = passportSerial;
+}
+
+- (void)setPassportNumber:(NSString *)passportNumber
+{
+    passportField.passportNumber.text = passportNumber;
+}
+
+- (void)setTitleButtonBirthday:(NSString *)title
+{
+    [birthdayButton setTitle:title forState:UIControlStateNormal];
+}
+
+- (void)setTitleButtonValidday:(NSString *)title
+{
+    [validDayButton setTitle:title forState:UIControlStateNormal];
 }
 
 @end

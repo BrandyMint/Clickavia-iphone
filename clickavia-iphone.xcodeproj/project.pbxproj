@@ -83,6 +83,7 @@
 		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
 		66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6650772E181F92FF00890DB1 /* CABuyerInfo.m */; };
 		66507731181F92FF00890DB1 /* CABuyerInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6650772F181F92FF00890DB1 /* CABuyerInfo.xib */; };
+		6651D58E1834A366008F026D /* CAPopoverList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6651D58D1834A366008F026D /* CAPopoverList.m */; };
 		6652210D182A75BA00756DF5 /* CABuyerPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6652210C182A75BA00756DF5 /* CABuyerPickerView.m */; };
 		665EF9D91833507500AFAAE2 /* CAReplacePassportCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EF9D71833507500AFAAE2 /* CAReplacePassportCard.m */; };
 		665EF9DA1833507500AFAAE2 /* CAReplacePassportCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665EF9D81833507500AFAAE2 /* CAReplacePassportCard.xib */; };
@@ -223,6 +224,8 @@
 		6650772D181F92FF00890DB1 /* CABuyerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABuyerInfo.h; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.h"; sourceTree = SOURCE_ROOT; };
 		6650772E181F92FF00890DB1 /* CABuyerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABuyerInfo.m; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.m"; sourceTree = SOURCE_ROOT; };
 		6650772F181F92FF00890DB1 /* CABuyerInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CABuyerInfo.xib; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.xib"; sourceTree = SOURCE_ROOT; };
+		6651D58C1834A366008F026D /* CAPopoverList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPopoverList.h; path = "clickavia-iphone/Controllers/BuyerInfo/CAPopoverList.h"; sourceTree = SOURCE_ROOT; };
+		6651D58D1834A366008F026D /* CAPopoverList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAPopoverList.m; path = "clickavia-iphone/Controllers/BuyerInfo/CAPopoverList.m"; sourceTree = SOURCE_ROOT; };
 		6652210B182A75BA00756DF5 /* CABuyerPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABuyerPickerView.h; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerPickerView.h"; sourceTree = SOURCE_ROOT; };
 		6652210C182A75BA00756DF5 /* CABuyerPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABuyerPickerView.m; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerPickerView.m"; sourceTree = SOURCE_ROOT; };
 		665EF9D61833507500AFAAE2 /* CAReplacePassportCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAReplacePassportCard.h; path = ReplacePassportCard/CAReplacePassportCard.h; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 		6650772C181F928300890DB1 /* BuyerInfoController */ = {
 			isa = PBXGroup;
 			children = (
+				6651D58C1834A366008F026D /* CAPopoverList.h */,
+				6651D58D1834A366008F026D /* CAPopoverList.m */,
 				6650772D181F92FF00890DB1 /* CABuyerInfo.h */,
 				6650772E181F92FF00890DB1 /* CABuyerInfo.m */,
 				6650772F181F92FF00890DB1 /* CABuyerInfo.xib */,
@@ -879,6 +884,7 @@
 				66397DA41806BF7B0016EE69 /* CAContract.m in Sources */,
 				665EF9D91833507500AFAAE2 /* CAReplacePassportCard.m in Sources */,
 				66A67F5618322DE900A50318 /* CAAutorizedController.m in Sources */,
+				6651D58E1834A366008F026D /* CAPopoverList.m in Sources */,
 				66397D9F1806BF3C0016EE69 /* CAAssistView.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,

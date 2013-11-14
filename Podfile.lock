@@ -19,6 +19,7 @@ PODS:
     - LRResty (= 0.11.0)
     - MBProgressHUD
   - EasyMapping (0.4.3)
+  - FPPopover (1.4.1)
   - LRResty (0.11.0):
     - NSData+Base64 (~> 1.0)
   - MBProgressHUD (0.8)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - CASearchForm (from `git@gitlab.brandymint.ru:brandymint-ios/ca-searchform.git`)
   - CASearchFormControls (from `git@gitlab.brandymint.ru:brandymint-ios/ca-searchformcontrols.git`)
   - CASpecialOffers (from `git@gitlab.brandymint.ru:brandymint-ios/ca-special-offers.git`)
+  - FPPopover (~> 1.3)
   - Reveal-iOS-SDK
   - WTReTextField (from `https://raw.github.com/bespalown/WTReTextField/master/WTReTextField.podspec`)
 
@@ -88,6 +90,7 @@ SPEC CHECKSUMS:
   CASearchFormControls: 6a3e90b1e72af54e4e043c3a19150aca7345b945
   CASpecialOffers: 82913ab88d9e340e64d240c7901a276c53a0ae68
   EasyMapping: 3e88693897ea2d9222ad8e80498f2e4110a577a3
+  FPPopover: 0289b796c031d8f27bd221d93d282ffe23619893
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28

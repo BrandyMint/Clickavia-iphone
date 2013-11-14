@@ -20,11 +20,13 @@
 @interface CAPassportTextField : UIView <UITextFieldDelegate>
 {
     id <CAPassportTextFieldDelegate> delegate;
+    WTReTextField *passportSeries;
+    WTReTextField *passportNumber;
 }
 
 @property (nonatomic, retain) id <CAPassportTextFieldDelegate> delegate;
-@property (strong, nonatomic) WTReTextField *passportSeries;
-@property (strong, nonatomic) WTReTextField *passportNumber;
+@property (retain, nonatomic) WTReTextField *passportSeries;
+@property (retain, nonatomic) WTReTextField *passportNumber;
 
 - (id)initWithFrame:(CGRect)frame initPasportSerial:(NSString*)initPasportSerial initPassportNumber:(NSString* )initPassportNumber;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
