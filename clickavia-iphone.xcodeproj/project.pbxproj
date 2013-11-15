@@ -94,6 +94,7 @@
 		666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60DF17CCDFA9008220AC /* drawArrowView.m */; };
 		666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60E217CCDFA9008220AC /* SpecialOfferCell.m */; };
 		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
+		667AEDB218360AE600F502CA /* CAPopoverErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667AEDB118360AE600F502CA /* CAPopoverErrorViewController.m */; };
 		669069831830F6A400EE32EE /* CAAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 669069811830F6A400EE32EE /* CAAuthorization.m */; };
 		669069841830F6A400EE32EE /* CAAuthorization.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669069821830F6A400EE32EE /* CAAuthorization.xib */; };
 		66A5390A182A298800B0C782 /* CABuyerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A53909182A298800B0C782 /* CABuyerInfoCell.m */; };
@@ -243,6 +244,8 @@
 		666C60E117CCDFA9008220AC /* SpecialOfferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialOfferCell.h; sourceTree = "<group>"; };
 		666C60E217CCDFA9008220AC /* SpecialOfferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialOfferCell.m; sourceTree = "<group>"; };
 		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
+		667AEDB018360AE600F502CA /* CAPopoverErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPopoverErrorViewController.h; path = Authorization/CAPopoverErrorViewController.h; sourceTree = "<group>"; };
+		667AEDB118360AE600F502CA /* CAPopoverErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAPopoverErrorViewController.m; path = Authorization/CAPopoverErrorViewController.m; sourceTree = "<group>"; };
 		669069801830F6A400EE32EE /* CAAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAuthorization.h; path = Authorization/CAAuthorization.h; sourceTree = "<group>"; };
 		669069811830F6A400EE32EE /* CAAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAuthorization.m; path = Authorization/CAAuthorization.m; sourceTree = "<group>"; };
 		669069821830F6A400EE32EE /* CAAuthorization.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAAuthorization.xib; path = Authorization/CAAuthorization.xib; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 				669069801830F6A400EE32EE /* CAAuthorization.h */,
 				669069811830F6A400EE32EE /* CAAuthorization.m */,
 				669069821830F6A400EE32EE /* CAAuthorization.xib */,
+				667AEDB018360AE600F502CA /* CAPopoverErrorViewController.h */,
+				667AEDB118360AE600F502CA /* CAPopoverErrorViewController.m */,
 			);
 			name = AuthorizationController;
 			sourceTree = "<group>";
@@ -879,6 +884,7 @@
 				666C60E417CCDFA9008220AC /* CASpecOffersViewController.m in Sources */,
 				666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */,
 				666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */,
+				667AEDB218360AE600F502CA /* CAPopoverErrorViewController.m in Sources */,
 				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
 				66397DAE1806BFCF0016EE69 /* CAFlightDataView.m in Sources */,
 				66397DA41806BF7B0016EE69 /* CAContract.m in Sources */,

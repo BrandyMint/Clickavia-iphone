@@ -335,12 +335,12 @@
     CABuyerInfoCell *customCell = (CABuyerInfoCell*)cell;
     PersonInfo* personInfo = [PersonInfo new];
     
+    personInfo = [buyerArray objectAtIndex:indexPath.section];
+    
     NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
     [date_format setDateFormat: @"dd.MM.yyyy"];
     NSString * birthDateString = [date_format stringFromDate: personInfo.birthDate];
     NSString * validDateString = [date_format stringFromDate: personInfo.validDate];
-    
-    personInfo = [buyerArray objectAtIndex:indexPath.section];
     
     customCell.surnameTextField.text = personInfo.lastName;
     customCell.nameTextField.text = personInfo.name;

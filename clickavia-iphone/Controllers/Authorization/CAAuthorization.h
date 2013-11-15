@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FPPopoverController.h"
+#import "CAPopoverErrorViewController.h"
 
-@interface CAAuthorization : UIViewController <UITextFieldDelegate>
+@interface CAAuthorization : UIViewController <UITextFieldDelegate, FPPopoverControllerDelegate, CAPopoverErrorDelegate>
 
 @end
