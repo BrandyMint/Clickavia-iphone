@@ -49,27 +49,15 @@
     UIButton *onInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
     onInfo.tag = index;
     [onInfo addTarget:nil action:@selector(alreadyHave:) forControlEvents:UIControlEventTouchUpInside];
-    [onInfo setTitle:@"Delete" forState:UIControlStateNormal];
-    onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 20, numberBuyer.frame.size.height);
+    [onInfo setTitle:@" Уже заполняли?" forState:UIControlStateNormal];
+    onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 150, numberBuyer.frame.size.height);
     [self addSubview:onInfo];
-    
-    UILabel* alreadyHave = [[UILabel alloc] initWithFrame:CGRectMake(onInfo.frame.origin.x + onInfo.frame.size.width + 5, numberBuyer.frame.origin.y, 0, 0)];
-    alreadyHave.text = @"Уже заполняли?";
-    [alreadyHave sizeToFit];
-    alreadyHave.backgroundColor = [UIColor clearColor];
-    [self addSubview:alreadyHave];
     
     UIButton *deleteCell = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [deleteCell addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
-    [deleteCell setTitle:@"Delete" forState:UIControlStateNormal];
-    deleteCell.frame = CGRectMake(alreadyHave.frame.origin.x + alreadyHave.frame.size.width + 15, alreadyHave.frame.origin.y, 20, alreadyHave.frame.size.height);
+    [deleteCell setTitle:@" Удалить" forState:UIControlStateNormal];
+    deleteCell.frame = CGRectMake(onInfo.frame.origin.x + onInfo.frame.size.width + 15, onInfo.frame.origin.y, 120, onInfo.frame.size.height);
     [self addSubview:deleteCell];
-    
-    UILabel* delete = [[UILabel alloc] initWithFrame:CGRectMake(deleteCell.frame.origin.x + deleteCell.frame.size.width + 5, numberBuyer.frame.origin.y, 0, 0)];
-    delete.text = @"Удалить";
-    [delete sizeToFit];
-    delete.backgroundColor = [UIColor clearColor];
-    [self addSubview:delete];
     
     surnameTextField = [[WTReTextField alloc] initWithFrame:CGRectMake(10, numberBuyer.frame.origin.y + 23, 300, 30)];
     surnameTextField.borderStyle = UITextBorderStyleRoundedRect;

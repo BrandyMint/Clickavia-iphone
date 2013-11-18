@@ -34,6 +34,10 @@
     FPPopoverController* popover;
     CGPoint alreadyHaveButtonPosition;
     NSInteger alreadyHaveButtonIndex;
+    
+    WYPopoverController* settingsPopoverController;
+    
+    CGRect alreadyHaveButtonFrame;
 }
 
 @property (strong, nonatomic) WTReTextField *surname;
@@ -266,7 +270,7 @@
     }
     else
     {
-        [self showPopap:alreadyHaveButtonPosition];
+        [self showPopover:alreadyHaveButtonPosition];
     }
 }
 
@@ -286,7 +290,7 @@
              UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Авторизиция прошла успешно" message:autorization delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
              [alert show];
              [[NSUserDefaults standardUserDefaults] setObject:loginForm.accessToken forKey:@"accessToken"];
-             [self showPopap:alreadyHaveButtonPosition];
+             //[self showPopover:alreadyHaveButtonPosition];
          }
                    failBlock:^(NSException* exception)
          {
@@ -297,31 +301,49 @@
     }
 }
 
--(void)showPopap:(CGPoint)point
+-(void)showPopover:(CGPoint)point
 {
     float heightTableRow = 40;
-    //позиция относительно кнопки
-    point.x += 10;
-    point.y += HEIGHT_CELL/2-20;
+    point.y -= 20;
     
-    CAPopoverList *controller = [[CAPopoverList alloc] initWithStyle:UITableViewStylePlain arrayValues:namesUsers];
-    [controller heightRow:heightTableRow];
-    [controller title:@"Список паспортов"];
-    controller.delegate = self;
+    UIView* btn = [UIView new];
+    CAPopoverList *popoverList = [[CAPopoverList alloc] initWithStyle:UITableViewStylePlain arrayValues:namesUsers];
+    popoverList.contentSizeForViewInPopover = CGSizeMake(self.view.frame.size.width, heightTableRow*namesUsers.count);
+    popoverList.delegate = self;
+    popoverList.title = @"Список паспортов";
+    popoverList.modalInPopover = NO;
+    [popoverList heightRow:heightTableRow];
     
-    popover = [[FPPopoverController alloc] initWithViewController:controller];
-    popover.delegate = self;
-    popover.tint = FPPopoverDefaultTint;
-    popover.contentSize = CGSizeMake(320, heightTableRow*namesUsers.count + 70);
-    popover.arrowDirection = FPPopoverArrowDirectionUp;
-    [popover presentPopoverFromPoint: point];
+    settingsPopoverController = [[WYPopoverController alloc] initWithContentViewController:popoverList];
+    settingsPopoverController.delegate = self;
+    settingsPopoverController.passthroughViews = @[btn];
+    settingsPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+    settingsPopoverController.wantsDefaultContentAppearance = NO;
+
+    WYPopoverBackgroundView* popoverAppearance = [WYPopoverBackgroundView appearance];
+    [popoverAppearance setOuterCornerRadius:5];
+    [popoverAppearance setOuterStrokeColor:[UIColor blackColor]];
+    [popoverAppearance setInnerCornerRadius:5];
+    [popoverAppearance setInnerStrokeColor:[UIColor clearColor]];
+    
+    [popoverAppearance setBorderWidth:5];
+    [popoverAppearance setArrowHeight:10];
+    [popoverAppearance setArrowBase:20];
+    
+    [settingsPopoverController presentPopoverFromRect:CGRectMake(0, point.y, self.view.frame.size.width, heightTableRow*namesUsers.count)
+                                               inView:self.view
+                             permittedArrowDirections:WYPopoverArrowDirectionUp
+                                             animated:YES
+                                              options:WYPopoverAnimationOptionFadeWithScale];
 }
 
 #pragma mark CAPopoverListDelegate
 -(void)popoverListdidSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [popover dismissPopoverAnimated:YES];
-
+    [settingsPopoverController dismissPopoverAnimated:YES];
+    settingsPopoverController.delegate = nil;
+    settingsPopoverController = nil;
+    
     PersonInfo* personInfo = [PersonInfo new];
     personInfo = [passportsAutorisedUsers objectAtIndex:indexPath.row];
 

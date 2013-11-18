@@ -310,15 +310,15 @@
     if (isEnter) {
         [self autorization];
     }
-    else //if (isTextFieldsFilled)
+    else if (isTextFieldsFilled)
     {
         [self registration];
     }
-   /* else
+    else
     {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Заполните поля" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
-    }*/
+    }
 }
 
 -(void)autorization
@@ -476,31 +476,31 @@
     if (textField == nameRegistration) {
         if (textField.text.length < 1)
         {
-            [self showPopover];
+            //[self showPopover];
         }
     }
     if (textField == emailRegistration) {
         if (![self validateEmailWithString:emailRegistration.text] || textField.text.length < 6)
         {
-          [self showPopover];
+            //[self showPopover];
         }
     }
     if (textField == countryCodeRegistration) {
         if (textField.text.length <= 1)
         {
-            [self showPopover];
+            //[self showPopover];
         }
     }
     if (textField == phoneNumberRegistration) {
         if (textField.text.length <= 9)
         {
-            [self showPopover];
+            //[self showPopover];
         }
     }
     if (textField == passwordRegistration) {
         if (textField.text.length < 3)
         {
-            [self showPopover];
+            //[self showPopover];
         }
     }
     
