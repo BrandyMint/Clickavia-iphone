@@ -32,7 +32,7 @@
     if (self) {
         [self.navigationItem setHidesBackButton:YES];
         user = _user;
-        NSData *usersPassportsData = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersPassports"];
+        NSData *usersPassportsData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_userPassports",user.authKey]];
         usersPassportsArray = [NSKeyedUnarchiver unarchiveObjectWithData:usersPassportsData];
     }
     return self;
@@ -41,7 +41,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     UIButton* toPayment = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_PAYMENT_W/2,
-                                                                     self.view.frame.size.height - 2* BUTTON_PAYMENT_H,
+                                                                     self.view.frame.size.height - BUTTON_PAYMENT_H - 10,
                                                                      BUTTON_PAYMENT_W,
                                                                      BUTTON_PAYMENT_H)];
     toPayment.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -98,7 +98,7 @@
     [usersPassportsArray replaceObjectAtIndex:index withObject:modified];
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:usersPassportsArray];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"UsersPassports"];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@_userPassports",user.authKey]];
     
     [_tableView reloadData];
 }
@@ -106,7 +106,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PersonInfo* personinfo = [PersonInfo new];
-    personinfo = [usersPassportsArray objectAtIndex:indexPath.row];
+    personinfo = [usersPassportsArray objectAtIndex:indexPath.section];
     
     static NSString *CellIdentifier = @"Cell";
     
@@ -122,7 +122,7 @@
         [change addTarget:nil action:@selector(replacePassportCard:) forControlEvents:UIControlEventTouchUpInside];
         [change setTitle:@"Изменить" forState:UIControlStateNormal];
         [change setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        change.tag = indexPath.row;
+        change.tag = indexPath.section;
         [cell addSubview: change];
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -147,17 +147,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [usersPassportsArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [usersPassportsArray count];
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 120;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 60;
+    }
+    else
+        return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -197,10 +210,6 @@
         return userView;
     }
     return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 60;
 }
 
 -(void)onPayment:(id)sender

@@ -39,7 +39,7 @@
     title.font = [UIFont systemFontOfSize:14];
     title.textAlignment = NSTextAlignmentCenter;
     title.backgroundColor = [UIColor  clearColor];
-    [self addSubview:title];
+    //[self addSubview:title];
     
     NSString* personType = @"";
     switch (personInfo.personType) {
@@ -67,7 +67,7 @@
     [fio appendString:[NSString stringWithFormat:@"%@ ",personInfo.lastName]];
     [fio appendString:personInfo.name];
     
-    UILabel* person = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT, title.frame.origin.y + title.frame.size.height, 0, 0)];
+    UILabel* person = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT, MARGIN_LEFT, 0, 0)];
     person.text = fio;
     person.font = [UIFont systemFontOfSize:14];
     [person sizeToFit];

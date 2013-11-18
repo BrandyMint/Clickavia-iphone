@@ -38,6 +38,7 @@
     WYPopoverController* settingsPopoverController;
     
     CGRect alreadyHaveButtonFrame;
+    NSString* accessToken;
 }
 
 @property (strong, nonatomic) WTReTextField *surname;
@@ -81,6 +82,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -257,7 +262,6 @@
 {
     alreadyHaveButtonIndex = [sender tag];
     alreadyHaveButtonPosition = [sender convertPoint:CGPointZero toView:self.view];
-    NSString* accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
     
     if (accessToken == nil) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Авторизуйтесь"
@@ -290,7 +294,8 @@
              UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Авторизиция прошла успешно" message:autorization delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
              [alert show];
              [[NSUserDefaults standardUserDefaults] setObject:loginForm.accessToken forKey:@"accessToken"];
-             //[self showPopover:alreadyHaveButtonPosition];
+             accessToken = loginForm.accessToken;
+             [self showPopover:alreadyHaveButtonPosition];
          }
                    failBlock:^(NSException* exception)
          {
@@ -304,7 +309,7 @@
 -(void)showPopover:(CGPoint)point
 {
     float heightTableRow = 40;
-    point.y -= 20;
+    point.y -= 140;
     
     UIView* btn = [UIView new];
     CAPopoverList *popoverList = [[CAPopoverList alloc] initWithStyle:UITableViewStylePlain arrayValues:namesUsers];
@@ -518,14 +523,14 @@
         
         //Массив с заполненными карточками кодируется в NSData
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"UsersPassports"];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@_userPassports",accessToken]];
     }
 }
 
 -(void)readPassportsUsers
 {
     //Массив в формате NSData раскодируется в обычный массив с моделями PersonInfo
-    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersPassports"];
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_userPassports",accessToken]];
     passportsAutorisedUsers = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
 }
 
