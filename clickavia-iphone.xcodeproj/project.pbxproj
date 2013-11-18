@@ -75,7 +75,6 @@
 		66397DAE1806BFCF0016EE69 /* CAFlightDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66397DA81806BFCF0016EE69 /* CAFlightDataView.m */; };
 		66397DAF1806BFCF0016EE69 /* CAFlightDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66397DA91806BFCF0016EE69 /* CAFlightDataView.xib */; };
 		66397DB01806BFCF0016EE69 /* CAOrderDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 66397DAB1806BFCF0016EE69 /* CAOrderDetails.m */; };
-		66397DB11806BFCF0016EE69 /* CATooltipSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 66397DAD1806BFCF0016EE69 /* CATooltipSelect.m */; };
 		6639C9FA17C5E6A100CF772D /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9F717C5E6A100CF772D /* MainScreenViewController.m */; };
 		6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */; };
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
@@ -210,8 +209,6 @@
 		66397DA91806BFCF0016EE69 /* CAFlightDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAFlightDataView.xib; path = "clickavia-iphone/Controllers/FlightData/CAFlightDataView.xib"; sourceTree = SOURCE_ROOT; };
 		66397DAA1806BFCF0016EE69 /* CAOrderDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderDetails.h; path = "clickavia-iphone/Controllers/FlightData/CAOrderDetails.h"; sourceTree = SOURCE_ROOT; };
 		66397DAB1806BFCF0016EE69 /* CAOrderDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOrderDetails.m; path = "clickavia-iphone/Controllers/FlightData/CAOrderDetails.m"; sourceTree = SOURCE_ROOT; };
-		66397DAC1806BFCF0016EE69 /* CATooltipSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATooltipSelect.h; path = "clickavia-iphone/Controllers/FlightData/CATooltipSelect.h"; sourceTree = SOURCE_ROOT; };
-		66397DAD1806BFCF0016EE69 /* CATooltipSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATooltipSelect.m; path = "clickavia-iphone/Controllers/FlightData/CATooltipSelect.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F617C5E6A100CF772D /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScreenViewController.h; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.h"; sourceTree = SOURCE_ROOT; };
 		6639C9F717C5E6A100CF772D /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreenViewController.m; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.m"; sourceTree = SOURCE_ROOT; };
 		6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainScreenViewController.xib; path = "clickavia-iphone/Controllers/MainScreenViewController/MainScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -365,8 +362,6 @@
 				66397DA91806BFCF0016EE69 /* CAFlightDataView.xib */,
 				66397DAA1806BFCF0016EE69 /* CAOrderDetails.h */,
 				66397DAB1806BFCF0016EE69 /* CAOrderDetails.m */,
-				66397DAC1806BFCF0016EE69 /* CATooltipSelect.h */,
-				66397DAD1806BFCF0016EE69 /* CATooltipSelect.m */,
 				66245FD817E82656003A1611 /* CAOrderDetailsPersonal.h */,
 				66245FD917E82656003A1611 /* CAOrderDetailsPersonal.m */,
 			);
@@ -896,7 +891,6 @@
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
 				66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */,
-				66397DB11806BFCF0016EE69 /* CATooltipSelect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
