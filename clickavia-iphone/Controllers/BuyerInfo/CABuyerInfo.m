@@ -11,16 +11,18 @@
 #import "CAPassportTextField.h"
 #import "LoginForm.h"
 #import "AuthManager.h"
+#import "CAOrderInfo.h"
 
 #define HEIGHT_CELL 200
 #define KEYBOARD_ANIMATION_DURATION 0.3
-#define MINIMUM_SCROLL_FRACTION 0.2
-#define MAXIMUM_SCROLL_FRACTION 1.0
 #define PORTRAIT_KEYBOARD_HEIGHT 216
 #define LANDSCAPE_KEYBOARD_HEIGHT 162
+#define BUTTON_WIDTH 220
+#define BUTTON_HEIGHT 40
 
 @interface CABuyerInfo ()
 {
+    Offer* offerdata;
     NSMutableArray *buyerArray;
     NSMutableArray *passportsAutorisedUsers;
     NSMutableArray* namesUsers;
@@ -50,11 +52,22 @@
 
 @implementation CABuyerInfo
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        offerdata = [Offer new];
+        offerdata = offer;
+
+        UIButton* enter = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_WIDTH/2,
+                                                                     _tableView.frame.origin.y + _tableView.frame.size.height - BUTTON_HEIGHT*2,
+                                                                     BUTTON_WIDTH,
+                                                                     BUTTON_HEIGHT)];
+        enter.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [enter setTitle:@"Далее" forState:UIControlStateNormal];
+        [enter setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
+        [enter addTarget:self action:@selector(onNext:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:enter];
     }
     return self;
 }
@@ -543,6 +556,11 @@
 - (void) didSelectRowAtIndexPath:(NSIndexPath *)indexPath currentPayment:(NSString*)currentPayment;
 {
     NSLog(@"выбран %d %@", indexPath.row ,currentPayment);
+}
+
+- (IBAction)onNext:(id)sender {
+    CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:passportsAutorisedUsers offer:offerdata];
+    [self.navigationController pushViewController:orderInfo animated:YES];
 }
 
 @end

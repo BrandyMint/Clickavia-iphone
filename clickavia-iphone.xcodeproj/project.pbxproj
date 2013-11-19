@@ -80,6 +80,9 @@
 		6639CA0317C5E6AE00CF772D /* CAOffersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */; };
 		6639CA0B17C5E6D600CF772D /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */; };
 		6639CA1117C5FE5600CF772D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639CA0F17C5FE5600CF772D /* ChatViewController.m */; };
+		66471FDA183B64500054D770 /* CAOrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 66471FD8183B64500054D770 /* CAOrderInfo.m */; };
+		66471FDB183B64500054D770 /* CAOrderInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66471FD9183B64500054D770 /* CAOrderInfo.xib */; };
+		66471FDE183B8A3C0054D770 /* CAOrderInfoPassportView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66471FDD183B8A3C0054D770 /* CAOrderInfoPassportView.m */; };
 		66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6650772E181F92FF00890DB1 /* CABuyerInfo.m */; };
 		66507731181F92FF00890DB1 /* CABuyerInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6650772F181F92FF00890DB1 /* CABuyerInfo.xib */; };
 		6651D58E1834A366008F026D /* CAPopoverList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6651D58D1834A366008F026D /* CAPopoverList.m */; };
@@ -219,6 +222,11 @@
 		6639CA0A17C5E6D600CF772D /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAppDelegate.m; path = "clickavia-iphone/Application/CAAppDelegate.m"; sourceTree = SOURCE_ROOT; };
 		6639CA0E17C5FE5600CF772D /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.h"; sourceTree = SOURCE_ROOT; };
 		6639CA0F17C5FE5600CF772D /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = "clickavia-iphone/Controllers/ChatViewController/ChatViewController.m"; sourceTree = SOURCE_ROOT; };
+		66471FD7183B64500054D770 /* CAOrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderInfo.h; path = "clickavia-iphone/Controllers/OrderInfo/CAOrderInfo.h"; sourceTree = SOURCE_ROOT; };
+		66471FD8183B64500054D770 /* CAOrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOrderInfo.m; path = "clickavia-iphone/Controllers/OrderInfo/CAOrderInfo.m"; sourceTree = SOURCE_ROOT; };
+		66471FD9183B64500054D770 /* CAOrderInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAOrderInfo.xib; path = "clickavia-iphone/Controllers/OrderInfo/CAOrderInfo.xib"; sourceTree = SOURCE_ROOT; };
+		66471FDC183B8A3C0054D770 /* CAOrderInfoPassportView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderInfoPassportView.h; path = "clickavia-iphone/Controllers/OrderInfo/CAOrderInfoPassportView.h"; sourceTree = SOURCE_ROOT; };
+		66471FDD183B8A3C0054D770 /* CAOrderInfoPassportView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOrderInfoPassportView.m; path = "clickavia-iphone/Controllers/OrderInfo/CAOrderInfoPassportView.m"; sourceTree = SOURCE_ROOT; };
 		6650772D181F92FF00890DB1 /* CABuyerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABuyerInfo.h; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.h"; sourceTree = SOURCE_ROOT; };
 		6650772E181F92FF00890DB1 /* CABuyerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABuyerInfo.m; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.m"; sourceTree = SOURCE_ROOT; };
 		6650772F181F92FF00890DB1 /* CABuyerInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CABuyerInfo.xib; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfo.xib"; sourceTree = SOURCE_ROOT; };
@@ -322,6 +330,19 @@
 				6616237A17EB3BB200B6A19C /* what@2x.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		66471FD6183B64170054D770 /* OrderInfo */ = {
+			isa = PBXGroup;
+			children = (
+				66471FD7183B64500054D770 /* CAOrderInfo.h */,
+				66471FD8183B64500054D770 /* CAOrderInfo.m */,
+				66471FD9183B64500054D770 /* CAOrderInfo.xib */,
+				66471FDC183B8A3C0054D770 /* CAOrderInfoPassportView.h */,
+				66471FDD183B8A3C0054D770 /* CAOrderInfoPassportView.m */,
+			);
+			name = OrderInfo;
+			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
 			sourceTree = "<group>";
 		};
 		6650772C181F928300890DB1 /* BuyerInfoController */ = {
@@ -509,6 +530,7 @@
 				66F4C7E217EB0FDB0004DB88 /* ContractController */,
 				668CB98E17F2060A00A26506 /* FlightDataController */,
 				6650772C181F928300890DB1 /* BuyerInfoController */,
+				66471FD6183B64170054D770 /* OrderInfo */,
 				7CC150CA17C5DD9300796B50 /* ChatViewController */,
 				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
 				7CC7D33217A78B3400940C94 /* OffersListViewController */,
@@ -735,6 +757,7 @@
 				7C16A2C617A648290055FF8F /* Default-568h@2x.png in Resources */,
 				17710EAA17F466A8008A8E11 /* bar-green-warm@2x.png in Resources */,
 				66507731181F92FF00890DB1 /* CABuyerInfo.xib in Resources */,
+				66471FDB183B64500054D770 /* CAOrderInfo.xib in Resources */,
 				66397DA61806BF7B0016EE69 /* Contract.html in Resources */,
 				6639C9FB17C5E6A100CF772D /* MainScreenViewController.xib in Resources */,
 				17710ECC17F466A8008A8E11 /* UISwitch-handler@2x.png in Resources */,
@@ -888,10 +911,12 @@
 				66A67F5618322DE900A50318 /* CAAutorizedController.m in Sources */,
 				6651D58E1834A366008F026D /* CAPopoverList.m in Sources */,
 				66397D9F1806BF3C0016EE69 /* CAAssistView.m in Sources */,
+				66471FDA183B64500054D770 /* CAOrderInfo.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
 				66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */,
+				66471FDE183B8A3C0054D770 /* CAOrderInfoPassportView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

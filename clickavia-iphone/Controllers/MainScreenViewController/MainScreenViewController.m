@@ -8,6 +8,7 @@
 
 #import "MainScreenViewController.h"
 #import "CAOffersListViewController.h"
+#import "CAAppDelegate.h"
 
 @interface MainScreenViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *topGreenImage;
@@ -27,6 +28,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.navigationController.navigationBarHidden = YES;
 }
 
@@ -154,6 +156,9 @@
 #pragma mark CASearchFormViewDelegate
 - (void) searchFormView:(CASearchFormView *)searchFormView didSelectClassOfFlight:(flightType)typeOfFlight
 {
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.typeOfFlight = typeOfFlight;
+    
     currentSearchConditions.typeOfFlight = typeOfFlight;
     returnDates = nil;
     departureDates = nil;
@@ -205,6 +210,8 @@
     }
     
     currentSearchConditions.isBothWays = isBothWays;
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.isBothWays = isBothWays;
 }
 
 - (void) searchFormView:(CASearchFormView *)searchFormView selectedDepartureDestination:(Destination *)destination

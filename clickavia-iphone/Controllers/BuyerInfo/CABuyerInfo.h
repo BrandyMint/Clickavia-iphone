@@ -13,10 +13,13 @@
 #import "FPPopoverController.h"
 #import "CAPopoverList.h"
 #import "WYPopoverController.h"
+#import "Offer.h"
 
 @interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate, FPPopoverControllerDelegate, CAPopoverListDelegate, WYPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) CAPassportTextField* passportField;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer;
 
 @end

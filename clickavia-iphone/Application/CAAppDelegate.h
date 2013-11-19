@@ -10,6 +10,7 @@
 #import <CASearchFormControls/CAFlightPassengersCount.h>
 #import <CAManagers/OfferConditions.h>
 #import <AKTabBarController/AKTabBarController.h>
+#import "SearchConditions.h"
 
 @interface CAAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -21,6 +22,8 @@
 
 @property (strong,nonatomic) OfferConditions *offerConditions; //для проброса данных из календаря в графики
 @property (strong,nonatomic) CAFlightPassengersCount *passengersCount; //проброс пассажиров, их количества и типов
+@property flightType typeOfFlight;
+@property BOOL isBothWays;
 @property (nonatomic, strong) AKTabBarController *rootTabBarController;
 
 - (void)saveContext;
