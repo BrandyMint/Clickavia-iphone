@@ -75,6 +75,18 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    passengersCount = appDelegate.passengersCount;
+    [passengerCountButton setPassengersCount:passengersCount];
+    
+    if (isSpecialOffer)
+        [self loadSpecialOffer];
+    else
+        [self loadOffer];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -90,17 +102,15 @@
     passengersLabel.text = @"Пассажиры";
     passengersLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
     [passengersLabel sizeToFit];
-    //[self.view addSubview:passengersLabel];
+    [self.view addSubview:passengersLabel];
     
     CGRect passengerCountButtonFrame = CGRectMake(passengersLabel.frame.origin.x-X_OFFSET, passengersLabel.frame.origin.y + passengersLabel.frame.size.height + Y_OFFSET, self.view.frame.size.width/3 - X_OFFSET, 25);
     passengerCountButton = [[CAPassengersCountButton alloc] initWithFrame:passengerCountButtonFrame];
-    [passengerCountButton setPassengersCount:passengersCount];
     [passengerCountButton addTarget:self action:@selector(passengerCountButtonPress) forControlEvents:UIControlEventTouchUpInside];
-    //[self.view addSubview: passengerCountButton];
+    [self.view addSubview: passengerCountButton];
     [passengerCountButton setTypeButton:gray];
     
-    //(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)
-    onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width - 2*X_OFFSET, 25)];
+    onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
     [onPaymentMethod addTarget:self action:@selector(paymentButtonPress:) forControlEvents:UIControlEventTouchUpInside];
     [onPaymentMethod setTitle:[paymentOptions objectAtIndex:0] forState:UIControlStateNormal];
     [onPaymentMethod.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
@@ -114,10 +124,7 @@
     [paymentMethod sizeToFit];
     [self.view addSubview:paymentMethod];
     
-    if (isSpecialOffer)
-        [self loadSpecialOffer];
-    else
-        [self loadOffer];
+
     
     countPickerViewSize.height = 220;
     countPickerViewSize.width = self.view.frame.size.width;
@@ -145,9 +152,6 @@
 
 -(void)loadSpecialOffer
 {
-    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    passengersCount = appDelegate.passengersCount;
-    
     CAOrderDetailsPersonal* orderDetailsPersonalView = [[CAOrderDetailsPersonal alloc] initByOfferModel:specialOffer passengers:passengersCount];
     CGRect orderDetalsFrame = orderDetailsPersonalView.frame;
     orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
@@ -174,8 +178,6 @@
         [self hidePassengersCountPicker];
     
     isShowClassSelectorPopover = YES;
-    //[classSelector valuesTableRows:paymentOptions];
-    //[self.view addSubview:classSelector];
     
     paymentButtonPosition = [sender convertPoint:CGPointZero toView:self.view];
     [self showPopover:paymentButtonPosition];

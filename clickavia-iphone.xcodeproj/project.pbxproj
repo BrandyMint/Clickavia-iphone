@@ -376,6 +376,7 @@
 				66397D9E1806BF3C0016EE69 /* CAAssistView.m */,
 			);
 			name = AssistView;
+			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
 			sourceTree = "<group>";
 		};
 		6690697F1830F66600EE32EE /* AuthorizationController */ = {
@@ -511,6 +512,7 @@
 				7CC150CA17C5DD9300796B50 /* ChatViewController */,
 				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
 				7CC7D33217A78B3400940C94 /* OffersListViewController */,
+				668CB99417F2064800A26506 /* AssistView */,
 				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
 			);
 			path = Controllers;
@@ -636,7 +638,6 @@
 				6639CA0017C5E6AE00CF772D /* CAOffersListViewController.xib */,
 				66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */,
 				66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */,
-				668CB99417F2064800A26506 /* AssistView */,
 			);
 			name = OffersListViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
