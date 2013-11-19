@@ -383,6 +383,10 @@
     }
 
     cell.backgroundColor = [UIColor clearColor];
+    
+    if (buyerArray.count < 2) {
+        customCell.deleteCell.hidden = YES;
+    }
 }
 
 #pragma mark CABuyerPickerViewDelegate
@@ -523,14 +527,14 @@
         
         //Массив с заполненными карточками кодируется в NSData
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@_userPassports",accessToken]];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"userPassports_%@",accessToken]];
     }
 }
 
 -(void)readPassportsUsers
 {
     //Массив в формате NSData раскодируется в обычный массив с моделями PersonInfo
-    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_userPassports",accessToken]];
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"userPassports_%@",accessToken]];
     passportsAutorisedUsers = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
 }
 

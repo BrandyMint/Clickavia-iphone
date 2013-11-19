@@ -18,6 +18,7 @@
 }
 
 @synthesize nameTextField, surnameTextField, segmentedControl;
+@synthesize deleteCell;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -53,7 +54,7 @@
     onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 150, numberBuyer.frame.size.height);
     [self addSubview:onInfo];
     
-    UIButton *deleteCell = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    deleteCell = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [deleteCell addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
     [deleteCell setTitle:@" Удалить" forState:UIControlStateNormal];
     deleteCell.frame = CGRectMake(onInfo.frame.origin.x + onInfo.frame.size.width + 15, onInfo.frame.origin.y, 120, onInfo.frame.size.height);

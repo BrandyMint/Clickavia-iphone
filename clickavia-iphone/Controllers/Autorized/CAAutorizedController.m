@@ -32,7 +32,7 @@
     if (self) {
         [self.navigationItem setHidesBackButton:YES];
         user = _user;
-        NSData *usersPassportsData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_userPassports",user.authKey]];
+        NSData *usersPassportsData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"userPassports_%@",user.authKey]];
         usersPassportsArray = [NSKeyedUnarchiver unarchiveObjectWithData:usersPassportsData];
     }
     return self;
@@ -98,7 +98,7 @@
     [usersPassportsArray replaceObjectAtIndex:index withObject:modified];
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:usersPassportsArray];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@_userPassports",user.authKey]];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"userPassports_%@",user.authKey]];
     
     [_tableView reloadData];
 }
