@@ -97,6 +97,8 @@
 		666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 666C60E217CCDFA9008220AC /* SpecialOfferCell.m */; };
 		666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */; };
 		667AEDB218360AE600F502CA /* CAPopoverErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667AEDB118360AE600F502CA /* CAPopoverErrorViewController.m */; };
+		668A55FD183C8E68005E4795 /* CAOrderRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = 668A55FC183C8E68005E4795 /* CAOrderRequirements.m */; };
+		668A5603183CBBFC005E4795 /* NumberToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 668A5602183CBBFC005E4795 /* NumberToString.m */; };
 		669069831830F6A400EE32EE /* CAAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 669069811830F6A400EE32EE /* CAAuthorization.m */; };
 		669069841830F6A400EE32EE /* CAAuthorization.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669069821830F6A400EE32EE /* CAAuthorization.xib */; };
 		66A5390A182A298800B0C782 /* CABuyerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A53909182A298800B0C782 /* CABuyerInfoCell.m */; };
@@ -251,6 +253,10 @@
 		666C60E317CCDFA9008220AC /* SpecialOfferCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOfferCell.xib; sourceTree = "<group>"; };
 		667AEDB018360AE600F502CA /* CAPopoverErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPopoverErrorViewController.h; path = Authorization/CAPopoverErrorViewController.h; sourceTree = "<group>"; };
 		667AEDB118360AE600F502CA /* CAPopoverErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAPopoverErrorViewController.m; path = Authorization/CAPopoverErrorViewController.m; sourceTree = "<group>"; };
+		668A55FB183C8E68005E4795 /* CAOrderRequirements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOrderRequirements.h; path = "clickavia-iphone/Controllers/OrderInfo/CAOrderRequirements.h"; sourceTree = SOURCE_ROOT; };
+		668A55FC183C8E68005E4795 /* CAOrderRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOrderRequirements.m; path = "clickavia-iphone/Controllers/OrderInfo/CAOrderRequirements.m"; sourceTree = SOURCE_ROOT; };
+		668A5601183CBBFC005E4795 /* NumberToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumberToString.h; path = "clickavia-iphone/Controllers/OrderInfo/NumberToString.h"; sourceTree = SOURCE_ROOT; };
+		668A5602183CBBFC005E4795 /* NumberToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumberToString.m; path = "clickavia-iphone/Controllers/OrderInfo/NumberToString.m"; sourceTree = SOURCE_ROOT; };
 		669069801830F6A400EE32EE /* CAAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAuthorization.h; path = Authorization/CAAuthorization.h; sourceTree = "<group>"; };
 		669069811830F6A400EE32EE /* CAAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAuthorization.m; path = Authorization/CAAuthorization.m; sourceTree = "<group>"; };
 		669069821830F6A400EE32EE /* CAAuthorization.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAAuthorization.xib; path = Authorization/CAAuthorization.xib; sourceTree = "<group>"; };
@@ -340,6 +346,10 @@
 				66471FD9183B64500054D770 /* CAOrderInfo.xib */,
 				66471FDC183B8A3C0054D770 /* CAOrderInfoPassportView.h */,
 				66471FDD183B8A3C0054D770 /* CAOrderInfoPassportView.m */,
+				668A55FB183C8E68005E4795 /* CAOrderRequirements.h */,
+				668A55FC183C8E68005E4795 /* CAOrderRequirements.m */,
+				668A5601183CBBFC005E4795 /* NumberToString.h */,
+				668A5602183CBBFC005E4795 /* NumberToString.m */,
 			);
 			name = OrderInfo;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -891,6 +901,7 @@
 			files = (
 				7C16A2BC17A648290055FF8F /* main.m in Sources */,
 				669069831830F6A400EE32EE /* CAAuthorization.m in Sources */,
+				668A5603183CBBFC005E4795 /* NumberToString.m in Sources */,
 				665EF9DD183371F700AFAAE2 /* CAAutorizedCell.m in Sources */,
 				66507730181F92FF00890DB1 /* CABuyerInfo.m in Sources */,
 				66397DB01806BFCF0016EE69 /* CAOrderDetails.m in Sources */,
@@ -915,6 +926,7 @@
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
+				668A55FD183C8E68005E4795 /* CAOrderRequirements.m in Sources */,
 				66245FDC17E82656003A1611 /* CAOrderDetailsPersonal.m in Sources */,
 				66471FDE183B8A3C0054D770 /* CAOrderInfoPassportView.m in Sources */,
 			);

@@ -43,7 +43,7 @@
     
     UILabel* person = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT, MARGIN_LEFT, 0, 0)];
     person.text = fio;
-    person.font = [UIFont systemFontOfSize:14];
+    person.font = [UIFont systemFontOfSize:12];
     [person sizeToFit];
     person.backgroundColor = [UIColor  clearColor];
     [mainiew addSubview:person];
@@ -52,7 +52,7 @@
                                                                   person.frame.origin.y + [person.text sizeWithFont:person.font].height + MARGIN_BETWEEN_LABELS,
                                                                   0, 0)];
     birthday.text = @"Дата рождения";
-    birthday.font = [UIFont systemFontOfSize:14];
+    birthday.font = [UIFont systemFontOfSize:12];
     [birthday sizeToFit];
     birthday.backgroundColor = [UIColor  clearColor];
     [mainiew addSubview:birthday];
@@ -61,7 +61,7 @@
                                                                       birthday.frame.origin.y,
                                                                       0, 0)];
     birthdayInfo.text = [self dateToddMMyyyy:personInfo.birthDate];
-    birthdayInfo.font = [UIFont systemFontOfSize:14];
+    birthdayInfo.font = [UIFont systemFontOfSize:12];
     [birthdayInfo sizeToFit];
     birthdayInfo.backgroundColor = [UIColor  clearColor];
     [mainiew addSubview:birthdayInfo];
@@ -70,7 +70,7 @@
                                                                   birthday.frame.origin.y + [birthday.text sizeWithFont:birthday.font].height + MARGIN_BETWEEN_LABELS,
                                                                   0, 0)];
     passport.text = @"Паспорт";
-    passport.font = [UIFont systemFontOfSize:14];
+    passport.font = [UIFont systemFontOfSize:12];
     [passport sizeToFit];
     passport.backgroundColor = [UIColor  clearColor];
     [mainiew addSubview:passport];
@@ -82,7 +82,7 @@
                                                                       passport.frame.origin.y,
                                                                       0, 0)];
     passportInfo.text = passportFull;
-    passportInfo.font = [UIFont systemFontOfSize:14];
+    passportInfo.font = [UIFont systemFontOfSize:12];
     [passportInfo sizeToFit];
     passportInfo.backgroundColor = [UIColor  clearColor];
     [mainiew addSubview:passportInfo];
@@ -96,6 +96,7 @@
 {
     return rect.origin.y+rect.size.height + 5;
 }
+
 -(NSString* )dateToddMMyyyy:(NSDate*)date
 {
     NSDate * today = date;

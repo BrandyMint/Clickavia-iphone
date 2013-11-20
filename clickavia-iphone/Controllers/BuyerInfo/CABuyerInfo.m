@@ -14,11 +14,11 @@
 #import "CAOrderInfo.h"
 
 #define HEIGHT_CELL 200
-#define KEYBOARD_ANIMATION_DURATION 0.3
 #define PORTRAIT_KEYBOARD_HEIGHT 216
 #define LANDSCAPE_KEYBOARD_HEIGHT 162
 #define BUTTON_WIDTH 220
 #define BUTTON_HEIGHT 40
+#define TABLEVIEW_MARGIN_BUTTOM 68
 
 @interface CABuyerInfo ()
 {
@@ -41,6 +41,8 @@
     
     CGRect alreadyHaveButtonFrame;
     NSString* accessToken;
+    
+    UIButton* enter;
 }
 
 @property (strong, nonatomic) WTReTextField *surname;
@@ -59,8 +61,8 @@
         offerdata = [Offer new];
         offerdata = offer;
 
-        UIButton* enter = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_WIDTH/2,
-                                                                     _tableView.frame.origin.y + _tableView.frame.size.height - BUTTON_HEIGHT*2,
+        enter = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_WIDTH/2,
+                                                                     self.view.frame.size.height - 150,
                                                                      BUTTON_WIDTH,
                                                                      BUTTON_HEIGHT)];
         enter.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -68,6 +70,10 @@
         [enter setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
         [enter addTarget:self action:@selector(onNext:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:enter];
+        
+        CGRect tableViewFrame = _tableView.frame;
+        tableViewFrame.size.height -= TABLEVIEW_MARGIN_BUTTOM;
+        _tableView.frame = tableViewFrame;
     }
     return self;
 }
@@ -218,8 +224,8 @@
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35);
+    [UIView setAnimationDuration:0.3];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35 + TABLEVIEW_MARGIN_BUTTOM);
     [UIView commitAnimations];
 }
 
@@ -227,8 +233,8 @@
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height);
+    [UIView setAnimationDuration:0.1];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height - TABLEVIEW_MARGIN_BUTTOM);
     [UIView commitAnimations];
 }
 
@@ -322,7 +328,7 @@
 -(void)showPopover:(CGPoint)point
 {
     float heightTableRow = 40;
-    point.y -= 140;
+    point.y -=  40 + heightTableRow*namesUsers.count - TABLEVIEW_MARGIN_BUTTOM;
     
     UIView* btn = [UIView new];
     CAPopoverList *popoverList = [[CAPopoverList alloc] initWithStyle:UITableViewStylePlain arrayValues:namesUsers];
@@ -505,7 +511,7 @@
 {
     PersonInfo*  personInfoCard = [PersonInfo new];
     personInfoCard = [buyerArray objectAtIndex:indexCell];
-    
+
     if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
         
         NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
@@ -558,9 +564,15 @@
     NSLog(@"выбран %d %@", indexPath.row ,currentPayment);
 }
 
-- (IBAction)onNext:(id)sender {
-    CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:passportsAutorisedUsers offer:offerdata];
-    [self.navigationController pushViewController:orderInfo animated:YES];
+- (IBAction)onNext:(id)sender
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:0];
+    
+    if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
+        CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:offerdata];
+        [self.navigationController pushViewController:orderInfo animated:YES];
+    }
 }
 
 @end
