@@ -21,9 +21,7 @@
 #define BUTTON_HEIGHT 50
 
 @interface CAOrderInfo ()
-{
-    Offer* offerdata;
-}
+
 @property (nonatomic, retain) UIScrollView* scrollView;
 
 @end
@@ -83,12 +81,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil passports:(NSArray *)passports offer:(Offer *)offer
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil passports:(NSArray *)passports offer:(Offer *)offer specialOffer:(SpecialOffer *)specialOffer
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        offerdata = [Offer new];
+        Offer* offerdata = [Offer new];
         offerdata = offer;
+        
+        SpecialOffer* specialOfferdata = [SpecialOffer new];
+        specialOfferdata = specialOffer;
         
         OfferConditions* offerConditions = [OfferConditions new];
         offerConditions = offerdata.offerConditions;

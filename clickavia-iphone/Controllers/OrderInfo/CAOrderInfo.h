@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Offer.h"
+#import "SpecialOffer.h"
 
 @interface CAOrderInfo : UIViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil passports:(NSArray* )passports offer:(Offer*)offer;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil passports:(NSArray* )passports offer:(Offer*)offer specialOffer:(SpecialOffer*)specialOffer;
 
 @end

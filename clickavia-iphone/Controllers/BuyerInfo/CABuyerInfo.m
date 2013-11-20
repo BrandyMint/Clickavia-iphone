@@ -23,6 +23,7 @@
 @interface CABuyerInfo ()
 {
     Offer* offerdata;
+    SpecialOffer* specialOfferdata;
     NSMutableArray *buyerArray;
     NSMutableArray *passportsAutorisedUsers;
     NSMutableArray* namesUsers;
@@ -31,7 +32,7 @@
     NSString* passportNum;
     
     BOOL isPickerViewVisible;
-    
+    BOOL isSpecialOffer;
     CABuyerPickerView* pickerView;
     FPPopoverController* popover;
     CGPoint alreadyHaveButtonPosition;
@@ -58,22 +59,20 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        isSpecialOffer = NO;
         offerdata = [Offer new];
         offerdata = offer;
+    }
+    return self;
+}
 
-        enter = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_WIDTH/2,
-                                                                     self.view.frame.size.height - 150,
-                                                                     BUTTON_WIDTH,
-                                                                     BUTTON_HEIGHT)];
-        enter.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [enter setTitle:@"Далее" forState:UIControlStateNormal];
-        [enter setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
-        [enter addTarget:self action:@selector(onNext:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:enter];
-        
-        CGRect tableViewFrame = _tableView.frame;
-        tableViewFrame.size.height -= TABLEVIEW_MARGIN_BUTTOM;
-        _tableView.frame = tableViewFrame;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer *)specialOffer
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        isSpecialOffer = YES;
+        specialOfferdata = [SpecialOffer new];
+        specialOfferdata = specialOffer;
     }
     return self;
 }
@@ -96,6 +95,20 @@
     
     buyerArray = [NSMutableArray new];
     [buyerArray addObject:myCard];
+    
+    enter = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_WIDTH/2,
+                                                       self.view.frame.size.height - 150,
+                                                       BUTTON_WIDTH,
+                                                       BUTTON_HEIGHT)];
+    enter.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [enter setTitle:@"Далее" forState:UIControlStateNormal];
+    [enter setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
+    [enter addTarget:self action:@selector(onNext:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:enter];
+    
+    CGRect tableViewFrame = _tableView.frame;
+    tableViewFrame.size.height -= TABLEVIEW_MARGIN_BUTTOM;
+    _tableView.frame = tableViewFrame;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
@@ -570,8 +583,14 @@
     personInfoCard = [buyerArray objectAtIndex:0];
     
     if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
-        CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:offerdata];
-        [self.navigationController pushViewController:orderInfo animated:YES];
+        if (isSpecialOffer) {
+            CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:nil specialOffer:specialOfferdata];
+            [self.navigationController pushViewController:orderInfo animated:YES];
+        }
+        else {
+            CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:offerdata specialOffer:nil];
+            [self.navigationController pushViewController:orderInfo animated:YES];
+        }
     }
 }
 

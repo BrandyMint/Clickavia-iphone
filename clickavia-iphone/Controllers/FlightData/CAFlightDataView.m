@@ -261,11 +261,6 @@
     passengersCount = nil;
 }
 
-- (IBAction)onNext:(id)sender {
-    CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil offer:offerdata];
-    [self.navigationController pushViewController:buyerInfo animated:YES];
-}
-
 -(void)showPopover:(CGPoint)point
 {
     point.y -= 110;
@@ -309,6 +304,18 @@
     settingsPopoverController = nil;
     
     [onPaymentMethod setTitle:[paymentOptions objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+}
+
+- (IBAction)onNext:(id)sender {
+    if (isSpecialOffer) {
+        CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil specialOffer:specialOffer];
+        [self.navigationController pushViewController:buyerInfo animated:YES];
+    }
+    else
+    {
+        CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil offer:offerdata];
+        [self.navigationController pushViewController:buyerInfo animated:YES];
+    }
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "CAPopoverList.h"
 #import "WYPopoverController.h"
 #import "Offer.h"
+#import "SpecialOffer.h"
 
 @interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate, FPPopoverControllerDelegate, CAPopoverListDelegate, WYPopoverControllerDelegate>
 
@@ -21,5 +22,6 @@
 @property (nonatomic, strong) CAPassportTextField* passportField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)specialOffer;
 
 @end
