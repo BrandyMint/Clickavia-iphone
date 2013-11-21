@@ -39,6 +39,14 @@
 
 -(void)showNavBar
 {
+    UIImage *navBackImage = [UIImage imageNamed:@"toolbar-back-icon.png"];
+    UIButton *navBack = [UIButton buttonWithType:UIButtonTypeCustom];
+    [navBack setImage:navBackImage forState:UIControlStateNormal];
+    navBack.frame = CGRectMake(0, 0, navBackImage.size.width, navBackImage.size.height);
+    [navBack addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:navBack];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
@@ -56,6 +64,16 @@
                                                                         self.navigationController.navigationBar.frame.size.height/2)];
     [titleBarItemView addSubview:titleLabel];
     self.navigationItem.titleView = titleBarItemView;
+    
+    UIBarButtonItem *addCell =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTappedOnCell:)];
+	self.navigationItem.rightBarButtonItem = addCell;
+    
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
+-(void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -

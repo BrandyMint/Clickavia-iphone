@@ -120,7 +120,7 @@
 
 - (NSString *)tabTitle
 {
-	return @"Спец. предл.";
+	return @"Акции";
 }
 
 - (void)didReceiveMemoryWarning

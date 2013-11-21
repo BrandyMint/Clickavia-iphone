@@ -63,7 +63,7 @@
 
 - (NSString *)tabTitle
 {
-	return @"Авторизация";
+	return @"Кабинет";
 }
 
 - (void)viewDidLoad

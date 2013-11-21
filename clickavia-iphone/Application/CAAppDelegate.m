@@ -9,8 +9,6 @@
 #import "CAAppDelegate.h"
 #import "CASpecOffersViewController.h"
 #import "MainScreenViewController.h"
-#import "ChatViewController.h"
-#import "MessageReceiver.h"
 #import "BMMessage.h"
 
 #import "CAAuthorization.h"
@@ -25,10 +23,6 @@
 
 @property (nonatomic, strong) CASpecOffersViewController *specialOfferViewController;
 @property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
-
-@property (nonatomic, strong) ChatViewController *chatViewController;
-@property (strong, nonatomic) MessageReceiver *message_reciever;
-
 @property (nonatomic, retain) CAAuthorization* authorization;
 
 @end
@@ -50,16 +44,10 @@
     _mainScreenViewController = [[MainScreenViewController alloc] init];
     _authorization = [CAAuthorization new];
     
-    UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
-    _message_reciever = [MessageReceiver new];
-    _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:@"Gagа" localAvatar:remoteAvatar];
-    _message_reciever.bmChatViewController = _chatViewController;
-    
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
-                                            [[UINavigationController alloc] initWithRootViewController:_authorization],
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
-                                            [[UINavigationController alloc] initWithRootViewController:_chatViewController],
+                                            [[UINavigationController alloc] initWithRootViewController:_authorization],
                                             nil]];
     [self customAppearance];
     self.window.rootViewController = _rootTabBarController;

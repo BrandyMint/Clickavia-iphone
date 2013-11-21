@@ -95,7 +95,7 @@
     
     paymentOptions = @[@"Евросеть или связной", @"MasterCard или Visa", @"Наличными в офисе"];
     
-    CAAssistView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5 background:YES];
+    CAAssistView* assistView = [[CAAssistView alloc] initByAssistText:@"Проверьте правильность данных, перелета. Укажите количество билетов - отдельно для детей, взрослых и младенцев." font:[UIFont fontWithName:@"HelveticaNeue" size:14] indentsBorder:5 background:YES];
     [self.view addSubview:assistView];
     
     UILabel* passengersLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, assistView.frame.origin.y + assistView.frame.size.height + Y_OFFSET, 0, 0)];

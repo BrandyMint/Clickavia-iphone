@@ -145,7 +145,7 @@
 
 - (NSString *)tabTitle
 {
-	return @"Календарь";
+	return @"Перелеты";
 }
 
 -(NSString*)tabImageName
