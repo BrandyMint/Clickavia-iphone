@@ -94,6 +94,9 @@
         OfferConditions* offerConditions = [OfferConditions new];
         offerConditions = offerdata.offerConditions;
         
+        SearchConditions* searchConditions = [SearchConditions new];
+        searchConditions = offerConditions.searchConditions;
+        
         Flight* flightDeparture = [Flight new];;
         Flight* flightReturn = [Flight new];
         flightDeparture = offerdata.flightDeparture;
@@ -111,6 +114,7 @@
         
         [self createLineByBottom:[self getBottom:assistView.frame]];
         
+    //блок паспортов пассажиров
         UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(10, [self getBottom:assistView.frame], 0, 0)];
         title.text = @"Пассажиры";
         title.font = [UIFont systemFontOfSize:14];
@@ -133,6 +137,7 @@
         
         [self createLineByBottom:[self getBottom:lastPassport]];
         
+    //блок требований к билетам
         UILabel* requirements = [[UILabel alloc] initWithFrame:CGRectMake(10, [self getBottom:lastPassport], 0, 0)];
         requirements.text = @"Требования клиента к билетам";
         requirements.font = [UIFont systemFontOfSize:14];
@@ -141,25 +146,30 @@
         [requirements sizeToFit];
         [_scrollView addSubview:requirements];
         
-        CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        BOOL isBoothWays = appDelegate.isBothWays;
-        
-        SearchConditions* search = [SearchConditions new];
-        search.typeOfFlight = appDelegate.typeOfFlight;
-        
-        
-        SearchConditions* searchConditions = [SearchConditions new];
-        searchConditions = offerConditions.searchConditions;
-        
         Destination* destinationDeparture = [Destination new];
         destinationDeparture = searchConditions.direction_departure;
         Destination* destinationReturn = [Destination new];
         destinationReturn = searchConditions.direction_return;
         NSString* destination = [NSString stringWithFormat:@"%@ > %@", destinationDeparture.code, destinationReturn.code];
+        NSString* dateDeparture = [self dateToddMMyyyy:flightDeparture.dateAndTimeDeparture];
+        NSString* dateArrival = [self dateToddMMyyyy:flightDeparture.dateAndTimeArrival];
         
-        CAOrderRequirements* orderRequirements = [[CAOrderRequirements alloc] initWithRequirements:search.typeOfFlight
-                                                                                     dateDeparture:[self dateToddMMyyyy:flightDeparture.dateAndTimeDeparture]
-                                                                                       dateArrival:[self dateToddMMyyyy:flightDeparture.dateAndTimeArrival]
+        if (specialOfferdata != nil) {
+            if (specialOfferdata.isReturn) {
+                destination = [NSString stringWithFormat:@"%@ > %@", [specialOfferdata.flightIds objectAtIndex:0], [specialOfferdata.flightIds objectAtIndex:1]];
+                dateDeparture = [self dateToddMMyyyy:[specialOfferdata.dates objectAtIndex:0]];
+                dateArrival = [self dateToddMMyyyy:[specialOfferdata.dates objectAtIndex:1]];
+            }
+            else
+            {
+                destination = [NSString stringWithFormat:@"%@", [specialOfferdata.flightIds objectAtIndex:0]];
+                dateDeparture = [self dateToddMMyyyy:[specialOfferdata.dates objectAtIndex:0]];
+            }
+        }
+        
+        CAOrderRequirements* orderRequirements = [[CAOrderRequirements alloc] initWithRequirements:searchConditions.typeOfFlight
+                                                                                     dateDeparture:dateDeparture
+                                                                                       dateArrival:dateArrival
                                                                                         code:destination];
         CGRect orderRequirementsFrame = orderRequirements.frame;
         orderRequirementsFrame.origin.y = [self getBottom:requirements.frame];
@@ -168,8 +178,8 @@
         
         NSInteger bottomY = [self getBottom:orderRequirements.frame];
         
-        if (isBoothWays) {
-            CAOrderRequirements* orderRequirementsReturn = [[CAOrderRequirements alloc] initWithRequirements:search.typeOfFlight
+        if (searchConditions.isBothWays) {
+            CAOrderRequirements* orderRequirementsReturn = [[CAOrderRequirements alloc] initWithRequirements:searchConditions.typeOfFlight
                                                                                          dateDeparture:[self dateToddMMyyyy:flightReturn.dateAndTimeDeparture]
                                                                                            dateArrival:[self dateToddMMyyyy:flightReturn.dateAndTimeArrival]
                                                                                             code:destination];
@@ -181,6 +191,8 @@
         }
         
         [self createLineByBottom:bottomY];
+        
+    //Сумма и сведеия о перевозчике
         
         UILabel* info = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, bottomY + 10, 0, 0)];
         info.text = @"Сведения о перевозчике";
@@ -200,7 +212,7 @@
         [airlineSite sizeToFit];
         [_scrollView addSubview: airlineSite];
         
-        if (isBoothWays) {
+        if (searchConditions.isBothWays) {
             UILabel* airlineTitleReturn = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, [self getBottom:airlineSite.frame], 0, 0)];
             airlineTitleReturn.text = flightReturn.airlineTitle;
             airlineTitleReturn.font = [UIFont systemFontOfSize:12];
@@ -221,6 +233,12 @@
         [_scrollView addSubview: sum];
         
         NSString* summ = [NSString stringWithFormat:@"%.0f р.", offerdata.bothPrice.floatValue];
+        
+        if (specialOfferdata != nil) {
+            summ = [NSString stringWithFormat:@"%.0f р.", specialOfferdata.price.floatValue];
+            info.text = nil;
+        }
+        
         UILabel* sumInfo = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN_LEFT, [self getBottom:sum.frame], 0, 0)];
             //pricelabel.text = [[NSString alloc] initWithFormat:@"%.0f р.", specialOfferData.price.floatValue];
         sumInfo.text = summ;

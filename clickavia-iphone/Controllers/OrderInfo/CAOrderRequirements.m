@@ -55,19 +55,21 @@
     [departureInfo sizeToFit];
     [mainView addSubview:departureInfo];
     
-    UILabel* arrival = [[UILabel alloc] initWithFrame:CGRectMake(160, [self getBottom:serviceInfo.frame], 0, 0)];
-    arrival.text = @"прибытие";
-    arrival.font = [UIFont systemFontOfSize:12];
-    [arrival sizeToFit];
-    [mainView addSubview:arrival];
-    
-    UILabel* arrivalInfo = [[UILabel alloc] initWithFrame:CGRectMake(arrival.frame.origin.x + arrival.frame.size.width + 3, [self getBottom:serviceInfo.frame], 0, 0)];
-    arrivalInfo.text = dateArrival;
-    arrivalInfo.font = [UIFont systemFontOfSize:12];
-    [arrivalInfo sizeToFit];
-    [mainView addSubview:arrivalInfo];
+    if (dateArrival != nil) {
+        UILabel* arrival = [[UILabel alloc] initWithFrame:CGRectMake(160, [self getBottom:serviceInfo.frame], 0, 0)];
+        arrival.text = @"прибытие";
+        arrival.font = [UIFont systemFontOfSize:12];
+        [arrival sizeToFit];
+        [mainView addSubview:arrival];
+        
+        UILabel* arrivalInfo = [[UILabel alloc] initWithFrame:CGRectMake(arrival.frame.origin.x + arrival.frame.size.width + 3, [self getBottom:serviceInfo.frame], 0, 0)];
+        arrivalInfo.text = dateArrival;
+        arrivalInfo.font = [UIFont systemFontOfSize:12];
+        [arrivalInfo sizeToFit];
+        [mainView addSubview:arrivalInfo];
+    }
 
-    mainView.frame = CGRectMake(0, 0, 320, [self getBottom:arrivalInfo.frame]);
+    mainView.frame = CGRectMake(0, 0, 320, [self getBottom:departure.frame]);
     
     return mainView;
 }
