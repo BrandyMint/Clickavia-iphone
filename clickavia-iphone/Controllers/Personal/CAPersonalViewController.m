@@ -11,11 +11,12 @@
 #import "ChatViewController.h"
 #import "MessageReceiver.h"
 #import "CAAssistView.h"
-
+#import "CAPersonalLaterViewController.h"
 
 #import "SpecialOfferCell.h"
 #import "CAFlightPassengersCount.h"
 #import "CAAppDelegate.h"
+#import "Offer.h"
 
 @interface CAPersonalViewController ()
 {
@@ -33,6 +34,7 @@
     NSMutableArray* specialOfferArray;
     SpecialOffer* specialoffer;
     CAFlightPassengersCount* passenger;
+    Offer* offer;
 }
 @property (nonatomic, strong) ChatViewController *chatViewController;
 @property (strong, nonatomic) MessageReceiver *message_reciever;
@@ -47,10 +49,12 @@
     
     passenger = [CAFlightPassengersCount new];
     specialoffer = [SpecialOffer new];
+    offer = [Offer new];
     
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     passenger = appDelegate.passengersCount;
     specialoffer = appDelegate.specialOffer;
+    offer = appDelegate.offer;
     
     currentOrderNumber = [NSMutableArray new];
     passangersArray = [NSMutableArray new];
@@ -220,7 +224,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    CAPersonalLaterViewController* personalLaterViewController = [[CAPersonalLaterViewController alloc]
+                                                                  initWithNibName:@"CAPersonalLaterViewController"
+                                                                  bundle:Nil
+                                                                  status:@"оплачено"
+                                                                  manager:@"Василий Васильев"
+                                                                  numberOrder:[[orderNumber objectAtIndex:indexPath.section] integerValue]
+                                                                  offer:offer
+                                                                  passenger:passenger
+                                                                  isCurrentOrders:isCurrentOrders];
+    [self.navigationController pushViewController:personalLaterViewController animated:YES];
 }
 
 #pragma mark CAPersonCellDelegate

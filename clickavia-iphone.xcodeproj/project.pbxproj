@@ -109,6 +109,8 @@
 		66A67F5718322DE900A50318 /* CAAutorizedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A67F5518322DE900A50318 /* CAAutorizedController.xib */; };
 		66C55ACA183F309C0027DA3F /* CAPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C55AC8183F309C0027DA3F /* CAPersonCell.m */; };
 		66C55ACB183F309C0027DA3F /* CAPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C55AC9183F309C0027DA3F /* CAPersonCell.xib */; };
+		66C55AD0183F6FDC0027DA3F /* CAPersonalLaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C55ACE183F6FDC0027DA3F /* CAPersonalLaterViewController.m */; };
+		66C55AD1183F6FDC0027DA3F /* CAPersonalLaterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C55ACF183F6FDC0027DA3F /* CAPersonalLaterViewController.xib */; };
 		66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6639C9FF17C5E6AE00CF772D /* CAOffersListViewController.m */; };
 		66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */; };
 		66FECBA518210C0C00ED705D /* CAPassportTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FECBA418210C0C00ED705D /* CAPassportTextField.m */; };
@@ -276,6 +278,9 @@
 		66C55AC7183F309C0027DA3F /* CAPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPersonCell.h; path = "clickavia-iphone/Controllers/Personal/CAPersonCell.h"; sourceTree = SOURCE_ROOT; };
 		66C55AC8183F309C0027DA3F /* CAPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAPersonCell.m; path = "clickavia-iphone/Controllers/Personal/CAPersonCell.m"; sourceTree = SOURCE_ROOT; };
 		66C55AC9183F309C0027DA3F /* CAPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAPersonCell.xib; path = "clickavia-iphone/Controllers/Personal/CAPersonCell.xib"; sourceTree = SOURCE_ROOT; };
+		66C55ACD183F6FDC0027DA3F /* CAPersonalLaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPersonalLaterViewController.h; path = "clickavia-iphone/Controllers/PersonalLater/CAPersonalLaterViewController.h"; sourceTree = SOURCE_ROOT; };
+		66C55ACE183F6FDC0027DA3F /* CAPersonalLaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAPersonalLaterViewController.m; path = "clickavia-iphone/Controllers/PersonalLater/CAPersonalLaterViewController.m"; sourceTree = SOURCE_ROOT; };
+		66C55ACF183F6FDC0027DA3F /* CAPersonalLaterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAPersonalLaterViewController.xib; path = "clickavia-iphone/Controllers/PersonalLater/CAPersonalLaterViewController.xib"; sourceTree = SOURCE_ROOT; };
 		66CCF64517E060F3002BF4A6 /* CAOfferGreenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAOfferGreenBar.h; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.h"; sourceTree = SOURCE_ROOT; };
 		66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAOfferGreenBar.m; path = "clickavia-iphone/Controllers/OffersListViewController/CAOfferGreenBar.m"; sourceTree = SOURCE_ROOT; };
 		66FECBA318210C0C00ED705D /* CAPassportTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAPassportTextField.h; path = "clickavia-iphone/Controllers/BuyerInfo/CAPassportTextField.h"; sourceTree = SOURCE_ROOT; };
@@ -459,6 +464,17 @@
 			name = AutorizedController;
 			sourceTree = "<group>";
 		};
+		66C55ACC183F6F930027DA3F /* PersonalLater */ = {
+			isa = PBXGroup;
+			children = (
+				66C55ACD183F6FDC0027DA3F /* CAPersonalLaterViewController.h */,
+				66C55ACE183F6FDC0027DA3F /* CAPersonalLaterViewController.m */,
+				66C55ACF183F6FDC0027DA3F /* CAPersonalLaterViewController.xib */,
+			);
+			name = PersonalLater;
+			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
+			sourceTree = "<group>";
+		};
 		66F4C7E217EB0FDB0004DB88 /* ContractController */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +586,7 @@
 				6690697F1830F66600EE32EE /* AuthorizationController */,
 				66A67F5218322DB600A50318 /* AutorizedController */,
 				667B84AD183E081D00FB2BB7 /* Personal */,
+				66C55ACC183F6F930027DA3F /* PersonalLater */,
 				7CC150CA17C5DD9300796B50 /* ChatViewController */,
 			);
 			path = Controllers;
@@ -840,6 +857,7 @@
 				17710ECB17F466A8008A8E11 /* CASearchFormControls-button@2x.png in Resources */,
 				665EF9DA1833507500AFAAE2 /* CAReplacePassportCard.xib in Resources */,
 				17710EB917F466A8008A8E11 /* results-columns-green-background@2x.png in Resources */,
+				66C55AD1183F6FDC0027DA3F /* CAPersonalLaterViewController.xib in Resources */,
 				17710ECA17F466A8008A8E11 /* PassengersButton-man-icon@2x.png in Resources */,
 				17710EAF17F466A8008A8E11 /* toolbar-arrow-right@2x.png in Resources */,
 				17710EC317F466A8008A8E11 /* calendar-interval-bg@2x.png in Resources */,
@@ -953,6 +971,7 @@
 				66397D9F1806BF3C0016EE69 /* CAAssistView.m in Sources */,
 				66471FDA183B64500054D770 /* CAOrderInfo.m in Sources */,
 				66CCF64717E060F3002BF4A6 /* CAOfferGreenBar.m in Sources */,
+				66C55AD0183F6FDC0027DA3F /* CAPersonalLaterViewController.m in Sources */,
 				662972D917E2F3AE00D9324B /* CAOffersCell.m in Sources */,
 				662972E217E31F6700D9324B /* CAOffersCellView.m in Sources */,
 				668A55FD183C8E68005E4795 /* CAOrderRequirements.m in Sources */,

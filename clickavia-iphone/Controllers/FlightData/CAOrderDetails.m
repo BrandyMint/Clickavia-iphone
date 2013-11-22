@@ -22,11 +22,11 @@
     SearchConditions* searchConditions;
     Destination* destinationDeparture;
     Destination* destinationReturn;
-    
+
     UIView* contenView;
 }
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers showPassengersView:(BOOL)isShowPassengers;
 {
     flightDepartureObject = [[Flight alloc] init];
     flightReturnObject = [[Flight alloc] init];
@@ -57,12 +57,14 @@
     [contenView addSubview:departFlightView];
     [contenView addSubview:returnFlightView];
     
-    UIView* passangersBlockView = [self flightPassengersBlockView:offerPassengers];
-    passangersBlockView.frame = CGRectMake(10,
-                                           140,
-                                           passangersBlockView.frame.size.width,
-                                           passangersBlockView.frame.size.height);
-    //[contenView addSubview:passangersBlockView];
+    if (isShowPassengers) {
+        UIView* passangersBlockView = [self flightPassengersBlockView:offerPassengers];
+        passangersBlockView.frame = CGRectMake(10,
+                                               returnFlightView.frame.origin.y + returnFlightView.frame.size.height + 10,
+                                               passangersBlockView.frame.size.width,
+                                               passangersBlockView.frame.size.height);
+        [contenView addSubview:passangersBlockView];
+    }
     
     CAOffersListViewController* caOffersListViewController = [[CAOffersListViewController alloc] init];
     NSString* roundingBehaviorPrice = [NSString stringWithFormat:@"%@ р.",[caOffersListViewController priceBehavior:offerObject.bothPrice]];
@@ -125,7 +127,7 @@
     [blockView addSubview:babyImage];
     [blockView addSubview:babyiesCountLabel];
     
-    blockView.frame = CGRectMake(0, 0, babyiesCountLabel.frame.origin.x + babyiesCountLabel.frame.size.width, 30);
+    blockView.frame = CGRectMake(0, 0, adultsImage.frame.origin.x +  babyiesCountLabel.frame.origin.x + babyiesCountLabel.frame.size.width, 30);
     return blockView;
 }
 

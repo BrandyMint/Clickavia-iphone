@@ -143,7 +143,10 @@
 
 -(void)loadOffer
 {
-    CAOrderDetails* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount];
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.offer = offerdata;
+#warning убрать appDelegate
+    CAOrderDetails* orderDetailsView = [[CAOrderDetails alloc] initByOfferModel:offerdata passengers:passengersCount showPassengersView:NO];
     CGRect orderDetalsFrame = orderDetailsView.frame;
     orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
     orderDetailsView.frame = orderDetalsFrame;
@@ -154,7 +157,7 @@
 {
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.specialOffer = specialOffer;
-    
+#warning убрать appDelegate
     CAOrderDetailsPersonal* orderDetailsPersonalView = [[CAOrderDetailsPersonal alloc] initByOfferModel:specialOffer passengers:passengersCount];
     CGRect orderDetalsFrame = orderDetailsPersonalView.frame;
     orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;

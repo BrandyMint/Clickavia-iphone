@@ -31,6 +31,6 @@
 @property (nonatomic, retain) SearchConditions* searchConditionsObject;
 @property (nonatomic, retain) Destination* destinationObject;
 
-- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers;
+- (UIView*) initByOfferModel:(Offer*)offerObject passengers:(CAFlightPassengersCount*)offerPassengers showPassengersView:(BOOL)isShowPassengers;
 
 @end
