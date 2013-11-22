@@ -105,7 +105,7 @@
     [enter setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
     [enter addTarget:self action:@selector(onNext:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:enter];
-    
+    enter.enabled = NO;
     CGRect tableViewFrame = _tableView.frame;
     tableViewFrame.size.height -= TABLEVIEW_MARGIN_BUTTOM;
     _tableView.frame = tableViewFrame;
@@ -525,8 +525,8 @@
     PersonInfo*  personInfoCard = [PersonInfo new];
     personInfoCard = [buyerArray objectAtIndex:indexCell];
 
-    if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
-        
+    if (personInfoCard.lastName.length > 0 && personInfoCard.name.length > 0 && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries.length == 4 && personInfoCard.passportNumber.length == 6) {
+        enter.enabled = YES;
         NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
         [date_format setDateFormat: @"dd.MM.yyyy"];
         NSString * birthDate = [date_format stringFromDate: personInfoCard.birthDate];
@@ -561,6 +561,8 @@
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"userPassports_%@",accessToken]];
     }
+    else
+        enter.enabled = NO;
 }
 
 -(void)readPassportsUsers
@@ -579,18 +581,13 @@
 
 - (IBAction)onNext:(id)sender
 {
-    PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:0];
-    
-    if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
-        if (isSpecialOffer) {
-            CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:nil specialOffer:specialOfferdata];
-            [self.navigationController pushViewController:orderInfo animated:YES];
-        }
-        else {
-            CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:offerdata specialOffer:nil];
-            [self.navigationController pushViewController:orderInfo animated:YES];
-        }
+    if (isSpecialOffer) {
+        CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:nil specialOffer:specialOfferdata];
+        [self.navigationController pushViewController:orderInfo animated:YES];
+    }
+    else {
+        CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:offerdata specialOffer:nil];
+        [self.navigationController pushViewController:orderInfo animated:YES];
     }
 }
 
