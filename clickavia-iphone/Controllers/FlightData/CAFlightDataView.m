@@ -152,6 +152,9 @@
 
 -(void)loadSpecialOffer
 {
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.specialOffer = specialOffer;
+    
     CAOrderDetailsPersonal* orderDetailsPersonalView = [[CAOrderDetailsPersonal alloc] initByOfferModel:specialOffer passengers:passengersCount];
     CGRect orderDetalsFrame = orderDetailsPersonalView.frame;
     orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;

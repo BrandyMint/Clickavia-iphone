@@ -9,8 +9,7 @@
 #import "CAAutorizedController.h"
 #import "CAColorSpecOffers.h"
 #import "CAAutorizedCell.h"
-#import "ChatViewController.h"
-#import "MessageReceiver.h"
+#import "CAPersonalViewController.h"
 
 #define BUTTON_HEIGHT 30
 #define BUTTON_WIDTH 80
@@ -23,8 +22,7 @@
     NSMutableArray *usersPassportsArray;
     User* user;
 }
-@property (nonatomic, strong) ChatViewController *chatViewController;
-@property (strong, nonatomic) MessageReceiver *message_reciever;
+
 @end
 
 @implementation CAAutorizedController
@@ -217,11 +215,8 @@
 
 -(void)onPayment:(id)sender
 {
-    UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
-    _message_reciever = [MessageReceiver new];
-    _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:@"Gagа" localAvatar:remoteAvatar];
-    _message_reciever.bmChatViewController = _chatViewController;
-    [self.navigationController pushViewController:_chatViewController animated:YES];
+    CAPersonalViewController* personalViewController = [[CAPersonalViewController alloc] initWithNibName:@"CAPersonalViewController" bundle:nil user:user];
+    [self.navigationController pushViewController:personalViewController animated:YES];
 }
 
 @end

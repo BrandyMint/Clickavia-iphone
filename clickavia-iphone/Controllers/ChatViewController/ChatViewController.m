@@ -10,7 +10,9 @@
 #import "CAColorSpecOffers.h"
 
 @interface ChatViewController ()
-
+{
+    NSString* titleString;
+}
 @end
 
 @implementation ChatViewController
@@ -37,6 +39,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)title:(NSString*)title
+{
+    titleString = title;
+}
+
 -(void)showNavBar
 {
     UIImage *navBackImage = [UIImage imageNamed:@"toolbar-back-icon.png"];
@@ -51,7 +58,7 @@
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     titleLabel.textColor = [UIColor COLOR_TITLE_TEXT];
-    titleLabel.text = @"Чат";
+    titleLabel.text = titleString;
     titleLabel.layer.shadowOpacity = 0.4f;
     titleLabel.layer.shadowRadius = 0.0f;
     titleLabel.layer.shadowColor = [[UIColor COLOR_TITLE_TEXT_SHADOW] CGColor];

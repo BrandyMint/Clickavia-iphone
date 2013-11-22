@@ -10,4 +10,6 @@
 
 @interface ChatViewController : BMChatViewController
 
+-(void)title:(NSString*)title;
+
 @end
