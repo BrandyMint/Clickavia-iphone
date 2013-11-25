@@ -28,7 +28,6 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.navigationController.navigationBarHidden = YES;
 }
 

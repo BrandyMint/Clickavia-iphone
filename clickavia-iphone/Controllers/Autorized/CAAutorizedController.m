@@ -10,6 +10,7 @@
 #import "CAColorSpecOffers.h"
 #import "CAAutorizedCell.h"
 #import "CAPersonalViewController.h"
+#import "CAAppDelegate.h"
 
 #define BUTTON_HEIGHT 30
 #define BUTTON_WIDTH 80
@@ -46,10 +47,16 @@
                                                                      BUTTON_PAYMENT_W,
                                                                      BUTTON_PAYMENT_H)];
     toPayment.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [toPayment setTitle:@"Перейти к оплате" forState:UIControlStateNormal];
     [toPayment setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
     [toPayment addTarget:self action:@selector(onPayment:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:toPayment];
+    
+    CAAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.currentPayment != 1)
+        [toPayment setTitle:@"Забронировать" forState:UIControlStateNormal];
+    else
+        [toPayment setTitle:@"Перейти к оплате" forState:UIControlStateNormal];
+    
 }
 
 -(void) replaceUser:(id)sender

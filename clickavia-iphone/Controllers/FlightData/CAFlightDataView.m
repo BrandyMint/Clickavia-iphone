@@ -309,6 +309,9 @@
     settingsPopoverController.delegate = nil;
     settingsPopoverController = nil;
     
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.currentPayment = indexPath.row;
+#warning удалить appDelegate
     [onPaymentMethod setTitle:[paymentOptions objectAtIndex:indexPath.row] forState:UIControlStateNormal];
 }
 

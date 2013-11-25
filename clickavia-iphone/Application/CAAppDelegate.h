@@ -21,6 +21,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) SpecialOffer* specialOffer;
 @property (strong, nonatomic) Offer* offer;
+@property (nonatomic) NSInteger currentPayment;
 @property (strong,nonatomic) OfferConditions *offerConditions; //для проброса данных из календаря в графики
 @property (strong,nonatomic) CAFlightPassengersCount *passengersCount; //проброс пассажиров, их количества и типов
 @property (nonatomic, strong) AKTabBarController *rootTabBarController;
