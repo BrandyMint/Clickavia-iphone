@@ -31,6 +31,11 @@
 {
     pickerView = [[CABuyerPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 220, 320, 220)];
     pickerView.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(toRootNavigationView)
+                                                 name:@"didSelectTab"
+                                               object:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil personInfoCard:(PersonInfo *)personInfoCard index:(NSInteger)index
@@ -286,6 +291,10 @@
     [_delegate modified:personInfo index:indexCell];
     [self.navigationController popViewControllerAnimated:YES];
     [self.view removeFromSuperview];
+}
+
+- (void)toRootNavigationView {
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 @end

@@ -117,6 +117,10 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(toRootNavigationView)
+                                                 name:@"didSelectTab"
+                                               object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -590,5 +594,10 @@
         [self.navigationController pushViewController:orderInfo animated:YES];
     }
 }
+
+- (void)toRootNavigationView {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
 
 @end

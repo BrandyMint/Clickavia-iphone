@@ -85,6 +85,11 @@
         [self loadSpecialOffer];
     else
         [self loadOffer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(toRootNavigationView)
+                                                 name:@"didSelectTab"
+                                               object:nil];
 }
 
 - (void)viewDidLoad
@@ -325,6 +330,10 @@
         CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil offer:offerdata];
         [self.navigationController pushViewController:buyerInfo animated:YES];
     }
+}
+
+- (void)toRootNavigationView {
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 @end

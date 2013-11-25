@@ -232,6 +232,10 @@
 }
 -(void) viewWillAppear:(BOOL)animated
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(toRootNavigationView)
+                                                 name:@"didSelectTab"
+                                               object:nil];
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     _offerConditions = appDelegate.offerConditions;
     if(_offerConditions!=nil)
@@ -737,4 +741,9 @@
 {
     _offerConditions = nil;
 }
+
+- (void)toRootNavigationView {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
 @end

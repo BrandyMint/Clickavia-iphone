@@ -12,7 +12,8 @@
 #import <AKTabBarController/AKTabBarController.h>
 #import "SpecialOffer.h"
 #import "Offer.h"
-@interface CAAppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface CAAppDelegate : UIResponder <UIApplicationDelegate, AKTabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

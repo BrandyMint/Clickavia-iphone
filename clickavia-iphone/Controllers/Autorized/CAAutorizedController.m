@@ -57,6 +57,10 @@
     else
         [toPayment setTitle:@"Перейти к оплате" forState:UIControlStateNormal];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(toRootNavigationView)
+                                                 name:@"didSelectTab"
+                                               object:nil];
 }
 
 -(void) replaceUser:(id)sender
@@ -224,6 +228,10 @@
 {
     CAPersonalViewController* personalViewController = [[CAPersonalViewController alloc] initWithNibName:@"CAPersonalViewController" bundle:nil user:user];
     [self.navigationController pushViewController:personalViewController animated:YES];
+}
+
+- (void)toRootNavigationView {
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 @end

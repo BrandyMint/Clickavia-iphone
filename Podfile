@@ -9,7 +9,7 @@ pod 'CAFieldComplete', 		:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-fie
 pod 'CASearchForm', 		:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-searchform.git'
 pod 'CASearchFormControls',	:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-searchformcontrols.git'
 pod 'WTReTextField',        :podspec => 'https://raw.github.com/bespalown/WTReTextField/master/WTReTextField.podspec'
-pod 'AKTabBarController'
+pod 'AKTabBarController',   :podspec => 'https://raw.github.com/bespalown/AKTabBarController/master/AKTabBarController.podspec'
 pod 'FPPopover', '~> 1.3'
 pod 'WYPopoverController', '~> 0.1.7'
 

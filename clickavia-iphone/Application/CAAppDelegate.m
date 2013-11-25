@@ -43,7 +43,7 @@
     _specialOfferViewController = [[CASpecOffersViewController alloc] init];
     _mainScreenViewController = [[MainScreenViewController alloc] init];
     _authorization = [CAAuthorization new];
-    
+    _rootTabBarController.delegate = self;
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
@@ -183,6 +183,12 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark AKTabBarControllerDelegate
+-(void)didSelectTabAtIndex:(NSInteger)index
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didSelectTab" object:nil];
 }
 
 @end

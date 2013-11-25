@@ -45,7 +45,7 @@ PODS:
   - WYPopoverController (0.1.7)
 
 DEPENDENCIES:
-  - AKTabBarController
+  - AKTabBarController (from `https://raw.github.com/bespalown/AKTabBarController/master/AKTabBarController.podspec`)
   - BMChat (from `git@gitlab.brandymint.ru:brandymint-ios/bmchat.git`)
   - CACalendarView (from `git@gitlab.brandymint.ru:brandymint-ios/ca-calendarview.git`)
   - CAColumnsControl (from `git@gitlab.brandymint.ru:brandymint-ios/ca-columnscontrol.git`)
@@ -60,6 +60,8 @@ DEPENDENCIES:
   - WYPopoverController (~> 0.1.7)
 
 EXTERNAL SOURCES:
+  AKTabBarController:
+    :podspec: https://raw.github.com/bespalown/AKTabBarController/master/AKTabBarController.podspec
   BMChat:
     :git: git@gitlab.brandymint.ru:brandymint-ios/bmchat.git
   CACalendarView:
@@ -81,7 +83,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
-  AKTabBarController: 34443d5d028700dea1d00a6f275e8ef17fc947c2
+  AKTabBarController: c738f651d2cebc2e6f8e3fe47c10bb1856ed8a99
   Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
   BMChat: 528be2c0e2ecb6d7665d5fe566a2f13c68ff0252
   CACalendarView: 7c5432edf7c4f0e77be1966e385ae1c59601fda2
