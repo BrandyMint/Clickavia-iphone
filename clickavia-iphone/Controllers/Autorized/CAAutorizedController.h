@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 #import "CAReplacePassportCard.h"
+#import "Offer.h"
+#import "SpecialOffer.h"
 
 @interface CAAutorizedController : UIViewController <CAPassportTextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User* )user;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User* )user passports:(NSArray* )passports offer:(Offer*)offer specialOffer:(SpecialOffer*)specialOffer;
 
 @end
+
+

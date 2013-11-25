@@ -12,6 +12,9 @@
 #import "LoginForm.h"
 #import "AuthManager.h"
 #import "CAOrderInfo.h"
+#import "CAAuthorization.h"
+#import "CAAppDelegate.h"
+#import "CAAutorizedController.h"
 
 #define HEIGHT_CELL 200
 #define PORTRAIT_KEYBOARD_HEIGHT 216
@@ -300,13 +303,8 @@
     alreadyHaveButtonPosition = [sender convertPoint:CGPointZero toView:self.view];
     
     if (accessToken == nil) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Авторизуйтесь"
-                                                            message:nil
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:@"OK", nil];
-        alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-        [alertView show];
+        CAAuthorization* authorization = [[CAAuthorization alloc] initWithNibName:@"CAAuthorization" bundle:nil];
+        [self.navigationController pushViewController:authorization animated:YES];
     }
     else
     {
@@ -391,6 +389,7 @@
     [buyerArray replaceObjectAtIndex:alreadyHaveButtonIndex withObject:personInfo];
     
     [_tableView reloadData];
+    [self fullCard:indexPath.row];
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -585,19 +584,21 @@
 
 - (IBAction)onNext:(id)sender
 {
-    if (isSpecialOffer) {
-        CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:nil specialOffer:specialOfferdata];
-        [self.navigationController pushViewController:orderInfo animated:YES];
-    }
-    else {
-        CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:offerdata specialOffer:nil];
-        [self.navigationController pushViewController:orderInfo animated:YES];
-    }
+    CAAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    User* user = [User new];
+    user = appDelegate.user;
+    
+    CAAutorizedController* autorizedController = [[CAAutorizedController alloc] initWithNibName:@"CAAutorizedController"
+                                                                                         bundle:nil
+                                                                                           user:user
+                                                                                      passports:buyerArray
+                                                                                          offer:offerdata
+                                                                                   specialOffer:specialOfferdata];
+    [self.navigationController pushViewController:autorizedController animated:YES];
 }
 
 - (void)toRootNavigationView {
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
-
 
 @end

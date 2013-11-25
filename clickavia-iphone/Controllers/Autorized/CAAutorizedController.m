@@ -11,6 +11,7 @@
 #import "CAAutorizedCell.h"
 #import "CAPersonalViewController.h"
 #import "CAAppDelegate.h"
+#import "CAOrderInfo.h"
 
 #define BUTTON_HEIGHT 30
 #define BUTTON_WIDTH 80
@@ -22,18 +23,28 @@
 {
     NSMutableArray *usersPassportsArray;
     User* user;
+    Offer* offer;
+    SpecialOffer* specialOffer;
+    NSArray* passports;
 }
 
 @end
 
 @implementation CAAutorizedController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User* )_user
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User* )_user passports:(NSArray* )_passports offer:(Offer*)_offer specialOffer:(SpecialOffer*)_specialOffer;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self.navigationItem setHidesBackButton:YES];
+        offer = [Offer new];
+        specialOffer = [SpecialOffer new];
+        
+        passports = [[NSArray alloc] initWithArray:_passports];
+        offer = _offer;
+        specialOffer = _specialOffer;
         user = _user;
+        
         NSData *usersPassportsData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"userPassports_%@",user.authKey]];
         usersPassportsArray = [NSKeyedUnarchiver unarchiveObjectWithData:usersPassportsData];
     }
@@ -79,6 +90,14 @@
 
 -(void)showNavBar
 {
+    UIImage *navBackImage = [UIImage imageNamed:@"toolbar-back-icon.png"];
+    UIButton *navBack = [UIButton buttonWithType:UIButtonTypeCustom];
+    [navBack setImage:navBackImage forState:UIControlStateNormal];
+    navBack.frame = CGRectMake(0, 0, navBackImage.size.width, navBackImage.size.height);
+    [navBack addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:navBack];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
@@ -96,6 +115,12 @@
                                                                         self.navigationController.navigationBar.frame.size.height/2)];
     [titleBarItemView addSubview:titleLabel];
     self.navigationItem.titleView = titleBarItemView;
+	self.navigationItem.rightBarButtonItem = nil;
+}
+
+-(void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -226,8 +251,18 @@
 
 -(void)onPayment:(id)sender
 {
-    CAPersonalViewController* personalViewController = [[CAPersonalViewController alloc] initWithNibName:@"CAPersonalViewController" bundle:nil user:user];
-    [self.navigationController pushViewController:personalViewController animated:YES];
+    //CAPersonalViewController* personalViewController = [[CAPersonalViewController alloc] initWithNibName:@"CAPersonalViewController" bundle:nil user:user];
+    //[self.navigationController pushViewController:personalViewController animated:YES];
+    
+
+     if (specialOffer != nil) {
+     CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:passports offer:nil specialOffer:specialOffer];
+     [self.navigationController pushViewController:orderInfo animated:YES];
+     }
+     else {
+     CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:passports offer:offer specialOffer:nil];
+     [self.navigationController pushViewController:orderInfo animated:YES];
+     }
 }
 
 - (void)toRootNavigationView {

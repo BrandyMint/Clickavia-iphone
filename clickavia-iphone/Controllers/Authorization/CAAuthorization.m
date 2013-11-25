@@ -19,6 +19,7 @@
 #import "WTReTextField.h"
 #import "DMRegistrationResponse.h"
 #import "DMRegistrationError.h"
+#import "CAAppDelegate.h"
 
 #define BUTTON_WIDTH 220
 #define BUTTON_HEIGHT 40
@@ -334,12 +335,14 @@
          loginForm.accessToken = user.authKey;
          NSString* autorization = [NSString stringWithFormat:@"Имя: %@\n email: %@\n Номер телефона: %@\n token: %@",user.name, user.email, user.phoneNumber, user.authKey];
          UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Авторизиция прошла успешно" message:autorization delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-         [alert show];
+         //[alert show];
          [[NSUserDefaults standardUserDefaults] setObject:loginForm.accessToken forKey:@"accessToken"];
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
-         CAAutorizedController* autorizedController = [[CAAutorizedController alloc] initWithNibName:@"CAAutorizedController" bundle:nil user:user];
-         [self.navigationController pushViewController:autorizedController animated:YES];
          
+         CAAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+         appDelegate.user = user;
+         
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         [self.navigationController popViewControllerAnimated:YES];
      }
                failBlock:^(NSException* exception)
      {
