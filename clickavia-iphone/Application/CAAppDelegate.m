@@ -189,6 +189,21 @@
 -(void)didSelectTabAtIndex:(NSInteger)index
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didSelectTab" object:nil];
+    switch (index) {
+            case 0:
+            //открыт экран акции
+            self.passengersCount = nil;
+            break;
+            case 1:
+            //открыт экран перелеты
+            self.passengersCount = nil;
+            break;
+            case 2:
+            //открыт экран личного кабинета
+            break;
+        default:
+            break;
+    }
 }
 
 @end
