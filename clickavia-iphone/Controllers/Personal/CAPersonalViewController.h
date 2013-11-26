@@ -14,6 +14,4 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User*)user;
-
 @end

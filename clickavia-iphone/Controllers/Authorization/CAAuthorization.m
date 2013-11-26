@@ -341,6 +341,10 @@
          CAAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
          appDelegate.user = user;
          
+         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:user];
+         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"user"];
+
+         
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          [self.navigationController popViewControllerAnimated:YES];
      }

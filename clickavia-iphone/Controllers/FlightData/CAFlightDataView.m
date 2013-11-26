@@ -56,6 +56,7 @@
         isSpecialOffer = NO;
         offerdata = [[Offer alloc] init];
         offerdata = offer;
+        passengersCount = [CAFlightPassengersCount new];
         passengersCount = passengerCount;
         currentSearchConditions = [[SearchConditions alloc]init];
         isShowPassengersCountPicker = NO;
@@ -70,6 +71,7 @@
     if (self) {
         isSpecialOffer = YES;
         specialOffer = [SpecialOffer new];
+        passengersCount = [CAFlightPassengersCount new];
         specialOffer = _specialOffer;
     }
     return self;
@@ -78,7 +80,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    passengersCount = appDelegate.passengersCount;
+    if (isSpecialOffer) {
+        passengersCount.adultsCount = 1;
+    }
+    else {
+        passengersCount = appDelegate.passengersCount;
+    }
     [passengerCountButton setPassengersCount:passengersCount];
     
     if (isSpecialOffer)
@@ -267,9 +274,10 @@
 
 -(void)back
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    offerdata = nil;
-    passengersCount = nil;
+    if (isSpecialOffer)
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    else
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
 }
 
 -(void)showPopover:(CGPoint)point

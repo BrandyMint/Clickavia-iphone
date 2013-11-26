@@ -21,7 +21,7 @@
 @interface CAPersonalViewController ()
 {
     BOOL isCurrentOrders;
-    
+    NSArray *itemArray;
     UISegmentedControl* segmentedControl;
     NSArray* person;
     NSArray* currentOrder;
@@ -35,6 +35,8 @@
     SpecialOffer* specialoffer;
     CAFlightPassengersCount* passenger;
     Offer* offer;
+    User* user;
+    CAAssistView* assistView;
 }
 @property (nonatomic, strong) ChatViewController *chatViewController;
 @property (strong, nonatomic) MessageReceiver *message_reciever;
@@ -42,69 +44,9 @@
 
 @implementation CAPersonalViewController
 
--(void)baseData
+- (NSString *)tabTitle
 {
-    currentOrder = [NSArray arrayWithObjects:@"first", @"second", @"third", @"fourth", @"fifth", nil];
-    archiveOrder = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
-    
-    passenger = [CAFlightPassengersCount new];
-    specialoffer = [SpecialOffer new];
-    offer = [Offer new];
-    
-    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    passenger = appDelegate.passengersCount;
-    specialoffer = appDelegate.specialOffer;
-    offer = appDelegate.offer;
-    
-    currentOrderNumber = [NSMutableArray new];
-    passangersArray = [NSMutableArray new];
-    specialOfferArray = [NSMutableArray new];
-    for (int i=0; i< currentOrder.count; i++) {
-        NSUInteger r = arc4random_uniform(999999) + 100000;
-        [currentOrderNumber addObject:[NSNumber numberWithInteger:r]];
-        [passangersArray addObject:passenger];
-        [specialOfferArray addObject:specialoffer];
-    }
-    
-    archiveOrderNumber = [NSMutableArray new];
-    for (int i=0; i< archiveOrder.count; i++) {
-        NSUInteger r = arc4random_uniform(999999) + 100000;
-        [archiveOrderNumber addObject:[NSNumber numberWithInteger:r]];
-    }
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil user:(User *)_user
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        [self showNavBar];
-        [self baseData];
-        User* user = [User new];
-        user = _user;
-        NSString* text = [NSString stringWithFormat:@"%@\n%@\n%@",user.name, user.email, user.phoneNumber];
-        UIFont *font = [UIFont systemFontOfSize:14];
-        CAAssistView* assistView = [[CAAssistView alloc] initByAssistText:text font:font indentsBorder:5 background:YES];
-        [self.view addSubview:assistView];
-        
-        UIButton *replaceUser = [UIButton buttonWithType:UIButtonTypeInfoDark];
-        [replaceUser addTarget:nil action:@selector(replaceUser) forControlEvents:UIControlEventTouchUpInside];
-        replaceUser.frame = CGRectMake(assistView.frame.size.width - 60, assistView.frame.size.height/2 - 15, 30, 30);
-        [assistView addSubview:replaceUser];
-        
-        NSArray *itemArray = [NSArray arrayWithObjects: [NSString stringWithFormat:@"Текущие заказы %d", [currentOrder count]],
-                                                        [NSString stringWithFormat:@"Архив заказов %d", [archiveOrder count]], nil];
-        segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-        segmentedControl.frame = CGRectMake(10, assistView.frame.origin.y + assistView.frame.size.height + 10, 300, 30);
-        segmentedControl.segmentedControlStyle = UISegmentedControlStyleBezeled;
-        segmentedControl.selectedSegmentIndex = 0;
-        isCurrentOrders = YES;
-        [segmentedControl addTarget:self action:@selector(segmentedControl:) forControlEvents:UIControlEventValueChanged];
-        [self.view addSubview:segmentedControl];
-        
-        person = currentOrder;
-        orderNumber = currentOrderNumber;
-    }
-    return self;
+	return @"Кабинет";
 }
 
 -(void)showNavBar
@@ -115,7 +57,7 @@
     navBack.frame = CGRectMake(0, 0, navBackImage.size.width, navBackImage.size.height);
     [navBack addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:navBack];
-    self.navigationItem.leftBarButtonItem = customBarItem;
+    //self.navigationItem.leftBarButtonItem = customBarItem;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     titleLabel.backgroundColor = [UIColor clearColor];
@@ -142,10 +84,78 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    currentOrder = [NSArray arrayWithObjects:@"first", @"second", @"third", @"fourth", @"fifth", nil];
+    archiveOrder = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    
+    passenger = [CAFlightPassengersCount new];
+    specialoffer = [SpecialOffer new];
+    offer = [Offer new];
+    user = [User new];
+    
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //passenger = appDelegate.passengersCount;
+    specialoffer = appDelegate.specialOffer;
+    offer = appDelegate.offer;
+    //user = appDelegate.user;
+    
+    passenger.adultsCount = 1;
+    
+    currentOrderNumber = [NSMutableArray new];
+    passangersArray = [NSMutableArray new];
+    specialOfferArray = [NSMutableArray new];
+    
+    for (int i=0; i< currentOrder.count; i++) {
+        NSUInteger r = arc4random_uniform(999999) + 100000;
+        [currentOrderNumber addObject:[NSNumber numberWithInteger:r]];
+        [passangersArray addObject:passenger];
+        [specialOfferArray addObject:specialoffer];
+    }
+    
+    archiveOrderNumber = [NSMutableArray new];
+    for (int i=0; i< archiveOrder.count; i++) {
+        NSUInteger r = arc4random_uniform(999999) + 100000;
+        [archiveOrderNumber addObject:[NSNumber numberWithInteger:r]];
+    }
+    
+    person = currentOrder;
+    orderNumber = currentOrderNumber;
+    
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    user = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
+    
+    NSString* text = [NSString stringWithFormat:@"%@\n%@\n%@",user.name, user.email, user.phoneNumber];
+    UIFont *font = [UIFont systemFontOfSize:14];
+    assistView = [[CAAssistView alloc] initByAssistText:text font:font indentsBorder:5 background:YES];
+    [self.view addSubview:assistView];
+    
+     itemArray = [NSArray arrayWithObjects: [NSString stringWithFormat:@"Текущие заказы %d", [currentOrder count]],
+                          [NSString stringWithFormat:@"Архив заказов %d", [archiveOrder count]], nil];
+    
+    UIButton *replaceUser = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    [replaceUser addTarget:self action:@selector(replaceUser) forControlEvents:UIControlEventTouchUpInside];
+    replaceUser.frame = CGRectMake(assistView.frame.size.width - 60, assistView.frame.size.height/2 - 15, 30, 30);
+    [assistView addSubview:replaceUser];
+   
+    if (segmentedControl == nil) {
+        segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+        segmentedControl.frame = CGRectMake(10, assistView.frame.origin.y + assistView.frame.size.height + 10, 300, 30);
+        segmentedControl.segmentedControlStyle = UISegmentedControlStyleBezeled;
+        segmentedControl.selectedSegmentIndex = 0;
+        isCurrentOrders = YES;
+        [segmentedControl addTarget:self action:@selector(segmentedControl:) forControlEvents:UIControlEventValueChanged];
+        [self.view addSubview:segmentedControl];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self showNavBar];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -250,8 +260,6 @@
 -(void)replaceUser
 {
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"accessToken"];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    [self.view removeFromSuperview];
 }
 
 @end

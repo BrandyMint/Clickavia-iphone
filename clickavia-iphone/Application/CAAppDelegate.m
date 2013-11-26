@@ -11,7 +11,7 @@
 #import "MainScreenViewController.h"
 #import "BMMessage.h"
 
-#import "CAAuthorization.h"
+#import "CAPersonalViewController.h"
 
 @implementation AKTabBarController (DelegateAutomaticDismissKeyboard)
 -(NSUInteger)supportedInterfaceOrientations{
@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) CASpecOffersViewController *specialOfferViewController;
 @property (nonatomic, strong) MainScreenViewController *mainScreenViewController;
-@property (nonatomic, retain) CAAuthorization* authorization;
+@property (nonatomic, retain) CAPersonalViewController* personalViewController;
 
 @end
 
@@ -42,12 +42,12 @@
     
     _specialOfferViewController = [[CASpecOffersViewController alloc] init];
     _mainScreenViewController = [[MainScreenViewController alloc] init];
-    _authorization = [CAAuthorization new];
+    _personalViewController = [CAPersonalViewController new];
     _rootTabBarController.delegate = self;
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
-                                            [[UINavigationController alloc] initWithRootViewController:_authorization],
+                                            [[UINavigationController alloc] initWithRootViewController:_personalViewController],
                                             nil]];
     [self customAppearance];
     self.window.rootViewController = _rootTabBarController;
