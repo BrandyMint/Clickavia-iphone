@@ -588,6 +588,12 @@
     User* user = [User new];
     user = appDelegate.user;
     
+    if (user == nil) {
+        //уже авторизирован в системе
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+        user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    
     CAAutorizedController* autorizedController = [[CAAutorizedController alloc] initWithNibName:@"CAAutorizedController"
                                                                                          bundle:nil
                                                                                            user:user
