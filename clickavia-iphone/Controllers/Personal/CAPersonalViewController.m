@@ -86,9 +86,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    currentOrder = [NSArray arrayWithObjects:@"first", @"second", @"third", @"fourth", @"fifth", nil];
-    archiveOrder = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
-    
     passenger = [CAFlightPassengersCount new];
     specialoffer = [SpecialOffer new];
     offer = [Offer new];
@@ -99,6 +96,21 @@
     specialoffer = appDelegate.specialOffer;
     offer = appDelegate.offer;
     //user = appDelegate.user;
+    
+    if (specialoffer != nil) {
+        [self baseSetup];
+    }
+    else
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"На экране Акции откройте - экран данных перелета" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+-(void) baseSetup
+{
+    currentOrder = [NSArray arrayWithObjects:@"first", @"second", @"third", @"fourth", @"fifth", nil];
+    archiveOrder = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
     
     passenger.adultsCount = 1;
     
@@ -130,14 +142,14 @@
     assistView = [[CAAssistView alloc] initByAssistText:text font:font indentsBorder:5 background:YES];
     [self.view addSubview:assistView];
     
-     itemArray = [NSArray arrayWithObjects: [NSString stringWithFormat:@"Текущие заказы %d", [currentOrder count]],
-                          [NSString stringWithFormat:@"Архив заказов %d", [archiveOrder count]], nil];
+    itemArray = [NSArray arrayWithObjects: [NSString stringWithFormat:@"Текущие заказы %d", [currentOrder count]],
+                 [NSString stringWithFormat:@"Архив заказов %d", [archiveOrder count]], nil];
     
     UIButton *replaceUser = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [replaceUser addTarget:self action:@selector(replaceUser) forControlEvents:UIControlEventTouchUpInside];
     replaceUser.frame = CGRectMake(assistView.frame.size.width - 60, assistView.frame.size.height/2 - 15, 30, 30);
     [assistView addSubview:replaceUser];
-   
+    
     if (segmentedControl == nil) {
         segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
         segmentedControl.frame = CGRectMake(10, assistView.frame.origin.y + assistView.frame.size.height + 10, 300, 30);
@@ -154,8 +166,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self showNavBar];
-    
-
 }
 
 - (void)didReceiveMemoryWarning
