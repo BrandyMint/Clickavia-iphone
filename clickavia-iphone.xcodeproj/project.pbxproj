@@ -409,6 +409,8 @@
 				66C55AC7183F309C0027DA3F /* CAPersonCell.h */,
 				66C55AC8183F309C0027DA3F /* CAPersonCell.m */,
 				66C55AC9183F309C0027DA3F /* CAPersonCell.xib */,
+				66C55ACC183F6F930027DA3F /* PersonalLater */,
+				7CC150CA17C5DD9300796B50 /* ChatViewController */,
 			);
 			name = Personal;
 			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
@@ -472,7 +474,6 @@
 				66C55ACF183F6FDC0027DA3F /* CAPersonalLaterViewController.xib */,
 			);
 			name = PersonalLater;
-			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
 			sourceTree = "<group>";
 		};
 		66F4C7E217EB0FDB0004DB88 /* ContractController */ = {
@@ -574,20 +575,17 @@
 		7C16A2E917A648B20055FF8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				665EF9D018334FD900AFAAE2 /* ReplacePassportCard */,
-				66F4C7E217EB0FDB0004DB88 /* ContractController */,
-				668CB98E17F2060A00A26506 /* FlightDataController */,
-				6650772C181F928300890DB1 /* BuyerInfoController */,
-				66471FD6183B64170054D770 /* OrderInfo */,
-				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
-				7CC7D33217A78B3400940C94 /* OffersListViewController */,
-				668CB99417F2064800A26506 /* AssistView */,
 				7C16A31117A67BD50055FF8F /* SpecialOfferViewController */,
+				7CC150C117C5D4DE00796B50 /* MainScreenViewController */,
+				667B84AD183E081D00FB2BB7 /* Personal */,
+				66F4C7E217EB0FDB0004DB88 /* ContractController */,
+				6650772C181F928300890DB1 /* BuyerInfoController */,
+				665EF9D018334FD900AFAAE2 /* ReplacePassportCard */,
+				668CB98E17F2060A00A26506 /* FlightDataController */,
+				66471FD6183B64170054D770 /* OrderInfo */,
+				668CB99417F2064800A26506 /* AssistView */,
 				6690697F1830F66600EE32EE /* AuthorizationController */,
 				66A67F5218322DB600A50318 /* AutorizedController */,
-				667B84AD183E081D00FB2BB7 /* Personal */,
-				66C55ACC183F6F930027DA3F /* PersonalLater */,
-				7CC150CA17C5DD9300796B50 /* ChatViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -683,6 +681,7 @@
 				6639C9F617C5E6A100CF772D /* MainScreenViewController.h */,
 				6639C9F717C5E6A100CF772D /* MainScreenViewController.m */,
 				6639C9F817C5E6A100CF772D /* MainScreenViewController.xib */,
+				7CC7D33217A78B3400940C94 /* OffersListViewController */,
 			);
 			name = MainScreenViewController;
 			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/MainScreenViewController";
@@ -696,7 +695,7 @@
 				6616233317EB39CD00B6A19C /* Resources */,
 			);
 			name = ChatViewController;
-			path = "../../../../../../denisdbv/Documents/ClickDev/Clickavia-iphone/clickavia-iphone/Controllers/ChatViewController";
+			path = "../../../../Clickavia-iphone/clickavia-iphone/Controllers/ChatViewController";
 			sourceTree = "<group>";
 		};
 		7CC7D33217A78B3400940C94 /* OffersListViewController */ = {
@@ -714,7 +713,7 @@
 				66CCF64617E060F3002BF4A6 /* CAOfferGreenBar.m */,
 			);
 			name = OffersListViewController;
-			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
+			path = "../../../../clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
 			sourceTree = "<group>";
 		};
 		7CE49F2517C4A9D700F3EA0C /* Application */ = {

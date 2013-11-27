@@ -143,7 +143,6 @@
 }
 -(void)showLoading:(BOOL)show
 {
-    
     if(show)
     {
         [_loadingView removeFromSuperview];
@@ -159,11 +158,13 @@
         [indicatorView stopAnimating];
     }
 }
+
 -(void)setupDestinationsLabelsFrom:(UILabel*)fromLabel andTo:(UILabel*)toLabel
 {
     fromLabel.text = _offerConditions.searchConditions.direction_departure.title;
     toLabel.text = _offerConditions.searchConditions.direction_return.title;
 }
+
 -(void)setupDatesText
 {
     if(_offerConditions!=nil && _offerConditions.departureDate!=nil)
@@ -179,6 +180,7 @@
         labelBackDate.frame = CGRectMake(labelBackDate.frame.origin.x, labelBackDate.frame.origin.y, stringBoundingBox.width, stringBoundingBox.height);
     }
 }
+
 -(NSString*)textForDate:(NSDate*)date
 {
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
@@ -230,6 +232,7 @@
     return result;
     
 }
+
 -(void) viewWillAppear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -276,6 +279,7 @@
         [alert show];
     }
 }
+
 - (void)loadOffers
 {
     [self showLoading:YES];
@@ -293,6 +297,7 @@
          [self showLoading:NO];
      }];
 }
+
 - (void)columnsControlViewDataLoaded:(CAColumnsControlView *)columnsControlView
 {
     if(columnsControlView==columnDepartureControlView)
@@ -312,20 +317,22 @@
         }
     }
 }
+
 -(void)loadDataForColumnDeparture
 {
-    [self showLoading:YES];
+    //[self showLoading:YES];
     fdm.offerConditions = _offerConditions;
     [fdm getFlightsDepartureByDateWithCompleteBlock:^(NSArray *flights){
         [columnDepartureControlView importFlights:flights];
-        [self showLoading:NO];
+        //[self showLoading:NO];
         
         //[columnArrivialControlView importFlights:[NSArray new]];
     }];
 }
+
 -(void)loadDataForColumnsArrival
 {
-    [self showLoading:YES];
+    //[self showLoading:YES];
     if(_offerConditions.returnDate==nil)
     {
         _offerConditions.returnDate = _offerConditions.departureDate;
@@ -334,10 +341,11 @@
     [fdm getFlightsReturnByDateWithCompleteBlock:^(NSArray *flights)
      {
          [columnArrivialControlView importFlights:flights];
-         [self showLoading:NO];
+         //[self showLoading:NO];
          
      }];
 }
+
 -(void)showNavBar
 {
     UIImage *navBackImage = [UIImage imageNamed:@"toolbar-back-icon.png"];
@@ -390,7 +398,6 @@
     [titleBarItemView addSubview:arrow];
     [titleBarItemView addSubview:arrivalCity];
     self.navigationItem.titleView = titleBarItemView;
-
 }
 
 -(void) showColumns
@@ -464,11 +471,13 @@
 {
     return nil;
 }
+
 -(void)saveDataInAppDelegate
 {
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.offerConditions = _offerConditions;
 }
+
 - (void)columnsControlView:(CAColumnsControlView *)columnsControlView didSelectColumnWithObject:(Flight*)flight
 {
     if(columnsControlView==columnDepartureControlView)
@@ -481,14 +490,14 @@
         }
         else
         {
-            [self loadOffers];
+            //[self loadOffers];
         }
     }
     if(columnsControlView==columnArrivialControlView)
     {
         
         _offerConditions.returnDate = flight.dateAndTimeDeparture;
-        [self loadOffers];
+        //[self loadOffers];
     }
 }
 
@@ -737,6 +746,7 @@
     [self.navigationController popViewControllerAnimated:YES];
     [self.view removeFromSuperview];
 }
+
 -(void)viewDidDisappear:(BOOL)animated
 {
     _offerConditions = nil;
