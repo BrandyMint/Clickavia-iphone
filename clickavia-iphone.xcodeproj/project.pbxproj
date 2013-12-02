@@ -103,6 +103,8 @@
 		668A5603183CBBFC005E4795 /* NumberToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 668A5602183CBBFC005E4795 /* NumberToString.m */; };
 		669069831830F6A400EE32EE /* CAAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 669069811830F6A400EE32EE /* CAAuthorization.m */; };
 		669069841830F6A400EE32EE /* CAAuthorization.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669069821830F6A400EE32EE /* CAAuthorization.xib */; };
+		669AED02184C989D00978E24 /* CATicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669AED00184C989D00978E24 /* CATicketsViewController.m */; };
+		669AED03184C989D00978E24 /* CATicketsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669AED01184C989D00978E24 /* CATicketsViewController.xib */; };
 		66A5390A182A298800B0C782 /* CABuyerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A53909182A298800B0C782 /* CABuyerInfoCell.m */; };
 		66A5390C182A299D00B0C782 /* CABuyerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A5390B182A299D00B0C782 /* CABuyerInfoCell.xib */; };
 		66A67F5618322DE900A50318 /* CAAutorizedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A67F5418322DE900A50318 /* CAAutorizedController.m */; };
@@ -269,6 +271,9 @@
 		669069801830F6A400EE32EE /* CAAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAuthorization.h; path = Authorization/CAAuthorization.h; sourceTree = "<group>"; };
 		669069811830F6A400EE32EE /* CAAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAAuthorization.m; path = Authorization/CAAuthorization.m; sourceTree = "<group>"; };
 		669069821830F6A400EE32EE /* CAAuthorization.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CAAuthorization.xib; path = Authorization/CAAuthorization.xib; sourceTree = "<group>"; };
+		669AECFF184C989D00978E24 /* CATicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATicketsViewController.h; sourceTree = SOURCE_ROOT; };
+		669AED00184C989D00978E24 /* CATicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATicketsViewController.m; sourceTree = SOURCE_ROOT; };
+		669AED01184C989D00978E24 /* CATicketsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CATicketsViewController.xib; sourceTree = SOURCE_ROOT; };
 		66A53908182A298800B0C782 /* CABuyerInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CABuyerInfoCell.h; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfoCell.h"; sourceTree = SOURCE_ROOT; };
 		66A53909182A298800B0C782 /* CABuyerInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABuyerInfoCell.m; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfoCell.m"; sourceTree = SOURCE_ROOT; };
 		66A5390B182A299D00B0C782 /* CABuyerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CABuyerInfoCell.xib; path = "clickavia-iphone/Controllers/BuyerInfo/CABuyerInfoCell.xib"; sourceTree = SOURCE_ROOT; };
@@ -453,6 +458,17 @@
 			name = AuthorizationController;
 			sourceTree = "<group>";
 		};
+		669AECF9184C8CD400978E24 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				669AECFF184C989D00978E24 /* CATicketsViewController.h */,
+				669AED00184C989D00978E24 /* CATicketsViewController.m */,
+				669AED01184C989D00978E24 /* CATicketsViewController.xib */,
+			);
+			name = Tickets;
+			path = "../../../../../../denisdbv/Documents/ClickDev/clickavia-iphone/clickavia-iphone/Controllers/OffersListViewController";
+			sourceTree = "<group>";
+		};
 		66A67F5218322DB600A50318 /* AutorizedController */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +599,7 @@
 				665EF9D018334FD900AFAAE2 /* ReplacePassportCard */,
 				668CB98E17F2060A00A26506 /* FlightDataController */,
 				66471FD6183B64170054D770 /* OrderInfo */,
+				669AECF9184C8CD400978E24 /* Tickets */,
 				668CB99417F2064800A26506 /* AssistView */,
 				6690697F1830F66600EE32EE /* AuthorizationController */,
 				66A67F5218322DB600A50318 /* AutorizedController */,
@@ -830,6 +847,7 @@
 				17710ECD17F466A8008A8E11 /* UISwitch-background@2x.png in Resources */,
 				17710EC117F466A8008A8E11 /* calendar-return-date-bg@2x.png in Resources */,
 				17710ED117F466A8008A8E11 /* UISwitch-planes-two@2x.png in Resources */,
+				669AED03184C989D00978E24 /* CATicketsViewController.xib in Resources */,
 				666C60E517CCDFA9008220AC /* CASpecOffersViewController.xib in Resources */,
 				17710EC217F466A8008A8E11 /* calendar-departure-date-bg@2x.png in Resources */,
 				666C60E917CCDFA9008220AC /* SpecialOfferCell.xib in Resources */,
@@ -961,6 +979,7 @@
 				666C60E617CCDFA9008220AC /* drawArrowView.m in Sources */,
 				666C60E817CCDFA9008220AC /* SpecialOfferCell.m in Sources */,
 				667AEDB218360AE600F502CA /* CAPopoverErrorViewController.m in Sources */,
+				669AED02184C989D00978E24 /* CATicketsViewController.m in Sources */,
 				66CCF64417E05F15002BF4A6 /* CAOffersListViewController.m in Sources */,
 				66397DAE1806BFCF0016EE69 /* CAFlightDataView.m in Sources */,
 				66397DA41806BF7B0016EE69 /* CAContract.m in Sources */,

@@ -35,6 +35,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(openTab:)
+                                                 name:@"openTab"
+                                               object:nil];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     _rootTabBarController = [[AKTabBarController alloc] initWithTabBarHeight: 35];
@@ -204,6 +209,11 @@
         default:
             break;
     }
+}
+
+-(void)openTab:(NSNotification*)notification
+{
+    [_rootTabBarController openTab:[[notification object] integerValue]];
 }
 
 @end

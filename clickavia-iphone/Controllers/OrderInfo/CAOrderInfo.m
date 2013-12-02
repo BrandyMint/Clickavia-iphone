@@ -16,6 +16,7 @@
 #import "CAOrderRequirements.h"
 #import "OfferConditions.h"
 #import "NumberToString.h"
+#import "CATicketsViewController.h"
 
 #define BUTTON_WIDTH 280
 #define BUTTON_HEIGHT 50
@@ -306,7 +307,8 @@
 
 -(void)onNext:(id)sender
 {
-    
+    CATicketsViewController* ticketsViewController = [CATicketsViewController new];
+    [self.navigationController pushViewController:ticketsViewController animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated

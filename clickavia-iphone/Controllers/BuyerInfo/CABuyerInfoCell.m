@@ -18,7 +18,7 @@
 }
 
 @synthesize nameTextField, surnameTextField, segmentedControl;
-@synthesize deleteCell;
+@synthesize deleteCell, onInfo;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -47,7 +47,7 @@
     numberBuyer.backgroundColor = [UIColor clearColor];
     [self addSubview:numberBuyer];
     
-    UIButton *onInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    onInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
     onInfo.tag = index;
     [onInfo addTarget:nil action:@selector(alreadyHave:) forControlEvents:UIControlEventTouchUpInside];
     [onInfo setTitle:@" Уже заполняли?" forState:UIControlStateNormal];

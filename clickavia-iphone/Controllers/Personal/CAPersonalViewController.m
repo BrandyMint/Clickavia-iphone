@@ -261,7 +261,7 @@
 {
     UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
     _message_reciever = [MessageReceiver new];
-    _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:@"Gagа" localAvatar:remoteAvatar];
+    _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:user.name localAvatar:remoteAvatar];
     _message_reciever.bmChatViewController = _chatViewController;
     [_chatViewController title:[NSString stringWithFormat:@"Заказ №%d",numberOrder]];
     [self.navigationController pushViewController:_chatViewController animated:YES];

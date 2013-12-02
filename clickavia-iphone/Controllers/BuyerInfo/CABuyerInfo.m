@@ -124,10 +124,7 @@
                                              selector:@selector(toRootNavigationView)
                                                  name:@"didSelectTab"
                                                object:nil];
-}
 
--(void)viewDidAppear:(BOOL)animated
-{
     pickerView = [[CABuyerPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 220, 320, 220)];
     pickerView.delegate = self;
     [self readPassportsUsers];
@@ -422,6 +419,9 @@
     if (buyerArray.count < 2) {
         customCell.deleteCell.hidden = YES;
     }
+    if (namesUsers.count == 0 && accessToken.length > 0) {
+        customCell.onInfo.hidden = YES;
+    }
 }
 
 #pragma mark CABuyerPickerViewDelegate
@@ -558,7 +558,7 @@
                                                        delegate:self
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
-        [alert show];
+        //[alert show];
         
         //Массив с заполненными карточками кодируется в NSData
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];

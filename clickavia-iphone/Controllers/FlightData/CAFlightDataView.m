@@ -80,12 +80,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    if (isSpecialOffer) {
-        passengersCount.adultsCount = 1;
-    }
-    else {
-        passengersCount = appDelegate.passengersCount;
-    }
+    passengersCount.adultsCount = 1;
+    appDelegate.passengersCount = passengersCount;
+
     [passengerCountButton setPassengersCount:passengersCount];
     
     if (isSpecialOffer)

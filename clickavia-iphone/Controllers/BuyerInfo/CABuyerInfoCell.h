@@ -38,6 +38,7 @@ typedef enum
     WTReTextField* surnameTextField;
     UISegmentedControl *segmentedControl;
     UIButton *deleteCell;
+    UIButton *onInfo;
 }
 
 @property (assign) id <CABuyerInfoCellDelegate> delegate;
@@ -45,6 +46,7 @@ typedef enum
 @property (nonatomic, retain) WTReTextField* surnameTextField;
 @property (nonatomic, retain) UISegmentedControl *segmentedControl;
 @property (nonatomic, retain) UIButton *deleteCell;
+@property (nonatomic, retain) UIButton *onInfo;
 
 - (void) initByIndex:(NSInteger)index;
 - (void) didSelectDatePicker:(NSDate *)date typeField:(idField)typeField indexCell:(NSInteger)indexCell sender:(id)sender;
