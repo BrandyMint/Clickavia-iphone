@@ -129,7 +129,7 @@
 -(void)openChat:(id)sender
 {
     UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
-    _message_reciever = [MessageReceiver new];
+    _message_reciever = [[MessageReceiver alloc] initWithNameManager:@"Василий Васильев"];
     _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:name localAvatar:remoteAvatar];
     _message_reciever.bmChatViewController = _chatViewController;
     [_chatViewController title:[NSString stringWithFormat:@"Заказ №%d",numberOrder]];
