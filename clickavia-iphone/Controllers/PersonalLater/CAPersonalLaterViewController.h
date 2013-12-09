@@ -16,6 +16,7 @@
               bundle:(NSBundle *)nibBundleOrNil
               status:(NSString*)status
              manager:(NSString*)manager
+                userName:(NSString*)userName
          numberOrder:(NSInteger)numberOrder
                offer:(Offer*)offer
            passenger:(CAFlightPassengersCount*)passenger

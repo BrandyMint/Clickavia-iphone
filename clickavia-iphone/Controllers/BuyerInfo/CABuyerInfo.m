@@ -419,7 +419,7 @@
     if (buyerArray.count < 2) {
         customCell.deleteCell.hidden = YES;
     }
-    if (namesUsers.count == 0 && accessToken.length > 0) {
+    if (namesUsers.count == 0) {
         customCell.onInfo.hidden = YES;
     }
 }

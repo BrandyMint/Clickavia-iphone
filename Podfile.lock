@@ -39,7 +39,7 @@ PODS:
     - SOCKit
   - RestKit/ObjectMapping (0.20.0)
   - RestKit/Support (0.20.0)
-  - Reveal-iOS-SDK (1.0.1)
+  - Reveal-iOS-SDK (1.0.2)
   - SOCKit (1.1)
   - WTReTextField (0.0.1)
   - WYPopoverController (0.1.7)
@@ -100,7 +100,7 @@ SPEC CHECKSUMS:
   NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
   PSTCollectionView: fb2ad2790c6efa306b2caf10315b2c1464d1f5c6
   RestKit: 580771664a14eaaa40bf53cf83584f12fc141930
-  Reveal-iOS-SDK: 46150c4842289e303a5da32b092686ef3c6737f5
+  Reveal-iOS-SDK: 306afadde69510532ba9c9f97f1443dc60887954
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
   WTReTextField: 6484bb57879e042a2d90ea70d7bd7a00e04e8927
   WYPopoverController: 729963b2405c7763c99393a254021de9bffde763

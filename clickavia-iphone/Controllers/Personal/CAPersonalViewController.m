@@ -249,6 +249,7 @@
                                                                   bundle:Nil
                                                                   status:@"оплачено"
                                                                   manager:@"Василий Васильев"
+                                                                  userName:user.name
                                                                   numberOrder:[[orderNumber objectAtIndex:indexPath.section] integerValue]
                                                                   offer:offer
                                                                   passenger:passenger

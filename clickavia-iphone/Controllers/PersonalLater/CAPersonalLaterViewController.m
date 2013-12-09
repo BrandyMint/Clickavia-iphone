@@ -19,6 +19,7 @@
 @interface CAPersonalLaterViewController ()
 {
     NSInteger numberOrder;
+    NSString* name;
     Offer* offer;
     CAFlightPassengersCount* passenger;
 }
@@ -32,6 +33,7 @@
               bundle:(NSBundle *)nibBundleOrNil
               status:(NSString*)status
              manager:(NSString*)manager
+            userName:(NSString*)userName
          numberOrder:(NSInteger)_numberOrder
                offer:(Offer *)_offer
            passenger:(CAFlightPassengersCount *)_passenger
@@ -43,6 +45,7 @@
         offer = _offer;
         passenger = [CAFlightPassengersCount new];
         passenger = _passenger;
+        name = userName;
         
         numberOrder = _numberOrder;
         [self showNavBar];
@@ -127,7 +130,7 @@
 {
     UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
     _message_reciever = [MessageReceiver new];
-    _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:@"Gagа" localAvatar:remoteAvatar];
+    _chatViewController = [[ChatViewController alloc] initBMChatViewController: _message_reciever localName:name localAvatar:remoteAvatar];
     _message_reciever.bmChatViewController = _chatViewController;
     [_chatViewController title:[NSString stringWithFormat:@"Заказ №%d",numberOrder]];
     [self.navigationController pushViewController:_chatViewController animated:YES];
