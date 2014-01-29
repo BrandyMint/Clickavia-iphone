@@ -8,6 +8,7 @@
 
 #import "MainScreenViewController.h"
 #import "CAOffersListViewController.h"
+#import "CAAppDelegate.h"
 
 @interface MainScreenViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *topGreenImage;
@@ -27,6 +28,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.navigationController.navigationBarHidden = YES;
 }
 

@@ -12,10 +12,13 @@
 
 @implementation CABuyerInfoCell
 {
-    UISegmentedControl *segmentedControl;
+    CAPassportTextField* passportField;
+    UIButton* validDayButton;
+    UIButton* birthdayButton;
 }
-@synthesize nameTextField, surnameTextField;
 
+@synthesize nameTextField, surnameTextField, segmentedControl;
+@synthesize deleteCell;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -45,29 +48,17 @@
     [self addSubview:numberBuyer];
     
     UIButton *onInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [onInfo addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
-    [onInfo setTitle:@"Delete" forState:UIControlStateNormal];
-    onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 20, numberBuyer.frame.size.height);
-    //[self addSubview:onInfo];
+    onInfo.tag = index;
+    [onInfo addTarget:nil action:@selector(alreadyHave:) forControlEvents:UIControlEventTouchUpInside];
+    [onInfo setTitle:@" Уже заполняли?" forState:UIControlStateNormal];
+    onInfo.frame = CGRectMake(numberBuyer.frame.origin.x + numberBuyer.frame.size.width + 15, numberBuyer.frame.origin.y, 150, numberBuyer.frame.size.height);
+    [self addSubview:onInfo];
     
-    UILabel* alreadyHave = [[UILabel alloc] initWithFrame:CGRectMake(onInfo.frame.origin.x + onInfo.frame.size.width + 5, numberBuyer.frame.origin.y, 0, 0)];
-    alreadyHave.text = @"Уже заполняли?";
-    [alreadyHave sizeToFit];
-    alreadyHave.backgroundColor = [UIColor clearColor];
-    //[self addSubview:alreadyHave];
-#warning Включить кнопку "Уже заполняли"
-    
-    UIButton *deleteCell = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    deleteCell = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [deleteCell addTarget:nil action:@selector(deleteTappedOnCell:) forControlEvents:UIControlEventTouchUpInside];
-    [deleteCell setTitle:@"Delete" forState:UIControlStateNormal];
-    deleteCell.frame = CGRectMake(alreadyHave.frame.origin.x + alreadyHave.frame.size.width + 15, alreadyHave.frame.origin.y, 20, alreadyHave.frame.size.height);
+    [deleteCell setTitle:@" Удалить" forState:UIControlStateNormal];
+    deleteCell.frame = CGRectMake(onInfo.frame.origin.x + onInfo.frame.size.width + 15, onInfo.frame.origin.y, 120, onInfo.frame.size.height);
     [self addSubview:deleteCell];
-    
-    UILabel* delete = [[UILabel alloc] initWithFrame:CGRectMake(deleteCell.frame.origin.x + deleteCell.frame.size.width + 5, numberBuyer.frame.origin.y, 0, 0)];
-    delete.text = @"Удалить";
-    [delete sizeToFit];
-    delete.backgroundColor = [UIColor clearColor];
-    [self addSubview:delete];
     
     surnameTextField = [[WTReTextField alloc] initWithFrame:CGRectMake(10, numberBuyer.frame.origin.y + 23, 300, 30)];
     surnameTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -120,10 +111,9 @@
     [self addSubview:passport];
     
     //2 TextField с разделенной чертой
-    CAPassportTextField* _passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30)];
-    //_passportField.tag = indexPath.section;
-    _passportField.delegate = self;
-    [self addSubview:_passportField];
+    passportField = [[CAPassportTextField alloc]initWithFrame:CGRectMake(passport.frame.origin.x, passport.frame.origin.y + passport.frame.size.height + 2, segmentedControl.frame.size.width, 30) initPasportSerial:nil initPassportNumber:nil];
+    passportField.delegate = self;
+    [self addSubview:passportField];
     
     UILabel * dateBirth = [[UILabel alloc] initWithFrame:CGRectMake(segmentedControl.frame.origin.x + segmentedControl.frame.size.width + 5, asking.frame.origin.y, 0, 0)];
     dateBirth.text = @"Дата рождения";
@@ -137,6 +127,19 @@
     validity.backgroundColor = [UIColor clearColor];
     [self addSubview:validity];
     
+    validDayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    validDayButton.frame = CGRectMake(200, 160, 120, 30);
+    [validDayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
+    [validDayButton addTarget:self action:@selector(validDay:) forControlEvents:UIControlEventTouchUpInside];
+    validDayButton.tag = 2;
+    [self addSubview:validDayButton];
+    
+    birthdayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    birthdayButton.frame = CGRectMake(200, 110, 120, 30);
+    [birthdayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
+    [birthdayButton addTarget:self action:@selector(birthday:) forControlEvents:UIControlEventTouchUpInside];
+    birthdayButton.tag = 1;
+    [self addSubview:birthdayButton];
 }
 
 -(void)segmentedControl:(id)sender;
@@ -183,6 +186,36 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)validDay:(id)sender
+{
+    [_delegate validDay:sender];
+}
+
+-(void)birthday:(id)sender
+{
+    [_delegate birthday:sender];
+}
+
+- (void)setPassportSerial:(NSString *)passportSerial
+{
+    passportField.passportSeries.text = passportSerial;
+}
+
+- (void)setPassportNumber:(NSString *)passportNumber
+{
+    passportField.passportNumber.text = passportNumber;
+}
+
+- (void)setTitleButtonBirthday:(NSString *)title
+{
+    [birthdayButton setTitle:title forState:UIControlStateNormal];
+}
+
+- (void)setTitleButtonValidday:(NSString *)title
+{
+    [validDayButton setTitle:title forState:UIControlStateNormal];
 }
 
 @end

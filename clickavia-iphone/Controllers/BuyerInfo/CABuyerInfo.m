@@ -9,25 +9,43 @@
 #import "CABuyerInfo.h"
 #import "CAColorSpecOffers.h"
 #import "CAPassportTextField.h"
+#import "LoginForm.h"
+#import "AuthManager.h"
+#import "CAOrderInfo.h"
 
 #define HEIGHT_CELL 200
-#define KEYBOARD_ANIMATION_DURATION 0.3
-#define MINIMUM_SCROLL_FRACTION 0.2
-#define MAXIMUM_SCROLL_FRACTION 1.0
 #define PORTRAIT_KEYBOARD_HEIGHT 216
 #define LANDSCAPE_KEYBOARD_HEIGHT 162
+#define BUTTON_WIDTH 220
+#define BUTTON_HEIGHT 40
+#define TABLEVIEW_MARGIN_BUTTOM 68
 
 @interface CABuyerInfo ()
 {
+    Offer* offerdata;
+    SpecialOffer* specialOfferdata;
     NSMutableArray *buyerArray;
+    NSMutableArray *passportsAutorisedUsers;
+    NSMutableArray* namesUsers;
+    
     NSString* passportSer;
     NSString* passportNum;
-    CABuyerPickerView* pickerView;
+    
     BOOL isPickerViewVisible;
+    BOOL isSpecialOffer;
+    CABuyerPickerView* pickerView;
+    FPPopoverController* popover;
+    CGPoint alreadyHaveButtonPosition;
+    NSInteger alreadyHaveButtonIndex;
+    
+    WYPopoverController* settingsPopoverController;
+    
+    CGRect alreadyHaveButtonFrame;
+    NSString* accessToken;
+    
+    UIButton* enter;
 }
 
-@property (nonatomic, retain) UIButton* birthdayButton;
-@property (nonatomic, retain) UIButton* validDayButton;
 @property (strong, nonatomic) WTReTextField *surname;
 @property (strong, nonatomic) WTReTextField *name;
 @property (strong, nonatomic) WTReTextField *dateBirthday;
@@ -36,13 +54,25 @@
 @end
 
 @implementation CABuyerInfo
-@synthesize validDayButton, birthdayButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        isSpecialOffer = NO;
+        offerdata = [Offer new];
+        offerdata = offer;
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer *)specialOffer
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        isSpecialOffer = YES;
+        specialOfferdata = [SpecialOffer new];
+        specialOfferdata = specialOffer;
     }
     return self;
 }
@@ -65,17 +95,47 @@
     
     buyerArray = [NSMutableArray new];
     [buyerArray addObject:myCard];
-
+    
+    enter = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - BUTTON_WIDTH/2,
+                                                       self.view.frame.size.height - 150,
+                                                       BUTTON_WIDTH,
+                                                       BUTTON_HEIGHT)];
+    enter.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [enter setTitle:@"Далее" forState:UIControlStateNormal];
+    [enter setBackgroundImage:[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] forState:UIControlStateNormal];
+    [enter addTarget:self action:@selector(onNext:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:enter];
+    
+    CGRect tableViewFrame = _tableView.frame;
+    tableViewFrame.size.height -= TABLEVIEW_MARGIN_BUTTOM;
+    _tableView.frame = tableViewFrame;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {
     pickerView = [[CABuyerPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 220, 320, 220)];
     pickerView.delegate = self;
+    [self readPassportsUsers];
+    
+    namesUsers = [[NSMutableArray alloc] initWithCapacity:6];
+    
+    for (int i = 0; i < passportsAutorisedUsers.count; i++) {
+        PersonInfo*  personInfoCard = [PersonInfo new];
+        personInfoCard = [passportsAutorisedUsers objectAtIndex:i];
+        
+        NSMutableString* fi = [NSMutableString new];
+        [fi appendString:[NSString stringWithFormat:@"%@ ",personInfoCard.lastName]];
+        [fi appendString:personInfoCard.name];
+        [namesUsers addObject:fi];
+    }
 }
 
 -(void)showNavBar
@@ -131,7 +191,6 @@
     return 3;
 }
 
-// Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [buyerArray count];
@@ -155,32 +214,13 @@
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CABuyerInfoCell"owner:self options:nil];
         cell = [nib objectAtIndex:0];
-        
-        birthdayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        birthdayButton.frame = CGRectMake(200, 110, 120, 30);
-        [birthdayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
-        [birthdayButton addTarget:self action:@selector(birthday:) forControlEvents:UIControlEventTouchUpInside];
-        birthdayButton.tag = 1;
-        [cell addSubview:birthdayButton];
-        
-        validDayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        validDayButton.frame = CGRectMake(200, 160, birthdayButton.frame.size.width, 30);
-        [validDayButton setTitle:@"10.10.1900" forState:UIControlStateNormal];
-        [validDayButton addTarget:self action:@selector(validDay:) forControlEvents:UIControlEventTouchUpInside];
-        validDayButton.tag = 2;
-        [cell addSubview:validDayButton];
-        
+    
+        [cell initByIndex:indexPath.section];
         cell.delegate = self;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return cell;
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CABuyerInfoCell *customCell = (CABuyerInfoCell*)cell;
-    [customCell initByIndex:indexPath.section];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -197,8 +237,8 @@
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35);
+    [UIView setAnimationDuration:0.3];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT + 35 + TABLEVIEW_MARGIN_BUTTOM);
     [UIView commitAnimations];
 }
 
@@ -206,8 +246,8 @@
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height);
+    [UIView setAnimationDuration:0.1];
+    _tableView.frame = CGRectMake(_tableView.frame.origin.x, _tableView.frame.origin.y, _tableView.frame.size.width, self.view.frame.size.height - TABLEVIEW_MARGIN_BUTTOM);
     [UIView commitAnimations];
 }
 
@@ -215,6 +255,209 @@
     [theTextField resignFirstResponder];
     return YES;
 }
+
+#pragma mark Actions from cell
+- (void)deleteTappedOnCell:(id)sender {
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:_tableView];
+    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:buttonPosition];
+    
+    if (buyerArray.count > 1) {
+        [buyerArray removeObjectAtIndex:indexPath.section];
+        [_tableView beginUpdates];
+        [_tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationTop];
+        [_tableView endUpdates];
+        [self performSelector:@selector(reloadTableView) withObject:self afterDelay:0.5 ];
+    }
+}
+
+- (void)addTappedOnCell:(id)sender
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard.lastName = nil;
+    personInfoCard.name = nil;
+    personInfoCard.personType = male;
+    personInfoCard.birthDate = nil;
+    personInfoCard.validDate = nil;
+    personInfoCard.passportSeries = nil;
+    personInfoCard.passportNumber = nil;
+    [buyerArray addObject:personInfoCard];
+    [_tableView reloadData];
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:buyerArray.count-1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+-(void)reloadTableView
+{
+    [_tableView reloadData];
+}
+
+- (void)alreadyHave:(id)sender
+{
+    alreadyHaveButtonIndex = [sender tag];
+    alreadyHaveButtonPosition = [sender convertPoint:CGPointZero toView:self.view];
+    
+    if (accessToken == nil) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Авторизуйтесь"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"OK", nil];
+        alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+        [alertView show];
+    }
+    else
+    {
+        [self showPopover:alreadyHaveButtonPosition];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        LoginForm* loginForm = [LoginForm new];
+        loginForm.email = [alertView textFieldAtIndex:0].text;
+        loginForm.password = [alertView textFieldAtIndex:1].text;
+        
+        AuthManager* authManager = [AuthManager new];
+        [authManager getUser:loginForm completeBlock:^(User* user)
+         {
+             loginForm.accessToken = user.authKey;
+             NSString* autorization = [NSString stringWithFormat:@"Имя: %@\n email: %@\n Номер телефона: %@\n token: %@",user.name, user.email, user.phoneNumber, user.authKey];
+             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Авторизиция прошла успешно" message:autorization delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+             [alert show];
+             [[NSUserDefaults standardUserDefaults] setObject:loginForm.accessToken forKey:@"accessToken"];
+             accessToken = loginForm.accessToken;
+             [self showPopover:alreadyHaveButtonPosition];
+         }
+                   failBlock:^(NSException* exception)
+         {
+             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Проверьте ваш пароль или email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+             [alert show];
+         }
+         ];
+    }
+}
+
+-(void)showPopover:(CGPoint)point
+{
+    float heightTableRow = 40;
+    point.y -=  40 + heightTableRow*namesUsers.count - TABLEVIEW_MARGIN_BUTTOM;
+    
+    UIView* btn = [UIView new];
+    CAPopoverList *popoverList = [[CAPopoverList alloc] initWithStyle:UITableViewStylePlain arrayValues:namesUsers];
+    popoverList.contentSizeForViewInPopover = CGSizeMake(self.view.frame.size.width, heightTableRow*namesUsers.count);
+    popoverList.delegate = self;
+    popoverList.title = @"Список паспортов";
+    popoverList.modalInPopover = NO;
+    [popoverList heightRow:heightTableRow];
+    
+    settingsPopoverController = [[WYPopoverController alloc] initWithContentViewController:popoverList];
+    settingsPopoverController.delegate = self;
+    settingsPopoverController.passthroughViews = @[btn];
+    settingsPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+    settingsPopoverController.wantsDefaultContentAppearance = NO;
+
+    WYPopoverBackgroundView* popoverAppearance = [WYPopoverBackgroundView appearance];
+    [popoverAppearance setOuterCornerRadius:5];
+    [popoverAppearance setOuterStrokeColor:[UIColor blackColor]];
+    [popoverAppearance setInnerCornerRadius:5];
+    [popoverAppearance setInnerStrokeColor:[UIColor clearColor]];
+    
+    [popoverAppearance setBorderWidth:5];
+    [popoverAppearance setArrowHeight:10];
+    [popoverAppearance setArrowBase:20];
+    
+    [settingsPopoverController presentPopoverFromRect:CGRectMake(0, point.y, self.view.frame.size.width, heightTableRow*namesUsers.count)
+                                               inView:self.view
+                             permittedArrowDirections:WYPopoverArrowDirectionUp
+                                             animated:YES
+                                              options:WYPopoverAnimationOptionFadeWithScale];
+}
+
+#pragma mark CAPopoverListDelegate
+-(void)popoverListdidSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [settingsPopoverController dismissPopoverAnimated:YES];
+    settingsPopoverController.delegate = nil;
+    settingsPopoverController = nil;
+    
+    PersonInfo* personInfo = [PersonInfo new];
+    personInfo = [passportsAutorisedUsers objectAtIndex:indexPath.row];
+
+    [buyerArray replaceObjectAtIndex:alreadyHaveButtonIndex withObject:personInfo];
+    
+    [_tableView reloadData];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CABuyerInfoCell *customCell = (CABuyerInfoCell*)cell;
+    PersonInfo* personInfo = [PersonInfo new];
+    
+    personInfo = [buyerArray objectAtIndex:indexPath.section];
+    
+    NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
+    [date_format setDateFormat: @"dd.MM.yyyy"];
+    NSString * birthDateString = [date_format stringFromDate: personInfo.birthDate];
+    NSString * validDateString = [date_format stringFromDate: personInfo.validDate];
+    
+    customCell.surnameTextField.text = personInfo.lastName;
+    customCell.nameTextField.text = personInfo.name;
+    customCell.segmentedControl.selectedSegmentIndex = personInfo.personType;
+    [customCell setPassportSerial:personInfo.passportSeries];
+    [customCell setPassportNumber:personInfo.passportNumber];
+    
+    if (personInfo.birthDate != nil) {
+        [customCell setTitleButtonBirthday:birthDateString];
+    }
+    if (personInfo.validDate != nil) {
+        [customCell setTitleButtonValidday:validDateString];
+    }
+
+    cell.backgroundColor = [UIColor clearColor];
+    
+    if (buyerArray.count < 2) {
+        customCell.deleteCell.hidden = YES;
+    }
+}
+
+#pragma mark CABuyerPickerViewDelegate
+
+- (void) cancelButtonPress
+{
+    [pickerView removeFromSuperview];
+    isPickerViewVisible = NO;
+}
+
+- (void) acceptButtonPress
+{
+    [pickerView removeFromSuperview];
+    isPickerViewVisible = NO;
+}
+
+- (void) datePickerDidSelectedDate:(NSDate*)selectedDate fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:indexCell];
+    
+    NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
+    [date_format setDateFormat: @"dd.MM.yyyy"];
+    NSString * date_string = [date_format stringFromDate: selectedDate];
+    
+    if (fieldId == birthday)
+    {
+        personInfoCard.birthDate = selectedDate;
+        [sender setTitle:date_string forState:UIControlStateNormal];
+    }
+    else
+    {
+        personInfoCard.validDate = selectedDate;
+        [sender setTitle:date_string forState:UIControlStateNormal];
+    }
+    [self fullCard:indexCell];
+}
+
+#pragma mark CABuyerInfoCellDelegate
 
 -(void)birthday:(id)sender
 {
@@ -239,80 +482,6 @@
     
     [_tableView endEditing:YES];
 }
-
-- (void)deleteTappedOnCell:(id)sender {
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:_tableView];
-    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:buttonPosition];
-    
-    if (buyerArray.count > 1) {
-        [buyerArray removeObjectAtIndex:indexPath.section];
-        [_tableView beginUpdates];
-        [_tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationTop];
-        [_tableView endUpdates];
-        [self performSelector:@selector(reloadTableView) withObject:self afterDelay:0.5 ];
-    }
-}
-
--(void)reloadTableView
-{
-    [_tableView reloadData];
-}
-
-- (void)addTappedOnCell:(id)sender
-{
-    PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard.lastName = nil;
-    personInfoCard.name = nil;
-    personInfoCard.personType = male;
-    personInfoCard.birthDate = nil;
-    personInfoCard.validDate = nil;
-    personInfoCard.passportSeries = nil;
-    personInfoCard.passportNumber = nil;
-    [buyerArray addObject:personInfoCard];
-    [_tableView reloadData];
-    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:buyerArray.count-1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
-
-#pragma mark CABuyerPickerViewDelegate
-
-- (void) cancelButtonPress
-{
-    NSLog(@"cancelButtonPress");
-    [pickerView removeFromSuperview];
-    isPickerViewVisible = NO;
-}
-
-- (void) acceptButtonPress
-{
-    NSLog(@"acceptlButtonPress");
-    [pickerView removeFromSuperview];
-    isPickerViewVisible = NO;
-}
-
-- (void) datePickerDidSelectedDate:(NSDate*)selectedDate fieldId:(idField)fieldId indexCell:(NSInteger)indexCell sender:(id)sender;
-{
-    PersonInfo*  personInfoCard = [PersonInfo new];
-    personInfoCard = [buyerArray objectAtIndex:indexCell];
-    
-    NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
-    [date_format setDateFormat: @"dd.MM.yyyy"];
-    NSString * date_string = [date_format stringFromDate: selectedDate];
-    
-    
-    if (fieldId == birthday)
-    {
-        personInfoCard.birthDate = selectedDate;
-        [sender setTitle:date_string forState:UIControlStateNormal];
-    }
-    else
-    {
-        personInfoCard.validDate = selectedDate;
-        [sender setTitle:date_string forState:UIControlStateNormal];
-    }
-    [self fullCard:indexCell];
-}
-
-#pragma mark CABuyerInfoCellDelegate
 
 -(void)activeTextField:(UITextField*)activeTextField indexCell:(NSInteger)indexCell
 {
@@ -355,7 +524,7 @@
 {
     PersonInfo*  personInfoCard = [PersonInfo new];
     personInfoCard = [buyerArray objectAtIndex:indexCell];
-    
+
     if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
         
         NSDateFormatter * date_format = [[NSDateFormatter alloc] init];
@@ -390,17 +559,39 @@
         
         //Массив с заполненными карточками кодируется в NSData
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:buyerArray];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"UsersPassports"];
-        
-        [self performSelector:@selector(readPassportsUsers) withObject:nil afterDelay:5];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"userPassports_%@",accessToken]];
     }
 }
 
 -(void)readPassportsUsers
 {
     //Массив в формате NSData раскодируется в обычный массив с моделями PersonInfo
-    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersPassports"];
-    NSArray *notes = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"userPassports_%@",accessToken]];
+    passportsAutorisedUsers = [NSKeyedUnarchiver unarchiveObjectWithData:notesData];
+}
+
+#pragma mark CAPaymentTableViewDelegate
+
+- (void) didSelectRowAtIndexPath:(NSIndexPath *)indexPath currentPayment:(NSString*)currentPayment;
+{
+    NSLog(@"выбран %d %@", indexPath.row ,currentPayment);
+}
+
+- (IBAction)onNext:(id)sender
+{
+    PersonInfo*  personInfoCard = [PersonInfo new];
+    personInfoCard = [buyerArray objectAtIndex:0];
+    
+    if (personInfoCard.lastName != nil && personInfoCard.name != nil && personInfoCard.birthDate != nil && personInfoCard.validDate != nil && personInfoCard.passportSeries != nil && personInfoCard.passportNumber != nil) {
+        if (isSpecialOffer) {
+            CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:nil specialOffer:specialOfferdata];
+            [self.navigationController pushViewController:orderInfo animated:YES];
+        }
+        else {
+            CAOrderInfo *orderInfo = [[CAOrderInfo alloc] initWithNibName:@"CAOrderInfo" bundle:nil passports:buyerArray offer:offerdata specialOffer:nil];
+            [self.navigationController pushViewController:orderInfo animated:YES];
+        }
+    }
 }
 
 @end

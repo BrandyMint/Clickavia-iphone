@@ -35,7 +35,7 @@
     SearchConditions *currentSearchConditions;
     CASearchFormPickerView *passengerCountPicker;
     CAPassengersCountButton *passengerCountButton;
-    CATooltipSelect *classSelector;
+    WYPopoverController* settingsPopoverController;
     
     CGSize countPickerViewSize;
     CGSize classSelectorViewSize;
@@ -46,6 +46,7 @@
     
     NSArray* paymentOptions;
     UIButton* onPaymentMethod;
+    CGPoint paymentButtonPosition;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer passengerCount:(CAFlightPassengersCount*)passengerCount
@@ -74,6 +75,18 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    passengersCount = appDelegate.passengersCount;
+    [passengerCountButton setPassengersCount:passengersCount];
+    
+    if (isSpecialOffer)
+        [self loadSpecialOffer];
+    else
+        [self loadOffer];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -82,25 +95,23 @@
     
     paymentOptions = @[@"Евросеть или связной", @"MasterCard или Visa", @"Наличными в офисе"];
     
-    UIView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5];
+    CAAssistView* assistView = [[CAAssistView alloc] initByAssistText:@"Atlassian's Git Tutorial provides an approachable introduction to Git revision control by not only explaining fundamental rkflow. " font:[UIFont fontWithName:@"HelveticaNeue" size:12] indentsBorder:5 background:YES];
     [self.view addSubview:assistView];
     
     UILabel* passengersLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, assistView.frame.origin.y + assistView.frame.size.height + Y_OFFSET, 0, 0)];
     passengersLabel.text = @"Пассажиры";
     passengersLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
     [passengersLabel sizeToFit];
-    //[self.view addSubview:passengersLabel];
+    [self.view addSubview:passengersLabel];
     
     CGRect passengerCountButtonFrame = CGRectMake(passengersLabel.frame.origin.x-X_OFFSET, passengersLabel.frame.origin.y + passengersLabel.frame.size.height + Y_OFFSET, self.view.frame.size.width/3 - X_OFFSET, 25);
     passengerCountButton = [[CAPassengersCountButton alloc] initWithFrame:passengerCountButtonFrame];
-    [passengerCountButton setPassengersCount:passengersCount];
     [passengerCountButton addTarget:self action:@selector(passengerCountButtonPress) forControlEvents:UIControlEventTouchUpInside];
-    //[self.view addSubview: passengerCountButton];
+    [self.view addSubview: passengerCountButton];
     [passengerCountButton setTypeButton:gray];
     
-    //(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)
-    onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width - 2*X_OFFSET, 25)];
-    [onPaymentMethod addTarget:self action:@selector(classSelectButtonPress) forControlEvents:UIControlEventTouchUpInside];
+    onPaymentMethod = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/3 + X_OFFSET, passengerCountButton.frame.origin.y,  self.view.frame.size.width*2/3 - 2*X_OFFSET, 25)];
+    [onPaymentMethod addTarget:self action:@selector(paymentButtonPress:) forControlEvents:UIControlEventTouchUpInside];
     [onPaymentMethod setTitle:[paymentOptions objectAtIndex:0] forState:UIControlStateNormal];
     [onPaymentMethod.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
     [onPaymentMethod setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -113,10 +124,7 @@
     [paymentMethod sizeToFit];
     [self.view addSubview:paymentMethod];
     
-    if (isSpecialOffer)
-        [self loadSpecialOffer];
-    else
-        [self loadOffer];
+
     
     countPickerViewSize.height = 220;
     countPickerViewSize.width = self.view.frame.size.width;
@@ -126,15 +134,6 @@
     
     passengerCountPicker = [[CASearchFormPickerView alloc]initWithFrame:CGRectMake(0, 0, countPickerViewSize.width, countPickerViewSize.height)];
     passengerCountPicker.delegate = self;
-    
-    classSelector = [[CATooltipSelect alloc] initWithFrame:CGRectMake(0,
-                                                                         onPaymentMethod.frame.origin.y + onPaymentMethod.frame.size.height,
-                                                                         classSelectorViewSize.width,
-                                                                         HEIGHT_FOR_ROW_AT_INDEXPATH*paymentOptions.count+2*WIDTH_TABLE_BORDER) widthTableBorder:WIDTH_TABLE_BORDER];
-    [classSelector heightForRowAtIndexPath:HEIGHT_FOR_ROW_AT_INDEXPATH];
-    [classSelector setFrameForTrianglePlace:CGRectMake(self.view.frame.size.width*2/3,0,50,30)];
-    classSelector.delegate = self;
-    [classSelector setCheckClassSelectorImage:[UIImage imageNamed:@"check-icon-green.png"]];
 
     UIImage* buttonImage = [[UIImage imageNamed:@"bnt-primary-large-for-dark.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 6, 6, 6) resizingMode:UIImageResizingModeStretch];
     _next_ou.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -153,9 +152,6 @@
 
 -(void)loadSpecialOffer
 {
-    CAAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    passengersCount = appDelegate.passengersCount;
-    
     CAOrderDetailsPersonal* orderDetailsPersonalView = [[CAOrderDetailsPersonal alloc] initByOfferModel:specialOffer passengers:passengersCount];
     CGRect orderDetalsFrame = orderDetailsPersonalView.frame;
     orderDetalsFrame.origin.y = passengerCountButton.frame.origin.y + passengerCountButton.frame.size.height + Y_OFFSET;
@@ -177,13 +173,14 @@
     [self.view addSubview: passengerCountPicker];
 }
 
-- (IBAction) classSelectButtonPress {
+- (IBAction) paymentButtonPress:(id)sender {
     if (isShowPassengersCountPicker)
         [self hidePassengersCountPicker];
     
     isShowClassSelectorPopover = YES;
-    [classSelector valuesTableRows:paymentOptions];
-    [self.view addSubview:classSelector];
+    
+    paymentButtonPosition = [sender convertPoint:CGPointZero toView:self.view];
+    [self showPopover:paymentButtonPosition];
 }
 
 - (void) hidePassengersCountPicker
@@ -195,7 +192,6 @@
 - (void) hideClassSelectorPopover
 {
     isShowClassSelectorPopover = NO;
-    [classSelector removeFromSuperview];
 }
 
 #pragma mark PickerViewDelegate
@@ -217,7 +213,7 @@
 
 #pragma mark CAPaymentTableViewDelegate
 
-- (void) paymentTableView:(CATooltipSelect*)paymentTableView currentPayment:(NSString*)currentPayment
+- (void) didSelectRowAtIndexPath:(NSIndexPath *)indexPath currentPayment:(NSString*)currentPayment;
 {
     [self hideClassSelectorPopover];
     [onPaymentMethod setTitle:currentPayment forState:UIControlStateNormal];
@@ -265,8 +261,61 @@
     passengersCount = nil;
 }
 
-- (IBAction)onNext:(id)sender {
-    CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil];
-    [self.navigationController pushViewController:buyerInfo animated:YES];
+-(void)showPopover:(CGPoint)point
+{
+    point.y -= 110;
+    
+    UIView* btn = [UIView new];
+    CAPopoverList *popoverList = [[CAPopoverList alloc] initWithStyle:UITableViewStylePlain arrayValues:paymentOptions];
+    popoverList.contentSizeForViewInPopover = CGSizeMake(self.view.frame.size.width, HEIGHT_FOR_ROW_AT_INDEXPATH*paymentOptions.count);
+    popoverList.delegate = self;
+    popoverList.title = @"Список паспортов";
+    popoverList.modalInPopover = NO;
+    [popoverList heightRow:HEIGHT_FOR_ROW_AT_INDEXPATH];
+    
+    settingsPopoverController = [[WYPopoverController alloc] initWithContentViewController:popoverList];
+    settingsPopoverController.delegate = self;
+    settingsPopoverController.passthroughViews = @[btn];
+    settingsPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+    settingsPopoverController.wantsDefaultContentAppearance = NO;
+    
+    WYPopoverBackgroundView* popoverAppearance = [WYPopoverBackgroundView appearance];
+    [popoverAppearance setOuterCornerRadius:5];
+    [popoverAppearance setOuterStrokeColor:[UIColor blackColor]];
+    [popoverAppearance setInnerCornerRadius:5];
+    [popoverAppearance setInnerStrokeColor:[UIColor clearColor]];
+    
+    [popoverAppearance setBorderWidth:5];
+    [popoverAppearance setArrowHeight:10];
+    [popoverAppearance setArrowBase:20];
+    
+    [settingsPopoverController presentPopoverFromRect:CGRectMake(0, point.y, self.view.frame.size.width, HEIGHT_FOR_ROW_AT_INDEXPATH*paymentOptions.count)
+                                               inView:self.view
+                             permittedArrowDirections:WYPopoverArrowDirectionUp
+                                             animated:YES
+                                              options:WYPopoverAnimationOptionFadeWithScale];
 }
+
+#pragma mark CAPopoverListDelegate
+-(void)popoverListdidSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [settingsPopoverController dismissPopoverAnimated:YES];
+    settingsPopoverController.delegate = nil;
+    settingsPopoverController = nil;
+    
+    [onPaymentMethod setTitle:[paymentOptions objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+}
+
+- (IBAction)onNext:(id)sender {
+    if (isSpecialOffer) {
+        CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil specialOffer:specialOffer];
+        [self.navigationController pushViewController:buyerInfo animated:YES];
+    }
+    else
+    {
+        CABuyerInfo *buyerInfo = [[CABuyerInfo alloc] initWithNibName:@"CABuyerInfo" bundle:nil offer:offerdata];
+        [self.navigationController pushViewController:buyerInfo animated:YES];
+    }
+}
+
 @end

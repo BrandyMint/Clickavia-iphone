@@ -28,4 +28,5 @@
 @property (assign) id<CABuyerPickerViewDelegate> delegate;
 
 -(void)indexCell:(NSInteger)indexCell typeButton:(idField)typeButton sender:(id)sender;
+-(void)setDate:(NSDate *)date;
 @end

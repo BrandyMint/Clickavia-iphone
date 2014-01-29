@@ -220,12 +220,11 @@
     timeInFlightLabel.frame = CGRectMake(contenView.frame.size.width-timeInFlightLabel.frame.size.width - 5, 7, timeInFlightLabel.frame.size.width, timeInFlightLabel.frame.size.height);
     
     UIImageView* clock = [[UIImageView alloc] initWithFrame:CGRectMake(contenView.frame.size.width-timeInFlightLabel.frame.size.width-30, 6, 15, 15)];
-    clock.image = [UIImage imageNamed:@"clock-icon@2x.png"];
+    clock.image = [UIImage imageNamed:@"clock-icon.png"];
     [subBlockView addSubview:clock];
     
     return subBlockView;
 }
-
 
 -(void) createLineByBottom:(NSInteger)yBottom
 {

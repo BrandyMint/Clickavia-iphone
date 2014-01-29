@@ -10,6 +10,6 @@
 
 @interface CAAssistView : UIView
 
--(UIView*) initByAssistText:(NSString*)assistText font:(UIFont*)font indentsBorder:(float)indentsBorder;
+-(UIView*) initByAssistText:(NSString*)assistText font:(UIFont*)font indentsBorder:(float)indentsBorder background:(BOOL)background;
 
 @end

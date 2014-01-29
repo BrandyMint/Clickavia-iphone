@@ -1,4 +1,4 @@
-platform :ios, '5.0'
+platform :ios, '6.0'
 
 pod 'CAManagers',           :git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-managers-lib.git'
 pod 'CAColumnsControl', 	:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-columnscontrol.git'
@@ -10,6 +10,8 @@ pod 'CASearchForm', 		:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-search
 pod 'CASearchFormControls',	:git => 'git@gitlab.brandymint.ru:brandymint-ios/ca-searchformcontrols.git'
 pod 'WTReTextField',        :podspec => 'https://raw.github.com/bespalown/WTReTextField/master/WTReTextField.podspec'
 pod 'AKTabBarController'
+pod 'FPPopover', '~> 1.3'
+pod 'WYPopoverController', '~> 0.1.7'
 
 # TODO remove reveal when release
 pod 'Reveal-iOS-SDK'

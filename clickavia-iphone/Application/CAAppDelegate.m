@@ -7,13 +7,13 @@
 //
 
 #import "CAAppDelegate.h"
-
 #import "CASpecOffersViewController.h"
 #import "MainScreenViewController.h"
 #import "ChatViewController.h"
-
 #import "MessageReceiver.h"
 #import "BMMessage.h"
+
+#import "CAAuthorization.h"
 
 @implementation AKTabBarController (DelegateAutomaticDismissKeyboard)
 -(NSUInteger)supportedInterfaceOrientations{
@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) ChatViewController *chatViewController;
 @property (strong, nonatomic) MessageReceiver *message_reciever;
+
+@property (nonatomic, retain) CAAuthorization* authorization;
 
 @end
 
@@ -46,6 +48,7 @@
     
     _specialOfferViewController = [[CASpecOffersViewController alloc] init];
     _mainScreenViewController = [[MainScreenViewController alloc] init];
+    _authorization = [CAAuthorization new];
     
     UIImage *remoteAvatar = [UIImage imageNamed:@"local.png"];
     _message_reciever = [MessageReceiver new];
@@ -53,6 +56,7 @@
     _message_reciever.bmChatViewController = _chatViewController;
     
     [_rootTabBarController setViewControllers:[NSMutableArray arrayWithObjects:
+                                            [[UINavigationController alloc] initWithRootViewController:_authorization],
                                             [[UINavigationController alloc] initWithRootViewController:_specialOfferViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_mainScreenViewController],
                                             [[UINavigationController alloc] initWithRootViewController:_chatViewController],

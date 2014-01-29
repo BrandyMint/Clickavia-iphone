@@ -10,11 +10,18 @@
 #import "CABuyerInfoCell.h"
 #import "CABuyerPickerView.h"
 #import "PersonInfo.h"
+#import "FPPopoverController.h"
+#import "CAPopoverList.h"
+#import "WYPopoverController.h"
+#import "Offer.h"
+#import "SpecialOffer.h"
 
-@interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate>
+@interface CABuyerInfo : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CABuyerPickerViewDelegate, CABuyerInfoCellDelegate, FPPopoverControllerDelegate, CAPopoverListDelegate, WYPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) NSMutableArray* testArray;
 @property (nonatomic, strong) CAPassportTextField* passportField;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil offer:(Offer*)offer;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil specialOffer:(SpecialOffer*)specialOffer;
 
 @end
